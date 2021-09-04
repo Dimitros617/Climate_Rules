@@ -24,7 +24,7 @@
             <div class="column">
                 <p class="promo">
                     Na motivy deskové hry Vládci klimatu
-                    od Tomáše Mrkvičky
+                    od Tomáše Mrkvičkyy
                     <br><br>
                     Zážitkový projektový den,
                     při němž chytrým a udržitelným
