@@ -24,8 +24,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'surname',
         'nick',
         'email',
         'password',
@@ -62,5 +60,5 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public bool $timestamps = false;
+    public $timestamps = false;
 }

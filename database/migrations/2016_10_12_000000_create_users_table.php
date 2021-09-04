@@ -16,7 +16,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nick')->unique();
+            $table->unsignedBigInteger('nation')->nullable();
+            $table->unsignedBigInteger('lobby')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -28,6 +30,8 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->foreign('permition')->references('id')->on('permition');
+            $table->foreign('nation')->references('id')->on('nations');
+            $table->foreign('lobby')->references('id')->on('lobbies');
         });
     }
 

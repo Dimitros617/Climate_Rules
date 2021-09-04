@@ -35,19 +35,20 @@
                     </x-jet-button>
                 </div>
 
-                <div class="flex items-center justify-end mt-4">
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}"">
-                    {{ __('Chci nový účet!') }}
-                    </a>
-                </div>
+{{--                <div class="flex items-center justify-end mt-4">--}}
+{{--                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}"">--}}
+{{--                    {{ __('Chci nový účet!') }}--}}
+{{--                    </a>--}}
+{{--                </div>--}}
 
-                <div class="flex items-center justify-end mt-1">
-                    @if (Route::has('password.request'))
-                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                            {{ __('Zapomněl si heslo?') }}
-                        </a>
-                    @endif
-                </div>
+{{--                <div class="flex items-center justify-end mt-1">--}}
+{{--                    @if (Route::has('password.request'))--}}
+{{--                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">--}}
+{{--                            {{ __('Zapomněl si heslo?') }}--}}
+{{--                        </a>--}}
+{{--                    @endif--}}
+{{--                </div>--}}
+
             </form>
         </div>
     </x-jet-authentication-card>

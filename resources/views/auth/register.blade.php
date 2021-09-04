@@ -13,16 +13,6 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
-                <div>
-                <!--<x-jet-label for="name" value="{{ __('Jméno') }}" />-->
-                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" placeholder="Jméno" :value="old('name')" required autofocus autocomplete="given-name" />
-                </div>
-
-                <div class="mt-4">
-                <!--<x-jet-label for="surname" value="{{ __('Příjmení') }}" /> -->
-                    <x-jet-input id="surname" class="block mt-1 w-full" type="text" name="surname" placeholder="Příjmení " :value="old('surname')" required autofocus autocomplete="family-name" />
-                </div>
-
                 <div class="mt-4">
                 <!--<x-jet-label for="surname" value="{{ __('Přezdívka') }}" /> -->
                     <x-jet-input id="nick" class="block mt-1 w-full" type="text" name="nick" placeholder="Přezdívka " :value="old('nick')" required autofocus autocomplete="nickname" />

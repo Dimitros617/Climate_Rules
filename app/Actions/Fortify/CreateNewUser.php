@@ -21,10 +21,13 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
+
+        //Přidělení té role, která je označena jako default
         $default = DB::table('permition')
             ->where('default', '=', '1')
             ->get();
 
+        //V případě že žádná není defaultní, vyhodí se chybová stránka
         Log::info('Count: ' . count($default));
         if(count($default) == 0){
 
@@ -36,16 +39,12 @@ class CreateNewUser implements CreatesNewUsers
         }
 
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:50'],
-            'surname' => ['required', 'string', 'max:50'],
             'nick' => ['required', 'string', 'max:50',  'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
         ])->validate();
 
         return User::create([
-            'name' => $input['name'],
-            'surname' => $input['surname'],
             'nick' => $input['nick'],
             'email' => $input['email'],
             'permition' => $default,

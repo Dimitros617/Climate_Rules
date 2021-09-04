@@ -35,7 +35,9 @@
                     s nimi spojených, např. zjišťováním jejich zásadních aspektů, výhod, nevýhod.
                 </p>
                 <div class="button container">
+                    <a href="/lobbies">
                     <button class="play_button"> HRÁT </button>
+                    </a>
 
                 </div>
 

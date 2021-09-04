@@ -5,12 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Digitální učebnice</title>
+    <title>Climate rules</title>
     <link rel="icon" href="{{ URL::asset('img/logo_mini_transparent_square.png') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/buttons.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/animation.css') }}">
+
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-grid.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-reboot.css') }}">
@@ -26,10 +25,10 @@
 <body class="min-h-screen bg-gray-100 bg-su-blue-texture " style="padding-bottom: 8rem">
 
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg max-w-7xl mx-auto sm:px-6 lg:px-8" style="    margin-top: 15%;">
-    <div class="container p-6 text-center text-su-blue mt-4">
+    <div class="container p-6   mt-4">
 
-        <h1 class="display-1 mb-4 text-su-orange">Ups!</h1>
-        <div class="h6"> Aktuálně Vás nemůžeme registrovat. Nemámě žádnou výchozí roly, kterou bychom mohly přidělit.
+        <h1 class="display-1 mb-4 me-5 text-su-orange pt-4 pb-5">Ups!</h1>
+        <div class="h6 ms-5 ps-5 pt-5 pb-5 text-left"> Aktuálně Vás nemůžeme registrovat. Nemámě žádnou výchozí roly, kterou bychom mohly přidělit.
             <br><br><b>Zkuste kontaktovat správce systému.</b>
         </div>
     </div>

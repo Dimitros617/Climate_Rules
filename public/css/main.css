@@ -1,0 +1,65 @@
+
+.cr-blue{
+    color: #0099cd;
+}
+
+.cr-green{
+    color: #659933;
+}
+
+.cr-gradient{
+    background: #0099CD;
+    background: -webkit-linear-gradient(to right, #0099CD 44%, #659933 100%);
+    background: -moz-linear-gradient(to right, #0099CD 44%, #659933 100%);
+    background: linear-gradient(to right, #0099CD 44%, #659933 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg_blur{
+    filter: blur(4px);
+}
+
+.light-transparent{
+    background-color: #f4f5f7e0 !important;
+}
+
+body{
+    background-image: url("/Img/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+a{
+    text-decoration: none !important;
+}
+
+.animate-05{
+transition-duration: 0.5s;
+}
+
+.hover-size-01:hover{
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.head_logo:hover{
+    transform: scale(1.1);
+    margin-top: -1rem !important;
+}
+
+.head_logo img{
+    height: 7rem;
+    width: unset !important;
+}
+
+.login_button:hover{
+    transform: scale(1.1);
+    background-color: white;
+}
+
+
+
+

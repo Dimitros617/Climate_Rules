@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ListUsersController;
 use App\Http\Controllers\PermitionController;
+
+use App\Http\Controllers\LobbiesController;
 use App\Models\ListUsers;
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,12 @@ use App\Models\ListUsers;
 App::setLocale('cs');
 
 
+Route::get('/new-user-error', function () {    return view('new-user-error');});
+Route::get('/logout', function () {  auth()->logout(); return redirect('/lobbies'); });
 
 Route::get('/', function () {    return view('welcome');});
-
+Route::get('/lobbies', [LobbiesController::class,'showLobbies']);
+Route::get('/dashboard', function () {  return redirect('/lobbies'); });
 
 
 //Route::middleware([])->get('/', [DashboardController::class,'show'])->name("dashboard");
