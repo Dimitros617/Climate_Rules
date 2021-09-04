@@ -1,0 +1,54 @@
+body{
+    background-image: url("/Img/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.column {
+    flex: 1;
+    padding: 5rem;
+    align-items: center;
+    text-align: justify;
+}
+
+img {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+p.copyright {
+    text-align: center;
+    font-weight: 800;
+    opacity: 0.5;
+}
+
+p.promo {
+    padding: 0 2rem;
+    font-size: xx-large;
+    margin-bottom: 5rem;
+}
+
+button.play_button {
+    width: 40%;
+    height: 4rem;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: white;
+    background: #659933;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    cursor: pointer;
+}
