@@ -6624,6 +6624,10 @@ a.badge-dark:focus, a.badge-dark.focus {
   width: 75% !important;
 }
 
+.w-85 {
+    width: 85% !important;
+}
+
 .w-90 {
     width: 90% !important;
 }
@@ -7506,6 +7510,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .bg-light {
   background-color: #f4f5f7  !important;
+}
+
+.bg-gray {
+    background-color: #767676 !important;
 }
 
 .bg-dark {

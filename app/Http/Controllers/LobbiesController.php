@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lobbies;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -17,9 +18,35 @@ class LobbiesController extends Controller
 
     }
 
+    function getLobbiesHTML(){
+        Log::info('LobbiesController:getLobbiesHTML');
+        return view('lobbies-list', ['lobbies' => $this->getLobbies(), 'myLobbies' => $this->getMyLobbies()]);
+    }
+
     function getLobbies(){
 
+        Log::info('LobbiesController:getLobbies');
         $data = DB::table('lobbies')
+            ->orderBy('visible', 'desc')
+            ->orderBy('name', 'asc')
+            ->get();
+
+        return $data;
+    }
+
+    function getMyLobbies(){
+
+        Log::info('LobbiesController:getMyLobbies');
+
+        if(!Auth::check()){
+            return;
+        }
+        $data = DB::table('lobbies')
+            ->Join('users', 'lobbies.id', '=', 'users.lobby')
+            ->where('users.id', '=', Auth::user()->id)
+            ->orderBy('visible', 'desc')
+            ->orderBy('name', 'asc')
+            ->select('lobbies.*')
             ->get();
 
         return $data;

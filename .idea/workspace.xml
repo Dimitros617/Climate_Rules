@@ -9,20 +9,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Výpis lobby, vytváření nových + kontextové menu">
-      <change afterPath="$PROJECT_DIR$/app/Models/Difficulties.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Lobbies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Img/check.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/context-menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/context-menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/lobby.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/first-user.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/permition.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/permition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-utilities.rtl.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-utilities.rtl.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.rtl.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/lobby.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/lobby.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/lobbies-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobbies-list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/lobbies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobbies.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -269,11 +265,11 @@
       <recent name="D:\Xamp\htdocs\baka\public\user_files" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Xamp\htdocs\climate_rules\resources\views" />
       <recent name="D:\Xamp\htdocs\baka\resources\views" />
       <recent name="D:\Xamp\htdocs\VRS\resources\views" />
       <recent name="D:\Xamp\htdocs\VRS\public\Img" />
       <recent name="D:\Xamp\htdocs\VRS\public" />
-      <recent name="D:\Xamp\htdocs\VRS\resources\Img" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.localhost:8000">
@@ -401,14 +397,7 @@
       <workItem from="1630688601487" duration="964000" />
       <workItem from="1630739771450" duration="2643000" />
       <workItem from="1630743971242" duration="19041000" />
-      <workItem from="1630769838060" duration="10168000" />
-    </task>
-    <task id="LOCAL-00025" summary="Přidán vlastní middleware pro verifikaci oprávění přístupu na stránku přihlášeného uživatele">
-      <created>1607455495904</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1607455495904</updated>
+      <workItem from="1630769838060" duration="16953000" />
     </task>
     <task id="LOCAL-00026" summary="Rozdělení funcí do příslušných controllerů a přidáno vykreslování dostupných a nedostupných itemů dané kateogie podle oprávění na seznamu kategorií.">
       <created>1607463599421</created>
@@ -746,7 +735,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630769263979</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Výpis lobby, vytváření nových + kontextové menu">
+      <created>1630780104665</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1630780104665</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -40,6 +40,54 @@ function hideLoading(){
 }
 
 
+function removeElement(table, id, fce){
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+    $.ajax({
+        url: '/removeElement',
+        type: 'delete',
+        data: { _token: token, table: table, id: id},
+        success:function(response){
+            hideLoading();
+            window[fce](arguments);
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            allertError(err);
+            hideLoading();
+
+        }
+    });
+
+}
+
+function changeElement(table, column, id, value, fce){
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+    $.ajax({
+        url: '/changeElement',
+        type: 'post',
+        data: { _token: token, table: table, column: column, id: id, value: value},
+        success:function(response){
+            hideLoading();
+            window[fce](arguments);
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            allertError(err);
+            hideLoading();
+
+        }
+    });
+
+}
+
 
 
 // $(function(){

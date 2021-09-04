@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ListUsersController;
@@ -24,15 +25,20 @@ Route::get('/new-user-error', function () {    return view('new-user-error');});
 Route::get('/logout', function () {  auth()->logout(); return redirect('/lobbies'); });
 
 Route::get('/', function () {    return view('welcome');});
-Route::get('/lobbies', [LobbiesController::class,'showLobbies']);
+
 Route::get('/dashboard', function () {  return redirect('/lobbies'); });
 
 
 //Route::middleware([])->get('/', [DashboardController::class,'show'])->name("dashboard");
 
 
-//Lobby
+//Content
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->delete('/removeElement', [ContentController::class,'removeElement']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/changeElement', [ContentController::class,'changeElement']);
 
+//Lobby
+Route::get('/lobbies', [LobbiesController::class,'showLobbies']);
+Route::get('/getLobbies', [LobbiesController::class,'getLobbiesHTML']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->put('/addLobby', [LobbiesController::class,'addLobby']);
 
 
