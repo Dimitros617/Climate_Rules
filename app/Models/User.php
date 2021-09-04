@@ -60,5 +60,5 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public $timestamps = false;
+    public  $timestamps = false;
 }

@@ -39,5 +39,28 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        //Difficulties
+
+        DB::table('difficulties')->insert([
+            'id' => 1,
+            'name' => 'Easy',
+            'code' => 1,
+
+        ]);
+
+        DB::table('difficulties')->insert([
+            'id' => 2,
+            'name' => 'Medium',
+            'code' => 2,
+
+        ]);
+
+        DB::table('difficulties')->insert([
+            'id' => 3,
+            'name' => 'Hard',
+            'code' => 3,
+
+        ]);
+
     }
 }

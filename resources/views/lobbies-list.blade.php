@@ -1,16 +1,30 @@
 
 
-<div class="lobbies-container light-transparent rounded-5 w-75 ms-auto me-auto d-block p-5">
+{{--TODO style--}}
 
-    <div class="d-flex justify-content-between pb-2" style="    border-bottom: 2px solid black;">
-    <span class="display-5 "> Všechna lobby</span>
-        @if(Auth::permition()->admin == "1")
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="#659933" class="bi bi-plus-circle-fill cr-green cursor-pointer mt-2 animate-05 hover-size-01" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-            </svg>
+<div id="lobby-list-div " style="display: flex; flex-wrap: wrap">
+
+    @foreach($lobbies as $lobby)
+
+        <div class=" m-3 rounded-4 bg-white w-40rem d-flex  justify-content-between overflow-hidden shadow-sm "
+             type="lobby"
+             id="lobby_{{$lobby->id}}"
+             lobby_id="{{$lobby->id}}"
+             visible="{{$lobby->visible}}"
+             style="min-width: 30rem"
+        >
+            <div class="d-grid p-4">
+                <span class="display-6 fw-bold">{{$lobby->name}}</span>
+                <span>{{$lobby->created_at}}</span>
+                <span>{{$lobby->description}}</span>
+            </div>
+            <div class="cr-bg-green w-5rem d-flex ps-3 animate-05 hover-ps-3 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chevron-right text-white align-self-center" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </div>
         </div>
-        @endif
-    </div>
+
+    @endforeach
 
 </div>

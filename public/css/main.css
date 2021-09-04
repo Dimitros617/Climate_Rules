@@ -7,6 +7,14 @@
     color: #659933;
 }
 
+.cr-bg-blue{
+    background-color: #0099cd;
+}
+
+.cr-bg-green{
+    background-color: #659933;
+}
+
 .cr-gradient{
     background: #0099CD;
     background: -webkit-linear-gradient(to right, #0099CD 44%, #659933 100%);
@@ -43,6 +51,14 @@ transition-duration: 0.5s;
 .hover-size-01:hover{
     transform: scale(1.1);
     opacity: 0.9;
+}
+
+.hover-ps-3:hover{
+    padding-left: 3rem !important;
+}
+
+.hover-ps-4:hover{
+    padding-left: 4rem !important;
 }
 
 .head_logo:hover{

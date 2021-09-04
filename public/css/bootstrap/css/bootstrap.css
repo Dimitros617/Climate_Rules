@@ -6604,6 +6604,14 @@ a.badge-dark:focus, a.badge-dark.focus {
     width: 20rem !important;
 }
 
+.w-30rem {
+    width: 30rem !important;
+}
+
+.w-40rem {
+    width: 40rem !important;
+}
+
 .w-25 {
   width: 25% !important;
 }
@@ -6628,6 +6636,10 @@ a.badge-dark:focus, a.badge-dark.focus {
     width: fit-content !important;
 }
 
+
+.w-5rem{
+    width: 5rem;
+}
 .w-10rem{
     width: 10rem;
 }

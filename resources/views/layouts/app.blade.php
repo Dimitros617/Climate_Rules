@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta id="csrf_token" name="csrf-token" content="{{ csrf_token() }}">
 
     <!--
 
@@ -34,8 +34,7 @@
 {{--    <script src="{{ URL::asset('css/bootstrap/js/bootstrap.esm.js') }}"></script>--}}
     <script src="{{ URL::asset('css/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
-    <script src="{{ URL::asset('js/dragable.js') }}"></script>
-    <script src="{{ URL::asset('js/chat.js') }}"></script>
+    <script src="{{ URL::asset('js/context-menu.js') }}"></script>
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.js') }}"></script>
 
@@ -52,10 +51,8 @@
 
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/buttons.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/animation.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/context-menu.css') }}">
     <link rel="stylesheet" href="@yield('css')">
     <link rel="stylesheet" href="@yield('css2')">
     <link rel="stylesheet" href="@yield('css3')">
