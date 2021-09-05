@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Výpůjční a rezervační systém</title>
-        <link rel="icon" href="{{ URL::asset('img/logo_icon_old3.png') }}">
+        <title>Climate rules</title>
+        <link rel="icon" href="{{ URL::asset('img/logo_mini_transparent_square.png') }}">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

@@ -15,30 +15,30 @@
 
                 <div class="mt-4">
                 <!--<x-jet-label for="surname" value="{{ __('Přezdívka') }}" /> -->
-                    <x-jet-input id="nick" class="block mt-1 w-full" type="text" name="nick" placeholder="Přezdívka " :value="old('nick')" required autofocus autocomplete="nickname" />
+                    <x-jet-input id="nick" class="block mt-1 w-full p-2 border-0 rounded-2 w-75 bg-light" type="text" name="nick" placeholder="Přezdívka " :value="old('nick')" required autofocus autocomplete="nickname" />
                 </div>
 
 
                 <div class="mt-4">
                 <!--<x-jet-label for="email" value="{{ __('E-mail') }}" />-->
-                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" placeholder="E-mail" :value="old('email')" required />
+                    <x-jet-input id="email" class="block mt-1 w-full p-2 border-0 rounded-2 w-75 bg-light" type="email" name="email" placeholder="E-mail" :value="old('email')" required />
                 </div>
 
                 <br>
                 <div class="mt-4">
                 <!--<x-jet-label for="password" value="{{ __('Heslo') }}" />-->
-                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" placeholder="Heslo" required autocomplete="new-password" />
+                    <x-jet-input id="password" class="block mt-1 w-full p-2 border-0 rounded-2 w-75 bg-light" type="password" name="password" placeholder="Heslo" required autocomplete="new-password" />
                 </div>
 
                 <div class="mt-4">
                 <!--<x-jet-label for="password_confirmation" value="{{ __('Potvrdit heslo') }}" />-->
-                    <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" placeholder="Potvrdit heslo" required autocomplete="new-password" />
+                    <x-jet-input id="password_confirmation" class="block mt-1 w-full p-2 border-0 rounded-2 w-75 bg-light" type="password" name="password_confirmation" placeholder="Potvrdit heslo" required autocomplete="new-password" />
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
 
 
-                    <x-jet-button class="ml-4 h6">
+                    <x-jet-button class="ml-4 h6 btn btn-primary">
                         {{ __('Zaregistruj mě') }}
                     </x-jet-button>
                 </div>

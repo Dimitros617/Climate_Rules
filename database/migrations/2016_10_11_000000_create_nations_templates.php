@@ -15,7 +15,14 @@ class CreateNationsTemplates extends Migration
     {
         Schema::create('nations_templates', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name',40);
+            $table->integer('economy',)->default('0');
+            $table->integer('tax',)->default('0');
+            $table->integer('happiness',)->default('0');
+            $table->integer('gasses',)->default('0');
+            $table->integer('health',)->default('0');
+            $table->integer('money',)->default('0');
+
         });
     }
 

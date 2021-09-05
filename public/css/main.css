@@ -7,6 +7,10 @@
     color: #659933;
 }
 
+.text-black{
+    color: black;
+}
+
 .cr-bg-blue{
     background-color: #0099cd;
 }
@@ -22,6 +26,14 @@
     background: linear-gradient(to right, #0099CD 44%, #659933 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.cr-hr{
+    color: black;
+    height: 1px;
+    opacity: 1;
+    margin: 0;
+    padding: 3px 0 0 0;
 }
 
 .bg_blur{

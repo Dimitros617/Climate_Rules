@@ -40,6 +40,7 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/chang
 Route::get('/lobbies', [LobbiesController::class,'showLobbies']);
 Route::get('/getLobbies', [LobbiesController::class,'getLobbiesHTML']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->put('/addLobby', [LobbiesController::class,'addLobby']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/editLobby/{id:id}', [LobbiesController::class,'editLobby']);
 
 
 

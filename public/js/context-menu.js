@@ -16,12 +16,22 @@ function nonhighlight(ele){
 }
 
 function hideMenu() {
-    document.getElementById("contextMenu")
-        .style.display = "none"
+
+    let menu = document.getElementById("contextMenu");
+    if(menu == null){
+        return;
+    }
+    menu.style.display = "none"
     nonhighlight(window.last_context_element);
 }
 
 function rightClick(e) {
+
+    let menu = document.getElementById("contextMenu");
+    if(menu == null){
+        return;
+    }
+
     e.preventDefault();
     nonhighlight(window.last_context_element);
 
@@ -42,10 +52,9 @@ function rightClick(e) {
         document.getElementById('context-menu-hide-icon').setAttribute('hidden','');
     }
 
-    if (document.getElementById("contextMenu") .style.display == "block"){
+    if (menu.style.display == "block"){
         hideMenu();
     }else{
-        var menu = document.getElementById("contextMenu")
         menu.style.display = 'block';
         menu.style.left = e.pageX + "px";
         menu.style.top = e.pageY + "px";
