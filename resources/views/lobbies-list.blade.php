@@ -4,6 +4,11 @@
 
     @foreach($lobbies as $lobby)
 
+        @if($lobby->visible == 0 && (Auth::check() && Auth::permition()->admin != "1"))
+            @continue
+        @endif
+
+
         <div class=" m-3 rounded-4 bg-white w-40rem d-flex  justify-content-between overflow-hidden shadow-sm "
              type="lobby"
              table="lobbies"

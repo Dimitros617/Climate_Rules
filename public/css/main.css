@@ -63,6 +63,11 @@ transition-duration: 0.5s;
     opacity: 0.9;
 }
 
+.hover-size-01:active{
+    transform: scale(1.05);
+    opacity: 1;
+}
+
 .hover-ps-3:hover{
     padding-left: 3rem !important;
 }

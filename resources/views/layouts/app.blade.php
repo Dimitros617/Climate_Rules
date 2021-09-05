@@ -51,6 +51,7 @@
 
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-new.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/context-menu.css') }}">
     <link rel="stylesheet" href="@yield('css')">

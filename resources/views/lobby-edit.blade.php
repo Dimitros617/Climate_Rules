@@ -1,17 +1,22 @@
 
 
-<form class="d-flex justify-content-around flex-wrap p-3">
+<form id="edit-lobby-form" class="d-flex justify-content-around flex-wrap p-3">
 
     @csrf
 
+    <input value="{{$lobby->id}}" name="id" hidden>
+
     <div class="column d-grid p-3">
+
         <input class="name display-5 border-0 bg-transparent fw-bold rounded-4" name="name" value="{{$lobby->name}}">
         <hr class="cr-hr mb-3">
+
         <label for="description" class="text-start mt-3 mb-1">Popisek</label>
         <input class="description border-0  rounded-4"  name="description" value="{{$lobby->description}}" hidden>
         <div class=" p-4 bg-light rounded-4 text-start  mb-2 h-20 shadow-sm text-black" contenteditable="" onfocusout="this.parentNode.getElementsByClassName('description')[0].value = this.innerHTML">{{$lobby->description}}</div>
+
         <label for="date" class="text-start mt-3 mb-1">Datum hry</label>
-        <input class="date border-0 bg-light p-2 ps-4 pe-4 shadow-sm rounded-4" type="date" name="date">
+        <input class="date border-0 bg-light p-2 ps-4 pe-4 shadow-sm rounded-4" type="date" name="date" value="@php echo explode(' ',$lobby->play_date)[0]; @endphp" >
     </div>
 
     <div class="column d-grid">

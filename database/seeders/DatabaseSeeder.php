@@ -43,6 +43,15 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        //languages
+
+        DB::table('languages')->insert([
+            'id' => 1,
+            'name' => 'Čeština',
+            'code' => 1,
+
+        ]);
+
 
 
         //Difficulties
@@ -163,6 +172,164 @@ class DatabaseSeeder extends Seeder
             'money' => 4,
 
         ]);
+
+
+
+
+        //start step scale
+
+        DB::table('start_step_scales')->insert([
+            'id' => 1,
+            'gas' => 30,
+            'step' => 10,
+        ]);
+
+        DB::table('start_step_scales')->insert([
+            'id' => 2,
+            'gas' => 27,
+            'step' => 9,
+        ]);
+
+        DB::table('start_step_scales')->insert([
+            'id' => 3,
+            'gas' => 24,
+            'step' => 8,
+        ]);
+
+        DB::table('start_step_scales')->insert([
+            'id' => 4,
+            'gas' => 21,
+            'step' => 7,
+        ]);
+
+        DB::table('start_step_scales')->insert([
+            'id' => 5,
+            'gas' => 18,
+            'step' => 6,
+        ]);
+
+        DB::table('start_step_scales')->insert([
+            'id' => 6,
+            'gas' => 15,
+            'step' => 6,
+        ]);
+
+        DB::table('start_step_scales')->insert([
+            'id' => 7,
+            'gas' => 12,
+            'step' => 4,
+        ]);
+
+        DB::table('start_step_scales')->insert([
+            'id' => 8,
+            'gas' => 8,
+            'step' => 3,
+        ]);
+
+        DB::table('start_step_scales')->insert([
+            'id' => 9,
+            'gas' => 4,
+            'step' => 2,
+        ]);
+
+        DB::table('start_step_scales')->insert([
+            'id' => 10,
+            'gas' => 0,
+            'step' => 1,
+        ]);
+
+
+
+
+        //temperature event counter
+
+
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 1,
+            'temperature' => 1.5,
+            'event' => 1,
+            'difficulty' => 3,
+        ]);
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 2,
+            'temperature' => 2,
+            'event' => 1,
+            'difficulty' => 2,
+        ]);
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 3,
+            'temperature' => 2.5,
+            'event' => 1,
+            'difficulty' => 1,
+        ]);
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 4,
+            'temperature' => 2.5,
+            'event' => 1,
+            'difficulty' => 3,
+        ]);
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 5,
+            'temperature' => 3,
+            'event' => 1,
+            'difficulty' => 2,
+        ]);
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 6,
+            'temperature' => 3.5,
+            'event' => 1,
+            'difficulty' => 1,
+        ]);
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 7,
+            'temperature' => 3.5,
+            'event' => 1,
+            'difficulty' => 3,
+        ]);
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 8,
+            'temperature' => 4,
+            'event' => 1,
+            'difficulty' => 2,
+        ]);
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 9,
+            'temperature' => 4.5,
+            'event' => 1,
+            'difficulty' => 1,
+        ]);
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 10,
+            'temperature' => 4.5,
+            'event' => 1,
+            'difficulty' => 3,
+        ]);
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 11,
+            'temperature' => 5,
+            'event' => 1,
+            'difficulty' => 2,
+        ]);
+
+        DB::table('temperature_event_counter')->insert([
+            'id' => 12,
+            'temperature' => 5.5,
+            'event' => 1,
+            'difficulty' => 1,
+        ]);
+
+
 
     }
 }

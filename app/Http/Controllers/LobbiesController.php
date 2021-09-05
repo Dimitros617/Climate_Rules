@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Difficulties;
 use App\Models\Languages;
 use App\Models\Lobbies;
+use App\Models\Nations;
+use App\Models\Nations_templates;
 use App\Models\Phases;
+use App\Models\Start_step_scale;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -103,5 +107,60 @@ class LobbiesController extends Controller
             'phases' => $data_phases,
         ]);
 
+    }
+
+    function editLobbyNations($id){
+
+        Log::info('LobbiesController:editLobbyNations');
+
+        $data_lobby = Lobbies::find($id);
+        $data_users = User::get();
+        $data_difficulties = Difficulties::get();
+        $data_nations_template = Nations_templates::get();
+        $data_nations = Nations::where('lobby_id',$id)->get();
+
+
+
+        $data_nations_gas_count = 0;
+        $data_tem_step = 0;
+
+        if(count($data_nations)!=0) {
+            $data_nations_gas_count = Nations::where('lobby_id', $id)->sum('gasses');
+            $data_tem_step = Start_step_scale::where('gas', '<', $data_nations_gas_count)->orderBy('gas', 'desc')->first();
+        }
+
+        return view('lobby-edit-nations', [
+            'lobby' => $data_lobby,
+            'users' => $data_users,
+            'difficulties' => $data_difficulties,
+            'nations_template' => $data_nations_template,
+            'nations' => $data_nations,
+            'count_gas' => $data_nations_gas_count,
+            'temp_step' => $data_tem_step->step
+        ]);
+
+    }
+
+    function saveLobby(Request $request){
+
+        Log::info('LobbiesController:saveLobby');
+
+
+        $check = DB::table('lobbies')
+                ->where('id', $request->id)
+                ->update([
+                    'name' => $request->name,
+                    'description' => $request->description,
+                    'play_date' => $request->date,
+                    'updated_at' => Carbon::now()->toDateTimeString(),
+                    'phase' => $request->phase,
+                    'difficulty' => $request->difficulty,
+                    'language' => $request->language,
+                ]);
+
+
+        if(!$check) {
+            return response('Nastala chyba při ukládání dat do tabulky lobbies ', 500)->header('Content-Type', 'text/plain');
+        }
     }
 }

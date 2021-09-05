@@ -22,6 +22,7 @@ class CreateLobbies extends Migration
             $table->timestamp('play_date')->nullable();
             $table->unsignedBigInteger('difficulty');
             $table->integer('max_round')->default('3');
+            $table->integer('gas_step')->default('0');
             $table->unsignedBigInteger('round')->nullable();
             $table->unsignedBigInteger('phase')->nullable();
             $table->tinyInteger('visible')->default('1');

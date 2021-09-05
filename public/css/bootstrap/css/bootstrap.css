@@ -6648,6 +6648,10 @@ a.badge-dark:focus, a.badge-dark.focus {
     width: 10rem;
 }
 
+.w-15rem{
+    width: 15rem;
+}
+
 .w-auto {
   width: auto !important;
 }
@@ -6674,6 +6678,22 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .h-6rem {
     height: 6rem !important;
+}
+
+.h-10rem {
+    height: 10rem !important;
+}
+
+.h-15rem {
+    height: 15rem !important;
+}
+
+.h-17rem {
+    height: 17rem !important;
+}
+
+.h-20rem {
+    height: 20rem !important;
 }
 
 .h-36rem {
@@ -6850,6 +6870,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .align-content-between {
   align-content: space-between !important;
+}
+
+.align-content-between-new {
+    align-content: space-between !important;
 }
 
 .align-content-around {

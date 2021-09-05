@@ -16,6 +16,7 @@ class CreateNations extends Migration
         Schema::create('nations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('lobby_id')->nullable();
             $table->string('name',40);
             $table->integer('economy',)->default('0');
             $table->integer('tax',)->default('0');
@@ -25,6 +26,7 @@ class CreateNations extends Migration
             $table->integer('money',)->default('0');
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('lobby_id')->references('id')->on('lobbies');
         });
     }
 
