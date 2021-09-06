@@ -66,7 +66,7 @@
 
         </div>
 
-        <div class="w-100 light-transparent mt-2 p-3 ps-5 pe-5 shadow-sm rounded-4">
+        <div class="w-100 light-transparent mt-2 p-3 shadow-sm rounded-4">
             @include('global-status-temperature-bar')
         </div>
     </div>

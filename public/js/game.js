@@ -52,6 +52,9 @@ function setTemperatureActualValue(gass_step, gasses = 0){
     document.getElementById('temperature-bar-actual-gas').innerHTML = gasses;
 
 
+    document.getElementById('temperature-bar-actual-temp-icon').setAttribute('class','temp-color-'+ (Math.ceil((0.5 * (gasses/gass_step)/2))));
+
+
 }
 
 /**
