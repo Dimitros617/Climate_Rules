@@ -39,7 +39,7 @@ class NationsController extends Controller
 
     function getEditNations(Request $request){
 
-        Log::info('LobbiesController:editLobbyNations');
+        Log::info('NationsController:editLobbyNations');
 
         $data_lobby = Lobbies::find($request->id);
         $data_users = User::get();
@@ -53,7 +53,7 @@ class NationsController extends Controller
         if(count($data_nations)!=0) {
             $data_nations_gas_count = Nations::where('lobby_id', $request->id)->sum('gasses');
             Log::info(Start_step_scale::where('gas', '>=', $data_nations_gas_count)->get());
-            $data_tem_step = Start_step_scale::where('gas', '>=', $data_nations_gas_count)->orderBy('gas', 'asc')->first();
+            $data_tem_step = Start_step_scale::where('gas', '>=', $data_nations_gas_count)->orderBy('gas', 'asc')->first()->step;
         }
 
 
@@ -64,15 +64,21 @@ class NationsController extends Controller
             'nations_template' => $data_nations_template,
             'nations' => $data_nations,
             'count_gas' => $data_nations_gas_count,
-            'temp_step' => $data_tem_step->step
+            'temp_step' => $data_tem_step
         ]);
 
     }
 
 
+    /**
+     * metoda zkopíruje nastavení nejake nations z tabulky Nations_templates do tabulky Nations k danému předem vytvořenému nation.
+     *
+     * @param Request $request
+     * @return 200 || 500
+     */
     function saveNationFromTemplate(Request $request){
 
-        Log::info('LobbiesController:saveNationFromTemplate');
+        Log::info('NationsController:saveNationFromTemplate');
 
         $temp = Nations_templates::find($request->id_template);
 
@@ -93,6 +99,42 @@ class NationsController extends Controller
 
         if(!$check) {
             return response('Nastala chyba při kopírování dat do tabulky nations ', 500)->header('Content-Type', 'text/plain');
+        }
+    }
+
+
+    /**
+     * Metoda přiřadí uživatelský učet danému nations v lobby.
+     * Pokud je již učet přiřazen jinému hráči v lobby, vrací se 500, jinak se zapíše do databáze.
+     *
+     * @param Request $request
+     * @return 200 || 500
+     */
+    function saveNationsUser(Request $request)
+    {
+
+        Log::info('NationsController:saveNationsUser');
+
+        $lobby_id = DB::table('nations')
+            ->where('id', '=', $request->id)
+            ->get()[0]->lobby_id;
+
+        $duplicity_count = DB::table('nations')
+            ->where('lobby_id', '=', $lobby_id)
+            ->where('user_id', '=', $request->value)
+            ->count();
+
+        if($duplicity_count != 0){
+            return response('Tento uživatel je již přiřazen jinému hráči v tomto lobby.' . $request->table, 500)->header('Content-Type', 'text/plain');
+
+        }
+
+        $check = DB::table('nations')
+            ->where('id', '=', $request->id)
+            ->update(['user_id' => $request->value == -1 ? null : $request->value]);
+
+        if(!$check) {
+            return response('Nastala chyba při editaci dat z tabulky: ' . $request->table, 500)->header('Content-Type', 'text/plain');
         }
     }
 }

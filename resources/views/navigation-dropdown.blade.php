@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="  p-3 mb-5">
+<nav x-data="{ open: false }" class="  p-3 mb-4">
     <!-- Primary Navigation Menu -->
     <div class="w-100 d-block d-flex justify-content-between ps-5 pe-5">
 
@@ -11,11 +11,8 @@
 
         @if(View::hasSection('title_name'))
 
-            <div class="display-1 mt-5 fw-bold cr-gradient">@yield('title_name')
-                @if (Auth::check())
-                   - {{Auth::user()->nick}}
-                @endif
-            </div>
+            <div class="display-1 mt-5 fw-bold cr-gradient">@yield('title_name')</div>
+
 
         @endif
 
@@ -27,6 +24,8 @@
             </svg>
 
             <p class="mt-2">@if (Auth::check()) Odhlásit se @else Přihlásit se @endif</p>
+
+            <p class="mt-2 mb-0 pb-0 fw-bold cr-green text-uppercase">@if (Auth::check()) {{Auth::user()->nick}} @endif</p>
         </div>
         </a>
 

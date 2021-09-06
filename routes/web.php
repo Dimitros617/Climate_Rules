@@ -45,12 +45,15 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/editLo
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/editLobbyNations/{id:id}', [LobbiesController::class,'editLobbyNations']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveLobby', [LobbiesController::class,'saveLobby']);
 
+Route::middleware(['auth:sanctum', 'verified', 'permition:play', 'lobby'])->get('/lobby/{lobby_id?}', [LobbiesController::class,'enterLobby']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin', 'lobby'])->get('/lobby/{lobby_id?}/nation/{nation_id?}', [LobbiesController::class,'enterLobbyNation']);
 
 //Nations
 
 Route::get('/getEditNations', [NationsController::class,'getEditNations']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->put('/addNation', [NationsController::class,'addNation']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveNationFromTemplate', [NationsController::class,'saveNationFromTemplate']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveNationsUser', [NationsController::class,'saveNationsUser']);
 
 
 //Uživatelé

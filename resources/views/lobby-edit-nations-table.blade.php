@@ -37,8 +37,8 @@
         </div>
 
         <div>
-            <select class="border-0 bg-white p-2 ps-4 pe-4 shadow-sm rounded-4" onchange="changeElement('nations','user_id','{{$nation->id}}', this.value ,'refreshNationsEditList')">
-                <option selected disabled value="-1">-----</option>
+            <select class="border-0 bg-white p-2 ps-4 pe-4 shadow-sm rounded-4" onchange="saveNationsUser('{{$nation->id}}', this.value ,'refreshNationsEditList')">
+                <option  value="-1">-----</option>
                 @foreach($users as $user)
                     <option value="{{$user->id}}" @if($user->id == $nation->user_id) selected @endif>
                         {{$user->id}}:  {{$user->nick}}

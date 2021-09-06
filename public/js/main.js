@@ -42,25 +42,43 @@ function hideLoading(){
 
 function removeElement(table, id, fce){
 
-    showLoading();
-    let token = document.getElementById('csrf_token').getAttribute('content');
+    Swal.fire({
+        icon: 'question',
+        title:'Smazat?',
+        text: 'Opravdu chcete tuto položku smazat?',
+        showCloseButton: false,
+        showCancelButton: false,
+        showConfirmButton: true,
+        showDenyButton: true,
+        confirmButtonText: `Smazat`,
+        denyButtonText: `Zrušit`,
+        focusConfirm: false,
+    }).then((result) => {
+        if (result.isConfirmed) {
 
-    $.ajax({
-        url: '/removeElement',
-        type: 'delete',
-        data: { _token: token, table: table, id: id},
-        success:function(response){
-            hideLoading();
-            window[fce](arguments);
-        },
-        error: function (response){
-            console.log(response);
-            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
-            hideLoading();
+            showLoading();
+            let token = document.getElementById('csrf_token').getAttribute('content');
+
+            $.ajax({
+                url: '/removeElement',
+                type: 'delete',
+                data: { _token: token, table: table, id: id},
+                success:function(response){
+                    hideLoading();
+                    window[fce](arguments);
+                },
+                error: function (response){
+                    console.log(response);
+                    let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                    allertError(err);
+                    hideLoading();
+
+                }
+            });
 
         }
-    });
+
+    })
 
 }
 

@@ -141,8 +141,8 @@ function editLobbyNations(id){
                 html: response,
                 showCloseButton: false,
                 showCancelButton: false,
-                showConfirmButton: true,
-                showDenyButton: true,
+                showConfirmButton: false,
+                showDenyButton: false,
                 confirmButtonText: `Uložit`,
                 denyButtonText: `Zrušit`,
                 focusConfirm: false,
@@ -199,5 +199,25 @@ function editLobbyNations(id){
     });
 
 
+
+}
+
+function enterLobby(id){
+
+    showLoading();
+    $.ajax({
+        url: '/lobby/' + id,
+        type: 'get',
+        success:function(response){
+            window.location.assign('/lobby/'+id);
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            allertError(err);
+            hideLoading();
+
+        }
+    });
 
 }

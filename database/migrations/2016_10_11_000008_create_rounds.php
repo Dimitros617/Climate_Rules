@@ -15,11 +15,14 @@ class CreateRounds extends Migration
     {
         Schema::create('rounds', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('lobby_id')->nullable();
             $table->integer('gases');
             $table->integer('temperature');
             $table->integer('potencial_gases');
             $table->integer('potencial_temperature');
             $table->timestamps();
+
+            $table->foreign('lobby_id')->references('id')->on('lobbies');
         });
     }
 

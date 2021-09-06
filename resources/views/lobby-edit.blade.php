@@ -26,7 +26,7 @@
         <input class="phase border-0 bg-light rounded-4"  name="phase" value="{{$lobby->phase}}" hidden>
         <select class="border-0 bg-light p-2 ps-4 pe-4 shadow-sm rounded-4" onchange="this.parentNode.getElementsByClassName('phase')[0].value = this.value">
             @foreach($phases as $phase)
-                <option value="{{$phase->code}}" @if($phase->code == $lobby->phase) selected @endif>{{$phase->name}}</option>
+                <option value="{{$phase->code}}" @if($phase->code == $lobby->phase) selected @endif @if($phase->code == 1) disabled @endif>{{$phase->name}}</option>
 
             @endforeach
         </select>

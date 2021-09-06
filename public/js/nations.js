@@ -27,6 +27,30 @@ function addNation(id){
 
 }
 
+function saveNationsUser(id, value, fce){
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+    $.ajax({
+        url: '/saveNationsUser',
+        type: 'post',
+        data: { _token: token, id: id, value: value},
+        success:function(response){
+            hideLoading();
+            window[fce](arguments);
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            allertError(err);
+            hideLoading();
+
+        }
+    });
+
+}
+
 function saveNationFromTemplate(id_nation, id_template){
 
     showLoading();

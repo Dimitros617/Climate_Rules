@@ -17,6 +17,7 @@ class CreatePhases extends Migration
             $table->id();
             $table->string('name');
             $table->string('code');
+            $table->string('icon');
             $table->timestamps();
         });
     }
