@@ -9,17 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Doděláno zobrazování globálních dat států a přidán teploměr">
-      <change afterPath="$PROJECT_DIR$/public/js/game.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/global-status-earth.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/global-status-temperature-bar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_11_000007_create_nations.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_11_000007_create_nations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/earth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/earth.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/global-status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/global-status-temperature-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status-temperature-bar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,14 +394,7 @@
       <workItem from="1630743971242" duration="19041000" />
       <workItem from="1630769838060" duration="16953000" />
       <workItem from="1630829898768" duration="37761000" />
-      <workItem from="1630910837904" duration="34509000" />
-    </task>
-    <task id="LOCAL-00030" summary="Vyřešeno issue : Ověření unikátnosti category.name #10">
-      <created>1607704700175</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1607704700175</updated>
+      <workItem from="1630910837904" duration="37077000" />
     </task>
     <task id="LOCAL-00031" summary="Vyřešeno issue : Date picker iterval #9">
       <created>1607706059471</created>
@@ -742,7 +732,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630942114819</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Doděláno zobrazování globálních dat států a přidán teploměr">
+      <created>1630957212513</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1630957212513</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

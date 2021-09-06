@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\NationsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -48,8 +49,12 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveL
 Route::middleware(['auth:sanctum', 'verified', 'permition:play', 'lobby'])->get('/lobby/{lobby_id?}', [LobbiesController::class,'enterLobby']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin', 'lobby'])->get('/lobby/{lobby_id?}/nation/{nation_id?}', [LobbiesController::class,'enterLobbyNation']);
 
-//Nations
 
+//Game
+Route::get('/updateTemperatureActualValue/{id:id}', [GameController::class,'updateTemperatureActualValue']);
+
+
+//Nations
 Route::get('/getEditNations', [NationsController::class,'getEditNations']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->put('/addNation', [NationsController::class,'addNation']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveNationFromTemplate', [NationsController::class,'saveNationFromTemplate']);

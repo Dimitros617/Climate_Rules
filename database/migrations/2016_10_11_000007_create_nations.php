@@ -17,6 +17,8 @@ class CreateNations extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('lobby_id')->nullable();
+            $table->string('flag_image',100);
+            $table->string('map_image',100);
             $table->string('name',40);
             $table->integer('economy',)->default('0');
             $table->integer('economy_level',)->default('0');

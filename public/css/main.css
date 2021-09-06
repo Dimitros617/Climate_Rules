@@ -99,10 +99,12 @@ transition-duration: 0.5s;
     transition-duration: 0.2s;
     position: relative;
     cursor: help;
+    z-index: 999;
 }
 
 
 [data-title]:hover::before {
+    z-index: 999;
     content: attr(data-title);
     position: absolute;
     bottom: -26px;

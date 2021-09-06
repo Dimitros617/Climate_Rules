@@ -243,8 +243,13 @@ class LobbiesController extends Controller
         $my_nation = Nations::find($nation_id);
         $nations = Nations::where('lobby_id',$lobby_id)->get();
         $rounds = Rounds::where('lobby_id',$lobby_id)->get();
+        $last_round = DB::table('rounds')
+            ->where('lobby_id', '=', $lobby_id)
+            ->orderBy('id')
+            ->first();
 
-        return view('global-status', ['lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'nations' => $nations, 'rounds' => $rounds]);
+
+        return view('global-status', ['lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'nations' => $nations, 'rounds' => $rounds, 'last_round' => $last_round]);
     }
 
 

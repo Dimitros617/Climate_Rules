@@ -35,7 +35,7 @@ function setTemperatureBar(ele, step){
 
 }
 
-function setTemperatureActualValue(gass_step, gasses){
+function setTemperatureActualValue(gass_step, gasses = 0){
 
     let pointer = document.getElementById('temperature-bar-actual-pointer');
     let step = document.getElementById('temperature-bar-step-line').offsetWidth ;
@@ -46,6 +46,37 @@ function setTemperatureActualValue(gass_step, gasses){
     }
 
     pointer.style.paddingLeft = step + (gasses/gass_step) * step + 'px';
+
+
+    document.getElementById('temperature-bar-actual-temp').innerHTML = '+' + (0.5 * (gasses/gass_step));
+    document.getElementById('temperature-bar-actual-gas').innerHTML = gasses;
+
+
+}
+
+/**
+ *
+ * @param id = lobbyID
+ */
+function updateTemperatureActualValue(id){
+
+    $.ajax({
+        url: '/updateTemperatureActualValue/'+id,
+        type: 'get',
+
+        success:function(response){
+            let a = response;
+            //TODO - převzít a zavolat metodu setTemperatureActualValue
+            //setTemperatureActualValue(response->gass_step, response->gasses)
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            allertError(err);
+            hideLoading();
+
+        }
+    });
 
 
 }
