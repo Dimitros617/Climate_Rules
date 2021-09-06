@@ -2,7 +2,7 @@
 <style>
 
     .container{
-        padding: 50px;
+        padding: 20px;
 
     }
     .sphere{
@@ -99,7 +99,7 @@
 
 
 <div id="earth" class="container ms-auto me-auto d-block">
-    <div class="sphere animate-05 hover-size-01">
+    <div class="sphere ms-auto me-auto d-block animate-05 hover-size-01">
         <div class="layer">
             <div class="ambience">
             </div>

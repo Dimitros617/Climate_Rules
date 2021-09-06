@@ -108,9 +108,9 @@ function changeElement(table, column, id, value, fce){
 
 
 
-// $(function(){
-//     $('svg[onload]').trigger('onload');
-//     $('input[onload]').trigger('onload');
-// });
+$(function(){
+    $('div[onload]').trigger('onload');
+    $('input[onload]').trigger('onload');
+});
 
 

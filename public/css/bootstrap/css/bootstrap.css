@@ -6600,6 +6600,10 @@ a.badge-dark:focus, a.badge-dark.focus {
   border-width: 5px !important;
 }
 
+.w-5px {
+    width: 5px !important;
+}
+
 .w-20rem {
     width: 20rem !important;
 }
@@ -6670,6 +6674,14 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .min-vw-100 {
   min-width: 100vw !important;
+}
+
+.h-3px {
+    height: 3px !important;
+}
+
+.h-5px {
+    height: 5px !important;
 }
 
 .h-4rem {
@@ -6814,6 +6826,14 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .gap-5 {
   gap: 3rem !important;
+}
+
+.scale-150{
+    transform: scale(1.5);
+}
+
+.scale-200{
+    transform: scale(2);
 }
 
 .justify-content-start {
@@ -7114,6 +7134,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .me-auto {
   margin-right: auto !important;
+}
+
+.mb--1 {
+    margin-bottom: -0.5rem !important;
 }
 
 .mb-0 {

@@ -1,8 +1,9 @@
 @section('title','Climate rules')
-@section('title_name', $nation->name)
+@section('title_name', $my_nation->name)
 
 <script src="/js/main.js"></script>
 <script src="/js/nations.js"></script>
+<script src="/js/game.js"></script>
 
 <x-app-layout>
     <x-slot name="header">
@@ -58,28 +59,15 @@
     @endif
 
     <div class="w-90 ms-auto me-auto d-block">
-        <div class="d-flex flex-wrap">
-            <div class="light-transparent justify-content-between rounded-5 w-70 p-5 m-2">
+        <div class="d-flex flex-wrap justify-content-center">
 
-                <div class="d-flex justify-content-between pb-2 mb-3" >
-                    nations table
-
-                </div>
-
-            </div>
-
-            <div class="light-transparent justify-content-between rounded-5 w-25  p-2 m-2">
-                <span class="display-6 fw-bold text-center">{{}}</span>
-                <div class="d-flex justify-content-between pb-2 mb-3" >
-                    @include('earth')
-                </div>
-
-            </div>
+            @include('global-status-table')
+            @include('global-status-earth')
 
         </div>
 
-        <div class="w-100 light-transparent p-3">
-            temperature bar
+        <div class="w-100 light-transparent mt-2 p-3 ps-5 pe-5 shadow-sm rounded-4">
+            @include('global-status-temperature-bar')
         </div>
     </div>
 

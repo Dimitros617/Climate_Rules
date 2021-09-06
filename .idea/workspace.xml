@@ -8,34 +8,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidávání a editace hráčů a uživatelů">
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/LobbyEntry.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Rounds.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Img/clouds.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Img/land.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/earth.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/global-status.blade.php" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Doděláno zobrazování globálních dat států a přidán teploměr">
+      <change afterPath="$PROJECT_DIR$/public/js/game.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/global-status-earth.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/global-status-temperature-bar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NationsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/PermitionVerify.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/PermitionVerify.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_11_000000_create_nations_templates.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_11_000000_create_nations_templates.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_11_000004_create_phases.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_11_000004_create_phases.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_11_000005_create_rounds.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_11_000008_create_rounds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_11_000006_create_lobbies.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_11_000006_create_lobbies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_11_000007_create_nations.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_11_000007_create_nations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/lobby.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/lobby.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/nations.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/nations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lobbies-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobbies-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lobby-edit-nations-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobby-edit-nations-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lobby-edit-nations.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobby-edit-nations.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lobby-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobby-edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/earth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/earth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/global-status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +247,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/Img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
@@ -272,8 +256,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Xamp\htdocs\climate_rules\public\Img" />
       <recent name="D:\Xamp\htdocs\climate_rules\resources\views" />
+      <recent name="D:\Xamp\htdocs\climate_rules\public\Img" />
       <recent name="D:\Xamp\htdocs\climate_rules\vendor\composer" />
       <recent name="D:\Xamp\htdocs\baka\resources\views" />
       <recent name="D:\Xamp\htdocs\baka\public\js" />
@@ -413,21 +397,7 @@
       <workItem from="1630743971242" duration="19041000" />
       <workItem from="1630769838060" duration="16953000" />
       <workItem from="1630829898768" duration="37761000" />
-      <workItem from="1630910837904" duration="19470000" />
-    </task>
-    <task id="LOCAL-00028" summary="Přidána stránka moje výpůjčky, doděláno odstranění kategoriií a přidán přehled závazků nad kategoriemi">
-      <created>1607525578428</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1607525578428</updated>
-    </task>
-    <task id="LOCAL-00029" summary="opravena chyba při prokliku na profil uživatele z přehledu závazků kategorie">
-      <created>1607525800242</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1607525800242</updated>
+      <workItem from="1630910837904" duration="34509000" />
     </task>
     <task id="LOCAL-00030" summary="Vyřešeno issue : Ověření unikátnosti category.name #10">
       <created>1607704700175</created>
@@ -758,7 +728,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630877106608</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Pridán vstup do lobby - ověřování oprávnění a řidělení hráčů + HTTP code stránky">
+      <created>1630942076321</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1630942076322</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Oprava HTTP codu">
+      <created>1630942114819</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1630942114819</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -824,9 +808,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Doděláno odstraňování všech prvků" />
-    <MESSAGE value="Vytvořen správce obrázků" />
-    <MESSAGE value="Přidáno rozdělování na učebnice + implementováno img selector na element setting" />
     <MESSAGE value="Doděláno pozicování kapitol a učebnic" />
     <MESSAGE value="Dodoělán status nad žákem, přidáno skrývání elementů jako další lock a dodělána defaultní role" />
     <MESSAGE value="Přidáno do hlavičky název učebnice a smazán starý menu bar" />
@@ -849,7 +830,10 @@
     <MESSAGE value="Opravena kontrola permicí a zobrazování admin prvků pro nepřihlášené uživatele" />
     <MESSAGE value="Našítání a zobrazení dat z databáze pro edit lobby" />
     <MESSAGE value="Přidávání a editace hráčů a uživatelů" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidávání a editace hráčů a uživatelů" />
+    <MESSAGE value="Pridán vstup do lobby - ověřování oprávnění a řidělení hráčů + HTTP code stránky" />
+    <MESSAGE value="Oprava HTTP codu" />
+    <MESSAGE value="Doděláno zobrazování globálních dat států a přidán teploměr" />
+    <option name="LAST_COMMIT_MESSAGE" value="Doděláno zobrazování globálních dat států a přidán teploměr" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

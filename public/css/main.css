@@ -91,6 +91,109 @@ transition-duration: 0.5s;
     background-color: white;
 }
 
+/*Custom title*/
+
+[data-title] {
+
+    font-size: 30px; /*optional styling*/
+    transition-duration: 0.2s;
+    position: relative;
+    cursor: help;
+}
+
+
+[data-title]:hover::before {
+    content: attr(data-title);
+    position: absolute;
+    bottom: -26px;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 2px;
+    background: #2b2b2c;
+    color: #fff;
+    font-size: 24px;
+    font-family: sans-serif;
+    white-space: nowrap;
+
+}
+
+
+.statistic_table tr:nth-child(even) {
+    background: white;
+    border-radius: 1rem;
+}
+.statistic_table tr:nth-child(odd) {
+    background: #f8f8f8;
+    border-radius: 1rem;
+}
+
+.statistic_table  tr.head {
+    background: transparent !important;
+}
+.statistic_table  tr.head:hover {
+    background: transparent !important;
+}
+
+.statistic_table tr:hover {
+    background: #b9edff;
+    border-radius: 1rem;
+}
+
+.table-head-title{
+    transition-duration: 0.5s;
+    cursor: help;
+}
+.table-head-title:hover{
+    transform: rotate(-90deg) scale(1.2);
+
+}
+
+td:first-child,
+th:first-child {
+    border-radius: 10px 0 0 10px;
+}
+td:last-child,
+th:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+
+/*temperature bar*/
+
+.temp-color-1, .temp-color-0{
+    color: #0099cd;
+}
+
+.temp-color-2{
+    color: #ff9f1c;
+}
+
+.temp-color-3{
+    color: #ba1b02;
+}
+
+.temp-color-4{
+    color: #262626;
+}
+
+/*background*/
+.temp-bg-color-1, .temp-bg-color-0{
+    background-color: #0099cd;
+}
+
+.temp-bg-color-2{
+    background-color: #ff9f1c;
+}
+
+.temp-bg-color-3{
+    background-color: #ba1b02;
+}
+
+.temp-bg-color-4{
+    background-color: #262626;
+}
+
+
 
 
 

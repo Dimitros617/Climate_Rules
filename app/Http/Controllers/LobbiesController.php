@@ -240,10 +240,11 @@ class LobbiesController extends Controller
             ->get()[0];
 
         $lobby = Lobbies::find($lobby_id);
-        $nation = Nations::find($nation_id);
+        $my_nation = Nations::find($nation_id);
+        $nations = Nations::where('lobby_id',$lobby_id)->get();
         $rounds = Rounds::where('lobby_id',$lobby_id)->get();
 
-        return view('global-status', ['lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'nation' => $nation, 'rounds' => $rounds]);
+        return view('global-status', ['lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'nations' => $nations, 'rounds' => $rounds]);
     }
 
 
