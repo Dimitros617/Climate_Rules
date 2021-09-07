@@ -71,5 +71,7 @@
         </div>
     </div>
 
+    @include('button-panel')
+
 
 </x-app-layout>

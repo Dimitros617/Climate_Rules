@@ -196,6 +196,26 @@ th:last-child {
 }
 
 
+/*Button bar*/
+
+.cr-button{
+    margin-bottom: -5rem;
+    cursor: pointer;
+    transition-duration: 0.2s;
+
+}
+
+.cr-button:hover{
+margin-top: -4rem;
+
+}
+
+.cr-button:active{
+    transform: scale(0.95);
+
+}
+
+
 
 
 

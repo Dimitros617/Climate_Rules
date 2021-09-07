@@ -27,6 +27,7 @@
                 <th class="fs-7 text-center hover-size-01">{{$nation->happiness}}<span class="fs-6"> %</span></th>
                 <th class="fs-7 text-center hover-size-01">{{$nation->health}} <span class="fs-6">let</span></th>
                 <th class="fs-7 text-center hover-size-01">{{$nation->gasses}} <span class="fs-6">CO<sub>2</sub></span></th>
+{{--                income count počítání příjmů--}}
                 <th class="fs-7 text-center hover-size-01">@php echo ($nation->economy * $nation->tax) @endphp <span class="fs-6">M</span></th>
             </tr>
             @endforeach

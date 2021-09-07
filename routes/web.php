@@ -46,8 +46,12 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/editLo
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/editLobbyNations/{id:id}', [LobbiesController::class,'editLobbyNations']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveLobby', [LobbiesController::class,'saveLobby']);
 
+//Lobby - global
 Route::middleware(['auth:sanctum', 'verified', 'permition:play', 'lobby'])->get('/lobby/{lobby_id?}', [LobbiesController::class,'enterLobby']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:admin', 'lobby'])->get('/lobby/{lobby_id?}/nation/{nation_id?}', [LobbiesController::class,'enterLobbyNation']);
+
+//Lobby - local
+Route::middleware(['auth:sanctum', 'verified', 'permition:play', 'lobby'])->get('/lobby/{lobby_id?}/nation', [LobbiesController::class,'getLobbyNation']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin', 'lobby'])->get('/lobby/{lobby_id?}/nation/{nation_id?}', [LobbiesController::class,'getLobbyNation']);
 
 
 //Game

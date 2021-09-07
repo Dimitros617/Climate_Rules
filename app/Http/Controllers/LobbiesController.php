@@ -192,26 +192,17 @@ class LobbiesController extends Controller
 
         Log::info('LobbiesController:enterLobby');
 
-        $nation_count = DB::table('nations')
-            ->where('lobby_id', '=', $lobby_id)
-            ->count();
 
-        if($nation_count == 0){
+        if(Lobbies::countNations($lobby_id) == 0){
             return response('Nelze vstoupit, jelikož nejsou lobby přiřazení žádní hráči.', 500)->header('Content-Type', 'text/plain');
         }
 
-        $lobby_phase = DB::table('lobbies')
-            ->Join('phases', 'lobbies.phase', '=', 'phases.id')
-            ->where('lobbies.id', '=', $lobby_id)
-            ->select('phases.code', 'phases.name', 'phases.icon')
-            ->get()[0];
+        $lobby_phase = Lobbies::getLobbyPhase($lobby_id);
 
 
-        if(Auth::check() && Auth::permition()->admin = 1){
+        if(Auth::check() && Auth::permition()->admin == 1){
 
-            $nation_id = DB::table('nations')
-                ->where('lobby_id', '=', $lobby_id)
-                ->get()[0]->id;
+            $nation_id = Lobbies::getFirstNation($lobby_id)->id;
 
         }else{
 
@@ -219,25 +210,18 @@ class LobbiesController extends Controller
                 return response('Nelze vstoupit, hra zatím nebyla spuštěna.', 500)->header('Content-Type', 'text/plain');
             }
 
-            $nation_id = DB::table('nations')
-                ->where('lobby_id', '=', $lobby_id)
-                ->where('user_id', '=', Auth::user()->id)
-                ->get()[0]->id;
+            $nation = Lobbies::getMyNation($lobby_id);
+
+            if($nation == -1){
+                return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
+            }
+
+            if($nation == -2){
+                return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
+            }
+
+            $nation_id = $nation->id;
         }
-
-
-        return $this->enterLobbyNation($lobby_id, $nation_id);
-    }
-
-    function enterLobbyNation($lobby_id, $nation_id){
-
-        Log::info('LobbiesController:enterLobbyNation');
-
-        $lobby_phase = DB::table('lobbies')
-            ->Join('phases', 'lobbies.phase', '=', 'phases.id')
-            ->where('lobbies.id', '=', $lobby_id)
-            ->select('phases.code', 'phases.name', 'phases.icon')
-            ->get()[0];
 
         $lobby = Lobbies::find($lobby_id);
         $my_nation = Nations::find($nation_id);
@@ -250,6 +234,66 @@ class LobbiesController extends Controller
 
 
         return view('global-status', ['lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'nations' => $nations, 'rounds' => $rounds, 'last_round' => $last_round]);
+
+    }
+
+    function getLobbyNation($lobby_id, $nation_id = null){
+
+        Log::info('LobbiesController:enterLobbyNation');
+
+//        if($nation_id == null){
+//            // pouze přiřazený stát hráči
+//        }else{
+//            //admin - stát podle ID -> $nation_id
+//        }
+
+
+        if(Lobbies::countNations($lobby_id) == 0){
+            return response('Nelze vstoupit, jelikož nejsou lobby přiřazení žádní hráči.', 500)->header('Content-Type', 'text/plain');
+        }
+
+        $lobby_phase = Lobbies::getLobbyPhase($lobby_id);
+
+
+        if(Auth::check() && Auth::permition()->admin == 1){
+
+            if($nation_id == null){
+                $nation_id = Lobbies::getFirstNation($lobby_id)->id;
+            }
+
+        }else{
+
+            if($lobby_phase->code == 1){
+                return response('Nelze vstoupit, hra zatím nebyla spuštěna.', 500)->header('Content-Type', 'text/plain');
+            }
+
+            $nation = Lobbies::getMyNation($lobby_id);
+
+            if($nation == -1){
+                return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
+            }
+
+            if($nation == -2){
+                return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
+            }
+
+            $nation_id = $nation->id;
+        }
+
+        $lobby = Lobbies::find($lobby_id);
+        $my_nation = Nations::find($nation_id);
+        $nations = Nations::where('lobby_id',$lobby_id)->get();
+        $rounds = Rounds::where('lobby_id',$lobby_id)->get();
+        $last_round = DB::table('rounds')
+            ->where('lobby_id', '=', $lobby_id)
+            ->orderBy('id')
+            ->first();
+
+
+        return view('local-status', ['lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'nations' => $nations, 'rounds' => $rounds, 'last_round' => $last_round]);
+
+
+
     }
 
 
