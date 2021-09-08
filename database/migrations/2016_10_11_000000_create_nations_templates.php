@@ -16,14 +16,10 @@ class CreateNationsTemplates extends Migration
         Schema::create('nations_templates', function (Blueprint $table) {
             $table->id();
             $table->string('name',40);
-            $table->integer('economy',)->default('0');
-            $table->integer('economy_level',)->default('0');
-            $table->integer('tax',)->default('0');
-            $table->integer('happiness',)->default('0');
-            $table->integer('happiness_level',)->default('0');
-            $table->integer('gasses',)->default('0');
-            $table->integer('health',)->default('0');
-            $table->integer('money',)->default('0');
+            $table->unsignedBigInteger('statistic_values_set');
+
+            $table->foreign('statistic_values_set')->references('id')->on('nation_statistic_values_templates');
+
 
         });
     }

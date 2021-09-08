@@ -129,57 +129,6 @@ class DatabaseSeeder extends Seeder
 
 
 
-        //Nations template
-
-        DB::table('nations_templates')->insert([
-            'id' => 1,
-            'name' => 'Euronia',
-            'economy' => 1,
-            'tax' => 1,
-            'happiness' => 1,
-            'gasses' => 1,
-            'health' => 1,
-            'money' => 1,
-
-        ]);
-
-        DB::table('nations_templates')->insert([
-            'id' => 2,
-            'name' => 'Aso-chin',
-            'economy' => 2,
-            'tax' => 2,
-            'happiness' => 2,
-            'gasses' => 2,
-            'health' => 2,
-            'money' => 2,
-
-        ]);
-
-        DB::table('nations_templates')->insert([
-            'id' => 3,
-            'name' => 'Minerawe',
-            'economy' => 3,
-            'tax' => 3,
-            'happiness' => 3,
-            'gasses' => 3,
-            'health' => 3,
-            'money' => 3,
-
-        ]);
-
-        DB::table('nations_templates')->insert([
-            'id' => 4,
-            'name' => 'Suriolos',
-            'economy' => 4,
-            'tax' => 4,
-            'happiness' => 4,
-            'gasses' => 4,
-            'health' => 4,
-            'money' => 4,
-
-        ]);
-
-
 
 
         //start step scale
@@ -248,8 +197,6 @@ class DatabaseSeeder extends Seeder
 
 
         //temperature event counter
-
-
 
         DB::table('temperature_event_counter')->insert([
             'id' => 1,
@@ -336,6 +283,832 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        //Statistics types
+
+        DB::table('statistics_types')->insert([
+            'id' => 1,
+            'name' => 'Ekonomie',
+        ]);
+
+        DB::table('statistics_types')->insert([
+            'id' => 2,
+            'name' => 'Level ekonomie',
+        ]);
+
+        DB::table('statistics_types')->insert([
+            'id' => 3,
+            'name' => 'Daň',
+        ]);
+
+        DB::table('statistics_types')->insert([
+            'id' => 4,
+            'name' => 'Nálada',
+        ]);
+
+        DB::table('statistics_types')->insert([
+            'id' => 5,
+            'name' => 'Level nálady',
+        ]);
+
+        DB::table('statistics_types')->insert([
+            'id' => 6,
+            'name' => 'Skl. Plyny',
+        ]);
+
+        DB::table('statistics_types')->insert([
+            'id' => 7,
+            'name' => 'Zdraví',
+        ]);
+
+
+        //Nations template
+
+        DB::table('nations_templates')->insert([
+            'name' => 'Euronia',
+            'statistic_values_set' => 1,
+        ]);
+
+        DB::table('nations_templates')->insert([
+            'name' => 'Aso-chin',
+            'statistic_values_set' => 1,
+        ]);
+
+        DB::table('nations_templates')->insert([
+            'name' => 'Minerawe',
+            'statistic_values_set' => 2,
+
+        ]);
+
+
+
+        //Nation statistic values templates
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 1,
+            'index' => 1,
+            'value' => 2,
+
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 1,
+            'index' => 2,
+            'value' => 2,
+
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 1,
+            'index' => 3,
+            'value' => 3,
+
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 1,
+            'index' => 4,
+            'value' => 4,
+
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 1,
+            'index' => 5,
+            'value' => 5,
+        ]);
+
+        //Economy level
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 2,
+            'index' => 1,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 2,
+            'index' => 2,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 2,
+            'index' => 3,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 2,
+            'index' => 4,
+            'value' => 3,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 2,
+            'index' => 5,
+            'value' => 3,
+        ]);
+
+        //Tax
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 3,
+            'index' => 1,
+            'value' => 1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 3,
+            'index' => 2,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 3,
+            'index' => 3,
+            'value' => 3,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 3,
+            'index' => 4,
+            'value' => 4,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 3,
+            'index' => 5,
+            'value' => 5,
+        ]);
+
+            //Happiness
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 4,
+            'index' => 1,
+            'value' => 0,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 4,
+            'index' => 2,
+            'value' => 1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 4,
+            'index' => 3,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 4,
+            'index' => 4,
+            'value' => 3,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 4,
+            'index' => 5,
+            'value' => 4,
+        ]);
+
+        //Happiness level
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 5,
+            'index' => 1,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 5,
+            'index' => 2,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 5,
+            'index' => 3,
+            'value' => 1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 5,
+            'index' => 4,
+            'value' => 1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 5,
+            'index' => 5,
+            'value' => 0,
+        ]);
+
+        //gasses
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 1,
+            'value' => -7,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 2,
+            'value' => -6,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 3,
+            'value' => -5,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 4,
+            'value' => -4,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 5,
+            'value' => -3,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 6,
+            'value' => -2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 7,
+            'value' => -1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 8,
+            'value' => 0,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 9,
+            'value' => 1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 10,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 11,
+            'value' => 3,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 12,
+            'value' => 4,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 6,
+            'index' => 13,
+            'value' => 5,
+        ]);
+
+        //Health
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 7,
+            'index' => 1,
+            'value' => 64,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 7,
+            'index' => 2,
+            'value' => 67,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 7,
+            'index' => 3,
+            'value' => 70,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 7,
+            'index' => 4,
+            'value' => 73,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 1,
+            'statistics_type_id' => 7,
+            'index' => 5,
+            'value' => 76,
+        ]);
+
+        //- SET 2 ----
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 1,
+            'index' => 1,
+            'value' => 2,
+
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 1,
+            'index' => 2,
+            'value' => 4,
+
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 1,
+            'index' => 3,
+            'value' => 8,
+
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 1,
+            'index' => 4,
+            'value' => 16,
+
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 1,
+            'index' => 5,
+            'value' => 32,
+        ]);
+
+        //Economy level
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 2,
+            'index' => 1,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 2,
+            'index' => 2,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 2,
+            'index' => 3,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 2,
+            'index' => 4,
+            'value' => 3,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 2,
+            'index' => 5,
+            'value' => 3,
+        ]);
+
+        //Tax
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 3,
+            'index' => 1,
+            'value' => 1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 3,
+            'index' => 2,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 3,
+            'index' => 3,
+            'value' => 3,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 3,
+            'index' => 4,
+            'value' => 4,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 3,
+            'index' => 5,
+            'value' => 5,
+        ]);
+
+        //Happiness
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 4,
+            'index' => 1,
+            'value' => 0,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 4,
+            'index' => 2,
+            'value' => 1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 4,
+            'index' => 3,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 4,
+            'index' => 4,
+            'value' => 3,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 4,
+            'index' => 5,
+            'value' => 4,
+        ]);
+
+        //Happiness level
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 5,
+            'index' => 1,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 5,
+            'index' => 2,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 5,
+            'index' => 3,
+            'value' => 1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 5,
+            'index' => 4,
+            'value' => 1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 5,
+            'index' => 5,
+            'value' => 0,
+        ]);
+
+        //gasses
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 1,
+            'value' => -7,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 2,
+            'value' => -6,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 3,
+            'value' => -5,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 4,
+            'value' => -4,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 5,
+            'value' => -3,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 6,
+            'value' => -2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 7,
+            'value' => -1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 8,
+            'value' => 0,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 9,
+            'value' => 1,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 10,
+            'value' => 2,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 11,
+            'value' => 3,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 12,
+            'value' => 4,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 6,
+            'index' => 13,
+            'value' => 5,
+        ]);
+
+        //Health
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 7,
+            'index' => 1,
+            'value' => 64,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 7,
+            'index' => 2,
+            'value' => 67,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 7,
+            'index' => 3,
+            'value' => 70,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 7,
+            'index' => 4,
+            'value' => 73,
+        ]);
+
+        DB::table('nation_statistic_values_templates')->insert([
+            'set' => 2,
+            'statistics_type_id' => 7,
+            'index' => 5,
+            'value' => 76,
+        ]);
+
+
+        // Start to nation statistics
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 1,
+            'statistics_type_id' => 1,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 1,
+            'statistics_type_id' => 2,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 1,
+            'statistics_type_id' => 3,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 1,
+            'statistics_type_id' => 4,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 1,
+            'statistics_type_id' => 5,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 1,
+            'statistics_type_id' => 6,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 1,
+            'statistics_type_id' => 7,
+            'index' => 2,
+        ]);
+
+        //nation --- 2
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 2,
+            'statistics_type_id' => 1,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 2,
+            'statistics_type_id' => 2,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 2,
+            'statistics_type_id' => 3,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 2,
+            'statistics_type_id' => 4,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 2,
+            'statistics_type_id' => 5,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 2,
+            'statistics_type_id' => 6,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 2,
+            'statistics_type_id' => 7,
+            'index' => 2,
+        ]);
+
+        //nation --- 3
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 3,
+            'statistics_type_id' => 1,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 3,
+            'statistics_type_id' => 2,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 3,
+            'statistics_type_id' => 3,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 3,
+            'statistics_type_id' => 4,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 3,
+            'statistics_type_id' => 5,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 3,
+            'statistics_type_id' => 6,
+            'index' => 2,
+        ]);
+
+        DB::table('start_to_nation_statistics')->insert([
+            'nation_template_id' => 3,
+            'statistics_type_id' => 7,
+            'index' => 2,
+        ]);
 
     }
 }

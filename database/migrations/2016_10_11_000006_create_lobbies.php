@@ -22,7 +22,7 @@ class CreateLobbies extends Migration
             $table->timestamp('play_date')->nullable();
             $table->unsignedBigInteger('difficulty');
             $table->integer('max_round')->default('3');
-            $table->integer('gas_step')->default('0');
+            $table->unsignedBigInteger('gas_step')->nullable();
             $table->unsignedBigInteger('phase')->nullable();
             $table->tinyInteger('visible')->default('1');
 
@@ -31,6 +31,7 @@ class CreateLobbies extends Migration
             $table->foreign('language')->references('id')->on('languages');
             $table->foreign('difficulty')->references('id')->on('difficulties');
             $table->foreign('phase')->references('id')->on('phases');
+            $table->foreign('gas_step')->references('id')->on('start_step_scales');
         });
     }
 

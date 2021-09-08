@@ -15,13 +15,12 @@ class CreateNationStatisticValues extends Migration
     {
         Schema::create('nation_statistic_values', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('nation_id')->nullable();
+            $table->integer('set');
             $table->unsignedBigInteger('statistics_type_id')->nullable();
             $table->integer('index');
             $table->integer('value');
 
 
-            $table->foreign('nation_id')->references('id')->on('nations');
             $table->foreign('statistics_type_id')->references('id')->on('statistics_types');
         });
     }

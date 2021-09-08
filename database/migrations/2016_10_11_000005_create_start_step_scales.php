@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStatiscticsTypes extends Migration
+class CreateStartStepScales extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateStatiscticsTypes extends Migration
      */
     public function up()
     {
-        Schema::create('statisctics_types', function (Blueprint $table) {
+        Schema::create('start_step_scales', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 40);
+            $table->integer('gas',);
+            $table->integer('step',);
+            $table->tinyInteger('active',)->default(0);
         });
     }
 
@@ -26,6 +28,6 @@ class CreateStatiscticsTypes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statisctics_types');
+        Schema::dropIfExists('start_step_scale');
     }
 }
