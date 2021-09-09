@@ -61,6 +61,7 @@ Route::get('/updateTemperatureActualValue/{id:id}', [GameController::class,'upda
 //Nations
 Route::get('/getEditNations', [NationsController::class,'getEditNations']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->put('/addNation', [NationsController::class,'addNation']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->delete('/removeNation', [NationsController::class,'removeNation']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveNationFromTemplate', [NationsController::class,'saveNationFromTemplate']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveNationsUser', [NationsController::class,'saveNationsUser']);
 

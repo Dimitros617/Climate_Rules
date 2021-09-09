@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Difficulties;
 use App\Models\Lobbies;
+use App\Models\Nation_statistic_values;
+use App\Models\Nation_statistic_values_templates;
 use App\Models\Nations;
 use App\Models\Nations_templates;
+use App\Models\Round_to_nation_statistics;
+use App\Models\Rounds;
 use App\Models\Start_step_scale;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,18 +21,18 @@ class NationsController extends Controller
 {
     function addNation(Request $request)
     {
-        Log::info('NationsController:addLobby');
+        Log::info('NationsController:addNation');
+
+        Nation_statistic_values::copyNationStatisticValuesFromTemplate(Nation_statistic_values_templates::first()->set, $request->id);
+
 
         $nation = new Nations();
         $nation->lobby_id = $request->id;
         $nation->name = 'Nový národ';
-        $nation->economy = 0;
-        $nation->tax = 0;
-        $nation->happiness = 0;
-        $nation->gasses = 0;
-        $nation->health = 0;
-        $nation->money = 1;
+        $nation->statistic_values_set = Nation_statistic_values_templates::first()->set;
         $check = $nation->save();
+
+        Round_to_nation_statistics::copyNationStatisticsFromTemplate(Nations_templates::first()->id, Nations::all()->last()->id);
 
         if(!$check){
             return response('Chyba při ukládání do databáze Nations!', 500)->header('Content-Type', 'text/plain');
@@ -36,10 +40,20 @@ class NationsController extends Controller
 
     }
 
+    function removeNation(Request $request){
+
+        Log::info('NationsController:removeNation');
+
+        Nations::removeNation($request->id);
+
+    }
+
+
+
 
     function getEditNations(Request $request){
 
-        Log::info('NationsController:editLobbyNations');
+        Log::info('NationsController:getEditNations');
 
         $data_lobby = Lobbies::find($request->id);
         $data_users = User::get();
@@ -51,8 +65,7 @@ class NationsController extends Controller
         $data_tem_step = 0;
 
         if(count($data_nations)!=0) {
-            $data_nations_gas_count = Nations::where('lobby_id', $request->id)->sum('gasses');
-            Log::info(Start_step_scale::where('gas', '>=', $data_nations_gas_count)->get());
+            $data_nations_gas_count = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::oneRoundOneStatisticAllNations(Rounds::getLastRound($request->id)->id,'gasses'));
             $data_tem_step = Start_step_scale::where('gas', '>=', $data_nations_gas_count)->orderBy('gas', 'asc')->first()->step;
         }
 
@@ -83,17 +96,14 @@ class NationsController extends Controller
         $temp = Nations_templates::find($request->id_template);
 
 
+        Nation_statistic_values::copyNationStatisticValuesFromTemplate($temp->statistic_values_set, Nations::find($request->id_nation)->lobby_id, true);
+        Round_to_nation_statistics::copyNationStatisticsFromTemplate($request->id_template, $request->id_nation, true);
+
         $check = DB::table('nations')
             ->where('id', $request->id_nation)
             ->update([
                 'name' => $temp->name,
-                'economy' => $temp->economy,
-                'tax' => $temp->tax,
-                'happiness' => $temp->happiness,
-                'gasses' => $temp->gasses,
-                'health' => $temp->health,
-                'money' => $temp->money,
-
+                'statistic_values_set' => $temp->statistic_values_set,
             ]);
 
 

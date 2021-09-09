@@ -288,56 +288,47 @@ class DatabaseSeeder extends Seeder
         DB::table('statistics_types')->insert([
             'id' => 1,
             'name' => 'Ekonomie',
+            'code_name' => 'economy',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 2,
             'name' => 'Level ekonomie',
+            'code_name' => 'level_economy',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 3,
             'name' => 'Daň',
+            'code_name' => 'tax',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 4,
             'name' => 'Nálada',
+            'code_name' => 'happiness',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 5,
             'name' => 'Level nálady',
+            'code_name' => 'level_happiness',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 6,
             'name' => 'Skl. Plyny',
+            'code_name' => 'gasses',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 7,
             'name' => 'Zdraví',
+            'code_name' => 'health',
         ]);
 
 
-        //Nations template
 
-        DB::table('nations_templates')->insert([
-            'name' => 'Euronia',
-            'statistic_values_set' => 1,
-        ]);
-
-        DB::table('nations_templates')->insert([
-            'name' => 'Aso-chin',
-            'statistic_values_set' => 1,
-        ]);
-
-        DB::table('nations_templates')->insert([
-            'name' => 'Minerawe',
-            'statistic_values_set' => 2,
-
-        ]);
 
 
 
@@ -978,47 +969,66 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        //Nations template
+
+        DB::table('nations_templates')->insert([
+            'name' => 'Euronia',
+            'statistic_values_set' => 1,
+        ]);
+
+        DB::table('nations_templates')->insert([
+            'name' => 'Aso-chin',
+            'statistic_values_set' => 1,
+        ]);
+
+        DB::table('nations_templates')->insert([
+            'name' => 'Minerawe',
+            'statistic_values_set' => 2,
+
+        ]);
+
+
         // Start to nation statistics
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 1,
-            'statistics_type_id' => 1,
+            'statistic_type_id' => 1,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 1,
-            'statistics_type_id' => 2,
+            'statistic_type_id' => 2,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 1,
-            'statistics_type_id' => 3,
+            'statistic_type_id' => 3,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 1,
-            'statistics_type_id' => 4,
+            'statistic_type_id' => 4,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 1,
-            'statistics_type_id' => 5,
+            'statistic_type_id' => 5,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 1,
-            'statistics_type_id' => 6,
+            'statistic_type_id' => 6,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 1,
-            'statistics_type_id' => 7,
+            'statistic_type_id' => 7,
             'index' => 2,
         ]);
 
@@ -1026,43 +1036,43 @@ class DatabaseSeeder extends Seeder
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 2,
-            'statistics_type_id' => 1,
+            'statistic_type_id' => 1,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 2,
-            'statistics_type_id' => 2,
+            'statistic_type_id' => 2,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 2,
-            'statistics_type_id' => 3,
+            'statistic_type_id' => 3,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 2,
-            'statistics_type_id' => 4,
+            'statistic_type_id' => 4,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 2,
-            'statistics_type_id' => 5,
+            'statistic_type_id' => 5,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 2,
-            'statistics_type_id' => 6,
+            'statistic_type_id' => 6,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 2,
-            'statistics_type_id' => 7,
+            'statistic_type_id' => 7,
             'index' => 2,
         ]);
 
@@ -1070,45 +1080,47 @@ class DatabaseSeeder extends Seeder
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 3,
-            'statistics_type_id' => 1,
+            'statistic_type_id' => 1,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 3,
-            'statistics_type_id' => 2,
+            'statistic_type_id' => 2,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 3,
-            'statistics_type_id' => 3,
+            'statistic_type_id' => 3,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 3,
-            'statistics_type_id' => 4,
+            'statistic_type_id' => 4,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 3,
-            'statistics_type_id' => 5,
+            'statistic_type_id' => 5,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 3,
-            'statistics_type_id' => 6,
+            'statistic_type_id' => 6,
             'index' => 2,
         ]);
 
         DB::table('start_to_nation_statistics')->insert([
             'nation_template_id' => 3,
-            'statistics_type_id' => 7,
+            'statistic_type_id' => 7,
             'index' => 2,
         ]);
+
+
 
     }
 }

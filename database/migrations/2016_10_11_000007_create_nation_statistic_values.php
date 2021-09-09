@@ -16,12 +16,14 @@ class CreateNationStatisticValues extends Migration
         Schema::create('nation_statistic_values', function (Blueprint $table) {
             $table->id();
             $table->integer('set');
+            $table->unsignedBigInteger('lobby_id')->nullable();
             $table->unsignedBigInteger('statistics_type_id')->nullable();
             $table->integer('index');
             $table->integer('value');
 
 
             $table->foreign('statistics_type_id')->references('id')->on('statistics_types');
+            $table->foreign('lobby_id')->references('id')->on('lobbies');
         });
     }
 

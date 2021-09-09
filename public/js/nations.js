@@ -27,6 +27,30 @@ function addNation(id){
 
 }
 
+function removeNation(id){
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+    $.ajax({
+        url: '/removeNation',
+        type: 'delete',
+        data: { _token: token, id: id},
+        success:function(response){
+            hideLoading();
+            refreshNationsEditList();
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            allertError(err);
+            hideLoading();
+
+        }
+    });
+
+}
+
 function saveNationsUser(id, value, fce){
 
     showLoading();

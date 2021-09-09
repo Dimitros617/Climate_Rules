@@ -17,13 +17,12 @@ class CreateNations extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('lobby_id')->nullable();
-            $table->unsignedBigInteger('statistic_values_set');
+            $table->integer('statistic_values_set');
             $table->string('flag_image',100);
             $table->string('map_image',100);
             $table->string('name',40);
 
 
-            $table->foreign('statistic_values_set')->references('id')->on('nation_statistic_values');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('lobby_id')->references('id')->on('lobbies');
         });

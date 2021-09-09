@@ -8,6 +8,7 @@ use App\Models\Lobbies;
 use App\Models\Nations;
 use App\Models\Nations_templates;
 use App\Models\Phases;
+use App\Models\Round_to_nation_statistics;
 use App\Models\Rounds;
 use App\Models\Start_step_scale;
 use App\Models\User;
@@ -85,6 +86,8 @@ class LobbiesController extends Controller
         $lobby->updated_at = Carbon::now()->toDateTimeString();
         $check = $lobby->save();
 
+        Rounds::newRound(Lobbies::all()->last()->id);
+
         if(!$check){
             return response('Chyba při ukládání do databáze Lobbies!', 500)->header('Content-Type', 'text/plain');
         }
@@ -134,8 +137,16 @@ class LobbiesController extends Controller
         $data_tem_step = 0;
 
         if(count($data_nations)!=0) {
-            $data_nations_gas_count = Nations::where('lobby_id', $id)->sum('gasses');
-            $data_tem_step = Start_step_scale::where('gas', '<', ($data_nations_gas_count+1))->orderBy('gas', 'desc')->first()->step;
+
+
+            $data_nations_gas_count = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::oneRoundOneStatisticAllNations(Rounds::getLastRound($id)->id,'gasses'));
+
+            if($data_nations_gas_count < 0){
+                $data_tem_step = Start_step_scale::orderBy('step','asc')->first()->step;
+            }else{
+                $data_tem_step = Start_step_scale::where('gas', '<', ($data_nations_gas_count+1))->orderBy('gas', 'desc')->first()->step;
+
+            }
         }
 
         return view('lobby-edit-nations', [
