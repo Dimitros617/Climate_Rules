@@ -59,4 +59,56 @@ class Lobbies extends Model
             return -2;
         }
     }
+
+    /**
+     * Metoda zkontroluje zda všechny národy v lobby používají stejný počet statystics types.
+     *
+     * @param $lobby_id
+     * @return bool|null = pokud není v tabulce  nation_statistic_values ani jeden zavedený set
+     */
+    static function isDefinedNationsStatisticTypesSame($lobby_id){
+
+
+
+        $sets = DB::table('nation_statistic_values')
+            ->select('nation_statistic_values.set')
+            ->where('lobby_id','=',$lobby_id)
+            ->groupBy('nation_statistic_values.set')
+            ->get();
+
+
+
+        if(count($sets)==0){
+            return null;
+        }
+        if(count($sets)==1){
+            return true;
+        }else{
+            $sumA = DB::table('nation_statistic_values')
+                ->selectRaw('COUNT(*) AS sum')
+                ->where([['lobby_id',$lobby_id],['nation_statistic_values.set',$sets[0]->set]])
+                ->groupBy('nation_statistic_values.statistics_type_id')
+                ->get();
+        }
+
+        $diference = 0;
+
+        for ($i = 1 ; $i< count($sets); $i++){
+
+            $sumB = DB::table('nation_statistic_values')
+                ->selectRaw('COUNT(*) AS sum')
+                ->where([['lobby_id',$lobby_id],['nation_statistic_values.set',$sets[$i]->set]])
+                ->groupBy('nation_statistic_values.statistics_type_id')
+                ->get();
+
+            if(count($sumA) != count($sumB)){
+                $diference++;
+            }
+
+            $sumA = $sumB;
+        }
+
+        return $diference == 0 ? true : false;
+
+    }
 }

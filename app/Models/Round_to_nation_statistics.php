@@ -105,12 +105,12 @@ class Round_to_nation_statistics extends Model
 
     }
 
-    static function oneRoundAllStatisticsOneNation($round_id, $nation_id){
+        static function oneRoundAllStatisticsOneNation($round_id, $nation_id){
 
         Log::info('Round_to_nation_statistics:oneRoundAllStatisticsOneNation');
 
         $stat = DB::table('round_to_nation_statistics')
-            ->select('round_to_nation_statistics.*', 'nations.statistic_values_set', 'nations.lobby_id', 'nations.name AS nation_name')
+            ->select('round_to_nation_statistics.*', 'nations.statistic_values_set', 'nations.lobby_id', 'nations.name AS nation_name', 'statistics_types.name AS statistic_type_name', 'statistics_types.code_name AS statistic_type_code_name')
             ->join('nations','round_to_nation_statistics.nation_id','=','nations.id')
             ->join('statistics_types','round_to_nation_statistics.statistic_type_id','=','statistics_types.id')
             ->whereRaw('round_to_nation_statistics.id IN (SELECT MAX(round_to_nation_statistics.id) AS id
@@ -146,7 +146,6 @@ class Round_to_nation_statistics extends Model
             ->orderBy('round_to_nation_statistics.nation_id')
             ->orderBy('round_to_nation_statistics.statistic_type_id')
             ->get();
-
 
 
         return Round_to_nation_statistics::statisticIndexToValue($stat);

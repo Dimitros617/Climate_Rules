@@ -136,16 +136,38 @@ class LobbiesController extends Controller
         $data_nations_gas_count = 0;
         $data_tem_step = 0;
 
+
+        //Redundantní podmínka v NationsController:getEditNations
         if(count($data_nations)!=0) {
 
 
+            //Sečtená hodnota skleníkových plynů z posledního kola všech národů přižazených do loby
             $data_nations_gas_count = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::oneRoundOneStatisticAllNations(Rounds::getLastRound($id)->id,'gasses'));
 
             if($data_nations_gas_count < 0){
                 $data_tem_step = Start_step_scale::orderBy('step','asc')->first()->step;
             }else{
-                $data_tem_step = Start_step_scale::where('gas', '<', ($data_nations_gas_count+1))->orderBy('gas', 'desc')->first()->step;
+                $data_tem_step = Start_step_scale::where('gas', '<', ($data_nations_gas_count))->orderBy('gas', 'desc')->first()->step;
+                //$data_nations_gas_count+1 v případě že to má být větší v četně
+            }
 
+            if($data_tem_step == 0){
+                return response('Chyba temp step (krok) z tabulky Start step scale nemůže být 0!', 500)->header('Content-Type', 'text/plain');
+            }else{
+                //Pokud se jedná o novou hru (lobby phase code = 1) nová hodnota kroku se updatuje v tabulce lobby do gas_step
+                if(Lobbies::find($id)->phase == 1){
+                    $check = DB::table('lobbies')
+                        ->where('id', $id)
+                        ->update([
+                            'gas_step' => $data_tem_step,
+                            'updated_at' => Carbon::now()->toDateTimeString(),
+                        ]);
+
+
+                    if(!$check) {
+                        return response('Nastala chyba při ukládání dat gas_step do tabulky lobbies! ', 500)->header('Content-Type', 'text/plain');
+                    }
+                }
             }
         }
 
@@ -237,14 +259,27 @@ class LobbiesController extends Controller
         $lobby = Lobbies::find($lobby_id);
         $my_nation = Nations::find($nation_id);
         $nations = Nations::where('lobby_id',$lobby_id)->get();
+        $nations = Nations::addStatsToNations($nations, Rounds::getLastRound($lobby_id)->id);
         $rounds = Rounds::where('lobby_id',$lobby_id)->get();
         $last_round = DB::table('rounds')
             ->where('lobby_id', '=', $lobby_id)
             ->orderBy('id')
             ->first();
+        $last_round->gases = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::oneRoundOneStatisticAllNations(Rounds::getLastRound($lobby_id)->id,'gasses'));
+        $statistics_types = DB::table('statistics_types')
+            ->select('statistics_types.*')
+            ->join('nation_statistic_values','statistics_types.id','=','nation_statistic_values.statistics_type_id')
+            ->where('nation_statistic_values.set','=',$nation_id)
+            ->groupBy('statistics_types.code_name')
+            ->get();
 
+        if(!Lobbies::isDefinedNationsStatisticTypesSame($lobby_id)){
+            return response('Zjistily jsme že různé národy používají různé datové sady a ukazatele!', 500)->header('Content-Type', 'text/plain');
+        }
 
-        return view('global-status', ['lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'nations' => $nations, 'rounds' => $rounds, 'last_round' => $last_round]);
+        //return ['lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'nations' => $nations, 'rounds' => $rounds, 'last_round' => $last_round];
+
+        return view('global-status', ['lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'nations' => $nations, 'rounds' => $rounds, 'last_round' => $last_round, 'statistics_types' => $statistics_types]);
 
     }
 

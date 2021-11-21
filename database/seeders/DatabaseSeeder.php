@@ -289,42 +289,49 @@ class DatabaseSeeder extends Seeder
             'id' => 1,
             'name' => 'Ekonomie',
             'code_name' => 'economy',
+            'unit' => '%',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 2,
             'name' => 'Level ekonomie',
             'code_name' => 'level_economy',
+            'unit' => '%',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 3,
             'name' => 'Daň',
             'code_name' => 'tax',
+            'unit' => '%',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 4,
             'name' => 'Nálada',
             'code_name' => 'happiness',
+            'unit' => '',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 5,
             'name' => 'Level nálady',
             'code_name' => 'level_happiness',
+            'unit' => '',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 6,
             'name' => 'Skl. Plyny',
             'code_name' => 'gasses',
+            'unit' => 'CO2',
         ]);
 
         DB::table('statistics_types')->insert([
             'id' => 7,
             'name' => 'Zdraví',
             'code_name' => 'health',
+            'unit' => 'let',
         ]);
 
 
@@ -378,8 +385,8 @@ class DatabaseSeeder extends Seeder
         DB::table('nation_statistic_values_templates')->insert([
             'set' => 1,
             'statistics_type_id' => 2,
-            'index' => 1,
-            'value' => 2,
+            'index' => 6,
+            'value' => 6,
         ]);
 
         DB::table('nation_statistic_values_templates')->insert([

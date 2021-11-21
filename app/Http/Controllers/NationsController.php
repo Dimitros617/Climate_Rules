@@ -49,8 +49,15 @@ class NationsController extends Controller
     }
 
 
-
-
+    /**
+     *Metoda je updatovací při změně počtu nebo stavu hráče smazání nebo přidání
+     * * dále načte data o všech nations které jsou přiděleny k tomuto lobby, zkontroluje a spočítá počáteční hodnoty hranice zvýšení teploty podle aktuálního stavu nations
+     * Když nejsou lobby přiděleny žádné nations, vrací 0
+     *
+     * @param Request $request ´ID loby které chceme upravovat
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     *
+     */
     function getEditNations(Request $request){
 
         Log::info('NationsController:getEditNations');
@@ -64,10 +71,42 @@ class NationsController extends Controller
         $data_nations_gas_count = 0;
         $data_tem_step = 0;
 
+
+        //Redundantní podmínka v LobbiesController:editLobbyNations
         if(count($data_nations)!=0) {
+
+
+            //Sečtená hodnota skleníkových plynů z posledního kola všech národů přižazených do loby
             $data_nations_gas_count = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::oneRoundOneStatisticAllNations(Rounds::getLastRound($request->id)->id,'gasses'));
-            $data_tem_step = Start_step_scale::where('gas', '>=', $data_nations_gas_count)->orderBy('gas', 'asc')->first()->step;
+
+            if($data_nations_gas_count < 0){
+                $data_tem_step = Start_step_scale::orderBy('step','asc')->first()->step;
+            }else{
+                $data_tem_step = Start_step_scale::where('gas', '<', ($data_nations_gas_count))->orderBy('gas', 'desc')->first()->step;
+                //$data_nations_gas_count+1 v případě že to má být větší v četně
+            }
+
+            if($data_tem_step == 0){
+                return response('Chyba temp step (krok) z tabulky Start step scale nemůže být 0!', 500)->header('Content-Type', 'text/plain');
+            }else{
+                //Pokud se jedná o novou hru (lobby phase code = 1) nová hodnota kroku se updatuje v tabulce lobby do gas_step
+                if(Lobbies::find($request->id)->phase == 1){
+                    $check = DB::table('lobbies')
+                        ->where('id', $request->id)
+                        ->update([
+                            'gas_step' => $data_tem_step,
+                            'updated_at' => Carbon::now()->toDateTimeString(),
+                        ]);
+
+
+                    if(!$check) {
+                        return response('Nastala chyba při ukládání dat gas_step do tabulky lobbies! ', 500)->header('Content-Type', 'text/plain');
+                    }
+                }
+            }
         }
+
+
 
 
         return view('lobby-edit-nations-table', [

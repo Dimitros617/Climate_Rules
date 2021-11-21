@@ -11,22 +11,23 @@
                     </svg>
                     Přehled
                 </th>
-                <th class="pb-4 table-head-title text-center" style="writing-mode: vertical-rl; text-orientation: mixed;">Ekonomie</th>
-                <th class="pb-4 table-head-title text-center" style="writing-mode: vertical-rl; text-orientation: mixed;">Daň</th>
-                <th class="pb-4 table-head-title text-center" style="writing-mode: vertical-rl; text-orientation: mixed;">Nálada</th>
-                <th class="pb-4 table-head-title text-center" style="writing-mode: vertical-rl; text-orientation: mixed;">Věk</th>
-                <th class="pb-4 table-head-title text-center" style="writing-mode: vertical-rl; text-orientation: mixed;">Skl. Plyny</th>
+
+                @foreach($statistics_types as $statistic_type)
+                    <th class="pb-4 table-head-title text-center" style="writing-mode: vertical-rl; text-orientation: mixed;">{{$statistic_type->name}}</th>
+                @endforeach
                 <th class="pb-4 table-head-title text-center" style="writing-mode: vertical-rl; text-orientation: mixed;">Příjem</th>
+
 
             </tr>
             @foreach($nations as $nation)
             <tr class="rounded-4 overflow-hidden">
                 <th class="cr-gradient fs-7 mb-2 p-3">{{$nation->name}}</th>
-                <th class="fs-7 text-center hover-size-01" data-title="Level ekonomie: @php echo floor($nation->economy / 20)+1 @endphp">{{$nation->economy}}<span class="fs-6"> %</span></th>
-                <th class="fs-7 text-center hover-size-01">{{$nation->tax}}<span class="fs-6"> %</span></th>
-                <th class="fs-7 text-center hover-size-01">{{$nation->happiness}}<span class="fs-6"> %</span></th>
-                <th class="fs-7 text-center hover-size-01">{{$nation->health}} <span class="fs-6">let</span></th>
-                <th class="fs-7 text-center hover-size-01">{{$nation->gasses}} <span class="fs-6">CO<sub>2</sub></span></th>
+
+                @foreach($statistics_types as $statistic_type)
+{{--                    $statistic_type->code_name--}}
+                <th class="fs-7 text-center hover-size-01">@php $name = $statistic_type->code_name;  print_r( $nation->stats[0]->$name); @endphp</php><span class="fs-6"> </span></th>
+                @endforeach
+
 {{--                income count počítání příjmů--}}
                 <th class="fs-7 text-center hover-size-01">@php echo ($nation->economy * $nation->tax) @endphp <span class="fs-6">M</span></th>
             </tr>
