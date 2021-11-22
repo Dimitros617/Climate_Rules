@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -31,7 +32,7 @@ class Round_to_nation_statistics extends Model
             $stat->round_id = Rounds::all()->last()->id;
             $stat->statistic_type_id = $nations_statistics[$i]->statistic_type_id;
             $stat->index = $nations_statistics[$i]->index;
-            $stat->reason = 'Coppy data';
+            $stat->reason = 'Coppy data: '  . Auth::user()->nick;
             $stat->created_at = Carbon::now()->toDateTimeString();
             $stat->updated_at = Carbon::now()->toDateTimeString();
             $stat->save();
@@ -214,6 +215,116 @@ class Round_to_nation_statistics extends Model
         return Round_to_nation_statistics::statisticIndexToValue($stat);
 
     }
+
+    static function increaseStaticticValueOfNation($nationId, $statisticCode, $step){
+
+        Log::info('Round_to_nation_statistics:increaseStaticticValueOfNation');
+
+        $curentValue = Round_to_nation_statistics::oneRoundOneStatisticOneNation(Rounds::getLastRound(Nations::find($nationId)->lobby_id)->id,$statisticCode,$nationId);
+
+
+        $allIndexFromSet = DB::table('nation_statistic_values')
+            ->where('lobby_id', $curentValue[0]->lobby_id)
+            ->where('set', $curentValue[0]->statistic_values_set)
+            ->where('statistics_type_id',$curentValue[0]->statistic_type_id )
+            ->orderBy('nation_statistic_values.index','ASC')
+            ->get();
+
+        //Na jakém reálém indexu všech hodnot z dané sady se nachází naše puvodní kterou chceme svýšit
+        $indexInArray = -1;
+        for ($i = 0; $i < count($allIndexFromSet); $i++){
+            if($curentValue[0]->index == $allIndexFromSet[$i]->index && $curentValue[0]->value == $allIndexFromSet[$i]->value){
+                $indexInArray = $i;
+                break;
+            }
+        }
+        if($indexInArray == -1){
+            return -1;
+        }
+        if(!isset($step)){
+            return -3;
+        }
+        if($indexInArray+$step > (count($allIndexFromSet)-1)){
+            return 0;
+        }
+        else{
+
+            $newIndexFromSet = $allIndexFromSet[($indexInArray+$step)];
+
+            $stat = new Round_to_nation_statistics();
+            $stat->nation_id = $nationId;
+            $stat->round_id = Rounds::getLastRound(Nations::find($nationId)->id)->id;
+            $stat->statistic_type_id = $newIndexFromSet->statistics_type_id;
+            $stat->index = $newIndexFromSet->index;
+            $stat->reason = 'Admin manual increase: ' . Auth::user()->nick;
+            $stat->created_at = Carbon::now()->toDateTimeString();
+            $stat->updated_at = Carbon::now()->toDateTimeString();
+            $stat->save();
+
+            if($stat) {
+                return 1;
+            }
+            else{
+                return -2;
+            }
+        }
+    }
+
+
+    static function decreaseStaticticValueOfNation($nationId, $statisticCode, $step){
+
+        Log::info('Round_to_nation_statistics:decreaseStaticticValueOfNation');
+
+        $curentValue = Round_to_nation_statistics::oneRoundOneStatisticOneNation(Rounds::getLastRound(Nations::find($nationId)->lobby_id)->id,$statisticCode,$nationId);
+
+
+        $allIndexFromSet = DB::table('nation_statistic_values')
+            ->where('lobby_id', $curentValue[0]->lobby_id)
+            ->where('set', $curentValue[0]->statistic_values_set)
+            ->where('statistics_type_id',$curentValue[0]->statistic_type_id )
+            ->orderBy('nation_statistic_values.index','ASC')
+            ->get();
+
+        //Na jakém reálém indexu všech hodnot z dané sady se nachází naše puvodní kterou chceme svýšit
+        $indexInArray = -1;
+        for ($i = 0; $i < count($allIndexFromSet); $i++){
+            if($curentValue[0]->index == $allIndexFromSet[$i]->index && $curentValue[0]->value == $allIndexFromSet[$i]->value){
+                $indexInArray = $i;
+                break;
+            }
+        }
+        if($indexInArray == -1){
+            return -1;
+        }
+        if(!isset($step)){
+            return -3;
+        }
+        if($indexInArray-$step < 0){
+            return 0;
+        }
+        else{
+
+            $newIndexFromSet = $allIndexFromSet[($indexInArray-$step)];
+
+            $stat = new Round_to_nation_statistics();
+            $stat->nation_id = $nationId;
+            $stat->round_id = Rounds::getLastRound(Nations::find($nationId)->id)->id;
+            $stat->statistic_type_id = $newIndexFromSet->statistics_type_id;
+            $stat->index = $newIndexFromSet->index;
+            $stat->reason = 'Admin manual decrease: ' . Auth::user()->nick;
+            $stat->created_at = Carbon::now()->toDateTimeString();
+            $stat->updated_at = Carbon::now()->toDateTimeString();
+            $stat->save();
+
+            if($stat) {
+                return 1;
+            }
+            else{
+                return -2;
+            }
+        }
+    }
+
 
 
 }

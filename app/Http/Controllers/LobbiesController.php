@@ -269,7 +269,7 @@ class LobbiesController extends Controller
         $statistics_types = DB::table('statistics_types')
             ->select('statistics_types.*')
             ->join('nation_statistic_values','statistics_types.id','=','nation_statistic_values.statistics_type_id')
-            ->where('nation_statistic_values.set','=',$nation_id)
+            ->where('nation_statistic_values.set','=',$nations[0]->statistic_values_set)
             ->groupBy('statistics_types.code_name')
             ->get();
 
@@ -340,6 +340,22 @@ class LobbiesController extends Controller
 
 
 
+    }
+
+    function removeLobby(Request $request){
+        Log::info('LobbiesController:removeLobby');
+
+        //TODO - doplnit mazání závislostí na lobby - státy, uživatele, kola a pod...
+
+        Rounds::removeAllRoundFromLobby($request->id);
+
+        $check = DB::table('lobbies')
+            ->where('id', '=', $request->id)
+            ->delete();
+
+        if(!$check) {
+            return response('Nastala chyba při mazání lobby.' , 500)->header('Content-Type', 'text/plain');
+        }
     }
 
 

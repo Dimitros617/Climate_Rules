@@ -1,9 +1,12 @@
 @section('title','Climate rules')
 @section('title_name', $my_nation->name)
 
+@section('css', URL::asset('css/admin-setting.css'))
+
 <script src="/js/main.js"></script>
 <script src="/js/nations.js"></script>
 <script src="/js/game.js"></script>
+<script src="/js/admin-setting.js"></script>
 
 <x-app-layout>
     <x-slot name="header">
@@ -61,7 +64,9 @@
     <div class="w-90 ms-auto me-auto d-block">
         <div class="d-flex flex-wrap justify-content-center">
 
+            <div id="status-table-container" class="light-transparent justify-content-between rounded-5 w-70 p-5 pt-4 m-2 shadow-sm" lobbyId="{{$nations[0]->lobby_id}}">
             @include('global-status-table')
+            </div>
             @include('global-status-earth')
 
         </div>

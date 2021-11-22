@@ -1,0 +1,21 @@
+
+svg.bi-caret-left-fill {
+    position: absolute;
+    margin-left: -2.2rem;
+}
+
+svg.bi-caret-right-fill {
+    position: absolute;
+}
+
+.bi-caret-left-fill, .bi-caret-right-fill  {
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.bi-caret-left-fill:hover {
+    transform: scale(1.2);
+}
+.bi-caret-right-fill:hover{
+    transform: scale(1.2);
+}

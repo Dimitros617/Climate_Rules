@@ -45,6 +45,8 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->put('/addLob
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/editLobby/{id:id}', [LobbiesController::class,'editLobby']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/editLobbyNations/{id:id}', [LobbiesController::class,'editLobbyNations']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveLobby', [LobbiesController::class,'saveLobby']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->delete('/removeLobby', [LobbiesController::class,'removeLobby']);
+
 
 //Lobby - global
 Route::middleware(['auth:sanctum', 'verified', 'permition:play', 'lobby'])->get('/lobby/{lobby_id?}', [LobbiesController::class,'enterLobby']);
@@ -55,7 +57,10 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin', 'lobby'])->get
 
 
 //Game
-Route::get('/updateTemperatureActualValue/{id:id}', [GameController::class,'updateTemperatureActualValue']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/updateTemperatureActualValue/{id:id}', [GameController::class,'updateTemperatureActualValue']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/updateGlobalTable/{id:id}', [GameController::class,'updateGlobalTable']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/increaseValue', [GameController::class,'increaseValue']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/decreaseValue', [GameController::class,'decreaseValue']);
 
 
 //Nations

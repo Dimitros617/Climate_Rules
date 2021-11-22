@@ -63,11 +63,13 @@ function setTemperatureActualValue(gass_step, gasses = 0){
  */
 function updateTemperatureActualValue(id){
 
+    showLoading();
     $.ajax({
         url: '/updateTemperatureActualValue/'+id,
         type: 'get',
 
         success:function(response){
+            hideLoading();
             let a = response;
             //TODO - převzít a zavolat metodu setTemperatureActualValue
             //setTemperatureActualValue(response->gass_step, response->gasses)
@@ -81,5 +83,33 @@ function updateTemperatureActualValue(id){
         }
     });
 
+
+}
+
+/**
+ *
+ * @param id = lobbyID
+ */
+function updateGlobalTable(id){
+
+    showLoading();
+    $.ajax({
+        url: '/updateGlobalTable/'+id,
+        type: 'get',
+
+        success:function(response){
+            hideLoading();
+            document.getElementById('status-table-container').innerHTML = response;
+
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            allertError(err);
+            hideLoading();
+
+        }
+    });
 
 }

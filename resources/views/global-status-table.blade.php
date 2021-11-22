@@ -1,4 +1,3 @@
-<div class="light-transparent justify-content-between rounded-5 w-70 p-5 pt-4 m-2 shadow-sm">
 
     <div class="d-flex justify-content-between pb-2 mb-3" >
 
@@ -24,12 +23,28 @@
                 <th class="cr-gradient fs-7 mb-2 p-3">{{$nation->name}}</th>
 
                 @foreach($statistics_types as $statistic_type)
-{{--                    $statistic_type->code_name--}}
-                <th class="fs-7 text-center hover-size-01">@php $name = $statistic_type->code_name;  print_r( $nation->stats[0]->$name); @endphp</php><span class="fs-6"> </span></th>
+{{--                        onmouseleave="thHoverOff(this)" --}}
+                <th class=" fs-7 text-center hover-size-01" nationId="{{$nation->id}}" staticticTypeCode="{{$statistic_type->code_name}}" @if(Auth::check() && Auth::permition()->admin == "1") onmouseenter="thHoverOn(this)" onmouseleave="thHoverOff(this)" @endif>
+
+                    @if(Auth::check() && Auth::permition()->admin == "1")
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16" display="none" onclick="decreaseValue(this.parentNode.getAttribute('nationId'), this.parentNode.getAttribute('staticticTypeCode'))">
+                        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                    </svg>
+                    @endif
+
+                    @php $name = $statistic_type->code_name;  print_r( $nation->stats[0]->$name); @endphp
+
+                    @if(Auth::check() && Auth::permition()->admin == "1")
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16" display="none" onclick="increaseValue(this.parentNode.getAttribute('nationId'), this.parentNode.getAttribute('staticticTypeCode'))">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                    </svg>
+                    @endif
+
+                </th>
                 @endforeach
 
 {{--                income count počítání příjmů--}}
-                <th class="fs-7 text-center hover-size-01">@php echo ($nation->economy * $nation->tax) @endphp <span class="fs-6">M</span></th>
+                <th class="fs-7 text-center hover-size-01">@php  echo ($nation->stats[0]->economy * $nation->stats[0]->tax) @endphp <span class="fs-6">M</span></th>
             </tr>
             @endforeach
 
@@ -37,7 +52,7 @@
 
     </div>
 
-</div>
+
 
 
 

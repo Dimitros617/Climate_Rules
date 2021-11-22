@@ -1,4 +1,43 @@
 
+function removeLobby(id){
+    Swal.fire({
+        icon: 'question',
+        title:'Smazat?',
+        text: 'Opravdu chcete toto lobby smazat?',
+        showCloseButton: false,
+        showCancelButton: false,
+        showConfirmButton: true,
+        showDenyButton: true,
+        confirmButtonText: `Smazat`,
+        denyButtonText: `Zrušit`,
+        focusConfirm: false,
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            showLoading();
+            let token = document.getElementById('csrf_token').getAttribute('content');
+
+            $.ajax({
+                url: '/removeLobby',
+                type: 'delete',
+                data: { _token: token, id: id},
+                success:function(response){
+                    hideLoading();
+                    refreshLobbyList();
+                },
+                error: function (response){
+                    console.log(response);
+                    let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                    allertError(err);
+                    hideLoading();
+
+                }
+            });
+
+        }
+
+    })
+}
 
 function refreshLobbyList(){
 

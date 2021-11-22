@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rounds;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -14,6 +15,7 @@ class ContentController extends Controller
         Log::info('ContentController:removeElement');
 
         //TODO - doplnit mazání závislostí na lobby - státy, uživatele, kola a pod...
+
 
         $check = DB::table($request->table)
             ->where('id', '=', $request->id)

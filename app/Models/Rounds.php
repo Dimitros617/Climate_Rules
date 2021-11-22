@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class Rounds extends Model
 {
@@ -19,6 +20,18 @@ class Rounds extends Model
         $check = $round->save();
 
         return $check;
+
+    }
+
+    static function removeAllRoundFromLobby($lobby_id){
+
+        $check = DB::table('rounds')
+            ->where('lobby_id', '=', $lobby_id)
+            ->delete();
+
+        if(!$check) {
+            return response('Nastala chyba při mazání dat z rounds všech kol', 500)->header('Content-Type', 'text/plain');
+        }
 
     }
 
