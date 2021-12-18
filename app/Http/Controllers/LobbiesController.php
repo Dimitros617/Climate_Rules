@@ -245,11 +245,11 @@ class LobbiesController extends Controller
 
             $nation = Lobbies::getMyNation($lobby_id);
 
-            if($nation == -1){
+            if(is_numeric($nation) && $nation == -1){
                 return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
             }
 
-            if($nation == -2){
+            if(is_numeric($nation) && $nation == -2){
                 return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
             }
 
@@ -315,11 +315,11 @@ class LobbiesController extends Controller
 
             $nation = Lobbies::getMyNation($lobby_id);
 
-            if($nation == -1){
+            if(is_numeric($nation) && $nation == -1){
                 return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
             }
 
-            if($nation == -2){
+            if(is_numeric($nation) && $nation == -2){
                 return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
             }
 

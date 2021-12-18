@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\NationsController;
+use App\Http\Controllers\TechnologiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ListUsersController;
@@ -69,6 +70,9 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->put('/addNat
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->delete('/removeNation', [NationsController::class,'removeNation']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveNationFromTemplate', [NationsController::class,'saveNationFromTemplate']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveNationsUser', [NationsController::class,'saveNationsUser']);
+
+//technologies
+Route::middleware(['auth:sanctum', 'verified'])->get('/lobby/{lobby_id?}/technologies', [TechnologiController::class,'show']);
 
 
 //Uživatelé

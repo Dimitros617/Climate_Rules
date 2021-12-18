@@ -11,10 +11,21 @@
                     Přehled
                 </th>
 
-                @foreach($statistics_types as $statistic_type)
-                    <th class="pb-4 table-head-title text-center" style="writing-mode: vertical-rl; text-orientation: mixed;">{{$statistic_type->name}}</th>
-                @endforeach
-                <th class="pb-4 table-head-title text-center" style="writing-mode: vertical-rl; text-orientation: mixed;">Příjem</th>
+                <div class="d-flex">
+                    @foreach($statistics_types as $statistic_type)
+                        <th class="pb-4 text-center flex-1"   data-title="{{$statistic_type->name}}">
+                            <div class="">
+                                <div class="top-0 mb-3"  style="transform: scale(2)">@php echo htmlspecialchars_decode($statistic_type->icon) @endphp</div>
+                                <span class="bottom-0 pt-3" style=" font-size: 10px">{{$statistic_type->name}}</span>
+                            </div>
+                        </th>
+                    @endforeach
+                </div>
+                <th class="pb-4 text-center" style="text-orientation: mixed;" data-title="Příjem">
+                    <div class="top-0 mb-3"  style="transform: scale(2)"><img src="{{URL::asset('img/CR-coin.svg')}}"></div>
+                    <span class="bottom-0 pt-3" style=" font-size: 10px">Příjem</span>
+
+                    </th>
 
 
             </tr>

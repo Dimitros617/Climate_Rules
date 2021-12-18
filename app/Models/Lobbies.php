@@ -46,6 +46,7 @@ class Lobbies extends Model
             ->where('user_id', '=', Auth::user()->id)
             ->get();
 
+
         if(count($nation) == 0){
             Log::info('Lobbies:getMyNation: tomuto účtu nebyl přidělen žádný hráč');
 

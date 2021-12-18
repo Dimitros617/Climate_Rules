@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhases extends Migration
+class CreateNationsTechnologiesStatus extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreatePhases extends Migration
      */
     public function up()
     {
-        Schema::create('phases', function (Blueprint $table) {
+        Schema::create('nations_technologies_status', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('code');
-            $table->string('icon', 5120);
+            $table->string('name',100);
+            $table->string('code', 30);
+
+
         });
     }
 
@@ -28,6 +29,6 @@ class CreatePhases extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phases');
+        Schema::dropIfExists('nations_technologies_status');
     }
 }

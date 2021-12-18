@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhases extends Migration
+class CreateBranches extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreatePhases extends Migration
      */
     public function up()
     {
-        Schema::create('phases', function (Blueprint $table) {
+        Schema::create('branches', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('code');
-            $table->string('icon', 5120);
+            $table->string('name',100);
+            $table->string('code',30);
+            $table->string('color',20)->nullable();
+
+
+            $table->timestamps();
+
         });
     }
 
@@ -28,6 +32,6 @@ class CreatePhases extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phases');
+        Schema::dropIfExists('branches');
     }
 }

@@ -44,6 +44,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
     <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-base.min.js"></script>
+{{--    <script type="text/javascript" src="https://livejs.com/live.js"></script>--}}
 
 
 
@@ -53,6 +54,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-new.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/checkbox.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/context-menu.css') }}">
     <link rel="stylesheet" href="@yield('css')">
     <link rel="stylesheet" href="@yield('css2')">

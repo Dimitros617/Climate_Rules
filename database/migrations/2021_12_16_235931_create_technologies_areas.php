@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhases extends Migration
+class CreateTechnologiesAreas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreatePhases extends Migration
      */
     public function up()
     {
-        Schema::create('phases', function (Blueprint $table) {
+        Schema::create('technologies_areas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('code');
+            $table->string('name',100);
+            $table->string('description');
             $table->string('icon', 5120);
+
+
+            $table->timestamps();
+
+
         });
     }
 
@@ -28,6 +33,6 @@ class CreatePhases extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phases');
+        Schema::dropIfExists('technologies_areas');
     }
 }

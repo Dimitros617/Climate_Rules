@@ -106,6 +106,50 @@ function changeElement(table, column, id, value, fce){
 
 }
 
+function collapseElement(parent, clickedParent, collapseClass){
+
+    let collapseElements = parent.getElementsByClassName(collapseClass);
+
+    for(let ele of collapseElements){
+        ele.style.height = '0px';
+    }
+
+    let decollapseElement = clickedParent.getElementsByClassName(collapseClass)[0];
+    decollapseElement.style.height = 'auto';
+}
+
+function showAndHideElement(parent, classElement){
+
+    let collapseElements = parent.getElementsByClassName(classElement)[0];
+    let hidden = collapseElements.getAttribute('hidden');
+
+    if(hidden == null){
+        collapseElements.setAttribute('hidden','');
+        parent.getElementsByClassName('show')[0].removeAttribute('hidden');
+        parent.getElementsByClassName('hide')[0].setAttribute('hidden','');
+    }else{
+        collapseElements.removeAttribute('hidden');
+        parent.getElementsByClassName('show')[0].setAttribute('hidden', '');
+        parent.getElementsByClassName('hide')[0].removeAttribute('hidden');
+    }
+
+
+}
+
+function changeSvgChildrenSize(ele, wsize, hsize){
+    if(hsize == undefined){
+        hsize = wsize;
+    }
+
+    let elements = ele.getElementsByTagName('svg')
+
+    for(let e of elements){
+        e.setAttribute('width', wsize);
+        e.setAttribute('height', hsize);
+    }
+
+}
+
 
 
 $(function(){

@@ -43,7 +43,8 @@
         </div>
     </div>
 
-    <div class="cr-button text-center w-10rem bg-white shadow-lg rounded-4 p-1 ms-2 me-2 animate-05 hover-size-01">
+    <div class="cr-button text-center w-10rem bg-white shadow-lg rounded-4 p-1 ms-2 me-2 animate-05 hover-size-01"
+         onclick="window.location.assign('/lobby/{{$lobby->id}}/technologies')" >
         <div class="d-grid pt-3">
             <span class="pb-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bank2" viewBox="0 0 16 16">
