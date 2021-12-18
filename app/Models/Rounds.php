@@ -11,6 +11,11 @@ class Rounds extends Model
 {
     use HasFactory;
 
+    /**
+     * Funkce přidá další kolo do daného lobby
+     * @param $lobby_id
+     * @return bool - Hodnota zda se záznam do databáze přidal v pořádku
+     */
     static function newRound($lobby_id){
 
         $round = new Rounds();
@@ -29,9 +34,7 @@ class Rounds extends Model
             ->where('lobby_id', '=', $lobby_id)
             ->delete();
 
-        if(!$check) {
-            return response('Nastala chyba při mazání dat z rounds všech kol', 500)->header('Content-Type', 'text/plain');
-        }
+        return $check;
 
     }
 

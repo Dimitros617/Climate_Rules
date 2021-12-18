@@ -23,16 +23,13 @@ class CreateTechnologies extends Migration
             $table->string('img_url',200)->default('/img/logo_mini_transparent_gray.png');
             $table->unsignedBigInteger('branch_id');
             $table->unsignedBigInteger('area_id');
+            $table->integer('round_show')->default('1');
 
 
             $table->foreign('branch_id')->references('id')->on('branches');
             $table->foreign('area_id')->references('id')->on('technologies_areas');
 
 
-
-
-
-            $table->timestamps();
         });
     }
 

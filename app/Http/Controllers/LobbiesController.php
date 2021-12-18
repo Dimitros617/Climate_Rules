@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Difficulties;
 use App\Models\Languages;
 use App\Models\Lobbies;
+use App\Models\Lobby_to_technologies;
 use App\Models\Nations;
 use App\Models\Nations_templates;
 use App\Models\Phases;
@@ -87,6 +88,7 @@ class LobbiesController extends Controller
         $check = $lobby->save();
 
         Rounds::newRound(Lobbies::all()->last()->id);
+        Lobby_to_technologies::copyTechnologies(Lobbies::all()->last()->id);
 
         if(!$check){
             return response('Chyba při ukládání do databáze Lobbies!', 500)->header('Content-Type', 'text/plain');
@@ -342,12 +344,23 @@ class LobbiesController extends Controller
 
     }
 
+    /**
+     * @param Request $request - ->id lobby
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response|void
+     */
     function removeLobby(Request $request){
         Log::info('LobbiesController:removeLobby');
 
         //TODO - doplnit mazání závislostí na lobby - státy, uživatele, kola a pod...
 
-        Rounds::removeAllRoundFromLobby($request->id);
+
+
+        if(!Lobby_to_technologies::removeAllTechnologies($request->id)){
+            return response('Nastala chyba při mazání lobby_to_technologies!', 500)->header('Content-Type', 'text/plain');
+        }
+        if(!Rounds::removeAllRoundFromLobby($request->id)) {
+            return response('Nastala chyba při mazání dat z rounds všech kol', 500)->header('Content-Type', 'text/plain');
+        }
 
         $check = DB::table('lobbies')
             ->where('id', '=', $request->id)

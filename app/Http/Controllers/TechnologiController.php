@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lobbies;
+use App\Models\Lobby_to_technologies;
 use App\Models\Nations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,10 +41,17 @@ class TechnologiController extends Controller
             $nation_id = $nation->id;
         }
 
+
+
+
+
+        $allTechnologies = Lobby_to_technologies::getAlltechnologiesFromLobby($lobby_id);
         $my_nation = Nations::find($nation_id);
         $lobby = Lobbies::find($lobby_id);
 
+        //return $allTechnologies;
+
             //TODO předat data z databáze
-        return view('technologies', ['lobby' => $lobby, 'my_nation' => $my_nation]);
+        return view('technologies', ['lobby' => $lobby, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies]);
     }
 }

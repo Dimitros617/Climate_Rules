@@ -6684,6 +6684,14 @@ a.badge-dark:focus, a.badge-dark.focus {
   min-width: 100vw !important;
 }
 
+.h-2px {
+    height: 2px !important;
+}
+
+.h-1px {
+    height: 1px !important;
+}
+
 .h-3px {
     height: 3px !important;
 }
@@ -7078,6 +7086,18 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 .mt--2 {
     margin-top: -2rem !important;
+}
+
+.mt--3 {
+    margin-top: -3rem !important;
+}
+
+.mt--4 {
+    margin-top: -4rem !important;
+}
+
+.mt--5 {
+    margin-top: -5rem !important;
 }
 
 .mt-0 {
@@ -7521,7 +7541,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .text-muted {
-  color: #6c757d !important;
+  color: #8f949a !important;
 }
 
 .text-black-50 {

@@ -2,6 +2,7 @@
 @section('title_name', $my_nation->name)
 
 @section('css', URL::asset('css/admin-setting.css'))
+@section('css2', URL::asset('css/technologies.css'))
 
 <script src="/js/main.js"></script>
 <script src="/js/nations.js"></script>
@@ -12,6 +13,29 @@
     <x-slot name="header">
 
     </x-slot>
+
+    <div class="bg-white w-75 ms-auto me-auto d-block p-3 rounded-3 mb-2">
+
+        <div class="w-100 justify-content-end d-flex">
+            {{--        Řádky--}}
+            <svg onclick="document.getElementById('card-box-container').setAttribute('hidden', ''); document.getElementById('card-row-container').removeAttribute('hidden')" checked="" class="cr-blue animate-02 hover-size-01 cursor-pointer" fill="currentColor" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24"
+                 width="40px" >
+                <rect fill="none" height="24" width="24"/>
+                <path
+                    d="M3,17v-2c0-1.1,0.9-2,2-2h14c1.1,0,2,0.9,2,2v2c0,1.1-0.9,2-2,2H5C3.9,19,3,18.1,3,17z M3,7v2c0,1.1,0.9,2,2,2h14 c1.1,0,2-0.9,2-2V7c0-1.1-0.9-2-2-2H5C3.9,5,3,5.9,3,7z"/>
+            </svg>
+            {{--        Karty--}}
+
+            <svg onclick="document.getElementById('card-box-container').removeAttribute('hidden'); document.getElementById('card-row-container').setAttribute('hidden', '')" checked="" class="cr-blue animate-02 hover-size-01 cursor-pointer" fill="currentColor" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24"
+                 width="40px" >
+                <rect fill="none" height="24" width="24"/>
+                <g>
+                    <path
+                        d="M14.67,6v4.5c0,0.55-0.45,1-1,1h-3.33c-0.55,0-1-0.45-1-1V6c0-0.55,0.45-1,1-1h3.33C14.22,5,14.67,5.45,14.67,6z M16.67,11.5H20c0.55,0,1-0.45,1-1V6c0-0.55-0.45-1-1-1h-3.33c-0.55,0-1,0.45-1,1v4.5C15.67,11.05,16.11,11.5,16.67,11.5z M14.67,18v-4.5c0-0.55-0.45-1-1-1h-3.33c-0.55,0-1,0.45-1,1V18c0,0.55,0.45,1,1,1h3.33C14.22,19,14.67,18.55,14.67,18z M15.67,13.5V18c0,0.55,0.45,1,1,1H20c0.55,0,1-0.45,1-1v-4.5c0-0.55-0.45-1-1-1h-3.33C16.11,12.5,15.67,12.95,15.67,13.5z M7.33,12.5H4c-0.55,0-1,0.45-1,1V18c0,0.55,0.45,1,1,1h3.33c0.55,0,1-0.45,1-1v-4.5C8.33,12.95,7.89,12.5,7.33,12.5z M8.33,10.5V6 c0-0.55-0.45-1-1-1H4C3.45,5,3,5.45,3,6v4.5c0,0.55,0.45,1,1,1h3.33C7.89,11.5,8.33,11.05,8.33,10.5z"/>
+                </g>
+            </svg>
+        </div>
+    </div>
 
     <div class="w-90 ms-auto me-auto d-block w-100">
         <div class="d-flex flex-wrap justify-content-center w-100">
@@ -29,8 +53,19 @@
                         </h5>
                     </div>
 
-                    <div id="collapseOne" class="collapse-ele overflow-hidden animate-05 p-3" aria-labelledby="headingOne" data-parent="#accordion" >
+                    <div id="collapseOne" class="collapse-ele overflow-hidden animate-05 p-3 " aria-labelledby="headingOne" data-parent="#accordion" >
+
+                        <div id="card-box-container" class="card-box d-flex flex-wrap">
+                        @foreach($allTechnologies as $technology)
                             @include('technologi-card')
+                        @endforeach
+                        </div>
+
+                        <div  id="card-row-container" class="card-row" hidden>
+                            @foreach($allTechnologies as $technology)
+                                @include('technologi-card-row')
+                            @endforeach
+                        </div>
                     </div>
                 </div>
                 <div class="card">
