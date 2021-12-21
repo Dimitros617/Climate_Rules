@@ -77,7 +77,7 @@ class NationsController extends Controller
 
 
             //Sečtená hodnota skleníkových plynů z posledního kola všech národů přižazených do loby
-            $data_nations_gas_count = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::oneRoundOneStatisticAllNations(Rounds::getLastRound($request->id)->id,'gasses'));
+            $data_nations_gas_count = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::lastValueOneStatisticAllNation($request->id,'gasses'));
 
             if($data_nations_gas_count < 0){
                 $data_tem_step = Start_step_scale::orderBy('step','asc')->first()->step;

@@ -31,7 +31,8 @@ class Nations extends Model
 
         for ($j = 0 ; $j< count($nations_arr); $j++){
 
-            $rawStat = Round_to_nation_statistics::oneRoundAllStatisticsOneNation($round_id, $nations_arr[$j]->id);
+            $rawStat = Round_to_nation_statistics::lastValueAllStatisticOneNation($nations_arr[$j]->id);
+
 
             $stat = array();
             $stat_string = "{";

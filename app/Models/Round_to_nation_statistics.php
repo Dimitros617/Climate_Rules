@@ -49,7 +49,6 @@ class Round_to_nation_statistics extends Model
     static function statisticIndexToValue($arr){
 
         Log::info('Round_to_nation_statistics:statisticIndexToValue');
-        Log::info($arr);
 
         $ret_values = array();
 
@@ -83,6 +82,77 @@ class Round_to_nation_statistics extends Model
         }
 
         return $count;
+    }
+
+
+
+    static function lastValueOneStatisticOneNation($statistic_type_code, $nation_id){
+
+        $stat = DB::table('round_to_nation_statistics')
+                ->select('round_to_nation_statistics.*', 'nations.statistic_values_set', 'nations.lobby_id', 'nations.name AS nation_name', 'statistics_types.name AS statistic_type_name', 'statistics_types.code_name AS statistic_type_code_name')
+                ->join('nations','round_to_nation_statistics.nation_id','=','nations.id')
+                ->join('statistics_types','round_to_nation_statistics.statistic_type_id','=','statistics_types.id')
+                ->where([['round_to_nation_statistics.nation_id',$nation_id],['round_to_nation_statistics.statistic_type_id',$statistic_type_code]])
+                ->orderBy('round_to_nation_statistics.id','DESC')
+                ->get();
+
+        Log::info($stat);
+
+        return Round_to_nation_statistics::statisticIndexToValue($stat)[0];
+    }
+    static function lastValueAllStatisticOneNation($nation_id){
+
+        $nations = Nations::where('lobby_id',Nations::find($nation_id)->lobby_id)->where('id', $nation_id)->get();
+        $statistics_types = Statistics_types::all();
+
+        $ret_values = array();
+
+        foreach ($nations as $nation){
+
+            foreach ($statistics_types as $statistics_type){
+                array_push($ret_values, Round_to_nation_statistics::lastValueOneStatisticOneNation($statistics_type->id,$nation->id));
+            }
+        }
+
+        return $ret_values;
+
+    }
+
+    static function lastValueOneStatisticAllNation($lobby_id, $statistic_type_code){
+
+        $nations = Nations::where('lobby_id',$lobby_id)->get();
+        $statistics_types = Statistics_types::where('id', $statistic_type_code)->get();
+
+        $ret_values = array();
+
+        foreach ($nations as $nation){
+
+            foreach ($statistics_types as $statistics_type){
+
+                array_push($ret_values, Round_to_nation_statistics::lastValueOneStatisticOneNation($statistics_type->id,$nation->id));
+            }
+        }
+
+        return $ret_values;
+
+    }
+
+    static function lastValueAllStatisticAllNation($nation_id){
+
+        $nations = Nations::where('lobby_id',Nations::find($nation_id)->lobby_id)->get();
+        $statistics_types = Statistics_types::all();
+
+        $ret_values = array();
+
+        foreach ($nations as $nation){
+
+            foreach ($statistics_types as $statistics_type){
+                array_push($ret_values, Round_to_nation_statistics::lastValueOneStatisticOneNation($statistics_type->id,$nation->id));
+            }
+        }
+
+        return $ret_values;
+
     }
 
     static function oneRoundOneStatisticOneNation($round_id, $statistic_type_code,  $nation_id){
@@ -219,7 +289,7 @@ class Round_to_nation_statistics extends Model
 
         Log::info('Round_to_nation_statistics:increaseStaticticValueOfNation');
 
-        $curentValue = Round_to_nation_statistics::oneRoundOneStatisticOneNation(Rounds::getLastRound(Nations::find($nationId)->lobby_id)->id,$statisticCode,$nationId);
+        $curentValue = Round_to_nation_statistics::lastValueOneStatisticOneNation($statisticCode,$nationId);
 
 
         $allIndexFromSet = DB::table('nation_statistic_values')
@@ -275,7 +345,7 @@ class Round_to_nation_statistics extends Model
 
         Log::info('Round_to_nation_statistics:decreaseStaticticValueOfNation');
 
-        $curentValue = Round_to_nation_statistics::oneRoundOneStatisticOneNation(Rounds::getLastRound(Nations::find($nationId)->lobby_id)->id,$statisticCode,$nationId);
+        $curentValue = Round_to_nation_statistics::lastValueOneStatisticOneNation($statisticCode,$nationId);
 
 
         $allIndexFromSet = DB::table('nation_statistic_values')

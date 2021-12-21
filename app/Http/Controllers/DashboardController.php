@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Round_to_nation_statistics;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -42,7 +43,7 @@ class DashboardController extends Controller
 
     function showHelp(){
 
-        return User::getCloneUser(1,10);
+        return Round_to_nation_statistics::lastValueAllStatisticOneNation(1);
     }
 
 

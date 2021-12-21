@@ -8,30 +8,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Projeno vykreslování dat z databáze + možnost přepínání mezi kartami a seznamem">
-      <change afterPath="$PROJECT_DIR$/app/Models/Users_admin_clones.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_12_21_154749_create_users_admin_clones.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/drag-and-drop-admin-menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/lobby-admin-panel.blade.php" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů">
+      <change afterPath="$PROJECT_DIR$/app/Models/Statistics_types.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lobbies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobbies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NationsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Nations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Rounds.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Rounds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2015_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2015_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin-setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin-setting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/global-status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologies.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,14 +407,7 @@
       <workItem from="1639755807115" duration="1311000" />
       <workItem from="1639824791343" duration="30772000" />
       <workItem from="1639948353005" duration="642000" />
-      <workItem from="1640096706828" duration="20502000" />
-    </task>
-    <task id="LOCAL-00039" summary="Redirect na vlastní výpůjčky v seznamu uživatelů a bez odkazu na poslání zprávy sám sobě, prázdná hláška v category.blade.php">
-      <created>1610380270094</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1610380270094</updated>
+      <workItem from="1640096706828" duration="24098000" />
     </task>
     <task id="LOCAL-00040" summary="Úprava categories.blade.php - Aktuální závazky">
       <created>1610396531772</created>
@@ -768,7 +745,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639865363723</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů">
+      <created>1640123987836</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1640123987836</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -834,7 +818,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Implementována kontrola času na kapitole, opraven upload a check limits lock" />
     <MESSAGE value="Přiná možnost zobrazení výsledků na ABC testem solo + graf" />
     <MESSAGE value="Přidáno lockování na all elements, mazaní záznamů starších jak 30 dní a možnost diskuzí" />
     <MESSAGE value="Vráceny put na post" />
@@ -859,7 +842,8 @@
     <MESSAGE value="Přidáno admin rozhraní a uprava hodnot statistik z frontendu" />
     <MESSAGE value="Přidány iconky pro statistic types + připravena databáze pro technologie" />
     <MESSAGE value="Projeno vykreslování dat z databáze + možnost přepínání mezi kartami a seznamem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Projeno vykreslování dat z databáze + možnost přepínání mezi kartami a seznamem" />
+    <MESSAGE value="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
