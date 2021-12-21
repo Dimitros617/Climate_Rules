@@ -20,7 +20,17 @@ class TechnologiController extends Controller
 
         if(Auth::check() && Auth::permition()->admin == 1){
 
-            $nation_id = Lobbies::getFirstNation($lobby_id)->id;
+            $nation = Lobbies::getAdminNation($lobby_id);
+
+            if(is_numeric($nation) && $nation == -1){
+                return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
+            }
+
+            if(is_numeric($nation) && $nation == -2){
+                return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
+            }
+
+            $nation_id = $nation->id;
 
         }else{
 

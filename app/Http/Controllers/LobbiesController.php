@@ -13,6 +13,7 @@ use App\Models\Round_to_nation_statistics;
 use App\Models\Rounds;
 use App\Models\Start_step_scale;
 use App\Models\User;
+use App\Models\Users_admin_clones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -237,7 +238,17 @@ class LobbiesController extends Controller
 
         if(Auth::check() && Auth::permition()->admin == 1){
 
-            $nation_id = Lobbies::getFirstNation($lobby_id)->id;
+            $nation = Lobbies::getAdminNation($lobby_id);
+
+            if(is_numeric($nation) && $nation == -1){
+                return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
+            }
+
+            if(is_numeric($nation) && $nation == -2){
+                return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
+            }
+
+            $nation_id = $nation->id;
 
         }else{
 
@@ -306,7 +317,18 @@ class LobbiesController extends Controller
         if(Auth::check() && Auth::permition()->admin == 1){
 
             if($nation_id == null){
-                $nation_id = Lobbies::getFirstNation($lobby_id)->id;
+
+                $nation = Lobbies::getAdminNation($lobby_id);
+
+                if(is_numeric($nation) && $nation == -1){
+                    return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
+                }
+
+                if(is_numeric($nation) && $nation == -2){
+                    return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
+                }
+
+                $nation_id = $nation->id;
             }
 
         }else{
@@ -369,6 +391,21 @@ class LobbiesController extends Controller
         if(!$check) {
             return response('Nastala chyba při mazání lobby.' , 500)->header('Content-Type', 'text/plain');
         }
+    }
+
+    function setUserClone(Request $request){
+        Log::info('LobbiesController:setUserClone');
+
+        $check = Users_admin_clones::addUserClone(Auth::user()->id, $request->userID, $request->lobbyId);
+        Log::info($check);
+        if($check == -1){
+            return response('Nastala chyba při mazání záznamu pro klonování pohledu uživatele.' , 500)->header('Content-Type', 'text/plain');
+        }
+
+        if($check == 0){
+            return response('Nastala chyba při vytváření záznamu pro klonování pohledu uživatele.' , 500)->header('Content-Type', 'text/plain');
+        }
+
     }
 
 

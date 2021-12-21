@@ -44,6 +44,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
     <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-base.min.js"></script>
+
+    <script src="/js/admin-setting.js"></script>
+    <script src="/js/drag-and-drop-admin-menu.js"></script>
 {{--    <script type="text/javascript" src="https://livejs.com/live.js"></script>--}}
 
 

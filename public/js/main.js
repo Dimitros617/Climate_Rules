@@ -155,6 +155,7 @@ function changeSvgChildrenSize(ele, wsize, hsize){
 $(function(){
     $('div[onload]').trigger('onload');
     $('input[onload]').trigger('onload');
+    $('span[onload]').trigger('onload');
 });
 
 

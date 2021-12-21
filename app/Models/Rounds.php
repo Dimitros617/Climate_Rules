@@ -45,4 +45,8 @@ class Rounds extends Model
     static function getLastRound($lobby_id){
         return Rounds::where('lobby_id', $lobby_id)->orderBy('id', 'desc')->first();
     }
+
+    static function getCountRoundsInLobby($lobby_id){
+        return Rounds::where('lobby_id', $lobby_id)->count();
+    }
 }

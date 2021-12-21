@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
@@ -61,4 +63,22 @@ class User extends Authenticatable
     ];
 
     public  $timestamps = false;
+
+
+    /**
+     * @param $user_id - Id uživatele u kterého chcem zjistit zda má zobrazení pod jiným uživatelem
+     * @param $lobby_id - ID lobby které chceme zobrazovat
+     * @return false|mixed - false když nemá uživatel žádného klona pro dané lobby, jinak vrací JSON objekt záznam z tabulky use_admin_clones
+     */
+    static function getCloneUser($user_id, $lobby_id){
+        $clone = DB::table('users_admin_clones')
+            ->where('user_id', $user_id)
+            ->where('lobby_id', $lobby_id)
+            ->get();
+
+        if(count($clone)==0){
+            return false;
+        }
+        return $clone[0];
+    }
 }

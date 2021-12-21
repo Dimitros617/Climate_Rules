@@ -40,5 +40,10 @@ class DashboardController extends Controller
 
     }
 
+    function showHelp(){
+
+        return User::getCloneUser(1,10);
+    }
+
 
 }

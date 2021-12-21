@@ -50,4 +50,6 @@ class Nations extends Model
         return $nations_arr;
 
     }
+
+
 }

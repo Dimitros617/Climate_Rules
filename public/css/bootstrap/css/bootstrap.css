@@ -6656,6 +6656,13 @@ a.badge-dark:focus, a.badge-dark.focus {
     width: fit-content !important;
 }
 
+.w-2rem{
+    width: 2rem;
+}
+
+.w-3rem{
+    width: 3rem;
+}
 
 .w-5rem{
     width: 5rem;
@@ -6766,6 +6773,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .min-vh-100 {
   min-height: 100vh !important;
+}
+
+.min-h-5rem {
+    min-height: 5rem !important;
 }
 
 .flex-fill {
@@ -7614,6 +7625,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .bg-white {
   background-color: #fff !important;
+}
+
+.bg-red {
+    background-color: #ff3939 !important;
 }
 
 .bg-transparent {

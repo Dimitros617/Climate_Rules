@@ -14,6 +14,11 @@ class Lobbies extends Model
 
     public  $timestamps = false;
 
+    /**
+     * Vrací Id dificulty podle zadaného codu
+     * @param $code - code dificulty
+     * @return mixed
+     */
     function getIdbyCode($code){
         return Difficulties::where('code', $code)->value('id');
     }
@@ -32,6 +37,31 @@ class Lobbies extends Model
             ->select('phases.*')
             ->get()[0];
 
+    }
+
+    static function getAdminNation($lobby_id){
+
+        $clone = User::getCloneUser(Auth::user()->id,$lobby_id);
+
+        if($clone == false){
+            return Lobbies::getFirstNation($lobby_id);
+        }
+        $nation = DB::table('nations')
+            ->where('lobby_id', '=', $lobby_id)
+            ->where('user_id', '=', $clone->clone_user_id)
+            ->get();
+
+        if(count($nation) == 0){
+            Log::info('Lobbies:getAdminNation: tomuto účtu nebyl přidělen žádný hráč');
+            return -1;
+        }
+        else if(count($nation) == 1){
+            return $nation[0];
+        }
+        else{
+            Log::info('Lobbies:getAdminNation: Tomuto účtu bylo přiděleno více hráčů!!!!');
+            return -2;
+        }
     }
 
     static function getFirstNation($lobby_id){
@@ -112,4 +142,23 @@ class Lobbies extends Model
         return $diference == 0 ? true : false;
 
     }
+
+
+    /**
+     * Metoda vrací pole obsahující záznamy všech uživatelů (users) které jsou přiděleny národům v konkrétním lobby
+     * @param $lobby_id
+     * @return \Illuminate\Support\Collection
+     */
+    static function getAllUsersFromLobby($lobby_id){
+
+        return DB::table('nations')
+            ->Join('users', 'nations.user_id', '=', 'users.id')
+            ->select('users.id', 'users.nick')
+            ->where('nations.lobby_id','=',$lobby_id)
+            ->get();
+
+
+    }
+
+
 }

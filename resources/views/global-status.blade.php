@@ -6,7 +6,7 @@
 <script src="/js/main.js"></script>
 <script src="/js/nations.js"></script>
 <script src="/js/game.js"></script>
-<script src="/js/admin-setting.js"></script>
+
 
 <x-app-layout>
     <x-slot name="header">
@@ -14,6 +14,11 @@
     </x-slot>
 
 {{--Context menu--}}
+
+    <div hidden="" id="lobby-id" lobbyId="{{$nations[0]->lobby_id}}"></div>
+
+    @include('lobby-admin-panel')
+
 
     @if(Auth::check() && Auth::permition()->admin == "1")
     <div id="contextMenu" class="context-menu" style="display: none">

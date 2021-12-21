@@ -25,7 +25,6 @@ class CreateUsersTable extends Migration
             $table->text('profile_photo_path')->nullable();
             $table->tinyInteger('verify')->default('0');
             $table->unsignedBigInteger('permition')->default('1');
-            $table->integer('clone_user_id')->nullable();
             $table->timestamps();
 
             $table->foreign('permition')->references('id')->on('permition');

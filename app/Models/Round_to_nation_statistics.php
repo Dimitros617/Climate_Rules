@@ -49,8 +49,7 @@ class Round_to_nation_statistics extends Model
     static function statisticIndexToValue($arr){
 
         Log::info('Round_to_nation_statistics:statisticIndexToValue');
-
-
+        Log::info($arr);
 
         $ret_values = array();
 
@@ -76,7 +75,7 @@ class Round_to_nation_statistics extends Model
     static function countvalues($stats){
 
         Log::info('Round_to_nation_statistics:countvalues');
-
+        Log::info($stats);
         $count = 0;
 
         foreach ($stats as $stat){
@@ -251,9 +250,10 @@ class Round_to_nation_statistics extends Model
 
             $newIndexFromSet = $allIndexFromSet[($indexInArray+$step)];
 
+
             $stat = new Round_to_nation_statistics();
             $stat->nation_id = $nationId;
-            $stat->round_id = Rounds::getLastRound(Nations::find($nationId)->id)->id;
+            $stat->round_id = Rounds::getLastRound(Nations::find($nationId)->lobby_id)->id;
             $stat->statistic_type_id = $newIndexFromSet->statistics_type_id;
             $stat->index = $newIndexFromSet->index;
             $stat->reason = 'Admin manual increase: ' . Auth::user()->nick;
@@ -306,9 +306,12 @@ class Round_to_nation_statistics extends Model
 
             $newIndexFromSet = $allIndexFromSet[($indexInArray-$step)];
 
+
+
+
             $stat = new Round_to_nation_statistics();
             $stat->nation_id = $nationId;
-            $stat->round_id = Rounds::getLastRound(Nations::find($nationId)->id)->id;
+            $stat->round_id = Rounds::getLastRound(Nations::find($nationId)->lobby_id)->id;
             $stat->statistic_type_id = $newIndexFromSet->statistics_type_id;
             $stat->index = $newIndexFromSet->index;
             $stat->reason = 'Admin manual decrease: ' . Auth::user()->nick;

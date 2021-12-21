@@ -6,6 +6,7 @@ use App\Models\Lobbies;
 use App\Models\Nations;
 use App\Models\Round_to_nation_statistics;
 use App\Models\Rounds;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -92,6 +93,41 @@ class GameController extends Controller
         if($res == 0){
             return response('Hodnotu už nelze více snížit. ' . $request->step . ' kroků je již mimo tabulku!', 500)->header('Content-Type', 'text/plain');
         }
+
+    }
+
+    function addRound(Request $request){
+        Log::info('GameController:addRound');
+
+
+        if(!Rounds::newRound($request->lobbyId)){
+            return response('Nastal problém při vytváření nového kola v lobby. ', 500)->header('Content-Type', 'text/plain');
+        }
+
+    }
+
+    function getCountRounds($lobbyID){
+        Log::info('GameController:getRoundNumber');
+        return Rounds::getCountRoundsInLobby($lobbyID);
+    }
+
+    function getLobbyUsers($lobbyID){
+        Log::info('GameController:getLobbyUsers');
+        $users =  Lobbies::getAllUsersFromLobby($lobbyID);
+
+        foreach ($users as $user){
+
+            $clone = User::getCloneUser(Auth::user()->id,$lobbyID);
+
+            if($clone != false && $user->id == $clone->clone_user_id){
+                $user->checked = 1;
+            }else{
+                $user->checked = 0;
+            }
+        }
+
+
+        return $users;
 
     }
 }

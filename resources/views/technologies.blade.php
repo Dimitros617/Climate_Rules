@@ -14,6 +14,10 @@
 
     </x-slot>
 
+    <div hidden="" id="lobby-id" lobbyId="{{$allTechnologies[0]->lobby_id}}"></div>
+
+    @include('lobby-admin-panel')
+
     <div class="bg-white w-75 ms-auto me-auto d-block p-3 rounded-3 mb-2">
 
         <div class="w-100 justify-content-end d-flex">

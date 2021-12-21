@@ -47,6 +47,7 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/editLo
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/editLobbyNations/{id:id}', [LobbiesController::class,'editLobbyNations']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveLobby', [LobbiesController::class,'saveLobby']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->delete('/removeLobby', [LobbiesController::class,'removeLobby']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/setUserClone', [LobbiesController::class,'setUserClone']);
 
 
 //Lobby - global
@@ -62,6 +63,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/updateTemperatureActualVa
 Route::middleware(['auth:sanctum', 'verified'])->get('/updateGlobalTable/{id:id}', [GameController::class,'updateGlobalTable']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/increaseValue', [GameController::class,'increaseValue']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/decreaseValue', [GameController::class,'decreaseValue']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/getCountRounds/{lobbyID?}', [GameController::class,'getCountRounds']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/getLobbyUsers/{lobbyID?}', [GameController::class,'getLobbyUsers']);
+
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/addRound', [GameController::class,'addround']);
 
 
 //Nations
@@ -91,3 +97,7 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->po
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->delete('/removePermition/{id:id}', [PermitionController::class,'removePermition']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->get('/permitions', [PermitionController::class,'showPermissions']);
+
+//help
+Route::get('/help', [DashboardController::class,'showHelp']);
+
