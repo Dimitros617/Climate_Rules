@@ -79,6 +79,8 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveN
 
 //technologies
 Route::middleware(['auth:sanctum', 'verified'])->get('/lobby/{lobby_id?}/technologies', [TechnologiController::class,'show']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/changeNationToTechnologyStatus', [TechnologiController::class,'changeNationToTechnologyStatus']);
+
 
 
 //Uživatelé

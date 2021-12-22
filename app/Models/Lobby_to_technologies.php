@@ -80,12 +80,23 @@ class Lobby_to_technologies extends Model
 
         foreach ($technologies as $technology){
             $technology->statistics_types = Technologies::getAllStatisticTypeOfTechnologi($technology->technology_id);
-            $technology->nations_status = Nations_technologies::getAllNationsStatusOfTechnology($technology->technology_id);
-            $technology->workStatus = Nations_technologies::countNationsWithWorkStatus($technology->technology_id);
-            $technology->activeStatus = Nations_technologies::countNationsWithActiveStatus($technology->technology_id);
+            $technology->nations_status = Nations_technologies::getAllNationsStatusOfTechnology($technology->id);
+            $technology->workStatus = Nations_technologies::countNationsWithWorkStatus($technology->id);
+            $technology->activeStatus = Nations_technologies::countNationsWithActiveStatus($technology->id);
         }
 
         return $technologies;
+
+    }
+
+    public static function isTechnologyCertificated($technology_id){
+
+        if(Lobby_to_technologies::find($technology_id)->certificate == 1){
+            return true;
+        }
+        else{
+            return false;
+        }
 
     }
 

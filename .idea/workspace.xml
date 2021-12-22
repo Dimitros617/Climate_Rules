@@ -9,13 +9,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů">
-      <change afterPath="$PROJECT_DIR$/app/Models/Statistics_types.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Nations_technologies_status.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/technology.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NationsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Nations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Nations_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologies.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -408,6 +410,7 @@
       <workItem from="1639824791343" duration="30772000" />
       <workItem from="1639948353005" duration="642000" />
       <workItem from="1640096706828" duration="24098000" />
+      <workItem from="1640178154845" duration="5615000" />
     </task>
     <task id="LOCAL-00040" summary="Úprava categories.blade.php - Aktuální závazky">
       <created>1610396531772</created>

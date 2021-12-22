@@ -84,8 +84,29 @@
                 </span>
             </div>
         </div>
+
+
         <div class="w-100">
-            <button type="button" class="btn btn-primary w-100">TODO</button>
+            <button type="button" class="btn btn-primary w-100 text-uppercase" onclick="changeNationToTechnologyStatus(this,{{$technology->id}})">
+
+                @if(count($technology->nations_status) == 0)
+                    Koupit
+                @else
+                    @php
+                    $ret = "koupit";
+
+                    foreach ($technology->nations_status as $nation_stat){
+                        if($nation_stat->nation_id == $my_nation->id){
+                            $ret = $nation_stat->name;
+                        }
+                    }
+
+                    echo $ret;
+
+                    @endphp
+                @endif
+
+            </button>
         </div>
 
         @if(Auth::permition()->admin ==1)

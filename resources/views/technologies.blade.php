@@ -7,6 +7,7 @@
 <script src="/js/main.js"></script>
 <script src="/js/nations.js"></script>
 <script src="/js/game.js"></script>
+<script src="/js/technology.js"></script>
 <script src="/js/admin-setting.js"></script>
 
 <x-app-layout>
