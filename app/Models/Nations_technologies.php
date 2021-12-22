@@ -16,8 +16,9 @@ class Nations_technologies extends Model
     public static function getAllNationsStatusOfTechnology($technology_id){
 
         return DB::table('nations_technologies')
-                ->select('nations_technologies.*','nations_technologies_status.name','nations_technologies_status.code')
+                ->select('nations_technologies.*','nations_technologies_status.name','nations_technologies_status.code', 'nations.name AS nation_name')
                 ->join('nations_technologies_status','nations_technologies.status_id','=','nations_technologies_status.id')
+                ->join('nations','nations_technologies.nation_id','=','nations.id')
                 ->where('nations_technologies.technology_id','=',$technology_id)
                 ->get();
 
@@ -68,6 +69,19 @@ class Nations_technologies extends Model
         $tech->created_at = Carbon::now()->toDateTimeString();
         $tech->updated_at = Carbon::now()->toDateTimeString();
         return $tech->save();
+
+
+    }
+
+    public static function setNationStatus($technology_id, $nation_id, $status_id){
+
+        return DB::table('nations_technologies')
+            ->where('technology_id', $technology_id)
+            ->where('nation_id', $nation_id)
+            ->update([
+                'status_id' => $status_id,
+                'updated_at' => Carbon::now()->toDateTimeString(),
+            ]);
 
 
     }

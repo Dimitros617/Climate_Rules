@@ -8,16 +8,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů">
-      <change afterPath="$PROJECT_DIR$/app/Models/Nations_technologies_status.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/technology.js" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Umožněno nakupování a zpětné vykreslování stavu technologie vuči národu">
+      <change afterPath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Nations_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations_technologies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/technologies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologies.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +242,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
@@ -254,8 +251,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Xamp\htdocs\climate_rules\public\js" />
       <recent name="D:\Xamp\htdocs\climate_rules\resources\views" />
+      <recent name="D:\Xamp\htdocs\climate_rules\public\js" />
       <recent name="D:\Xamp\htdocs\climate_rules\public\css" />
       <recent name="D:\Xamp\htdocs\climate_rules\database\migrations" />
       <recent name="D:\Xamp\htdocs\climate_rules\public\Img" />
@@ -410,14 +407,9 @@
       <workItem from="1639824791343" duration="30772000" />
       <workItem from="1639948353005" duration="642000" />
       <workItem from="1640096706828" duration="24098000" />
-      <workItem from="1640178154845" duration="5615000" />
-    </task>
-    <task id="LOCAL-00040" summary="Úprava categories.blade.php - Aktuální závazky">
-      <created>1610396531772</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1610396531772</updated>
+      <workItem from="1640178154845" duration="5695000" />
+      <workItem from="1640201254904" duration="93000" />
+      <workItem from="1640201377036" duration="2757000" />
     </task>
     <task id="LOCAL-00041" summary="Dodána hláška, když uživatel nemá žádné výpůjčky">
       <created>1610639841284</created>
@@ -755,7 +747,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640123987836</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Umožněno nakupování a zpětné vykreslování stavu technologie vuči národu">
+      <created>1640183826878</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1640183826878</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -821,7 +820,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Přiná možnost zobrazení výsledků na ABC testem solo + graf" />
     <MESSAGE value="Přidáno lockování na all elements, mazaní záznamů starších jak 30 dní a možnost diskuzí" />
     <MESSAGE value="Vráceny put na post" />
     <MESSAGE value="Opravena chyba časového limitu pro neoprávněné uživatele" />
@@ -846,7 +844,8 @@
     <MESSAGE value="Přidány iconky pro statistic types + připravena databáze pro technologie" />
     <MESSAGE value="Projeno vykreslování dat z databáze + možnost přepínání mezi kartami a seznamem" />
     <MESSAGE value="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů" />
+    <MESSAGE value="Umožněno nakupování a zpětné vykreslování stavu technologie vuči národu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Umožněno nakupování a zpětné vykreslování stavu technologie vuči národu" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

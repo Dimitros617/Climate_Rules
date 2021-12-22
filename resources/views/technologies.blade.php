@@ -60,7 +60,7 @@
 
                     <div id="collapseOne" class="collapse-ele overflow-hidden animate-05 p-3 " aria-labelledby="headingOne" data-parent="#accordion" >
 
-                        <div id="card-box-container" class="card-box d-flex flex-wrap">
+                        <div id="card-box-container" class="card-box d-flex flex-wrap justify-content-around">
                         @foreach($allTechnologies as $technology)
                             @include('technologi-card')
                         @endforeach
@@ -122,9 +122,27 @@
                         </h5>
                     </div>
                     <div id="collapseThree" class="collapse-ele overflow-hidden animate-05" aria-labelledby="headingThree" data-parent="#accordion" style="height: 0px">
-                        <div class="card-body">
-                            @include('technologi-card-verified')
-                        </div>
+
+
+                            <div id="card-box-container" class="card-box d-flex flex-wrap justify-content-around">
+                                @foreach($allTechnologies as $technology)
+                                    @if(count($technology->nations_status)==0)
+                                        @continue
+                                    @endif
+                                    @include('technologi-card-verified')
+                                @endforeach
+                            </div>
+
+                            <div  id="card-row-container" class="card-row" hidden>
+                                @foreach($allTechnologies as $technology)
+                                    @if(count($technology->nations_status)==0)
+                                        @continue
+                                    @endif
+                                    @include('technologi-card-row-verified')
+                                @endforeach
+                            </div>
+
+
                     </div>
                 </div>
                 @endif
