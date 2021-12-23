@@ -50,7 +50,9 @@ class Round_to_nation_statistics extends Model
 
         Log::info('Round_to_nation_statistics:statisticIndexToValue');
 
+
         $ret_values = array();
+
 
         for ($i = 0; $i < count($arr); $i++){
 
@@ -74,7 +76,6 @@ class Round_to_nation_statistics extends Model
     static function countvalues($stats){
 
         Log::info('Round_to_nation_statistics:countvalues');
-        Log::info($stats);
         $count = 0;
 
         foreach ($stats as $stat){
@@ -86,17 +87,18 @@ class Round_to_nation_statistics extends Model
 
 
 
-    static function lastValueOneStatisticOneNation($statistic_type_code, $nation_id){
+    static function lastValueOneStatisticOneNation($statistic_type_id, $nation_id){
+
+        Log::info('Round_to_nation_statistics:lastValueOneStatisticOneNation');
+
 
         $stat = DB::table('round_to_nation_statistics')
                 ->select('round_to_nation_statistics.*', 'nations.statistic_values_set', 'nations.lobby_id', 'nations.name AS nation_name', 'statistics_types.name AS statistic_type_name', 'statistics_types.code_name AS statistic_type_code_name')
                 ->join('nations','round_to_nation_statistics.nation_id','=','nations.id')
                 ->join('statistics_types','round_to_nation_statistics.statistic_type_id','=','statistics_types.id')
-                ->where([['round_to_nation_statistics.nation_id',$nation_id],['round_to_nation_statistics.statistic_type_id',$statistic_type_code]])
+                ->where([['round_to_nation_statistics.nation_id',$nation_id],['round_to_nation_statistics.statistic_type_id',$statistic_type_id]])
                 ->orderBy('round_to_nation_statistics.id','DESC')
                 ->get();
-
-        Log::info($stat);
 
         return Round_to_nation_statistics::statisticIndexToValue($stat)[0];
     }
@@ -285,24 +287,52 @@ class Round_to_nation_statistics extends Model
 
     }
 
-    static function increaseStaticticValueOfNation($nationId, $statisticCode, $step){
+    /**
+     * Funce je roscestník pro increase nebo decrease StatisticValueOfNation podle $step za je zápozná nebo kladná
+     * @param $nationId
+     * @param $statisticCode
+     * @param $step
+     * @param $reason - String flag pro to kdo hodnotu upravil a proč
+     * @return int - 0 - hodnota je mimo hranice tabulky; 1 = OK ; -1 = Nenalezena aktuální hodnota; -2 = Chyba při vytváření nového záznamu do round_to_nation_statistics; -3 = Nelze hodnotu posunout OUTOFBOUNCE
+     *
+     *
+     */
+    static function changeStatisticValueOfNation($nationId, $statisticCode, $step, $reason = null){
+
+        if($step < 0){
+            return Round_to_nation_statistics::decreaseStaticticValueOfNation($nationId, $statisticCode, abs($step), $reason);
+        }else{
+            return Round_to_nation_statistics::increaseStaticticValueOfNation($nationId, $statisticCode, $step, $reason);
+        }
+
+    }
+
+    /**
+     * Funkce zvýší hodnotu o o step -> posun v definované tabulce pro daný národ a jeden statistický typ
+     * @param $nationId
+     * @param $statisticCode
+     * @param $step
+     * @param $reason - String proč a odkud se daná hodnota změnila - flag
+     * @return int - 0 - hodnota je mimo hranice tabulky; 1 = OK ; -1 = Nenalezena aktuální hodnota; -2 = Chyba při vytváření nového záznamu do round_to_nation_statistics; -3 = Nelze hodnotu posunout OUTOFBOUNCE
+     */
+    static function increaseStaticticValueOfNation($nationId, $statisticCode, $step, $reason = null){
 
         Log::info('Round_to_nation_statistics:increaseStaticticValueOfNation');
 
-        $curentValue = Round_to_nation_statistics::lastValueOneStatisticOneNation($statisticCode,$nationId);
+        $curentValue = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode($statisticCode),$nationId);
 
 
         $allIndexFromSet = DB::table('nation_statistic_values')
-            ->where('lobby_id', $curentValue[0]->lobby_id)
-            ->where('set', $curentValue[0]->statistic_values_set)
-            ->where('statistics_type_id',$curentValue[0]->statistic_type_id )
+            ->where('lobby_id', $curentValue->lobby_id)
+            ->where('set', $curentValue->statistic_values_set)
+            ->where('statistics_type_id',$curentValue->statistic_type_id )
             ->orderBy('nation_statistic_values.index','ASC')
             ->get();
 
         //Na jakém reálém indexu všech hodnot z dané sady se nachází naše puvodní kterou chceme svýšit
         $indexInArray = -1;
         for ($i = 0; $i < count($allIndexFromSet); $i++){
-            if($curentValue[0]->index == $allIndexFromSet[$i]->index && $curentValue[0]->value == $allIndexFromSet[$i]->value){
+            if($curentValue->index == $allIndexFromSet[$i]->index && $curentValue->value == $allIndexFromSet[$i]->value){
                 $indexInArray = $i;
                 break;
             }
@@ -310,7 +340,7 @@ class Round_to_nation_statistics extends Model
         if($indexInArray == -1){
             return -1;
         }
-        if(!isset($step)){
+        if($step < 0){
             return -3;
         }
         if($indexInArray+$step > (count($allIndexFromSet)-1)){
@@ -320,13 +350,16 @@ class Round_to_nation_statistics extends Model
 
             $newIndexFromSet = $allIndexFromSet[($indexInArray+$step)];
 
+            if($reason == null){
+                $reason = 'Admin manual increase: ' . Auth::user()->nick;
+            }
 
             $stat = new Round_to_nation_statistics();
             $stat->nation_id = $nationId;
             $stat->round_id = Rounds::getLastRound(Nations::find($nationId)->lobby_id)->id;
             $stat->statistic_type_id = $newIndexFromSet->statistics_type_id;
             $stat->index = $newIndexFromSet->index;
-            $stat->reason = 'Admin manual increase: ' . Auth::user()->nick;
+            $stat->reason = $reason;
             $stat->created_at = Carbon::now()->toDateTimeString();
             $stat->updated_at = Carbon::now()->toDateTimeString();
             $stat->save();
@@ -341,24 +374,32 @@ class Round_to_nation_statistics extends Model
     }
 
 
-    static function decreaseStaticticValueOfNation($nationId, $statisticCode, $step){
+    /**
+     * Funkce sníží hodnotu o o step -> posun v definované tabulce pro daný národ a jeden statistický typ
+     * @param $nationId
+     * @param $statisticCode
+     * @param $step
+     * @param $reason - String proč a odkud se daná hodnota změnila - flag
+     * @return int - 0 - hodnota je mimo hranice tabulky; 1 = OK ; -1 = Nenalezena aktuální hodnota; -2 = Chyba při vytváření nového záznamu do round_to_nation_statistics; -3 = Nelze hodnotu posunout OUTOFBOUNCE
+     */
+    static function decreaseStaticticValueOfNation($nationId, $statisticCode, $step, $reason = null){
 
         Log::info('Round_to_nation_statistics:decreaseStaticticValueOfNation');
 
-        $curentValue = Round_to_nation_statistics::lastValueOneStatisticOneNation($statisticCode,$nationId);
+        $curentValue = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode($statisticCode),$nationId);
 
 
         $allIndexFromSet = DB::table('nation_statistic_values')
-            ->where('lobby_id', $curentValue[0]->lobby_id)
-            ->where('set', $curentValue[0]->statistic_values_set)
-            ->where('statistics_type_id',$curentValue[0]->statistic_type_id )
+            ->where('lobby_id', $curentValue->lobby_id)
+            ->where('set', $curentValue->statistic_values_set)
+            ->where('statistics_type_id',$curentValue->statistic_type_id )
             ->orderBy('nation_statistic_values.index','ASC')
             ->get();
 
         //Na jakém reálém indexu všech hodnot z dané sady se nachází naše puvodní kterou chceme svýšit
         $indexInArray = -1;
         for ($i = 0; $i < count($allIndexFromSet); $i++){
-            if($curentValue[0]->index == $allIndexFromSet[$i]->index && $curentValue[0]->value == $allIndexFromSet[$i]->value){
+            if($curentValue->index == $allIndexFromSet[$i]->index && $curentValue->value == $allIndexFromSet[$i]->value){
                 $indexInArray = $i;
                 break;
             }
@@ -366,7 +407,7 @@ class Round_to_nation_statistics extends Model
         if($indexInArray == -1){
             return -1;
         }
-        if(!isset($step)){
+        if($step < 0){
             return -3;
         }
         if($indexInArray-$step < 0){
@@ -376,15 +417,16 @@ class Round_to_nation_statistics extends Model
 
             $newIndexFromSet = $allIndexFromSet[($indexInArray-$step)];
 
-
-
+            if($reason == null){
+                $reason = 'Admin manual decrease: ' . Auth::user()->nick;
+            }
 
             $stat = new Round_to_nation_statistics();
             $stat->nation_id = $nationId;
             $stat->round_id = Rounds::getLastRound(Nations::find($nationId)->lobby_id)->id;
             $stat->statistic_type_id = $newIndexFromSet->statistics_type_id;
             $stat->index = $newIndexFromSet->index;
-            $stat->reason = 'Admin manual decrease: ' . Auth::user()->nick;
+            $stat->reason = $reason;
             $stat->created_at = Carbon::now()->toDateTimeString();
             $stat->updated_at = Carbon::now()->toDateTimeString();
             $stat->save();
@@ -396,6 +438,61 @@ class Round_to_nation_statistics extends Model
                 return -2;
             }
         }
+    }
+
+    public static function setMinStaticticValueOfNation($nationId, $statisticCode, $reason = null){
+        return Round_to_nation_statistics::setBorderStaticticValueOfNation($nationId, $statisticCode, "LOW", $reason);
+    }
+
+    public static function setMaxStaticticValueOfNation($nationId, $statisticCode, $reason = null){
+        return Round_to_nation_statistics::setBorderStaticticValueOfNation($nationId, $statisticCode, "HIGH", $reason);
+    }
+
+
+        /**
+     * @param $nationId
+     * @param $statisticCode
+     * @param $border - String -> 'MIN' nebo 'MAX' podle toho jaké maximum chceme nastavit nebo Integer kladný nebo záporný
+     * @param null $reason
+     * @return bool -> Info o správném vyzvoření záznamu v databázi v tabulce round to nation statistics
+     */
+    public static function setBorderStaticticValueOfNation($nationId, $statisticCode, $border, $reason = null){
+
+        Log::info('Round_to_nation_statistics:setMaxStaticticValueOfNation');
+
+        $curentValue = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode($statisticCode),$nationId);
+
+        $allIndexFromSet = DB::table('nation_statistic_values')
+            ->where('lobby_id', $curentValue->lobby_id)
+            ->where('set', $curentValue->statistic_values_set)
+            ->where('statistics_type_id',$curentValue->statistic_type_id )
+            ->orderBy('nation_statistic_values.index','ASC')
+            ->get();
+
+        if($border == "HIGH" || $border > 0){
+            $newIndexFromSet = $allIndexFromSet[count($allIndexFromSet)-1];
+        }elseif($border == "LOW" || $border < 0){
+            $newIndexFromSet = $allIndexFromSet[0];
+        }else{
+            Log::error('Border byl nastaven na ' . $border . " nastavte pouze HIGH nebo LOW ve stringu");
+        }
+
+
+        if($reason == null){
+            $reason = 'Admin manual: ' . Auth::user()->nick;
+        }
+
+        $stat = new Round_to_nation_statistics();
+        $stat->nation_id = $nationId;
+        $stat->round_id = Rounds::getLastRound(Nations::find($nationId)->lobby_id)->id;
+        $stat->statistic_type_id = $newIndexFromSet->statistics_type_id;
+        $stat->index = $newIndexFromSet->index;
+        $stat->reason = $reason;
+        $stat->created_at = Carbon::now()->toDateTimeString();
+        $stat->updated_at = Carbon::now()->toDateTimeString();
+        return $stat->save();
+
+
     }
 
 

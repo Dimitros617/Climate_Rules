@@ -82,7 +82,7 @@ class GameController extends Controller
         $res = Round_to_nation_statistics::decreaseStaticticValueOfNation($request->nationId, $request->statisticTypeCode, $request->step);
 
         if($res == -3){
-            return response('Nastala chyba při dekrementaci, krok snížení nemůže být <=0 !', 500)->header('Content-Type', 'text/plain');
+            return response('Nastala chyba při dekrementaci, krok snížení nemůže být >=0 !', 500)->header('Content-Type', 'text/plain');
         }
         if($res == -2){
             return response('Nastala chyba při Ukládání nového záznamu do tabulky roun_to_nation_statistics!', 500)->header('Content-Type', 'text/plain');

@@ -8,13 +8,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Umožněno nakupování a zpětné vykreslování stavu technologie vuči národu">
-      <change afterPath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidán stavový automat pro změnu stavů technologií, Chybý ativace values">
+      <change afterPath="$PROJECT_DIR$/app/Models/Technologies_statistics_types_changes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Nations_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations_technologies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologies.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Statistics_types.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Statistics_types.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -409,14 +409,8 @@
       <workItem from="1640096706828" duration="24098000" />
       <workItem from="1640178154845" duration="5695000" />
       <workItem from="1640201254904" duration="93000" />
-      <workItem from="1640201377036" duration="2757000" />
-    </task>
-    <task id="LOCAL-00041" summary="Dodána hláška, když uživatel nemá žádné výpůjčky">
-      <created>1610639841284</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1610639841284</updated>
+      <workItem from="1640201377036" duration="2957000" />
+      <workItem from="1640267008925" duration="8890000" />
     </task>
     <task id="LOCAL-00042" summary="#27 Snad vše upraveno; dodán jiný font">
       <created>1610641849674</created>
@@ -754,7 +748,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640183826878</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Přidán stavový automat pro změnu stavů technologií, Chybý ativace values">
+      <created>1640204213726</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1640204213726</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -820,7 +821,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Přidáno lockování na all elements, mazaní záznamů starších jak 30 dní a možnost diskuzí" />
     <MESSAGE value="Vráceny put na post" />
     <MESSAGE value="Opravena chyba časového limitu pro neoprávněné uživatele" />
     <MESSAGE value="Opravena chyba při luser statusu" />
@@ -845,7 +845,8 @@
     <MESSAGE value="Projeno vykreslování dat z databáze + možnost přepínání mezi kartami a seznamem" />
     <MESSAGE value="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů" />
     <MESSAGE value="Umožněno nakupování a zpětné vykreslování stavu technologie vuči národu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Umožněno nakupování a zpětné vykreslování stavu technologie vuči národu" />
+    <MESSAGE value="Přidán stavový automat pro změnu stavů technologií, Chybý ativace values" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidán stavový automat pro změnu stavů technologií, Chybý ativace values" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
