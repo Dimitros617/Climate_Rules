@@ -30,7 +30,8 @@
             <div class="d-flex flex justify-content-start w-50">
                 <div
                     class="d-grid text-center p-3 m-2 bg-light rounded-3 animate-05 hover-size-01 hover-shadow cursor-pointer z-0"
-                    data-title="Státy, které mají technologii rozpracovanou.">
+                    data-title="Státy, které mají technologii rozpracovanou."
+                    onclick="showAndHideElement(this.parentNode.parentNode.parentNode.parentNode,'nation-work-status')">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
                                  class="bi bi-bag" viewBox="0 0 16 16">
@@ -47,7 +48,8 @@
 
                 <div
                     class="d-grid text-center p-3 m-2 bg-light rounded-3 animate-05 hover-size-01 hover-shadow cursor-pointer z-0"
-                    data-title="Státy které již dokončily technologii.">
+                    data-title="Státy které již dokončily technologii."
+                    onclick="showAndHideElement(this.parentNode.parentNode.parentNode.parentNode,'nation-active-status')">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
                                  class="bi bi-patch-check" viewBox="0 0 16 16">
@@ -70,7 +72,7 @@
         <div class="w-50">
             {{-- Statistic types boxes--}}
 
-            <div class="bg-light rounded-3 p-3 m-3  d-flex flex-wrap justify-content-around text-center ">
+            <div class="bg-light rounded-3 p-3 m-3 ms-5 me-5  d-flex flex-wrap justify-content-around text-center ">
 
                 @foreach($technology->statistics_types as $stat)
                     <div class="d-grid">
@@ -89,7 +91,7 @@
             </div>
 
             @if(Auth::permition()->admin ==1)
-                <div class="bg-light rounded-4 m-3 mt-1 mb-1">
+                <div class="bg-light rounded-4 m-3 ms-5 me-5 mt-1 mb-1">
                     <div class="w-100 text-center p-1 animate-05 hover-size-01  mt-1 cursor-pointer " onclick="showAndHideElement(this.parentNode,'setting')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down animate-05 hover-size-01 show" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
@@ -98,32 +100,7 @@
                             <path fill-rule="evenodd" d="M7.776 5.553a.5.5 0 0 1 .448 0l6 3a.5.5 0 1 1-.448.894L8 6.56 2.224 9.447a.5.5 0 1 1-.448-.894l6-3z"/>
                         </svg>
                     </div>
-                    <div class="setting p-2" hidden>
-                        <div>
-                        <span class="fw-bold me-4">
-                            Viditelné:
-                        </span>
-                            <span>
-                            <input type="checkbox" class="fs-3" checked>
-                        </span>
-                        </div>
-                        <div>
-                        <span class="fw-bold me-4">
-                            Certifikace:
-                        </span>
-                            <span>
-                            <input type="checkbox" class="fs-3" checked>
-                        </span>
-                        </div>
-                        <div>
-                        <span class="fw-bold me-4">
-                            Kolo:
-                        </span>
-                            <span>
-                            <input type="number" min="0" value="0" required>
-                        </span>
-                        </div>
-                    </div>
+                    @include('technologi-card-admin-setting')
                 </div>
             @endif
         </div>
@@ -148,10 +125,69 @@
 
             {{--    Buton--}}
             <div class="w-50">
-                <button type="button" class="btn btn-primary w-100 h-100">TODO</button>
+                <button type="button" class="btn btn-primary w-100 h-100" onclick="changeNationToTechnologyStatus(this,{{$technology->id}})">
+
+                    @if(count($technology->nations_status) == 0)
+                        Koupit
+                    @else
+                        @php
+                            $ret = "koupit";
+
+                            foreach ($technology->nations_status as $nation_stat){
+                                if($nation_stat->nation_id == $my_nation->id){
+                                    $ret = $nation_stat->name;
+                                }
+                            }
+
+                            echo $ret;
+
+                        @endphp
+                    @endif
+
+                </button>
             </div>
         </div>
 
+    </div>
+
+    <div class="rounded-3 bg-white p-2 nation-work-status mb-2 w-100 d-flex flex-wrap" hidden>
+        @foreach($technology->nations_status as $nation_status)
+
+            @if($nation_status->code == 'active')
+                @continue
+            @endif
+            <div class="bg-light rounded-2 m-2 shadow-sm d-flex flex justify-content-between overflow-hidden w-25">
+                <div class="d-grid p-2">
+                    <span class="fw-bold fs-5">
+                        {{$nation_status->nation_name}}
+                    </span>
+                </div>
+                <div class="" >
+                    <button type="button" disabled class="btn btn-primary w-100 h-100"> {{$nation_status->name}}</button>
+                </div>
+
+            </div>
+        @endforeach
+    </div>
+
+    <div class="rounded-3 bg-white p-2 nation-active-status mb-2 w-100 d-flex flex-wrap" hidden>
+        @foreach($technology->nations_status as $nation_status)
+
+            @if($nation_status->code != 'active')
+                @continue
+            @endif
+            <div class="bg-light rounded-2 m-2 shadow-sm d-flex flex justify-content-between overflow-hidden w-25">
+                <div class="d-grid p-2">
+                    <span class="fw-bold fs-5">
+                        {{$nation_status->nation_name}}
+                    </span>
+                </div>
+                <div class="" >
+                    <button type="button" disabled class="btn btn-primary w-100 h-100"> {{$nation_status->name}}</button>
+                </div>
+
+            </div>
+        @endforeach
     </div>
 
 </div>

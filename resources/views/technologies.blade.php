@@ -23,7 +23,8 @@
 
         <div class="w-100 justify-content-end d-flex">
             {{--        Řádky--}}
-            <svg onclick="document.getElementById('card-box-container').setAttribute('hidden', ''); document.getElementById('card-row-container').removeAttribute('hidden')" checked="" class="cr-blue animate-02 hover-size-01 cursor-pointer" fill="currentColor" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24"
+
+            <svg onclick="swapCardAndRow('card-row-container','card-box-container')" checked="" class="cr-blue animate-02 hover-size-01 cursor-pointer" fill="currentColor" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24"
                  width="40px" >
                 <rect fill="none" height="24" width="24"/>
                 <path
@@ -31,7 +32,7 @@
             </svg>
             {{--        Karty--}}
 
-            <svg onclick="document.getElementById('card-box-container').removeAttribute('hidden'); document.getElementById('card-row-container').setAttribute('hidden', '')" checked="" class="cr-blue animate-02 hover-size-01 cursor-pointer" fill="currentColor" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24"
+            <svg onclick="swapCardAndRow('card-box-container', 'card-row-container')" checked="" class="cr-blue animate-02 hover-size-01 cursor-pointer" fill="currentColor" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24"
                  width="40px" >
                 <rect fill="none" height="24" width="24"/>
                 <g>
@@ -60,55 +61,61 @@
 
                     <div id="collapseOne" class="collapse-ele overflow-hidden animate-05 p-3 " aria-labelledby="headingOne" data-parent="#accordion" >
 
-                        <div id="card-box-container" class="card-box d-flex flex-wrap justify-content-around">
+                        <div id="" class="card-box-container card-box d-flex flex-wrap justify-content-around">
                         @foreach($allTechnologies as $technology)
+                            @if(Auth::permition()->admin !=1 && ($technology->visibility == 0 || $technology->round_show > $roundNumber))
+                                @continue
+                            @endif
                             @include('technologi-card')
                         @endforeach
                         </div>
 
-                        <div  id="card-row-container" class="card-row" hidden>
+                        <div  id="" class="card-row card-row-container" hidden>
                             @foreach($allTechnologies as $technology)
+                                @if(Auth::permition()->admin !=1 && ($technology->visibility == 0 || $technology->round_show > $roundNumber))
+                                    @continue
+                                @endif
                                 @include('technologi-card-row')
                             @endforeach
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="display-3 card-header cursor-pointer text-decoration-none" id="headingTwo" onclick="collapseElement(this.parentNode,'collapse-ele')">
-                        <h5 class="mb-0">
-                            <button class="collapsed display-5 text-decoration-none border-0 bg-transparent p-2" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
-                                    <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
-                                    <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
-                                    <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
-                                </svg>
-                                Zpracovávané technologie
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseTwo" class="collapse-ele overflow-hidden animate-05" aria-labelledby="headingTwo" data-parent="#accordion" style="height: 0px">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="display-3 card-header cursor-pointer text-decoration-none" id="headingTwo" onclick="collapseElement(this.parentNode,'collapse-ele')">
-                        <h5 class="mb-0">
-                            <button class="collapsed display-5 text-decoration-none border-0 bg-transparent p-2" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                </svg>
-                                Moje technologie
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseTwo" class="collapse-ele overflow-hidden animate-05" aria-labelledby="headingTwo" data-parent="#accordion" style="height: 0px">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="card">--}}
+{{--                    <div class="display-3 card-header cursor-pointer text-decoration-none" id="headingTwo" onclick="collapseElement(this.parentNode,'collapse-ele')">--}}
+{{--                        <h5 class="mb-0">--}}
+{{--                            <button class="collapsed display-5 text-decoration-none border-0 bg-transparent p-2" >--}}
+{{--                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">--}}
+{{--                                    <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>--}}
+{{--                                    <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>--}}
+{{--                                    <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>--}}
+{{--                                </svg>--}}
+{{--                                Zpracovávané technologie--}}
+{{--                            </button>--}}
+{{--                        </h5>--}}
+{{--                    </div>--}}
+{{--                    <div id="collapseTwo" class="collapse-ele overflow-hidden animate-05" aria-labelledby="headingTwo" data-parent="#accordion" style="height: 0px">--}}
+{{--                        <div class="card-body">--}}
+{{--                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="card">--}}
+{{--                    <div class="display-3 card-header cursor-pointer text-decoration-none" id="headingTwo" onclick="collapseElement(this.parentNode,'collapse-ele')">--}}
+{{--                        <h5 class="mb-0">--}}
+{{--                            <button class="collapsed display-5 text-decoration-none border-0 bg-transparent p-2" >--}}
+{{--                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">--}}
+{{--                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>--}}
+{{--                                </svg>--}}
+{{--                                Moje technologie--}}
+{{--                            </button>--}}
+{{--                        </h5>--}}
+{{--                    </div>--}}
+{{--                    <div id="collapseTwo" class="collapse-ele overflow-hidden animate-05" aria-labelledby="headingTwo" data-parent="#accordion" style="height: 0px">--}}
+{{--                        <div class="card-body">--}}
+{{--                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 @if(Auth::permition()->admin ==1)
                 <div class="card">
                     <div class="card-header cursor-pointer" id="headingThree" onclick="collapseElement(this.parentNode.parentNode.parentNode, this.parentNode,'collapse-ele')">
@@ -121,10 +128,10 @@
                             </button>
                         </h5>
                     </div>
-                    <div id="collapseThree" class="collapse-ele overflow-hidden animate-05" aria-labelledby="headingThree" data-parent="#accordion" style="height: 0px">
+                    <div id="collapseThree" class="collapse-ele overflow-hidden animate-05 p-3" aria-labelledby="headingThree" data-parent="#accordion" style="height: 0px">
 
 
-                            <div id="card-box-container" class="card-box d-flex flex-wrap justify-content-around">
+                            <div id="" class="card-box-container card-box d-flex flex-wrap justify-content-around">
                                 @foreach($allTechnologies as $technology)
                                     @if(count($technology->nations_status)==0)
                                         @continue
@@ -133,7 +140,7 @@
                                 @endforeach
                             </div>
 
-                            <div  id="card-row-container" class="card-row" hidden>
+                            <div  id="" class="card-row-container card-row" hidden>
                                 @foreach($allTechnologies as $technology)
                                     @if(count($technology->nations_status)==0)
                                         @continue

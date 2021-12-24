@@ -8,10 +8,12 @@ use App\Models\Nations;
 use App\Models\Nations_technologies;
 use App\Models\Nations_technologies_status;
 use App\Models\Round_to_nation_statistics;
+use App\Models\Rounds;
 use App\Models\Statistics_types;
 use App\Models\Technologies;
 use App\Models\Technologies_statistics_types_changes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -64,12 +66,12 @@ class TechnologiController extends Controller
         $allTechnologies = Lobby_to_technologies::getAlltechnologiesFromLobby($lobby_id);
         $my_nation = Nations::find($nation_id);
         $lobby = Lobbies::find($lobby_id);
+        $roundNumber = Rounds::getCountRoundsInLobby($lobby_id);
 
         //return $allTechnologies;
         //return $my_nation;
 
-            //TODO předat data z databáze - status technologi
-        return view('technologies', ['lobby' => $lobby, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies]);
+        return view('technologies', ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies]);
     }
 
     /**
@@ -98,7 +100,7 @@ class TechnologiController extends Controller
 
             $nation_id = $nation->id;
 
-        }else{
+        }elseif($request->nation_id != null){
 
 
             $nation = Lobbies::getMyNation($lobby_id);
@@ -112,6 +114,14 @@ class TechnologiController extends Controller
             }
 
             $nation_id = $nation->id;
+        }
+        else{
+            if(Nations::isNationInLobby($request->nation_id,$lobby_id)){
+                $nation_id = $request->nation_id;
+            }else{
+                return response('Zadané ID národa: ' . $request->nation_id . ' Není validní id v lobby s ID: ' . $lobby_id, 500)->header('Content-Type', 'text/plain');
+
+            }
         }
 
 
@@ -242,4 +252,23 @@ class TechnologiController extends Controller
 
         return 1;
     }
+
+    public function changeTechnologyParameter(Request $request){
+
+        Log::info('TechnologyController:changeTechnologyParameter');
+
+
+        $check = DB::table('lobby_to_technologies')
+            ->where('id', $request->technology_id)
+            ->update([
+                $request->parameter => $request->value,
+                'updated_at' => Carbon::now()->toDateTimeString(),
+            ]);
+
+
+        if(!$check) {
+            return response('Nastala chyba při aktualizaci dat v tabulce lobby_to_technologies ', 500)->header('Content-Type', 'text/plain');
+        }
+    }
+
 }

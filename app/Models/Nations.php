@@ -52,5 +52,17 @@ class Nations extends Model
 
     }
 
+    public static function isNationInLobby($nation_id, $lobby_id){
+
+        $check = Nations::where('id', $nation_id)->where('lobby_id', $lobby_id)->get();
+
+        if(count($check) == 0){
+            return false;
+        }else{
+            return true;
+        }
+
+    }
+
 
 }

@@ -76,6 +76,7 @@ class Lobby_to_technologies extends Model
                         ->join('technologies_areas','technologies.area_id','=','technologies_areas.id')
                         ->join('branches','technologies.branch_id','=','branches.id')
                         ->where('lobby_to_technologies.lobby_id','=',$lobby_id)
+                        ->orderBy('technologies.name')
                         ->get();
 
         foreach ($technologies as $technology){

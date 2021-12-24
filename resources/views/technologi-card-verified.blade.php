@@ -90,16 +90,17 @@
         <div>
 
             @foreach($technology->nations_status as $nation_status)
+
             <div class="bg-light rounded-2 shadow-sm d-flex flex justify-content-between overflow-hidden">
                 <div class="d-grid p-2">
                     <span class="fw-bold fs-4">
                         {{$nation_status->nation_name}}
                     </span>
                     <span>
-                        2021-12-15 19:29:06
+                        {{$nation_status->updated_at}}
                     </span>
                 </div>
-                <div class="">
+                <div class="" onclick="changeNationToTechnologyStatus(this,{{$technology->id}},{{$nation_status->id}})">
                     <button type="button" class="btn btn-primary w-100 h-100"> {{$nation_status->name}}</button>
                 </div>
 

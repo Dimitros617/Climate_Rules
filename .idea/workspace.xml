@@ -8,13 +8,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidán stavový automat pro změnu stavů technologií, Chybý ativace values">
-      <change afterPath="$PROJECT_DIR$/app/Models/Technologies_statistics_types_changes.php" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Aktivace technologií">
+      <change afterPath="$PROJECT_DIR$/resources/views/technologi-card-admin-setting.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Statistics_types.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Statistics_types.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Nations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/technology.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/technology.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologies.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -410,14 +416,8 @@
       <workItem from="1640178154845" duration="5695000" />
       <workItem from="1640201254904" duration="93000" />
       <workItem from="1640201377036" duration="2957000" />
-      <workItem from="1640267008925" duration="8890000" />
-    </task>
-    <task id="LOCAL-00042" summary="#27 Snad vše upraveno; dodán jiný font">
-      <created>1610641849674</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1610641849674</updated>
+      <workItem from="1640267008925" duration="11402000" />
+      <workItem from="1640340765966" duration="7961000" />
     </task>
     <task id="LOCAL-00043" summary="Postupné doplňování dashboardu - sekce admin">
       <created>1610709004134</created>
@@ -755,7 +755,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640204213726</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Aktivace technologií">
+      <created>1640277682780</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1640277682780</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -821,7 +828,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Vráceny put na post" />
     <MESSAGE value="Opravena chyba časového limitu pro neoprávněné uživatele" />
     <MESSAGE value="Opravena chyba při luser statusu" />
     <MESSAGE value="Opravena chyba s text, elementy. Opraven image selector a ukládání, Změněn datový typ position na int" />
@@ -846,7 +852,8 @@
     <MESSAGE value="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů" />
     <MESSAGE value="Umožněno nakupování a zpětné vykreslování stavu technologie vuči národu" />
     <MESSAGE value="Přidán stavový automat pro změnu stavů technologií, Chybý ativace values" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidán stavový automat pro změnu stavů technologií, Chybý ativace values" />
+    <MESSAGE value="Aktivace technologií" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aktivace technologií" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
