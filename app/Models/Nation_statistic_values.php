@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
+use phpDocumentor\Reflection\Types\Array_;
 
 class Nation_statistic_values extends Model
 {
@@ -62,6 +63,38 @@ class Nation_statistic_values extends Model
         }
 
         return Nation_statistic_values::where('set',$set_id)->where('lobby_id',$lobby_id)->delete();
+
+    }
+
+    public static function getNationTableWithActualValues($nation_id){
+
+        $statistic_types = Statistics_types::all();
+
+        $arr = array();
+
+        foreach($statistic_types as $stat){
+
+            $push = array();
+            $push[0] = $stat;
+
+
+            $set_data = Nation_statistic_values::where('set', Nations::find($nation_id)->statistic_values_set)->where('statistics_type_id', $stat->id)->orderBy('index', 'ASC')->get();
+
+            foreach ($set_data as $data){
+                $last_value = Round_to_nation_statistics::lastValueOneStatisticOneNation($data->statistics_type_id,$nation_id);
+                if($last_value->index == $data->index){
+                    $data->active = 1;
+                }else{
+                    $data->active = 0;
+                }
+                array_push($push, $data);
+            }
+
+            array_push($arr, $push);
+        }
+
+        return $arr;
+
 
     }
 

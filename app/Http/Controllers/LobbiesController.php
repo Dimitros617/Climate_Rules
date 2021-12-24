@@ -6,6 +6,7 @@ use App\Models\Difficulties;
 use App\Models\Languages;
 use App\Models\Lobbies;
 use App\Models\Lobby_to_technologies;
+use App\Models\Nation_statistic_values;
 use App\Models\Nations;
 use App\Models\Nations_templates;
 use App\Models\Phases;
@@ -316,20 +317,17 @@ class LobbiesController extends Controller
 
         if(Auth::check() && Auth::permition()->admin == 1){
 
-            if($nation_id == null){
+            $nation = Lobbies::getAdminNation($lobby_id);
 
-                $nation = Lobbies::getAdminNation($lobby_id);
-
-                if(is_numeric($nation) && $nation == -1){
-                    return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
-                }
-
-                if(is_numeric($nation) && $nation == -2){
-                    return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
-                }
-
-                $nation_id = $nation->id;
+            if(is_numeric($nation) && $nation == -1){
+                return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
             }
+
+            if(is_numeric($nation) && $nation == -2){
+                return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
+            }
+
+            $nation_id = $nation->id;
 
         }else{
 
@@ -352,15 +350,11 @@ class LobbiesController extends Controller
 
         $lobby = Lobbies::find($lobby_id);
         $my_nation = Nations::find($nation_id);
-        $nations = Nations::where('lobby_id',$lobby_id)->get();
         $rounds = Rounds::where('lobby_id',$lobby_id)->get();
-        $last_round = DB::table('rounds')
-            ->where('lobby_id', '=', $lobby_id)
-            ->orderBy('id')
-            ->first();
+        $last_round = Rounds::getLastRound($lobby_id);
+        $my_table = Nation_statistic_values::getNationTableWithActualValues($nation_id);
 
-
-        return view('local-status', ['lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'nations' => $nations, 'rounds' => $rounds, 'last_round' => $last_round]);
+        return view('local-status', [ 'my_table' => $my_table, 'lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'rounds' => $rounds, 'last_round' => $last_round]);
 
 
 
