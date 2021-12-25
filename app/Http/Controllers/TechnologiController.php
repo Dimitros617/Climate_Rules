@@ -227,26 +227,39 @@ class TechnologiController extends Controller
 
         foreach ($technology_statistic_change as $tech_stat){
 
-                $flag = 'Technology - ' . Technologies::find(Lobby_to_technologies::find($technology_id)->technology_id)->name;
-                $ret = Round_to_nation_statistics::changeStatisticValueOfNation($nation_id, Statistics_types::find($tech_stat->statistic_type_id)->code_name, $tech_stat->index_move, $flag);
+                $statistic_code = Statistics_types::find($tech_stat->statistic_type_id)->code_name;
+                $level_code = false;
+                do {
+
+                    $flag = 'Technology - ' . Technologies::find(Lobby_to_technologies::find($technology_id)->technology_id)->name;
+                    $ret = Round_to_nation_statistics::changeStatisticValueOfNation($nation_id, $statistic_code, $tech_stat->index_move, $flag);
 
 
-                if ($ret != 1) {
-                    if ($ret == -3) {
-                        return response('Ups zadaný index posunu nemůže být záporný!', 500)->header('Content-Type', 'text/plain');
+                    if ($ret != 1) {
+                        if ($ret == -3) {
+                            return response('Ups zadaný index posunu nemůže být záporný!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == -2) {
+                            return response('Nastala chyba při Ukládání nového záznamu do tabulky roun_to_nation_statistics!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == -1) {
+                            return response('Nastala chyba při hledání aktuální hodnoty který je nastavená v tabulce nation_statistics_values. Aktuální hodnota nenalezena!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == 0) {
+                            $temp_flag = $tech_stat->index_move > 0 ? 'max' : 'min';
+                            $flag = 'Technology - ' . $temp_flag . ' - ' . Technologies::find(Lobby_to_technologies::find($technology_id)->technology_id)->name;
+                            Round_to_nation_statistics::setBorderStaticticValueOfNation($nation_id, $statistic_code, $tech_stat->index_move, $flag);
+                        }
                     }
-                    if ($ret == -2) {
-                        return response('Nastala chyba při Ukládání nového záznamu do tabulky roun_to_nation_statistics!', 500)->header('Content-Type', 'text/plain');
+
+                    if(!str_contains($statistic_code, 'level_') && Statistics_types::existLevelCode($statistic_code)){
+                        $level_code = true;
+                        $statistic_code = 'level_'.$statistic_code;
+                    }else{
+                        $level_code = false;
                     }
-                    if ($ret == -1) {
-                        return response('Nastala chyba při hledání aktuální hodnoty který je nastavená v tabulce nation_statistics_values. Aktuální hodnota nenalezena!', 500)->header('Content-Type', 'text/plain');
-                    }
-                    if ($ret == 0) {
-                        $temp_flag = $tech_stat->index_move > 0 ? 'max' : 'min';
-                        $flag = 'Technology - ' . $temp_flag . ' - ' . Technologies::find(Lobby_to_technologies::find($technology_id)->technology_id)->name;
-                        Round_to_nation_statistics::setBorderStaticticValueOfNation($nation_id, Statistics_types::find($tech_stat->statistic_type_id)->code_name, $tech_stat->index_move, $flag);
-                    }
-                }
+
+                }while($level_code);
 
         }
 

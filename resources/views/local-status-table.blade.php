@@ -21,7 +21,8 @@
 
                     <div class="w-75 d-inline-flex ">
                         @for($i = 1; $i< count($table_row); $i++)
-                            <div class=" rounded-3 p-2 m-1 fw-bold fs-3 text-center flex-grow-1 @if($table_row[$i]->active == 1) cr-bg-blue @else bg-light @endif">
+                            <div class=" rounded-3 p-2 m-1 fw-bold fs-3 text-center flex-grow-1  @if($table_row[$i]->active == 1) cr-bg-blue @else bg-light @endif"
+                            style="@if($table_row[$i]->first == 1)     border: 3px solid #659933 !important; @endif">
                                 {{$table_row[$i]->value}}
                             </div>
                         @endfor

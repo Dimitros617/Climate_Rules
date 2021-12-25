@@ -85,6 +85,22 @@ class Round_to_nation_statistics extends Model
         return $count;
     }
 
+    static function firstValueOneStatisticOneNation($statistic_type_id, $nation_id){
+
+        Log::info('Round_to_nation_statistics:lastValueOneStatisticOneNation');
+
+
+        $stat = DB::table('round_to_nation_statistics')
+            ->select('round_to_nation_statistics.*', 'nations.statistic_values_set', 'nations.lobby_id', 'nations.name AS nation_name', 'statistics_types.name AS statistic_type_name', 'statistics_types.code_name AS statistic_type_code_name')
+            ->join('nations','round_to_nation_statistics.nation_id','=','nations.id')
+            ->join('statistics_types','round_to_nation_statistics.statistic_type_id','=','statistics_types.id')
+            ->where([['round_to_nation_statistics.nation_id',$nation_id],['round_to_nation_statistics.statistic_type_id',$statistic_type_id]])
+            ->orderBy('round_to_nation_statistics.id','ASC')
+            ->get();
+
+        return Round_to_nation_statistics::statisticIndexToValue($stat)[0];
+    }
+
 
 
     static function lastValueOneStatisticOneNation($statistic_type_id, $nation_id){
@@ -432,6 +448,7 @@ class Round_to_nation_statistics extends Model
             $stat->save();
 
             if($stat) {
+
                 return 1;
             }
             else{
@@ -491,7 +508,6 @@ class Round_to_nation_statistics extends Model
         $stat->created_at = Carbon::now()->toDateTimeString();
         $stat->updated_at = Carbon::now()->toDateTimeString();
         return $stat->save();
-
 
     }
 

@@ -82,10 +82,17 @@ class Nation_statistic_values extends Model
 
             foreach ($set_data as $data){
                 $last_value = Round_to_nation_statistics::lastValueOneStatisticOneNation($data->statistics_type_id,$nation_id);
+                $first_value = Round_to_nation_statistics::firstValueOneStatisticOneNation($data->statistics_type_id,$nation_id);
                 if($last_value->index == $data->index){
                     $data->active = 1;
                 }else{
                     $data->active = 0;
+                }
+
+                if($first_value->index == $data->index){
+                    $data->first = 1;
+                }else{
+                    $data->first = 0;
                 }
                 array_push($push, $data);
             }

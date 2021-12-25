@@ -8,13 +8,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Napojena aktivace na všechny frontend prvky, opraveny karty a řádky, doděláno admin menu pro technologie">
-      <change afterPath="$PROJECT_DIR$/resources/views/local-status-map.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Dolán pohled státu -&gt; zobrazení tabulky statistik se kterou pracuje">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Nation_statistic_values.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nation_statistic_values.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/local-status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/local-status.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Statistics_types.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Statistics_types.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -411,14 +411,7 @@
       <workItem from="1640201254904" duration="93000" />
       <workItem from="1640201377036" duration="2957000" />
       <workItem from="1640267008925" duration="11402000" />
-      <workItem from="1640340765966" duration="13573000" />
-    </task>
-    <task id="LOCAL-00044" summary="Typografická úprava all-loans">
-      <created>1610720688537</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1610720688537</updated>
+      <workItem from="1640340765966" duration="20531000" />
     </task>
     <task id="LOCAL-00045" summary="Reedit and remove graphic">
       <created>1615309853384</created>
@@ -756,7 +749,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640350977434</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Dolán pohled státu -&gt; zobrazení tabulky statistik se kterou pracuje">
+      <created>1640360942633</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1640360942633</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -822,7 +822,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Opravena chyba při luser statusu" />
     <MESSAGE value="Opravena chyba s text, elementy. Opraven image selector a ukládání, Změněn datový typ position na int" />
     <MESSAGE value="Přidána funce zobrazení testů nebo vyhození ze stránky po odevzdání testu" />
     <MESSAGE value="New project" />
@@ -847,7 +846,8 @@
     <MESSAGE value="Přidán stavový automat pro změnu stavů technologií, Chybý ativace values" />
     <MESSAGE value="Aktivace technologií" />
     <MESSAGE value="Napojena aktivace na všechny frontend prvky, opraveny karty a řádky, doděláno admin menu pro technologie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Napojena aktivace na všechny frontend prvky, opraveny karty a řádky, doděláno admin menu pro technologie" />
+    <MESSAGE value="Dolán pohled státu -&gt; zobrazení tabulky statistik se kterou pracuje" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dolán pohled státu -&gt; zobrazení tabulky statistik se kterou pracuje" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
