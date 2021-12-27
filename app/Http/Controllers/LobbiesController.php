@@ -173,12 +173,14 @@ class LobbiesController extends Controller
 
 
             //Sečtená hodnota skleníkových plynů z posledního kola všech národů přižazených do loby
+            $temp = Round_to_nation_statistics::lastValueOneStatisticAllNation($id,'gasses');
+
             $data_nations_gas_count = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::lastValueOneStatisticAllNation($id,'gasses'));
 
             if($data_nations_gas_count < 0){
                 $data_tem_step = Start_step_scale::orderBy('step','asc')->first()->step;
             }else{
-                $data_tem_step = Start_step_scale::where('gas', '<', ($data_nations_gas_count))->orderBy('gas', 'desc')->first()->step;
+                $data_tem_step = Start_step_scale::where('gas', '<', ($data_nations_gas_count+1))->orderBy('gas', 'desc')->first()->step;
                 //$data_nations_gas_count+1 v případě že to má být větší v četně
             }
 
@@ -312,6 +314,7 @@ class LobbiesController extends Controller
             ->join('nation_statistic_values','statistics_types.id','=','nation_statistic_values.statistics_type_id')
             ->where('nation_statistic_values.set','=',$nations[0]->statistic_values_set)
             ->groupBy('statistics_types.code_name')
+            ->orderBy('statistics_types.id')
             ->get();
 
         if(!Lobbies::isDefinedNationsStatisticTypesSame($lobby_id)){

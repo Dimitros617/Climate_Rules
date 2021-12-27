@@ -76,6 +76,7 @@ class Round_to_nation_statistics extends Model
     static function countvalues($stats){
 
         Log::info('Round_to_nation_statistics:countvalues');
+        Log::info($stats);
         $count = 0;
 
         foreach ($stats as $stat){
@@ -139,8 +140,7 @@ class Round_to_nation_statistics extends Model
     static function lastValueOneStatisticAllNation($lobby_id, $statistic_type_code){
 
         $nations = Nations::where('lobby_id',$lobby_id)->get();
-        $statistics_types = Statistics_types::where('id', $statistic_type_code)->get();
-
+        $statistics_types = Statistics_types::where('id', Statistics_types::getIdByCode($statistic_type_code))->get();
         $ret_values = array();
 
         foreach ($nations as $nation){
