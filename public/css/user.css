@@ -1,0 +1,65 @@
+
+div#userList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* max-width: 80rem; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.userElement {
+    border-radius: 10px;
+    box-shadow: 1px 4px 5px 0px #c7c7c7;
+    border-bottom: 10px solid #ffbf69;
+    padding: 1rem 1rem;
+    margin: 0.6rem;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    min-width: 20rem;
+}
+
+.userElement:hover {
+    margin: 0.5rem;
+    transform: scale(1.05);
+    border-bottom: 10px solid #ff9f1c;
+    box-shadow: 4px 9px 13px 0px #0000005c;
+}
+
+.nameDiv {
+    display: flow-root;
+}
+
+.nick {
+    margin-right: 2rem;
+    color: #f3f3f3;
+    font-size: xxx-large;
+    font-weight: 700;
+    border-radius: 5px;
+    text-shadow: 0 0 7px #3ac8bb;
+}
+
+.name {
+    font-size: x-large;
+    font-weight: bolder;
+    color: #2ec4b6;
+    text-shadow: 0 0 7px #ffffff85;
+}
+
+.permition {
+    color: #cbf3f0;
+    font-size: x-large;
+    font-weight: bolder;
+    text-align: end;
+    margin-bottom: 1.5rem;
+}
+
+.buttonsDiv {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonsDivItem svg:hover {
+    transform: scale(1.1);
+    filter: grayscale(50%);
+}

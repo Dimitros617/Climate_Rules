@@ -22,6 +22,7 @@ class ListUsersController extends Controller
         $data = DB::table('users')
             ->join('permition', 'users.permition', '=', 'permition.id')
             ->select('users.id as userId', 'users.email as userEmail','users.nick as userNick', 'permition.id as permitionId', 'permition.name as permitionName',)->orderBy('nick','asc')->get();
+
         return view('users', ['users' => $data]);
 
 
@@ -50,8 +51,6 @@ class ListUsersController extends Controller
         Log::info('ListUsersController:saveUserData');
 
         $user = User::find($request -> userId);
-        $user -> name = $request -> userName;
-        $user -> surname = $request -> userSurname;
         $user -> nick = $request -> userNick;
         $user -> email = $request -> userEmail;
         $user -> permition = $request -> selectPermition;
@@ -64,7 +63,7 @@ class ListUsersController extends Controller
 
         Log::info('ListUsersController:usersSort');
 
-        $data = DB::table('users')->orderBy('surname', $sort)->get();
+        $data = DB::table('users')->orderBy('nick', $sort)->get();
         return $data;
 
     }
@@ -73,7 +72,7 @@ class ListUsersController extends Controller
 
         Log::info('ListUsersController:usersFind');
 
-        $data = DB::table('users')->join('permition', 'users.permition', '=', 'permition.id')->select('users.id')->where('users.name', 'like', '%'.$find.'%')->orWhere('users.surname','like','%'.$find.'%')->orWhere('users.nick','like','%'.$find.'%')->orWhere('permition.name','like','%'.$find.'%')->get();
+        $data = DB::table('users')->join('permition', 'users.permition', '=', 'permition.id')->select('users.id')->where('users.nick','like','%'.$find.'%')->orWhere('permition.name','like','%'.$find.'%')->get();
         return $data;
 
     }
@@ -95,62 +94,6 @@ class ListUsersController extends Controller
             $user->save();
     }
 
-    function getStatus($id)
-    {
-        Log::info('ListUsersController:getStatus');
-
-        $data = DB::table('histories')
-            ->Join('users', 'histories.user_id', '=', 'users.id')
-            ->where('histories.user_id', '=', $id)
-            ->select( DB::raw('MAX(histories.created_at) as last'),  DB::raw('COUNT(histories.element_id) as entry'), 'histories.table_name', 'histories.old_name', 'histories.old_display_name', 'histories.element_id','histories.user_id','users.name as user_name','users.surname as user_surname')
-            ->groupBy('histories.element_id')
-            ->orderBy('histories.created_at','desc')
-            ->get();
-
-        foreach ($data as $dat){
-
-            $name = DB::table($dat->table_name)
-                ->where('id', '=', $dat->element_id)
-                ->get();
-
-            if(count($name) != 0){
-                $dat->display_name = $name[0]->display_name;
-                $dat->name = $name[0]->name;
-            }else{
-                $dat->display_name = $dat->old_display_name;
-                $dat->name = $dat->old_name;
-            }
-
-            $lock = DB::table('locks')
-                ->where('user_id', '=', $id)
-                ->where('table_name', '=', $dat->table_name)
-                ->where('element_id', '=', $dat->element_id)
-                ->get();
-
-            if(count($lock) != 0){
-                $dat->locked = $lock[0]->locked;
-                $dat->lockedDate = $lock[0]->created_at;
-            }else{
-                $dat->locked = null;
-            }
-
-            $finish = DB::table('finished')
-                ->Join('elements', 'finished.element_id', '=', 'elements.id')
-                ->where('finished.user_id', '=', $dat->user_id)
-                ->where('elements.data', '=', ($dat->table_name.":".$dat->element_id))
-                ->get();
-
-            if(count($finish) != 0){
-                $dat->finish = $finish[0]->created_at;
-            }else{
-                $dat->finish = null;
-            }
-
-        }
-
-
-        return view('user-status', ['data' => $data]);
-    }
 
 
 

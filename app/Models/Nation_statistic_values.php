@@ -78,7 +78,7 @@ class Nation_statistic_values extends Model
             $push[0] = $stat;
 
 
-            $set_data = Nation_statistic_values::where('set', Nations::find($nation_id)->statistic_values_set)->where('statistics_type_id', $stat->id)->orderBy('index', 'ASC')->get();
+            $set_data = Nation_statistic_values::where('set', Nations::find($nation_id)->statistic_values_set)->where('statistics_type_id', $stat->id)->where('lobby_id', Nations::find($nation_id)->lobby_id)->orderBy('index', 'ASC')->get();
 
             foreach ($set_data as $data){
                 $last_value = Round_to_nation_statistics::lastValueOneStatisticOneNation($data->statistics_type_id,$nation_id);

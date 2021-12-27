@@ -48,7 +48,7 @@ function setTemperatureActualValue(gass_step, gasses = 0){
     pointer.style.paddingLeft = step + (gasses/gass_step) * step + 'px';
 
 
-    document.getElementById('temperature-bar-actual-temp').innerHTML = '+' + (0.5 * (gasses/gass_step));
+    document.getElementById('temperature-bar-actual-temp').innerHTML = '+' + (0.5 * (gasses/gass_step)).toFixed(1);
     document.getElementById('temperature-bar-actual-gas').innerHTML = gasses;
 
 

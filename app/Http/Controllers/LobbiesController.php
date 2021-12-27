@@ -226,6 +226,10 @@ class LobbiesController extends Controller
 
         Log::info('LobbiesController:saveLobby');
 
+        if(Lobbies::countNations($request->id) == 0 && $request->phase != Phases::getIdByCode(1)){
+            return response('Nelze změnit fázy hry dokud nejsou přidáni hráči.', 500)->header('Content-Type', 'text/plain');
+        }
+
 
         $check = DB::table('lobbies')
                 ->where('id', $request->id)

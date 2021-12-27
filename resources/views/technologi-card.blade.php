@@ -28,6 +28,7 @@
 
         <div class="bg-light rounded-3 p-3 w-100 d-flex flex-wrap justify-content-around text-center ">
 
+            <div class="w-100 d-flex flex-wrap justify-content-around text-center ">
             @foreach($technology->statistics_types as $stat)
             <div class="d-grid">
                 <span data-title="{{$stat->name}} " code="{{$stat->code_name}}">
@@ -41,7 +42,15 @@
                 </span>
             </div>
             @endforeach
-
+            </div>
+            <div class="w-100 d-flex flex-wrap justify-content-around text-center">
+            @foreach($technology->special_events as $event)
+                <div class="d-grid">
+                    <span class=" m-1 mt-2 fs-5 fw-bold">{{$event->code}}</span>
+                    <span class=" fs-6 ">{{$event->coefficient}}%</span>
+                </div>
+            @endforeach
+            </div>
         </div>
         <div class=" fs-3 text-end mt-2 mb-1 d-flex flex justify-content-between">
             <div class="d-flex flex justify-content-start w-50">

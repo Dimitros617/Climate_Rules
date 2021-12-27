@@ -84,6 +84,7 @@ class Lobby_to_technologies extends Model
             $technology->nations_status = Nations_technologies::getAllNationsStatusOfTechnology($technology->id);
             $technology->workStatus = Nations_technologies::countNationsWithWorkStatus($technology->id);
             $technology->activeStatus = Nations_technologies::countNationsWithActiveStatus($technology->id);
+            $technology->special_events = Special_technologies::getAllSpecialsOfTechnology($technology->technology_id);
         }
 
         return $technologies;

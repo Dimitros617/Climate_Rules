@@ -23,6 +23,10 @@ class Lobbies extends Model
         return Difficulties::where('code', $code)->value('id');
     }
 
+    /**
+     * @param $lobby_id
+     * @return int
+     */
     static function countNations($lobby_id){
         return DB::table('nations')
             ->where('lobby_id', '=', $lobby_id)
