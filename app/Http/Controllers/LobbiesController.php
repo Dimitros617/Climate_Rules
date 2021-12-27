@@ -9,6 +9,7 @@ use App\Models\Lobby_to_technologies;
 use App\Models\Nation_statistic_values;
 use App\Models\Nations;
 use App\Models\Nations_templates;
+use App\Models\Permition;
 use App\Models\Phases;
 use App\Models\Round_to_nation_statistics;
 use App\Models\Rounds;
@@ -27,6 +28,12 @@ class LobbiesController extends Controller
     function showLobbies()
     {
         Log::info('LobbiesController:showAlllobbies');
+
+        $firstUser = $this->checkUserAlone();
+        if($firstUser != null){
+            return $firstUser;
+        }
+
         return view('lobbies', ['lobbies' => $this->getLobbies()]);
 
     }
@@ -34,6 +41,26 @@ class LobbiesController extends Controller
     function getLobbiesHTML(){
         Log::info('LobbiesController:getLobbiesHTML');
         return view('lobbies-list', ['lobbies' => $this->getLobbies()]);
+    }
+
+    function checkUserAlone(){
+
+        Log::info('LobbiesController:show->checkUserAlone');
+
+        $count = DB::table('users')->get();
+
+        if(count($count) == 1){
+            $user = User::find(Auth::user()->id);
+            if($user -> current_team_id == null) {
+                $user->current_team_id = 1;
+                $user->permition = Permition::getAdminId();
+                $user->save();
+                return view( 'first-user');
+            }
+        }
+
+        return null;
+
     }
 
     function getLobbies(){

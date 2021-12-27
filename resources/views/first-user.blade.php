@@ -1,10 +1,10 @@
-@section('title','DU - Vítej!')
-@section('css', URL::asset('css/dashboard.css'))
+@section('title','CR - Vítej!')
+
 
 <x-app-layout>
     <x-slot name="header">
     </x-slot>
-    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg max-w-7xl mx-auto sm:px-6 lg:px-8" onload="checkUserAlone()">
+    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg max-w-7xl mx-auto sm:px-6 lg:px-8">
     <div class="container p-6 text-center text-su-blue">
 
         <h1 class="display-1 mb-4">Vítej!</h1>

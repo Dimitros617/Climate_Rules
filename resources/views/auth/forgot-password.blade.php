@@ -4,7 +4,7 @@
         <div class="" style="margin: auto;">
             <div class="mt-4 mb-5" style="">
                 {{--            <x-jet-authentication-card-logo />--}}
-                <a href="/"><x-jet-application-logo class="block h-9 w-auto " /></a>
+                <a href="/"> <img class="block w-75 " src="{{ URL::asset('img/logo_big_transparent.png') }}"></a>
             </div>
 
             <div class="mb-4 text-sm text-gray-600">

@@ -68,7 +68,7 @@ class TechnologiController extends Controller
         $lobby = Lobbies::find($lobby_id);
         $roundNumber = Rounds::getCountRoundsInLobby($lobby_id);
 
-        //return $allTechnologies;
+        return $allTechnologies;
         //return $my_nation;
 
         return view('technologies', ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies]);

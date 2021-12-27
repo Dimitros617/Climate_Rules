@@ -8,13 +8,30 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Dolán pohled státu -&gt; zobrazení tabulky statistik se kterou pracuje">
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidáno zobrazení původní hodnoty státu v nation, přidáno autoinkrementování level statistic typu u technologií">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Special_technologies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user-single.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/users.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListUsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListUsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Nation_statistic_values.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nation_statistic_values.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Statistics_types.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Statistics_types.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/permition.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Permition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_16_235933_create_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_16_235933_create_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_17_000310_create_special_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_17_000310_create_special_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/reset-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/reset-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/two-factor-challenge.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/two-factor-challenge.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/first-user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/first-user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -411,14 +428,10 @@
       <workItem from="1640201254904" duration="93000" />
       <workItem from="1640201377036" duration="2957000" />
       <workItem from="1640267008925" duration="11402000" />
-      <workItem from="1640340765966" duration="20531000" />
-    </task>
-    <task id="LOCAL-00045" summary="Reedit and remove graphic">
-      <created>1615309853384</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1615309853384</updated>
+      <workItem from="1640340765966" duration="21858000" />
+      <workItem from="1640540699705" duration="689000" />
+      <workItem from="1640543524032" duration="5278000" />
+      <workItem from="1640593734206" duration="5476000" />
     </task>
     <task id="LOCAL-00046" summary="Edit user bladu, přidáno mazání a mdální okna">
       <created>1615419427352</created>
@@ -756,7 +769,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640360942633</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="Přidáno zobrazení původní hodnoty státu v nation, přidáno autoinkrementování level statistic typu u technologií">
+      <created>1640428004342</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1640428004342</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -822,7 +842,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Opravena chyba s text, elementy. Opraven image selector a ukládání, Změněn datový typ position na int" />
     <MESSAGE value="Přidána funce zobrazení testů nebo vyhození ze stránky po odevzdání testu" />
     <MESSAGE value="New project" />
     <MESSAGE value="Registration and login created" />
@@ -847,7 +866,8 @@
     <MESSAGE value="Aktivace technologií" />
     <MESSAGE value="Napojena aktivace na všechny frontend prvky, opraveny karty a řádky, doděláno admin menu pro technologie" />
     <MESSAGE value="Dolán pohled státu -&gt; zobrazení tabulky statistik se kterou pracuje" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dolán pohled státu -&gt; zobrazení tabulky statistik se kterou pracuje" />
+    <MESSAGE value="Přidáno zobrazení původní hodnoty státu v nation, přidáno autoinkrementování level statistic typu u technologií" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidáno zobrazení původní hodnoty státu v nation, přidáno autoinkrementování level statistic typu u technologií" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

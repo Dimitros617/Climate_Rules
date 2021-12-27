@@ -5,7 +5,7 @@
         <!-- Logo -->
 
         <div id="head_logo" class="animate-05 head_logo p-4 pt-5 mt--2 ms-5 bg-white rounded-4 shadow-lg w-content">
-            <x-jet-application-logo/>
+            <img src="{{ URL::asset('img/logo_big_transparent.png') }}">
         </div>
 
 

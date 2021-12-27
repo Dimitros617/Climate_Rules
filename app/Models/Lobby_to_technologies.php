@@ -30,7 +30,7 @@ class Lobby_to_technologies extends Model
             $tech->lobby_id = $lobby_id;
             $tech->round_show = $technology->round_show;
             $tech->certificate = $technology->certificate;
-            $tech->visibility = 1;
+            $tech->visibility = $technology->visibility;
 
             $tech->created_at = Carbon::now()->toDateTimeString();
             $tech->updated_at = Carbon::now()->toDateTimeString();

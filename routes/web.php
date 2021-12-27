@@ -79,25 +79,25 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveN
 
 //technologies
 Route::middleware(['auth:sanctum', 'verified'])->get('/lobby/{lobby_id?}/technologies', [TechnologiController::class,'show']);
-Route::middleware(['auth:sanctum', 'verified'])->post('/changeNationToTechnologyStatus', [TechnologiController::class,'changeNationToTechnologyStatus']);
-Route::middleware(['auth:sanctum', 'verified'])->post('/changeTechnologyParameter', [TechnologiController::class,'changeTechnologyParameter']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/changeNationToTechnologyStatus', [TechnologiController::class,'changeNationToTechnologyStatus']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/changeTechnologyParameter', [TechnologiController::class,'changeTechnologyParameter']);
 
 
 
 //Uživatelé
-Route::middleware(['auth:sanctum', 'verified', 'permition:new_user'])->post('/users/{id:id}/saveUserData', [ListUsersController::class,'saveUserData']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:new_user'])->get('/users/usersSort/{sort?}', [ListUsersController::class,'usersSort']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:new_user'])->get('/users/usersFind/{find?}', [ListUsersController::class,'usersFind']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:new_user'])->get('/getUserNames', [ListUsersController::class,'getUserNames']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:new_user'])->get('/get_user_status/{id:id}', [ListUsersController::class,'getStatus']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/users/{id:id}/saveUserData', [ListUsersController::class,'saveUserData']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/users/usersSort/{sort?}', [ListUsersController::class,'usersSort']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/users/usersFind/{find?}', [ListUsersController::class,'usersFind']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/getUserNames', [ListUsersController::class,'getUserNames']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/get_user_status/{id:id}', [ListUsersController::class,'getStatus']);
 
-Route::middleware(['auth:sanctum', 'verified', 'permition:new_user'])->get('/users', [ListUsersController::class,'showAllUsers']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:new_user'])->get('/users/{id:id}', [ListUsersController::class,'showUser']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/users', [ListUsersController::class,'showAllUsers']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/users/{id:id}', [ListUsersController::class,'showUser']);
 
 //Oprávnění
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->post('/addPermition', [PermitionController::class,'addPermition']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->post('/savePermitionData', [PermitionController::class,'savePermitionData']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->delete('/removePermition/{id:id}', [PermitionController::class,'removePermition']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/addPermition', [PermitionController::class,'addPermition']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/savePermitionData', [PermitionController::class,'savePermitionData']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->delete('/removePermition/{id:id}', [PermitionController::class,'removePermition']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->get('/permitions', [PermitionController::class,'showPermissions']);
 

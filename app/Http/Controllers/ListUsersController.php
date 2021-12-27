@@ -19,7 +19,9 @@ class ListUsersController extends Controller
     function showAllUsers()
     {
         Log::info('ListUsersController:showAllUsers');
-        $data = DB::table('users')->join('permition', 'users.permition', '=', 'permition.id')->select('users.id as userId', 'users.name as userName', 'users.surname as userSurname', 'users.email as userEmail','users.nick as userNick', 'permition.id as permitionId', 'permition.name as permitionName', 'permition.possibility_read', 'permition.new_user', 'permition.edit_content', 'permition.edit_permitions')->orderBy('surname','asc')->get();
+        $data = DB::table('users')
+            ->join('permition', 'users.permition', '=', 'permition.id')
+            ->select('users.id as userId', 'users.email as userEmail','users.nick as userNick', 'permition.id as permitionId', 'permition.name as permitionName',)->orderBy('nick','asc')->get();
         return view('users', ['users' => $data]);
 
 
@@ -33,10 +35,13 @@ class ListUsersController extends Controller
             return redirect()->route('profile.show');
         }
 
-        $data = DB::table('users')->join('permition', 'users.permition', '=', 'permition.id')->where('users.id', $id['id'])->select('users.id as userId', 'users.name as userName', 'users.surname as userSurname', 'users.email as userEmail','users.nick as userNick', 'permition.id as permitionId', 'permition.name as permitionName')->get();
+        $data = DB::table('users')
+            ->join('permition', 'users.permition', '=', 'permition.id')
+            ->where('users.id', $id['id'])
+            ->select('users.id as userId', 'users.email as userEmail','users.nick as userNick', 'permition.id as permitionId', 'permition.name as permitionName')->get();
         $dataPermition = DB::table('permition')->select('permition.name as permitionName', 'permition.id as permitionId')->get();
 
-        return view('singleUser', ['user' => $data, 'permitions' => $dataPermition]);
+        return view('user-single', ['user' => $data, 'permitions' => $dataPermition]);
     }
 
 

@@ -18,6 +18,7 @@ class CreateSpecialTechnologies extends Migration
             $table->unsignedBigInteger('technology_id');
             //TODO link na ID_Události
             $table->string('name',100);
+            $table->string('code',20);
             $table->string('description');
             $table->integer('coefficient');
 
