@@ -19,6 +19,12 @@ class CreateNationsTechnologies extends Migration
             $table->unsignedBigInteger('nation_id');
             $table->unsignedBigInteger('status_id');
             $table->integer('patent');
+            $table->string('chose_description',2048)->nullable();
+            $table->string('chose_benefits',2048)->nullable();
+            $table->string('chose_disadvantages',2048)->nullable();
+            $table->string('chose_business',2048)->nullable();
+            $table->string('chose_people',2048)->nullable();
+
 
             $table->timestamps();
 

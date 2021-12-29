@@ -3,7 +3,7 @@
 
 
     <div class="cr-button  text-center w-10rem bg-white shadow-lg rounded-4 p-1 ms-2 me-2 animate-05 hover-size-01"
-         onclick="window.location.assign('/lobby/{{$lobby->id}}')"
+         onclick="enterLobby({{$lobby->id}})"
     >
         <div class="d-grid">
             <span>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="cr-button text-center w-10rem bg-white shadow-lg rounded-4 p-1 ms-2 me-2 animate-05 hover-size-01"
-         onclick="window.location.assign('/lobby/{{$lobby->id}}/nation')"
+         onclick="enterLobbyNation({{$lobby->id}})"
     >
         <div class="d-grid pt-3">
             <span class="pb-3">

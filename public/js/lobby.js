@@ -28,7 +28,8 @@ function removeLobby(id){
                 error: function (response){
                     console.log(response);
                     let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-                    allertError(err);
+                    let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
                     hideLoading();
 
                 }
@@ -56,7 +57,8 @@ function refreshLobbyList(){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -80,7 +82,8 @@ function addLobby(){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -136,7 +139,8 @@ function editLobby(id){
                         error: function (response){
                             console.log(response);
                             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-                            allertError(err);
+                            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
                             hideLoading();
 
                         }
@@ -155,7 +159,8 @@ function editLobby(id){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -212,7 +217,8 @@ function editLobbyNations(id){
                         error: function (response){
                             console.log(response);
                             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-                            allertError(err);
+                            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
                             hideLoading();
 
                         }
@@ -231,7 +237,8 @@ function editLobbyNations(id){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -241,22 +248,3 @@ function editLobbyNations(id){
 
 }
 
-function enterLobby(id){
-
-    showLoading();
-    $.ajax({
-        url: '/lobby/' + id,
-        type: 'get',
-        success:function(response){
-            window.location.assign('/lobby/'+id);
-        },
-        error: function (response){
-            console.log(response);
-            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
-            hideLoading();
-
-        }
-    });
-
-}

@@ -24,43 +24,11 @@ class TechnologiController extends Controller
 
         Log::info('TechnologiController:show');
 
-        $lobby_phase = Lobbies::getLobbyPhase($lobby_id);
+        $nation_id = Nations::getNationIdFromLobby($lobby_id);
 
-        if(Auth::check() && Auth::permition()->admin == 1){
-
-            $nation = Lobbies::getAdminNation($lobby_id);
-
-            if(is_numeric($nation) && $nation == -1){
-                return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
-            }
-
-            if(is_numeric($nation) && $nation == -2){
-                return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
-            }
-
-            $nation_id = $nation->id;
-
-        }else{
-
-            if($lobby_phase->code == 1){
-                return response('Nelze vstoupit, hra zatím nebyla spuštěna.', 500)->header('Content-Type', 'text/plain');
-            }
-
-            $nation = Lobbies::getMyNation($lobby_id);
-
-            if( is_numeric($nation) && $nation == -1){
-                return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
-            }
-
-            if(is_numeric($nation) && $nation == -2){
-                return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
-            }
-
-            $nation_id = $nation->id;
+        if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
+            return $nation_id;  //vracím response s chybou;
         }
-
-
-
 
 
         $allTechnologies = Lobby_to_technologies::getAlltechnologiesFromLobby($lobby_id);
@@ -86,42 +54,10 @@ class TechnologiController extends Controller
 
         $lobby_id = Lobby_to_technologies::find($request->technology_id)->lobby_id;
 
-        if(Auth::check() && Auth::permition()->admin == 1){
+        $nation_id = Nations::getNationIdFromLobby($lobby_id, $request->nation_id);
 
-            $nation = Lobbies::getAdminNation($lobby_id);
-
-            if(is_numeric($nation) && $nation == -1){
-                return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
-            }
-
-            if(is_numeric($nation) && $nation == -2){
-                return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
-            }
-
-            $nation_id = $nation->id;
-
-        }elseif($request->nation_id != null){
-
-
-            $nation = Lobbies::getMyNation($lobby_id);
-
-            if( is_numeric($nation) && $nation == -1){
-                return response('Nelze vstoupit, nebyl tvémů účtu přiřazen žádný hráč v této hře!', 500)->header('Content-Type', 'text/plain');
-            }
-
-            if(is_numeric($nation) && $nation == -2){
-                return response('Nelze vstoupit, tvémů účtu je přiřazeno více hráčů!', 500)->header('Content-Type', 'text/plain');
-            }
-
-            $nation_id = $nation->id;
-        }
-        else{
-            if(Nations::isNationInLobby($request->nation_id,$lobby_id)){
-                $nation_id = $request->nation_id;
-            }else{
-                return response('Zadané ID národa: ' . $request->nation_id . ' Není validní id v lobby s ID: ' . $lobby_id, 500)->header('Content-Type', 'text/plain');
-
-            }
+        if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
+            return $nation_id;  //vracím response s chybou;
         }
 
 

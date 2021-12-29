@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
+use Livewire\Response;
 
 class DashboardController extends Controller
 {
@@ -43,7 +44,13 @@ class DashboardController extends Controller
 
     function showHelp(){
 
-        return Round_to_nation_statistics::lastValueAllStatisticOneNation(1);
+        $nation = response('Nelze vstoupit, tvémů clonovanému účtu je přiřazeno více hráčů! Odstranili jsme clonované účty, zkuste to znovu a předělíme Vám nový clon účet.', 500)->header('Content-Type', 'text/plain');
+
+        if(str_contains( get_class($nation), 'Response')){
+
+            return 'yes';
+        }
+        return'NO';
     }
 
 

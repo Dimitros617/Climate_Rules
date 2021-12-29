@@ -22,7 +22,7 @@
                     @endforeach
                 </div>
                 <th class="pb-4 text-center" style="text-orientation: mixed;" data-title="Příjem">
-                    <div class="top-0 mb-3"  style="transform: scale(2)"><img src="{{URL::asset('img/CR-coin.svg')}}"></div>
+                    <div class="top-0 mb-3"  style="transform: scale(2)"><img src="{{URL::asset('Img/CR-coin.svg')}}"></div>
                     <span class="bottom-0 pt-3" style=" font-size: 10px">Příjem</span>
 
                     </th>

@@ -255,6 +255,16 @@ margin-top: -4rem;
     background: #4fd6c9;
 }
 
+@media only screen and (max-width: 768px) {
+    .swal2-popup.swal2-modal.w-75.swal2-show{
+        width: 100% !important;
+    }
+    .swal2-content{
+        padding: 0 !important;
+    }
+}
+
+
 
 
 

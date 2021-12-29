@@ -18,7 +18,7 @@
              style="min-width: 30rem"
         >
             <div class="d-grid p-4">
-                <span class="display-6 fw-bold">{{$lobby->name}}</span>
+                <span class="display-6 fw-bold">{{$lobby->id}}) {{$lobby->name}}</span>
                 <span>@php echo explode(' ',$lobby->play_date)[0]; @endphp</span>
                 <span>{{$lobby->description}}</span>
             </div>

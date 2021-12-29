@@ -4,7 +4,7 @@
         <div class="">
             <div style="">
                 {{--            <x-jet-authentication-card-logo />--}}
-                <a href="/"> <img class="block w-75 " src="{{ URL::asset('img/logo_big_transparent.png') }}"></a>
+                <a href="/"> <img class="block w-75 " src="{{ URL::asset('Img/logo_big_transparent.png') }}"></a>
             </div>
 
             <x-jet-validation-errors class="mb-4" />

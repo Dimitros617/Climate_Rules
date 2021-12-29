@@ -16,7 +16,8 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -66,7 +67,8 @@ function changeTechnologyParameter(technology_id, parameter, ele){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }

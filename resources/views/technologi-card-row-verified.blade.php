@@ -79,11 +79,12 @@
                         <span data-title="{{$stat->name}} " code="{{$stat->code_name}}">
 
                             <div class="pt-1 text-center justify-content-center d-flex"
-                                 style="transform: scale(1.5); color: @if($stat->index_move >= 0) green @else red @endif">
+                                 style="transform: scale(2)" >
                                 @php echo htmlspecialchars_decode($stat->icon) @endphp
                             </div>
                         </span>
-                        <span class=" fw-bold mt-2" style="color: @if($stat->index_move >= 0) green @else red @endif">
+{{--                        style="color: @if($stat->index_move >= 0) green @else red @endif"--}}
+                        <span class=" fw-bold mt-2" >
                             @if($stat->index_move >= 0)+@endif {{$stat->index_move}}
                         </span>
                     </div>
@@ -104,7 +105,7 @@
                             {{$technology->price}}
                             <span>
                                 <div class="top-0 mb-3 p-2 mt-2" style="transform: scale(1.4)">
-                                    <img src="{{URL::asset('img/CR-coin.svg')}}">
+                                    <img src="{{URL::asset('Img/CR-coin.svg')}}">
                                 </div>
                             </span>
                         </span>

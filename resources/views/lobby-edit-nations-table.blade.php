@@ -1,5 +1,15 @@
 
-<div class="column d-flex flex-wrap w-75 justify-content-around">
+<div class="column d-flex flex-wrap w-100 justify-content-around">
+
+    <div class="rounded-4 bg-light shadow-sm w-15rem h-17rem  text-center p-4 d-grid cursor-pointer animate-05 hover-size-01 m-2">
+
+        <label for="gas_count" class="text-start mt-4 mb-1 cr-green fw-bold">Celkem SP</label>
+        <input name="gas_count" class="border-0 bg-white p-2 ps-4 pe-4 shadow-sm rounded-4 text-black w-100" disabled value="{{$count_gas}}">
+
+        <label for="temperature_step" class="text-start mt-4 cr-green mb-1 fw-bold">Posun o 0,5 C</label>
+        <input name="temperature_step" class="border-0 bg-white p-2 ps-4 pe-4 shadow-sm rounded-4 text-black w-100" disabled value="{{$temp_step}}">
+    </div>
+
 @foreach($nations as $nation)
 
     <div class="rounded-4 bg-light shadow-sm w-15rem h-17rem  text-center p-4 d-grid cursor-pointer animate-05 hover-size-01 m-2"
@@ -55,22 +65,9 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" fill="currentColor" class="bi bi-plus-circle-fill cr-green ms-auto me-auto d-block mt-4" viewBox="0 0 16 16">
             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
         </svg>
-        <span class="cr-green fw-bold text-center mt-4">Nový hráč</span>
+        <span class="cr-green fw-bold text-center mt-4">Nový stát / hráč</span>
     </div>
 </div>
 
-
-
-{{--Right panel--}}
-<div>
-    <div class="column d-grid p-3 w-25 ps-5 pb-5" style="    border-left: 2px solid black;">
-
-        <label for="gas_count" class="text-end mt-4 mb-1">Celkem SP</label>
-        <input name="gas_count" class="border-0 bg-light p-2 ps-4 pe-4 shadow-sm rounded-4 text-black" disabled value="{{$count_gas}}">
-
-        <label for="temperature_step" class="text-end mt-4 mb-1">Posun o 0,5 C</label>
-        <input name="temperature_step" class="border-0 bg-light p-2 ps-4 pe-4 shadow-sm rounded-4 text-black" disabled value="{{$temp_step}}">
-    </div>
-</div>
 
 

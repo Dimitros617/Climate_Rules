@@ -4196,7 +4196,7 @@ class DatabaseSeeder extends Seeder
             'id' => '1',
             'name' => 'Nezařazeno',
             'code' => 'nothing',
-            'color' => '209be1',
+            'color' => 'aaaead',
         ]);
 
         DB::table('branches')->insert([

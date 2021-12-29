@@ -57,14 +57,23 @@ class Lobbies extends Model
 
         if(count($nation) == 0){
             Log::info('Lobbies:getAdminNation: tomuto účtu nebyl přidělen žádný hráč');
-            return -1;
+            if(User::removeCloneUser(Auth::user()->id,$lobby_id)){
+                return response('Nelze vstoupit, Clonovanému účtu nebyl přiřazen žádný hráč v této hře! Odstranili jsme chybný clonovaný účet, zkuste to znovu a předělíme Vám nový clon účet.', 500)->header('Content-Type', 'text/plain');
+            }else{
+                return response('Nelze vstoupit, Clonovanému účtu nebyl přiřazen žádný hráč v této hře! Pokusily jsme se chybu opravit odstatněním clon účtu, ovšem při mazání se něco pokazilo!', 500)->header('Content-Type', 'text/plain');
+            }
+
         }
         else if(count($nation) == 1){
             return $nation[0];
         }
         else{
             Log::info('Lobbies:getAdminNation: Tomuto účtu bylo přiděleno více hráčů!!!!');
-            return -2;
+            if(User::removeCloneUser(Auth::user()->id,$lobby_id)){
+                return response('Nelze vstoupit, tvémů clonovanému účtu je přiřazeno více hráčů! Odstranili jsme clonované účty, zkuste to znovu a předělíme Vám nový clon účet.', 500)->header('Content-Type', 'text/plain');
+            }else{
+                return response('Nelze vstoupit, tvémů clonovanému účtu je přiřazeno více hráčů!  Pokusily jsme se chybu opravit odstatněním clon účtu, ovšem při mazání se něco pokazilo!', 500)->header('Content-Type', 'text/plain');
+            }
         }
     }
 

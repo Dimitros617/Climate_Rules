@@ -18,7 +18,8 @@ function addNation(id){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -43,7 +44,8 @@ function removeNation(id){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -67,7 +69,8 @@ function saveNationsUser(id, value, fce){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -95,7 +98,8 @@ function saveNationFromTemplate(id_nation, id_template){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -123,7 +127,8 @@ function refreshNationsEditList(){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }

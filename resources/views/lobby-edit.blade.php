@@ -6,9 +6,9 @@
 
     <input value="{{$lobby->id}}" name="id" hidden>
 
-    <div class="column d-grid p-3">
+    <div class="column d-grid p-3 w-75">
 
-        <input class="name display-5 border-0 bg-transparent fw-bold rounded-4" name="name" value="{{$lobby->name}}">
+        <input class="name display-5 border-0 bg-transparent fw-bold rounded-4 w-100" name="name" value="{{$lobby->name}}">
         <hr class="cr-hr mb-3">
 
         <label for="description" class="text-start mt-3 mb-1">Popisek</label>

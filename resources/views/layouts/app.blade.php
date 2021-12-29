@@ -16,7 +16,7 @@
      -->
 
     <title>@yield('title') | CR</title>
-    <link rel="icon" href="{{ URL::asset('img/logo_mini_transparent_square.png') }}">
+    <link rel="icon" href="{{ URL::asset('Img/logo_mini_transparent_square.png') }}">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -27,13 +27,14 @@
     <!-- Javascript -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
     <script src="{{ URL::asset('css/bootstrap/js/bootstrap.bundle.js') }}"></script>
 {{--    <script src="{{ URL::asset('css/bootstrap/js/bootstrap.esm.js') }}"></script>--}}
     <script src="{{ URL::asset('css/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
+    <script src="{{ URL::asset('js/button-menu.js') }}"></script>
     <script src="{{ URL::asset('js/context-menu.js') }}"></script>
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.js') }}"></script>
@@ -71,7 +72,7 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-grid.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-reboot.css') }}">
-    <link href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.bubble.css">
@@ -124,7 +125,7 @@
 {{--                    no-repeat--}}
 {{--                    `--}}
 {{--         })}--}}
-{{--        ">©</span> <a href="http://www.dominikfrolik.cz/"> Dominik Frolík </a> |  Bakalářská práce 2021 pro <a href="https://www.zcu.cz/cs/index.html"> ZČU </a> v Plzni--}}
+{{--        ">©</span> <a href="https://www.dominikfrolik.cz/"> Dominik Frolík </a> |  Bakalářská práce 2021 pro <a href="https://www.zcu.cz/cs/index.html"> ZČU </a> v Plzni--}}
 
 {{--    </div>--}}
 </div>

@@ -21,10 +21,11 @@ class CreateTechnologies extends Migration
             $table->integer('price');
             $table->tinyInteger('visibility')->default('1');
             $table->tinyInteger('certificate')->default('1');
-            $table->string('img_url',200)->default('/img/logo_mini_transparent_gray.png');
+            $table->string('img_url',200)->default('/Img/logo_mini_transparent_gray.png');
             $table->unsignedBigInteger('branch_id');
             $table->unsignedBigInteger('area_id');
             $table->integer('round_show')->default('1');
+            $table->integer('round_hide')->nullable();
 
 
             $table->foreign('branch_id')->references('id')->on('branches');

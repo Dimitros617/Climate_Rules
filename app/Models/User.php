@@ -81,4 +81,11 @@ class User extends Authenticatable
         }
         return $clone[0];
     }
+
+    static function removeCloneUser($user_id, $lobby_id){
+        return $clone = DB::table('users_admin_clones')
+            ->where('user_id', $user_id)
+            ->where('lobby_id', $lobby_id)
+            ->delete();
+    }
 }

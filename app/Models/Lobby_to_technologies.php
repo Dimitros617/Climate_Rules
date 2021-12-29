@@ -29,6 +29,7 @@ class Lobby_to_technologies extends Model
             $tech->technology_id = $technology->id;
             $tech->lobby_id = $lobby_id;
             $tech->round_show = $technology->round_show;
+            $tech->round_hide = $technology->round_hide;
             $tech->certificate = $technology->certificate;
             $tech->visibility = $technology->visibility;
 

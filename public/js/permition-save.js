@@ -32,22 +32,9 @@ let a = $('#savePermitionData-' + id).serialize();
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            Swal.fire({
-                icon: 'error',
-                title: 'Hmm... CHYBA!',
-                text: err ,
-                customClass: {
-                    container: 'su-shake-horizontal',
-                }
-            })
-            ele.querySelectorAll("div[id='buttonText']")[0].removeAttribute("hidden");
-            ele.querySelectorAll("div[id='buttonLoading']")[0].setAttribute("hidden", "");
-
-            ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#x2715;</b>';
-
-            setTimeout(function (ele){
-                ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = "Uložit změny";
-            },1000,ele);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
         }
     });
 

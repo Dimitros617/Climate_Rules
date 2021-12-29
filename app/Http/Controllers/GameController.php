@@ -37,6 +37,7 @@ class GameController extends Controller
             ->join('nation_statistic_values','statistics_types.id','=','nation_statistic_values.statistics_type_id')
             ->where('nation_statistic_values.set','=',$nations[0]->statistic_values_set)
             ->groupBy('statistics_types.code_name')
+            ->orderBy('statistics_types.id')
             ->get();
 
         if(!Lobbies::isDefinedNationsStatisticTypesSame($id)){

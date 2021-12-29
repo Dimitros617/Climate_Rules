@@ -10,7 +10,15 @@ function IsJsonString(str) {
     return true;
 }
 
-function allertError(text){
+function allertError(text, code = undefined){
+
+    if(code !== undefined){
+
+        if(code == 401 && text === undefined){
+            text = "Nejste přihlášeni nebo nemáte dostatečné oprávnění k této akci."
+        }
+    }
+
     Swal.fire({
         icon: 'error',
         title: 'Hmm... CHYBA!',
@@ -70,7 +78,8 @@ function removeElement(table, id, fce){
                 error: function (response){
                     console.log(response);
                     let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-                    allertError(err);
+                    let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
                     hideLoading();
 
                 }
@@ -98,7 +107,8 @@ function changeElement(table, column, id, value, fce){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
