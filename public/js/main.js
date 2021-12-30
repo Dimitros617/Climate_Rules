@@ -116,17 +116,25 @@ function changeElement(table, column, id, value, fce){
 
 }
 
-function collapseElement(parent, clickedParent, collapseClass){
+function collapseElement(buttonDiv, button, elementsClassAll, elementIdShow){
 
-    let collapseElements = parent.getElementsByClassName(collapseClass);
+    let collapseElements = document.getElementsByClassName(elementsClassAll);
 
     for(let ele of collapseElements){
-        ele.style.height = '0px';
+        ele.style.display = 'none';
     }
 
-    let decollapseElement = clickedParent.getElementsByClassName(collapseClass)[0];
-    decollapseElement.style.height = 'auto';
+    let buttons = buttonDiv.children;
+
+    for(let btn of buttons){
+        btn.classList.remove('cr-btn-active');
+    }
+    button.classList.add('cr-btn-active');
+
+    let decollapseElement = document.getElementById(elementIdShow);
+    decollapseElement.style.display = 'block';
 }
+
 
 function showAndHideElement(parent, classElement){
 

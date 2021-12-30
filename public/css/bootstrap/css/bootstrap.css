@@ -3903,6 +3903,7 @@ textarea.form-control-lg {
 .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #0099cd;
+    font-weight: bold;
 }
 
 .nav-fill > .nav-link,
@@ -3910,6 +3911,7 @@ textarea.form-control-lg {
   flex: 1 1 auto;
   text-align: center;
 }
+
 
 .nav-justified > .nav-link,
 .nav-justified .nav-item {
@@ -6411,6 +6413,10 @@ a.badge-dark:focus, a.badge-dark.focus {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
+.shadow-md {
+    box-shadow: 0 0.125rem 2rem 15px rgb(0 0 0 / 6%) !important;
+}
+
 .shadow-lg {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
 }
@@ -7137,6 +7143,14 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .mt-5 {
   margin-top: 3rem !important;
+}
+
+.mt-6 {
+    margin-top: 4rem !important;
+}
+
+.mt-7 {
+    margin-top: 5rem !important;
 }
 
 .mt-auto {

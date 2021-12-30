@@ -1,4 +1,4 @@
-<div  class=" card-box h-content bg-white rounded-4 shadow-lg w-20rem m-2 animate-05 hover-size-001 ">
+<div  class=" card-box h-content bg-white rounded-4 shadow-md w-20rem m-2 animate-05 hover-size-001 ">
     <div class="w-100 p-2 d-flex flex justify-content-between animate-05 card-technology-color-bar" style="background-color: {{$technology->branch_color}}">
         <span class="fw-bold fs-6 ">
             {{$technology->branch_name}}

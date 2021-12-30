@@ -24,6 +24,13 @@ class TechnologiController extends Controller
 
         Log::info('TechnologiController:show');
 
+        return $this->getTechnologiView('technologies', $lobby_id);
+    }
+
+    function getTechnologiView($view_name, $lobby_id){
+
+        Log::info('TechnologiController:show->getTechnologiView');
+
         $nation_id = Nations::getNationIdFromLobby($lobby_id);
 
         if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
@@ -39,7 +46,8 @@ class TechnologiController extends Controller
         //return $allTechnologies;
         //return $my_nation;
 
-        return view('technologies', ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies]);
+        return view($view_name, ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies]);
+
     }
 
     /**
@@ -69,7 +77,7 @@ class TechnologiController extends Controller
             if(!Nations_technologies::addNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('buy'))){
                 return response('Chyby při vytváření nového záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
-            return Nations_technologies_status::find(Nations_technologies_status::getIdByCode('buy'));
+            return $this->getTechnologiView('technologies-box', $lobby_id);
         }
 
         $status = $status[0];
@@ -79,11 +87,9 @@ class TechnologiController extends Controller
             if(!Nations_technologies::setNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('buy'))){
                 return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
-            return Nations_technologies_status::find(Nations_technologies_status::getIdByCode('buy'));
+            return $this->getTechnologiView('technologies-box', $lobby_id);
 
         }elseif ($status->code == 'buy'){
-
-            Log::info('---');
 
 
             if(Auth::permition()->admin !=1){
@@ -106,14 +112,14 @@ class TechnologiController extends Controller
             }
 
 
-            return Nations_technologies_status::find(Nations_technologies_status::getIdByCode($new_code));
+            return $this->getTechnologiView('technologies-box', $lobby_id);
 
         }elseif ($status->code == 'investment'){
 
             if(!Nations_technologies::setNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('certificate'))){
                 return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
-            return Nations_technologies_status::find(Nations_technologies_status::getIdByCode('certificate'));
+            return $this->getTechnologiView('technologies-box', $lobby_id);
 
         }elseif ($status->code == 'certificate'){
 
@@ -122,7 +128,6 @@ class TechnologiController extends Controller
             }
 
             $activate_technology = $this->activateTechnologyToNation($request->technology_id, $nation_id);
-            Log::info('actiuvate return: ' . $activate_technology);
 
             if($activate_technology != 1){
                 return $activate_technology;
@@ -132,7 +137,7 @@ class TechnologiController extends Controller
                 return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
 
-            return Nations_technologies_status::find(Nations_technologies_status::getIdByCode('active'));
+            return $this->getTechnologiView('technologies-box', $lobby_id);
 
         }elseif ($status->code == 'active'){
 

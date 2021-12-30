@@ -213,6 +213,10 @@ th:last-child {
     background-color: #262626;
 }
 
+.cr-empty-element:empty:before{
+    content: 'Zatím tu nemáme nic k zobrazení.';
+}
+
 
 /*Button bar*/
 
@@ -231,6 +235,40 @@ margin-top: -4rem;
 .cr-button:active{
     transform: scale(0.95);
 
+}
+
+/* BTN panel technologie*/
+
+.cr-btn{
+    padding: 0.5rem !important;
+    flex-grow: 1 !important;
+    text-align: center !important;
+    color: black;
+    font-weight: 500;
+    border-bottom: 4px solid #659933;
+    margin: 0 4px 0 4px;
+    border-radius: 4px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.cr-btn-active{
+    color: white !important;
+    background-color: #659933;
+}
+
+.cr-btn-active:hover{
+    color: white !important;
+    background-color: #659933 !important;
+}
+
+.cr-btn:hover{
+    color: black;
+    background-color: #ffffff;
+}
+
+.cr-btn:active{
+transform: scale(0.9);
 }
 
 

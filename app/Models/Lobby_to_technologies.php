@@ -77,12 +77,17 @@ class Lobby_to_technologies extends Model
                         ->join('technologies_areas','technologies.area_id','=','technologies_areas.id')
                         ->join('branches','technologies.branch_id','=','branches.id')
                         ->where('lobby_to_technologies.lobby_id','=',$lobby_id)
-                        ->orderBy('technologies.name')
+                        ->orderBy('technologies.round_show')
+                        ->orderBy('technologies.branch_id')
+                        ->orderBy('technologies.area_id')
+                        ->orderBy('technologies.code')
                         ->get();
 
         foreach ($technologies as $technology){
             $technology->statistics_types = Technologies::getAllStatisticTypeOfTechnologi($technology->technology_id);
             $technology->nations_status = Nations_technologies::getAllNationsStatusOfTechnology($technology->id);
+            $technology->nation_id = Nations::getNationIdFromLobby($lobby_id);
+            $technology->my_status = Nations_technologies::getOneNationStatusOfTechnology(Nations::getNationIdFromLobby($lobby_id),$technology->id);
             $technology->workStatus = Nations_technologies::countNationsWithWorkStatus($technology->id);
             $technology->activeStatus = Nations_technologies::countNationsWithActiveStatus($technology->id);
             $technology->special_events = Special_technologies::getAllSpecialsOfTechnology($technology->technology_id);
