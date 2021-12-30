@@ -23,7 +23,7 @@
     <div class="w-90 ms-auto me-auto d-block">
         <div class="d-flex flex-wrap justify-content-center">
 
-            <div id="status-table-container" class="light-transparent  rounded-5 w-100 p-5 pt-4 m-2 shadow-sm" lobbyId="{{$lobby->id}}">
+            <div id="status-table-container" class="light-transparent  rounded-5 w-100 p-2 p-md-5 pt-4 m-2 shadow-sm" lobbyId="{{$lobby->id}}">
                 @include('local-status-table')
             </div>
             @include('local-status-map')

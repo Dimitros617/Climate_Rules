@@ -9,50 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Opraveny závažné chyby z testování, upravena responzibilita některých prvků">
-      <change afterPath="$PROJECT_DIR$/public/js/button-menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lobbies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobbies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Nations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_16_235933_create_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_16_235933_create_technologies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_17_001452_create_lobby_to_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_17_001452_create_lobby_to_technologies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_17_002932_create_nations_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_17_002932_create_nations_technologies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/welcome.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/welcome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/lobby.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/lobby.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/nations.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/nations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/permition-save.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/permition-save.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/technology.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/technology.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/reset-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/reset-password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/two-factor-challenge.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/two-factor-challenge.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/button-panel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/button-panel.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lobbies-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobbies-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lobbies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobbies.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lobby-edit-nations-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobby-edit-nations-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lobby-edit-nations.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobby-edit-nations.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lobby-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobby-edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/local-status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/local-status.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -456,6 +416,7 @@
       <workItem from="1640631448729" duration="5124000" />
       <workItem from="1640702128562" duration="3060000" />
       <workItem from="1640788911302" duration="13179000" />
+      <workItem from="1640863010864" duration="3771000" />
     </task>
     <task id="LOCAL-00049" summary="Repozicování a rozděláno editování">
       <created>1615763141271</created>

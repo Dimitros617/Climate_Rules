@@ -7765,8 +7765,41 @@ a.badge-dark:focus, a.badge-dark.focus {
         max-width: 30rem !important;
     }
 
+
+    .w-sm-25 {
+        width: 25% !important;
+    }
+
+    .w-sm-50 {
+        width: 50% !important;
+    }
+
+    .w-sm-70 {
+        width: 70% !important;
+    }
+
     .w-sm-75 {
         width: 75% !important;
+    }
+
+    .w-sm-85 {
+        width: 85% !important;
+    }
+
+    .w-sm-90 {
+        width: 90% !important;
+    }
+
+    .w-sm-95 {
+        width: 95% !important;
+    }
+
+    .w-sm-100 {
+        width: 100% !important;
+    }
+
+    .w-sm-content{
+        width: fit-content !important;
     }
 
     .float-sm-start {
@@ -8443,8 +8476,41 @@ a.badge-dark:focus, a.badge-dark.focus {
         margin-top: -5rem !important;
     }
 
+
+    .w-md-25 {
+        width: 25% !important;
+    }
+
     .w-md-50 {
         width: 50% !important;
+    }
+
+    .w-md-70 {
+        width: 70% !important;
+    }
+
+    .w-md-75 {
+        width: 75% !important;
+    }
+
+    .w-md-85 {
+        width: 85% !important;
+    }
+
+    .w-md-90 {
+        width: 90% !important;
+    }
+
+    .w-md-95 {
+        width: 95% !important;
+    }
+
+    .w-md-100 {
+        width: 100% !important;
+    }
+
+    .w-md-content{
+        width: fit-content !important;
     }
 
   .float-md-start {
@@ -9101,12 +9167,41 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 @media (min-width: 992px) {
 
+
+    .w-lg-25 {
+        width: 25% !important;
+    }
+
     .w-lg-50 {
         width: 50% !important;
     }
 
-    .w-lg-25 {
-        width: 25% !important;
+    .w-lg-70 {
+        width: 70% !important;
+    }
+
+    .w-lg-75 {
+        width: 75% !important;
+    }
+
+    .w-lg-85 {
+        width: 85% !important;
+    }
+
+    .w-lg-90 {
+        width: 90% !important;
+    }
+
+    .w-lg-95 {
+        width: 95% !important;
+    }
+
+    .w-lg-100 {
+        width: 100% !important;
+    }
+
+    .w-lg-content{
+        width: fit-content !important;
     }
 
   .float-lg-start {
