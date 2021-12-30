@@ -6509,6 +6509,9 @@ a.badge-dark:focus, a.badge-dark.focus {
 .trans {
     transform: scale(1.5) !important;
 }
+.border-none {
+    border: none !important;
+}
 
 .border {
   border: 1px solid #dee2e6 !important;
@@ -6672,6 +6675,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .w-3rem{
     width: 3rem;
+}
+
+.w-4rem{
+    width: 4rem;
 }
 
 .w-5rem{

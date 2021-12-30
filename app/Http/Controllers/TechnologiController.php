@@ -50,11 +50,14 @@ class TechnologiController extends Controller
             ->orderBy('statistics_types.id')
             ->get();
 
+        $branches = DB::table('branches')->get();
+        $areas = DB::table('technologies_areas')->get();
+
         //return $statistics_types;
         //return $allTechnologies;
         //return $my_nation;
 
-        return view($view_name, ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies, 'statistics_types' => $statistics_types]);
+        return view($view_name, ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies, 'statistics_types' => $statistics_types, 'branches' => $branches, 'areas' => $areas]);
 
     }
 

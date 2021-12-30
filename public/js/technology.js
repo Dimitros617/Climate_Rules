@@ -85,6 +85,15 @@ function changeTechnologyParameter(technology_id, parameter, ele){
 
 }
 
+function searchTechnology(formId){
+
+
+    let id = "#" + formId;
+    let a = $("#" + formId).serialize()
+    let b = a;
+
+}
+
 
 function refreshTechnologies(HTML){
 
