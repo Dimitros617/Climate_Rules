@@ -18,14 +18,14 @@
 
     @include('lobby-admin-panel')
 
-    <div class="bg-light shadow-md w-75 ms-auto me-auto d-block p-3 rounded-3 mb-2">
+    <div class="bg-light shadow-md w-80 ms-auto me-auto d-block p-3 rounded-3 mb-2">
 
         <div class="w-100 justify-content-end d-flex">
 
             <div class="card-body row no-gutters align-items-center h-4rem">
 
                 <div class="col">
-                    <input class="form-control-borderless p-2 rounded-3 overflow-hidden fs-5 shadow-sm" id="search" type="search" placeholder="Zadejte hledaný výraz">
+                    <input class="form-control-borderless p-3 fs-4  rounded-3 overflow-hidden fs-5 shadow-sm" id="search" type="search" placeholder="Zadejte hledaný výraz">
 
                 </div>
 
@@ -61,16 +61,22 @@
 
         </div>
 
-        <div class="w-100 p-2 d-flex flex-wrap">
+        <div class="w-100 p-2 mt-3 d-flex flex-wrap justify-content-center justify-content-md-between">
 
-            <div class="form-check form-switch d-grid text-center justify-content-center">
-                <input class="form-check-input m-0" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Name</label>
-            </div>
-
+            @foreach($statistics_types as $stat)
+                <div class="d-inline-flex bg-white rounded-3 m-2 p-2 flex-lg-grow-1 shadow-sm">
+                    <div class="w-25 me-3 hover-size-01 animate-05" data-title="{{$stat->name}}">
+                        <div class="w-content p-4" style="transform: scale(2.5)">@php echo htmlspecialchars_decode($stat->icon) @endphp</div>
+                    </div>
+                    <div class=" w-75 form-check form-switch d-grid text-center justify-content-center p-0 pt-2">
+                        <input style="transform: scale(1.2)" class="form-check-input m-0 p-0 ms-1" checked type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label mt-1 fw-bold" style=" font-size: 10px" for="flexSwitchCheckDefault">{{$stat->name}}</label>
+                    </div>
+                </div>
+            @endforeach
         </div>
 
-        <nav id="technologyButtonPanel" class="nav nav-pills nav-justified rounded-3 overflow-hidden mt-3">
+        <nav id="technologyButtonPanel" class="nav nav-pills nav-justified rounded-3 overflow-hidden mt-5">
             <a class="cr-btn fs-5 cr-btn-active" onclick="collapseElement(this.parentNode, this, 'collapse-ele', 'newTechnologies')">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
                 Nové Technologie
@@ -94,7 +100,7 @@
     </div>
 
 
-    <div id="technologyBox" class="bg-white shadow-md w-75 ms-auto me-auto d-block p-3 rounded-3 mb-2">
+    <div id="technologyBox" class="bg-white shadow-md w-80 ms-auto me-auto d-block p-3 rounded-3 mb-2">
 
         @include('technologies-box')
 

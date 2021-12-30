@@ -6642,6 +6642,10 @@ a.badge-dark:focus, a.badge-dark.focus {
   width: 75% !important;
 }
 
+.w-80 {
+    width: 80% !important;
+}
+
 .w-85 {
     width: 85% !important;
 }

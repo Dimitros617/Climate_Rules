@@ -42,11 +42,19 @@ class TechnologiController extends Controller
         $my_nation = Nations::find($nation_id);
         $lobby = Lobbies::find($lobby_id);
         $roundNumber = Rounds::getCountRoundsInLobby($lobby_id);
+        $statistics_types = DB::table('statistics_types')
+            ->select('statistics_types.*')
+            ->join('nation_statistic_values','statistics_types.id','=','nation_statistic_values.statistics_type_id')
+            ->where('nation_statistic_values.set','=',$my_nation->statistic_values_set)
+            ->groupBy('statistics_types.code_name')
+            ->orderBy('statistics_types.id')
+            ->get();
 
+        //return $statistics_types;
         //return $allTechnologies;
         //return $my_nation;
 
-        return view($view_name, ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies]);
+        return view($view_name, ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies, 'statistics_types' => $statistics_types]);
 
     }
 

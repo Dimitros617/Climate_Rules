@@ -5,7 +5,7 @@
     <script src="/js/user-gets.js"></script>
 
 
-    <div class="users-container light-transparent justify-content-between rounded-5 w-75 p-3 ms-auto me-auto d-block p-58 shadow-sm">
+    <div class="users-container light-transparent justify-content-between rounded-5 w-80 p-3 ms-auto me-auto d-block p-58 shadow-sm">
 
         <div class="container p-6 ">
 
