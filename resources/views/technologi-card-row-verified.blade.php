@@ -1,4 +1,4 @@
-<div class="technology-card card-row h-content bg-white rounded-4 overflow-hidden shadow-lg w-100 m-2 mb-3 animate-05 hover-size-001 ">
+<div class="technology-card card-row h-content bg-white rounded-4 overflow-hidden shadow-lg w-100 m-2 mb-3 animate-05 hover-size-001 " filter="0">
 
     <div class=" technology-name fw-bold fs-5 p-2 ps-3 pe-3 text-start w-100 text-uppercase">
         {{$technology->technology_name}}

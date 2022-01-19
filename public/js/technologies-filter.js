@@ -1,0 +1,231 @@
+
+function filterAll(filterBox){
+    console.time('FilterCounter: ');
+    window.counterDebug = 0;
+
+    filterBox = document.getElementById(filterBox);
+    let allTechnologies = document.getElementsByClassName('technology-card');
+
+    for (let technology of allTechnologies){
+        technology.setAttribute('filter', '0');
+        technology.setAttribute('hidden', '');
+        window.counterDebug++;
+    }
+
+
+    filterText(filterBox.getElementsByClassName('filter-search')[0]);
+    filterStatisticTypes(filterBox.getElementsByClassName('filter-statistic-type-box')[0]);
+    filterBranch(filterBox.getElementsByClassName('filter-branch')[0]);
+    filterAreas(filterBox.getElementsByClassName('filter-areas')[0]);
+    filterPrice(filterBox.getElementsByClassName('filter-price')[0]);
+    filterWork(filterBox.getElementsByClassName('filter-work')[0]);
+    filterActive(filterBox.getElementsByClassName('filter-active')[0]);
+
+    sortPrice(filterBox.getElementsByClassName('filter-price')[0]);
+
+    for (let technology of allTechnologies){
+        window.counterDebug++;
+        if(parseInt(technology.getAttribute('filter')) == 0){
+            technology.removeAttribute('hidden');
+        }
+
+    }
+
+    console.log('Počet průchodů:' + window.counterDebug);
+    console.timeEnd('FilterCounter: ')
+
+}
+
+function filterText(ele){
+
+    let searchValue = ele.value.trim().toLowerCase();
+
+    let allTechnologies = document.getElementsByClassName('technology-card');
+
+    for (let technology of allTechnologies){
+        window.counterDebug++;
+        let val = parseInt(technology.getAttribute('filter'));
+
+        if(technology.getElementsByClassName('technology-name')[0].innerHTML.trim().toLowerCase().includes(searchValue)){}
+        else if(technology.getElementsByClassName('technology-code')[0].innerHTML.trim().toLowerCase().includes(searchValue)){
+        }else{
+            technology.setAttribute('filter', val+1);
+        }
+
+    }
+}
+
+
+function filterStatisticTypes(ele){
+
+    let searchStatisticsTypes = ele.getElementsByClassName('filter-statistic-type');
+
+    let allTechnologies = document.getElementsByClassName('technology-card');
+
+    for (let technology of allTechnologies){
+
+        let val = parseInt(technology.getAttribute('filter'));
+
+        let allTechnologyStatisticsTypes = technology.getElementsByClassName('technology-statistic-type')
+
+        let hide = 0;
+        for (let technologyStatisticType of allTechnologyStatisticsTypes){
+
+            for (let filterStatisticType of searchStatisticsTypes){
+                window.counterDebug++;
+                if(technologyStatisticType.getAttribute('code') == filterStatisticType.getAttribute('code')){
+                       if(!filterStatisticType.getElementsByClassName('form-check-input')[0].checked){
+                           hide++;
+                       }
+                    break;
+                }
+            }
+        }
+        if(hide > 0){
+            technology.setAttribute('filter', val+1);
+        }
+
+
+
+    }
+
+}
+
+function filterBranch(ele){
+
+    let searchValue = ele.value.trim().toLowerCase();
+
+    if(searchValue == "-"){
+        return;
+    }
+
+    let allTechnologies = document.getElementsByClassName('technology-card');
+
+    for (let technology of allTechnologies){
+        window.counterDebug++;
+        let val = parseInt(technology.getAttribute('filter'));
+
+        if(!technology.getElementsByClassName('technology-branch')[0].innerHTML.trim().toLowerCase().includes(searchValue)){
+            technology.setAttribute('filter', val+1);
+        }
+    }
+
+}
+
+function filterAreas(ele){
+    let searchValue = ele.value.trim().toLowerCase();
+
+    if(searchValue == "-"){
+        return;
+    }
+
+    let allTechnologies = document.getElementsByClassName('technology-card');
+
+    for (let technology of allTechnologies){
+        window.counterDebug++;
+        let val = parseInt(technology.getAttribute('filter'));
+
+        if(!technology.getElementsByClassName('technology-area')[0].innerHTML.trim().toLowerCase().includes(searchValue)){
+            technology.setAttribute('filter', val+1);
+        }
+    }
+}
+
+function filterPrice(ele){
+    let searchValue = ele.getElementsByClassName('filter-price-border')[0].value;
+
+    let allTechnologies = document.getElementsByClassName('technology-card');
+
+    for (let technology of allTechnologies){
+        window.counterDebug++;
+        let val = parseInt(technology.getAttribute('filter'));
+        let a = parseInt(technology.getElementsByClassName('technology-price')[0].innerHTML.trim());
+        if(parseInt(technology.getElementsByClassName('technology-price')[0].innerHTML.trim()) > parseInt(searchValue)){
+            technology.setAttribute('filter', val+1);
+        }
+    }
+
+}
+
+function sortPrice(ele){
+
+    let sortValue = ele.getElementsByClassName('filter-price-sort')[0].value;
+
+    let roundSeparators = document.getElementsByClassName('round-separator');
+    for (let roundSep of roundSeparators ){
+        roundSep.setAttribute('hidden', '');
+    }
+
+    let allCardBoxes = document.getElementsByClassName('cards-technology-container');
+
+    for (let cardBox of allCardBoxes){
+        let allTechnologiesOfCardBox = cardBox.getElementsByClassName('technology-card');
+        let sortedTechnologies = [];
+        for (let technology of allTechnologiesOfCardBox){
+            sortedTechnologies.push(technology.cloneNode(true));
+        }
+
+        let change = true;
+        do{
+            change = false;
+            for (let i = 0; i < sortedTechnologies.length-1 ; i++){
+                let a = parseInt(sortedTechnologies[i].getElementsByClassName('technology-price')[0].innerHTML);
+                let b = parseInt(sortedTechnologies[i+1].getElementsByClassName('technology-price')[0].innerHTML);
+                if(sortValue == -1){
+                    if(a < b){
+                        let temp = sortedTechnologies[i];
+                        sortedTechnologies[i] = sortedTechnologies[i+1];
+                        sortedTechnologies[i+1] = temp;
+                        change = true;
+                    }
+                }else if (sortValue == 1){
+                    if(a > b){
+                        let temp = sortedTechnologies[i];
+                        sortedTechnologies[i] = sortedTechnologies[i+1];
+                        sortedTechnologies[i+1] = temp;
+                        change = true;
+                    }
+                }
+            }
+            let n = "";
+
+        }while(change);
+
+        console.log("----- NEW BOX -----")
+        cardBox.innerHTML = "";
+        for (let technology of sortedTechnologies){
+            console.log(technology.getElementsByClassName('technology-price')[0].innerHTML)
+            cardBox.appendChild(technology);
+        }
+
+    }
+}
+
+function filterWork(ele){
+
+
+    let allTechnologies = document.getElementsByClassName('technology-card');
+
+    for (let technology of allTechnologies){
+        window.counterDebug++;
+        let val = parseInt(technology.getAttribute('filter'));
+        if(parseInt(technology.getElementsByClassName('technology-work-status')[0].innerHTML.trim()) > 0 && !ele.checked){
+            technology.setAttribute('filter', val+1);
+        }
+
+    }
+}
+
+function filterActive(ele){
+
+    let allTechnologies = document.getElementsByClassName('technology-card');
+
+    for (let technology of allTechnologies){
+        window.counterDebug++;
+        let val = parseInt(technology.getAttribute('filter'));
+        if(parseInt(technology.getElementsByClassName('technology-active-status')[0].innerHTML.trim()) > 0 && !ele.checked){
+            technology.setAttribute('filter', val+1);
+        }
+
+    }
+}
