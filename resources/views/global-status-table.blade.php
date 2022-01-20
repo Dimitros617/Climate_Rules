@@ -38,7 +38,7 @@
                 <th class=" fs-7 text-center hover-size-01" nationId="{{$nation->id}}" staticticTypeCode="{{$statistic_type->code_name}}" @if(Auth::check() && Auth::permition()->admin == "1") onmouseenter="thHoverOn(this)" onmouseleave="thHoverOff(this)" @endif>
 
                     @if(Auth::check() && Auth::permition()->admin == "1")
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16" display="none" onclick="decreaseValue(this.parentNode.getAttribute('nationId'), this.parentNode.getAttribute('staticticTypeCode'))">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-caret-left-fill @if(str_contains($statistic_type->code_name, 'level')) muted @endif " viewBox="0 0 16 16" display="none" onclick="decreaseValue(this.parentNode.getAttribute('nationId'), this.parentNode.getAttribute('staticticTypeCode'))">
                         <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                     </svg>
                     @endif
@@ -55,7 +55,7 @@
                 @endforeach
 
 {{--                income count počítání příjmů--}}
-                <th class="fs-7 text-center hover-size-01">@php  echo ($nation->stats[0]->economy * $nation->stats[0]->tax) @endphp <span class="fs-6">M</span></th>
+                <th class="fs-7 text-center hover-size-01" data-title="Příjem = Ekonomika x Daně">@php  echo ($nation->stats[0]->economy * $nation->stats[0]->tax) @endphp</th>
             </tr>
             @endforeach
 

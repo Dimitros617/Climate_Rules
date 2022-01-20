@@ -169,6 +169,7 @@ function sortPrice(ele){
         do{
             change = false;
             for (let i = 0; i < sortedTechnologies.length-1 ; i++){
+                window.counterDebug++;
                 let a = parseInt(sortedTechnologies[i].getElementsByClassName('technology-price')[0].innerHTML);
                 let b = parseInt(sortedTechnologies[i+1].getElementsByClassName('technology-price')[0].innerHTML);
                 if(sortValue == -1){
@@ -191,10 +192,9 @@ function sortPrice(ele){
 
         }while(change);
 
-        console.log("----- NEW BOX -----")
+
         cardBox.innerHTML = "";
         for (let technology of sortedTechnologies){
-            console.log(technology.getElementsByClassName('technology-price')[0].innerHTML)
             cardBox.appendChild(technology);
         }
 

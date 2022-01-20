@@ -8,16 +8,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="připraveny karty a řádky na vyhledávání + dodělán frontend pro pokročilé vyhledávání">
-      <change afterPath="$PROJECT_DIR$/public/js/technologies-filter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/technologies-filters.blade.php" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Vytvořen backend pro filtrování technologií">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologies-box.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologies-box.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologies.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NationsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_10_000000_create_statistics_types.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_10_000000_create_statistics_types.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_11_000000_create_nations_templates.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_11_000000_create_nations_templates.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_11_000006_create_lobbies.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_11_000006_create_lobbies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_11_000009_create_nations.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_11_000009_create_nations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_17_002831_create_nations_technologies_status.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_17_002831_create_nations_technologies_status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/technologies-filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/technologies-filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologies-filters.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologies-filters.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -424,14 +427,8 @@
       <workItem from="1640863010864" duration="18956000" />
       <workItem from="1640885637589" duration="595000" />
       <workItem from="1640892458802" duration="8467000" />
-      <workItem from="1642605799649" duration="17689000" />
-    </task>
-    <task id="LOCAL-00053" summary="Přidáno ukládání a načítání textu, vytváření finish buttonů a dokončování + implementováno do zámků">
-      <created>1616020918058</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1616020918058</updated>
+      <workItem from="1642605799649" duration="18444000" />
+      <workItem from="1642687869481" duration="6680000" />
     </task>
     <task id="LOCAL-00054" summary="Doděláno odstraňování všech prvků">
       <created>1616077366146</created>
@@ -769,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640902149532</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Vytvořen backend pro filtrování technologií">
+      <created>1642627002146</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1642627002146</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -835,7 +839,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Oprava HTTP codu" />
     <MESSAGE value="Doděláno zobrazování globálních dat států a přidán teploměr" />
     <MESSAGE value="načítání dat do teploměru + refresh API" />
     <MESSAGE value="Přidána dynamická infografika na temperature bar" />
@@ -860,7 +863,8 @@
     <MESSAGE value="Předělány karty u technologí frontend + sortění a rozdělení podle kol" />
     <MESSAGE value="Připravený frontend pro vyhledávání a filtrovaní technologií + předělané zobrazovaní technologií" />
     <MESSAGE value="připraveny karty a řádky na vyhledávání + dodělán frontend pro pokročilé vyhledávání" />
-    <option name="LAST_COMMIT_MESSAGE" value="připraveny karty a řádky na vyhledávání + dodělán frontend pro pokročilé vyhledávání" />
+    <MESSAGE value="Vytvořen backend pro filtrování technologií" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vytvořen backend pro filtrování technologií" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

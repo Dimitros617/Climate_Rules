@@ -12,7 +12,7 @@
         <div class="table-box">
 
             @foreach($my_table as $table_row)
-                <div class="my_row d-flex flex-wrap flex-md-row d-md-inline-flex w-100 bg-white m-1 m-md-2 p-0 p-md-2 rounded-3 animate-05 hover-size-01 justify-content-between">
+                <div class="my_row d-flex flex-wrap flex-md-row d-md-inline-flex w-100 bg-white m-1 m-md-2 p-0 p-md-2 rounded-3 animate-05  justify-content-between">
 
                     <div class="head_statistic_type fw-bold w-content d-inline-flex p-3 mx-auto mx-md-0 mt-2 text-center">
                         <div class="w-content h-content" style="transform: scale(2)">@php echo htmlspecialchars_decode($table_row[0]->icon) @endphp</div>

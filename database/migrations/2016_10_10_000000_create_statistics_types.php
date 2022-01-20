@@ -16,10 +16,13 @@ class CreateStatisticsTypes extends Migration
         Schema::create('statistics_types', function (Blueprint $table) {
             $table->id();
 
+            $table->increments('position');
             $table->string('name', 40);
             $table->string('code_name', 20);
             $table->string('unit', 10)->nullable();
             $table->string('icon', 5120);
+            $table->tinyInteger('positive_value')->default('1');
+
         });
     }
 

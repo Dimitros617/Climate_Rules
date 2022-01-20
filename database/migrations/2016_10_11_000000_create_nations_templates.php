@@ -16,6 +16,7 @@ class CreateNationsTemplates extends Migration
         Schema::create('nations_templates', function (Blueprint $table) {
             $table->id();
             $table->string('name',40);
+            $table->integer('money')->default(0);
             $table->unsignedBigInteger('statistic_values_set');
 
             $table->foreign('statistic_values_set')->references('id')->on('nation_statistic_values_templates');

@@ -142,6 +142,7 @@ class NationsController extends Controller
             ->where('id', $request->id_nation)
             ->update([
                 'name' => $temp->name,
+                'money' => $temp->money,
                 'statistic_values_set' => $temp->statistic_values_set,
             ]);
 
