@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BankController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\NationsController;
@@ -81,6 +82,10 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveN
 Route::middleware(['auth:sanctum', 'verified'])->get('/lobby/{lobby_id?}/technologies', [TechnologiController::class,'show']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/changeNationToTechnologyStatus', [TechnologiController::class,'changeNationToTechnologyStatus']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/changeTechnologyParameter', [TechnologiController::class,'changeTechnologyParameter']);
+
+
+//Bank
+Route::middleware(['auth:sanctum', 'verified'])->get('/lobby/{lobby_id?}/bank', [BankController::class,'show']);
 
 
 

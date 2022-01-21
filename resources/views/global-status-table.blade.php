@@ -21,7 +21,7 @@
                         </th>
                     @endforeach
                 </div>
-                <th class="pb-4 text-center" style="text-orientation: mixed;" data-title="Příjem">
+                <th class="pb-4 text-center" style="text-orientation: mixed;" data-title="Příjem = Ekonomika x Daně">
                     <div class="top-0 mb-3"  style="transform: scale(2)"><img src="{{URL::asset('Img/CR-coin.svg')}}"></div>
                     <span class="bottom-0 pt-3" style=" font-size: 10px">Příjem</span>
 
@@ -55,7 +55,7 @@
                 @endforeach
 
 {{--                income count počítání příjmů--}}
-                <th class="fs-7 text-center hover-size-01" data-title="Příjem = Ekonomika x Daně">@php  echo ($nation->stats[0]->economy * $nation->stats[0]->tax) @endphp</th>
+                <th class="fs-7 text-center hover-size-01" >@php  echo ($nation->stats[0]->economy * $nation->stats[0]->tax) @endphp</th>
             </tr>
             @endforeach
 

@@ -23,6 +23,7 @@ class CreateLobbies extends Migration
             $table->unsignedBigInteger('difficulty');
             $table->integer('max_round')->default('3');
             $table->float('temperature')->default('0');
+            $table->float('actual_gasses')->default('0');
             $table->unsignedBigInteger('gas_step')->nullable();
             $table->unsignedBigInteger('phase')->nullable();
             $table->tinyInteger('visible')->default('1');

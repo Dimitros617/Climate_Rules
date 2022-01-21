@@ -37,5 +37,24 @@ function enterLobbyNation(id){
 
         }
     });
+}
 
+function enterBank(id){
+
+    showLoading();
+    $.ajax({
+        url: '/lobby/' + id + '/bank',
+        type: 'get',
+        success:function(response){
+            window.location.assign('/lobby/'+ id + '/bank');
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
 }

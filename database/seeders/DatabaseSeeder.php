@@ -286,7 +286,7 @@ class DatabaseSeeder extends Seeder
         //Statistics types: 1 Ekonomika, 2 Kupní síla, 3 Daň, 4 Nálada, 5 Nespokojenost, 6 Délka života, 7 Znečištění
 
         DB::table('statistics_types')->insert([
-            'id' => 1,
+            'position' => 1,
             'name' => 'Ekonomika',
             'code_name' => 'economy',
             'unit' => 'CRi',
@@ -294,7 +294,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('statistics_types')->insert([
-            'id' => 2,
+            'position' => 2,
             'name' => 'Kupní síla',
             'code_name' => 'level_economy',
             'unit' => 'CRi',
@@ -302,7 +302,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('statistics_types')->insert([
-            'id' => 3,
+            'position' => 3,
             'name' => 'Daň',
             'code_name' => 'tax',
             'unit' => 'CRi',
@@ -310,7 +310,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('statistics_types')->insert([
-            'id' => 4,
+            'position' => 4,
             'name' => 'Nálada',
             'code_name' => 'happiness',
             'unit' => 'CRi',
@@ -318,7 +318,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('statistics_types')->insert([
-            'id' => 5,
+            'position' => 5,
             'name' => 'Nespokojenost',
             'code_name' => 'level_happiness',
             'unit' => 'CRi',
@@ -327,7 +327,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('statistics_types')->insert([
-            'id' => 6,
+            'position' => 6,
             'name' => 'Délka života',
             'code_name' => 'health',
             'unit' => 'let',
@@ -335,7 +335,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('statistics_types')->insert([
-            'id' => 7,
+            'position' => 7,
             'name' => 'Znečištění',
             'code_name' => 'gasses',
             'unit' => 'CRi',
@@ -6032,6 +6032,35 @@ class DatabaseSeeder extends Seeder
             'technology_id' => 90,
             'statistic_type_id' => 7,
             'index_move' => -2,
+        ]);
+
+
+
+        //Money trancastion types
+
+        DB::table('money_transaction_types')->insert([
+            'name' => 'Běžná platba',
+            'code' => 'common_pay',
+        ]);
+
+        DB::table('money_transaction_types')->insert([
+            'name' => 'Splátka dluhu',
+            'code' => 'debt_pay',
+        ]);
+
+        DB::table('money_transaction_types')->insert([
+            'name' => 'Odměna',
+            'code' => 'reward_pay',
+        ]);
+
+        DB::table('money_transaction_types')->insert([
+            'name' => 'Nákup',
+            'code' => 'buy_pay',
+        ]);
+
+        DB::table('money_transaction_types')->insert([
+            'name' => 'Ostatní',
+            'code' => 'other',
         ]);
 
 

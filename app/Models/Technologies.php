@@ -18,7 +18,7 @@ class Technologies extends Model
  public static function getAllStatisticTypeOfTechnologi($technology_id){
 
      return DB::table('technologies_statistics_types_changes')
-             ->select('technologies_statistics_types_changes.index_move','statistics_types.name','statistics_types.code_name','statistics_types.icon','statistics_types.unit')
+             ->select('technologies_statistics_types_changes.index_move','statistics_types.name','statistics_types.code_name','statistics_types.positive_value' ,'statistics_types.icon','statistics_types.unit')
              ->join('technologies','technologies_statistics_types_changes.technology_id','=','technologies.id')
              ->join('statistics_types','technologies_statistics_types_changes.statistic_type_id','=','statistics_types.id')
              ->where('technologies.id','=',$technology_id)
