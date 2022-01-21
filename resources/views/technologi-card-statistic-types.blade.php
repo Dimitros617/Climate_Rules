@@ -6,22 +6,37 @@
                      @continue
                 @endif
                 <div class="technology-statistic-type d-grid" code="{{$stat->code_name}}">
+
+                    @php
+                        $stat_num = 0;
+                        foreach($technology->statistics_types as $tech_stat){
+                            if($tech_stat->code_name == $stat->code_name){
+                                $stat_num = $tech_stat->index_move;
+                            }
+                        }
+
+                    $color = 'lightgray';
+
+                    if(($stat_num > 0 && $stat->positive_value == 1 ) || ($stat_num < 0 && $stat->positive_value == 0 )){
+                        $color = 'green';
+                    }
+                    elseif(($stat_num < 0 && $stat->positive_value == 1 ) || ($stat_num > 0 && $stat->positive_value == 0 )){
+                        $color = 'red';
+                    }
+
+                    @endphp
+
+
                     <span data-title="{{$stat->name}} " >
 
-                        <div class="pt-1 text-center justify-content-center d-flex text-black" style="transform: scale(2)" >
+                        <div class="pt-1 text-center justify-content-center d-flex text-black" style="transform: scale(2); color: {{$color}}" >
                             @php echo htmlspecialchars_decode($stat->icon) @endphp
                         </div>
                     </span>
-                    {{--                style="color: @if($stat->index_move >= 0) green @else red @endif"--}}
-                    <span class=" fw-bold mt-2" >
-                        @php
-                            $stat_num = 0;
-                            foreach($technology->statistics_types as $tech_stat){
-                                if($tech_stat->code_name == $stat->code_name){
-                                    $stat_num = $tech_stat->index_move;
-                                }
-                            }
-                        @endphp
+
+
+                    <span class=" fw-bold mt-2" style="color: {{$color}}">
+
 
                         @if($stat_num >= 0)+@endif {{$stat_num}}
                     </span>
