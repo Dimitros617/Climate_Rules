@@ -18,7 +18,7 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
                 showCancelButton: false,
                 showConfirmButton: true,
                 showDenyButton: true,
-                confirmButtonText: `Koupit`,
+                confirmButtonText: `Potvrdit`,
                 denyButtonText: `Zrušit`,
                 focusConfirm: false,
                 customClass: 'w-75',

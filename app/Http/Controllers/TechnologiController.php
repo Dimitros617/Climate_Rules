@@ -89,6 +89,27 @@ class TechnologiController extends Controller
 
     }
 
+    function getTechnologiCertificateVerificationView($lobby_id, $technology_id){
+
+        Log::info('TechnologiController:show->getTechnologiCertificateVerificationView');
+
+        $nation_id = Nations::getNationIdFromLobby($lobby_id);
+
+        if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
+            return $nation_id;  //vracím response s chybou;
+        }
+
+        $technology = Lobby_to_technologies::getOnetechnologiesFromLobby($technology_id);
+        $my_nation = Nations::find($nation_id);
+        $lobby = Lobbies::find($lobby_id);
+
+
+
+
+        return view('technologi-certificate-verification', ['lobby' => $lobby, 'my_nation' => $my_nation, 'technology' => $technology]);
+
+    }
+
     /**
      * Funkce změní stav technologie pro konkrétní stát. Zkontorluje zda je zapoetřebí certifikace
      * @param Request $request - Request->technology_id (Table: lobby_to_technologies) = id technologie které chceme pro daný stát změnit
@@ -185,6 +206,10 @@ class TechnologiController extends Controller
         }
         elseif ($status->code == 'investment'){
 
+            if($request->response == 0){
+                return $this->getTechnologiCertificateVerificationView( $lobby_id, $request->technology_id);
+            }
+
             if(!Nations_technologies::setNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('certificate'))){
                 return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
@@ -207,7 +232,7 @@ class TechnologiController extends Controller
                 return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
 
-            if(!Nations_technologies::isTechnologyPatentedBySomeone($request->technology_id)){
+            if(Lobby_to_technologies::find($request->technology_id)->certificate == 1 && !Nations_technologies::isTechnologyPatentedBySomeone($request->technology_id)){
                 Nations_technologies::setNationPatent($request->technology_id,$nation_id,1);
             }
 

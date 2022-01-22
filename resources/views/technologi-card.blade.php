@@ -35,16 +35,17 @@
 
                 @include('technologi-card-active-status')
             </div>
-            <div class="pt-5">
+            <div class="pt-3">
                 <span class="fs-5 text-muted">
                     Cena:
                 </span>
-                    <span class="fw-bold d-inline-flex fs-2">
+                <span class="fw-bold d-inline-flex fs-2">
                         <span class="technology-price">{{$technology->price}}</span>
                         <span>
                             <div class="top-0 mb-3 p-2 mt-2"  style="transform: scale(1.4)"><img src="{{URL::asset('Img/CR-coin.svg')}}"></div>
                         </span>
                 </span>
+                <span class="w-100 fw-bold text-muted" style="font-size: 14px;">@if($technology->certificate == 1) +PATENT @endif</span>
             </div>
         </div>
 
