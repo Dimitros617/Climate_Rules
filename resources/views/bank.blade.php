@@ -6,6 +6,7 @@
 <script src="/js/main.js"></script>
 <script src="/js/nations.js"></script>
 <script src="/js/game.js"></script>
+<script src="/js/bank.js"></script>
 
 
 <x-app-layout>
@@ -41,7 +42,7 @@
                         <span class="fs-4 pt-1">
                             Zůstatek</span>
                         <span>
-                            <span class="fs-3 fw-bold">50</span>
+                            <span class="fs-3 fw-bold">{{$my_nation->money}}</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
                         </span>
 
@@ -68,9 +69,9 @@
 
                 <div class=" w-50 d-grid">
 
-                    <button class="btn btn-primary w-90 m-2 ms-5">Jednorázová platba</button>
-                    <button class="btn btn-primary w-90 m-2 ms-5">Půjčit někomu</button>
-                    <button class="btn btn-primary w-90 m-2 ms-5">Zažádat o půjčku</button>
+                    <button class="btn btn-primary w-90 m-2 ms-5" onclick="getOnePayForm({{$lobby->id}})">Jednorázová platba</button>
+                    <button class="btn btn-primary w-90 m-2 ms-5" disabled>Půjčit někomu</button>
+                    <button class="btn btn-primary w-90 m-2 ms-5" disabled>Zažádat o půjčku</button>
 
                 </div>
 

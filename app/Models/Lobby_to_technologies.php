@@ -97,6 +97,36 @@ class Lobby_to_technologies extends Model
 
     }
 
+    public static function getOnetechnologiesFromLobby($technology_id){
+
+        $lobby_id = Lobby_to_technologies::find($technology_id)->lobby_id;
+
+        $technology = DB::table('lobby_to_technologies')
+            ->select('lobby_to_technologies.*','technologies.name AS technology_name','technologies.code','technologies.description AS technologies_description','technologies.price','technologies.img_url','technologies_areas.name AS area_name','technologies_areas.description AS area_description','technologies_areas.icon AS area_icon','branches.name as branch_name','branches.color as branch_color')
+            ->join('technologies','lobby_to_technologies.technology_id','=','technologies.id')
+            ->join('technologies_areas','technologies.area_id','=','technologies_areas.id')
+            ->join('branches','technologies.branch_id','=','branches.id')
+            ->where('lobby_to_technologies.id','=',$technology_id)
+            ->orderBy('technologies.round_show')
+            ->orderBy('technologies.branch_id')
+            ->orderBy('technologies.area_id')
+            ->orderBy('technologies.code')
+            ->get();
+
+
+            $technology->statistics_types = Technologies::getAllStatisticTypeOfTechnologi($technology->technology_id);
+            $technology->nations_status = Nations_technologies::getAllNationsStatusOfTechnology($technology->id);
+            $technology->nation_id = Nations::getNationIdFromLobby($lobby_id);
+            $technology->my_status = Nations_technologies::getOneNationStatusOfTechnology(Nations::getNationIdFromLobby($lobby_id),$technology->id);
+            $technology->workStatus = Nations_technologies::countNationsWithWorkStatus($technology->id);
+            $technology->activeStatus = Nations_technologies::countNationsWithActiveStatus($technology->id);
+            $technology->special_events = Special_technologies::getAllSpecialsOfTechnology($technology->technology_id);
+
+
+        return $technology;
+
+    }
+
     public static function isTechnologyCertificated($technology_id){
 
         if(Lobby_to_technologies::find($technology_id)->certificate == 1){

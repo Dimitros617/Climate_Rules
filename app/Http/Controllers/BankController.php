@@ -25,4 +25,23 @@ class BankController extends Controller
         return view('bank', ['lobby' => $lobby, 'my_nation' => $my_nation]);
 ;
     }
+
+    function getOnePayForm($lobby_id){
+
+        Log::info('BankController:getOnePayForm');
+
+        $nation_id = Nations::getNationIdFromLobby($lobby_id);
+
+        if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
+            return $nation_id;  //vracím response s chybou;
+        }
+
+        $my_nation = Nations::find($nation_id);
+        $lobby = Lobbies::find($lobby_id);
+        $allNations = Lobbies::getAllNationsFromLobby($lobby_id);
+
+
+        return view('bank-one-pay', ['lobby' => $lobby, 'my_nation' => $my_nation, 'allNations' => $allNations]);
+        ;
+    }
 }

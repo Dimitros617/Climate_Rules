@@ -6684,6 +6684,12 @@ a.badge-dark:focus, a.badge-dark.focus {
 .w-5rem{
     width: 5rem;
 }
+.w-6rem{
+    width: 6rem;
+}
+.w-7rem{
+    width: 7rem;
+}
 .w-10rem{
     width: 10rem;
 }

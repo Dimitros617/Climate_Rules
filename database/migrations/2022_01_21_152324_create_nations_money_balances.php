@@ -19,8 +19,8 @@ class CreateNationsMoneyBalances extends Migration
             $table->unsignedBigInteger('nation_id_from')->nullable();
             $table->unsignedBigInteger('transaction_type');
             $table->integer('money_change');
-            $table->integer('description');
-            $table->unsignedBigInteger('reason');
+            $table->string('description', 400);
+            $table->string('reason', 50);
             $table->timestamps();
 
 

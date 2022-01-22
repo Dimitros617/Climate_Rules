@@ -86,6 +86,8 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/change
 
 //Bank
 Route::middleware(['auth:sanctum', 'verified'])->get('/lobby/{lobby_id?}/bank', [BankController::class,'show']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/lobby/{lobby_id?}/bank/getOnePayForm', [BankController::class,'getOnePayForm']);
+
 
 
 

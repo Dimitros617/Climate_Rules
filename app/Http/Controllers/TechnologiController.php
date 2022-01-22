@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Fortify\ResetUserPassword;
 use App\Models\Lobbies;
 use App\Models\Lobby_to_technologies;
 use App\Models\Nations;
@@ -61,9 +62,37 @@ class TechnologiController extends Controller
 
     }
 
+    function getTechnologiBuyVerificationView($lobby_id, $technology_id){
+
+        Log::info('TechnologiController:show->getTechnologiBuyVerificationView');
+
+        $nation_id = Nations::getNationIdFromLobby($lobby_id);
+
+        if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
+            return $nation_id;  //vracím response s chybou;
+        }
+
+
+        $technology = Lobby_to_technologies::getOnetechnologiesFromLobby($technology_id);
+        $my_nation = Nations::find($nation_id);
+        $lobby = Lobbies::find($lobby_id);
+        $statistics_types = DB::table('statistics_types')
+            ->select('statistics_types.*')
+            ->join('nation_statistic_values','statistics_types.id','=','nation_statistic_values.statistics_type_id')
+            ->where('nation_statistic_values.set','=',$my_nation->statistic_values_set)
+            ->groupBy('statistics_types.code_name')
+            ->orderBy('statistics_types.id')
+            ->get();
+
+
+
+        return view('technologi-buy-verification', ['lobby' => $lobby, 'my_nation' => $my_nation,  'statistics_types' => $statistics_types, 'technology' => $technology]);
+
+    }
+
     /**
      * Funkce změní stav technologie pro konkrétní stát. Zkontorluje zda je zapoetřebí certifikace
-     * @param Request $request - Request->technology_id = id technologie které chceme pro daný stát změnit
+     * @param Request $request - Request->technology_id (Table: lobby_to_technologies) = id technologie které chceme pro daný stát změnit
      *
      */
     function changeNationToTechnologyStatus(Request $request){
@@ -84,11 +113,17 @@ class TechnologiController extends Controller
 
 
 
+        //POkud nejsou žádné interakce státu z danou technologií bereme to jako koupi
         if(count($status)==0){
             if(!Nations_technologies::addNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('buy'))){
                 return response('Chyby při vytváření nového záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
-            return $this->getTechnologiView('technologies-box', $lobby_id);
+
+            if(!$request->response){
+                return $this->getTechnologiBuyVerificationView( $lobby_id, $request->technology_id);
+            }else{
+                return $this->getTechnologiView('technologies-box', $lobby_id);
+            }
         }
 
         $status = $status[0];

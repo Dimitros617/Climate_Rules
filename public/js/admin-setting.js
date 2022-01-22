@@ -41,8 +41,9 @@ function increaseValue(nationId, statisticTypeCode){
         },
         error: function (response){
             console.log(response);
-            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -70,8 +71,9 @@ function decreaseValue(nationId, statisticTypeCode){
         },
         error: function (response){
             console.log(response);
-            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -95,8 +97,9 @@ function addRound(lobbyId){
         },
         error: function (response){
             console.log(response);
-            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -115,8 +118,9 @@ function getCountRounds(ele, lobbyID = document.getElementById('lobby-id').getAt
         },
         error: function (response){
             console.log(response);
-            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -149,8 +153,9 @@ function getLobbyUsers(ele, lobbyID = document.getElementById('lobby-id').getAtt
         },
         error: function (response){
             console.log(response);
-            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }
@@ -180,8 +185,9 @@ function setUserClone(userId,  lobbyId = document.getElementById('lobby-id').get
         },
         error: function (response){
             console.log(response);
-            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            allertError(err);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
             hideLoading();
 
         }

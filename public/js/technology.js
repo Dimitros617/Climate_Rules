@@ -8,10 +8,64 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
     $.ajax({
         url: '/changeNationToTechnologyStatus',
         type: 'post',
-        data: { _token: token, technology_id: technology_id, nation_id: nation_id},
+        data: { _token: token, technology_id: technology_id, nation_id: nation_id, response: false},
         success:function(response){
             hideLoading();
-            refreshTechnologies(response)
+
+            Swal.fire({
+                html: response,
+                showCloseButton: false,
+                showCancelButton: false,
+                showConfirmButton: true,
+                showDenyButton: true,
+                confirmButtonText: `Koupit`,
+                denyButtonText: `Zrušit`,
+                focusConfirm: false,
+                customClass: 'w-50',
+                onBeforeOpen: function(ele) {
+                    document.getElementsByClassName('swal2-confirm')[0].setAttribute('disabled','')
+                }
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    showLoading();
+
+                    $.ajax({
+                        url: '/changeNationToTechnologyStatus',
+                        type: 'post',
+                        data: { _token: token, technology_id: technology_id, nation_id: nation_id, response: true},
+                        success:function(response){
+                            hideLoading();
+                            refreshTechnologies(response)
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Odesláno',
+                                text: 'Vaše platba byla úspěšně zpracována.',
+                            })
+
+                        },
+                        error: function (response){
+                            console.log(response);
+                            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+                            allertError(err, code);
+                            hideLoading();
+
+                        }
+                    });
+
+                }
+                else if(result.isDenied){
+
+                }
+                else{
+
+                }
+
+            })
+
+
         },
         error: function (response){
             console.log(response);

@@ -39,6 +39,9 @@
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.js') }}"></script>
 
+    <script  src="{{ URL::asset('js/easter-eggs/index.js') }}"></script>
+
+
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>

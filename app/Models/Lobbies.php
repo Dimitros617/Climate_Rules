@@ -173,5 +173,17 @@ class Lobbies extends Model
 
     }
 
+    /**
+     * Metoda vrací pole obsahující záznamy všech narodu (nations) které jsou přiděleny v konkrétním lobby
+     * @param $lobby_id
+     * @return \Illuminate\Support\Collection
+     */
+    static function getAllNationsFromLobby($lobby_id){
+
+        return DB::table('nations')
+            ->where('nations.lobby_id','=',$lobby_id)
+            ->get();
+    }
+
 
 }
