@@ -16,8 +16,6 @@ class Special_technologies extends Model
      */
     public static function getAllSpecialsOfTechnology($technology_id){
 
-        Log::info($technology_id);
-
         return DB::table('special_technologies')
             ->where('technology_id','=',$technology_id)
             ->get();

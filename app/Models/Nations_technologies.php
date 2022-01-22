@@ -85,4 +85,32 @@ class Nations_technologies extends Model
 
 
     }
+
+    public static function setNationPatent($technology_id, $nation_id, $patent){
+
+        return DB::table('nations_technologies')
+            ->where('technology_id', $technology_id)
+            ->where('nation_id', $nation_id)
+            ->update([
+                'patent' => $patent,
+                'updated_at' => Carbon::now()->toDateTimeString(),
+            ]);
+    }
+
+    public static function getOneTechnologyPatentPrice($technology_id){
+
+        if(!Nations_technologies::isTechnologyPatentedBySomeone($technology_id)){
+            return 0;
+        }
+
+        $nation_technology_patented = Nations_technologies::where('id', $technology_id)->where('patent', 1)->first()->nation_id;
+        return Round_to_nation_statistics::lastRoundOneStatisticOneNation(Statistics_types::getIdByCode('level_economy'),$nation_technology_patented);
+
+    }
+
+    public static function isTechnologyPatentedBySomeone($technology_id){
+
+        return Nations_technologies::where('id', $technology_id)->where('patent', 1)->count() == 0 ? false : true;
+    }
+
 }

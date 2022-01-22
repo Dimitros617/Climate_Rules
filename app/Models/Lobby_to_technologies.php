@@ -19,8 +19,6 @@ class Lobby_to_technologies extends Model
 
         $technologies = DB::table('technologies')->get();
 
-        Log::info('COUNT tecxhnologies: ' . count($technologies));
-
         $ret_chech = 0;
 
         foreach($technologies as $technology){
@@ -70,7 +68,6 @@ class Lobby_to_technologies extends Model
      */
     public static function getAlltechnologiesFromLobby($lobby_id){
 
-
         $technologies = DB::table('lobby_to_technologies')
                         ->select('lobby_to_technologies.*','technologies.name AS technology_name','technologies.code','technologies.description AS technologies_description','technologies.price','technologies.img_url','technologies_areas.name AS area_name','technologies_areas.description AS area_description','technologies_areas.icon AS area_icon','branches.name as branch_name','branches.color as branch_color')
                         ->join('technologies','lobby_to_technologies.technology_id','=','technologies.id')
@@ -111,7 +108,7 @@ class Lobby_to_technologies extends Model
             ->orderBy('technologies.branch_id')
             ->orderBy('technologies.area_id')
             ->orderBy('technologies.code')
-            ->get();
+            ->first();
 
 
             $technology->statistics_types = Technologies::getAllStatisticTypeOfTechnologi($technology->technology_id);
@@ -121,6 +118,7 @@ class Lobby_to_technologies extends Model
             $technology->workStatus = Nations_technologies::countNationsWithWorkStatus($technology->id);
             $technology->activeStatus = Nations_technologies::countNationsWithActiveStatus($technology->id);
             $technology->special_events = Special_technologies::getAllSpecialsOfTechnology($technology->technology_id);
+            $technology->patent_price = Nations_technologies::getOneTechnologyPatentPrice($technology->id);
 
 
         return $technology;
@@ -136,6 +134,10 @@ class Lobby_to_technologies extends Model
             return false;
         }
 
+    }
+
+    public static function getPriceOfTechnology($technology_id){
+        return Technologies::find(Lobby_to_technologies::find($technology_id)->technology_id)->price;
     }
 
 

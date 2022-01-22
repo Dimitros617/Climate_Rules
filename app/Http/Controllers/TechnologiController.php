@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Models\Lobbies;
 use App\Models\Lobby_to_technologies;
+use App\Models\Money_transaction_types;
 use App\Models\Nations;
 use App\Models\Nations_technologies;
 use App\Models\Nations_technologies_status;
@@ -38,7 +39,6 @@ class TechnologiController extends Controller
             return $nation_id;  //vracím response s chybou;
         }
 
-
         $allTechnologies = Lobby_to_technologies::getAlltechnologiesFromLobby($lobby_id);
         $my_nation = Nations::find($nation_id);
         $lobby = Lobbies::find($lobby_id);
@@ -71,7 +71,6 @@ class TechnologiController extends Controller
         if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
             return $nation_id;  //vracím response s chybou;
         }
-
 
         $technology = Lobby_to_technologies::getOnetechnologiesFromLobby($technology_id);
         $my_nation = Nations::find($nation_id);
@@ -115,27 +114,50 @@ class TechnologiController extends Controller
 
         //POkud nejsou žádné interakce státu z danou technologií bereme to jako koupi
         if(count($status)==0){
+
+            if($request->response == 0){
+                return $this->getTechnologiBuyVerificationView( $lobby_id, $request->technology_id);
+            }
+
+            $bank_res = BankController::payAmount(Lobby_to_technologies::getPriceOfTechnology($request->technology_id),$nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay);
+
+            if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
+                return $bank_res;  //vracím response s chybou;
+            }
+
             if(!Nations_technologies::addNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('buy'))){
                 return response('Chyby při vytváření nového záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
 
-            if(!$request->response){
-                return $this->getTechnologiBuyVerificationView( $lobby_id, $request->technology_id);
-            }else{
-                return $this->getTechnologiView('technologies-box', $lobby_id);
-            }
+
+            return $this->getTechnologiView('technologies-box', $lobby_id);
+
         }
 
         $status = $status[0];
 
         if ($status->code == 'new'){
 
-            if(!Nations_technologies::setNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('buy'))){
+            if($request->response == 0){
+                return $this->getTechnologiBuyVerificationView( $lobby_id, $request->technology_id);
+            }
+
+            $bank_res = BankController::payAmount(Lobby_to_technologies::getPriceOfTechnology($request->technology_id),$nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay);
+
+            if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
+                return $bank_res;  //vracím response s chybou;
+            }
+
+            if(!Nations_technologies::setNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('investment'))){
                 return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
+
             return $this->getTechnologiView('technologies-box', $lobby_id);
 
-        }elseif ($status->code == 'buy'){
+
+        // Buy se už nepoužívá, schvalování probíjá automaticky
+        }
+        elseif ($status->code == 'buy'){
 
 
             if(Auth::permition()->admin !=1){
@@ -160,14 +182,16 @@ class TechnologiController extends Controller
 
             return $this->getTechnologiView('technologies-box', $lobby_id);
 
-        }elseif ($status->code == 'investment'){
+        }
+        elseif ($status->code == 'investment'){
 
             if(!Nations_technologies::setNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('certificate'))){
                 return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
             return $this->getTechnologiView('technologies-box', $lobby_id);
 
-        }elseif ($status->code == 'certificate'){
+        }
+        elseif ($status->code == 'certificate'){
 
             if(Auth::permition()->admin !=1){
                 return response('Ups, Na schválení nemáte dostatečná oprávnění!', 500)->header('Content-Type', 'text/plain');
@@ -183,9 +207,14 @@ class TechnologiController extends Controller
                 return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
 
+            if(!Nations_technologies::isTechnologyPatentedBySomeone($request->technology_id)){
+                Nations_technologies::setNationPatent($request->technology_id,$nation_id,1);
+            }
+
             return $this->getTechnologiView('technologies-box', $lobby_id);
 
-        }elseif ($status->code == 'active'){
+        }
+        elseif ($status->code == 'active'){
 
             return response('Tuto technologii máš již aktivovanou!', 500)->header('Content-Type', 'text/plain');
 

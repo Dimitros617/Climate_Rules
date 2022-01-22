@@ -26,4 +26,8 @@ class Technologies extends Model
 
  }
 
+ public static function getPriceOfTechnology($technology_id){
+     return Technologies::find($technology_id)->price;
+ }
+
 }

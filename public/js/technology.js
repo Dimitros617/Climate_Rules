@@ -8,7 +8,7 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
     $.ajax({
         url: '/changeNationToTechnologyStatus',
         type: 'post',
-        data: { _token: token, technology_id: technology_id, nation_id: nation_id, response: false},
+        data: { _token: token, technology_id: technology_id, nation_id: nation_id, response: 0, admin_pay: 0},
         success:function(response){
             hideLoading();
 
@@ -21,7 +21,7 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
                 confirmButtonText: `Koupit`,
                 denyButtonText: `Zrušit`,
                 focusConfirm: false,
-                customClass: 'w-50',
+                customClass: 'w-75',
                 onBeforeOpen: function(ele) {
                     document.getElementsByClassName('swal2-confirm')[0].setAttribute('disabled','')
                 }
@@ -30,11 +30,12 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
                 if (result.isConfirmed) {
 
                     showLoading();
+                    let adminPay = document.getElementById('admin-pay').checked ? 1 : 0;
 
                     $.ajax({
                         url: '/changeNationToTechnologyStatus',
                         type: 'post',
-                        data: { _token: token, technology_id: technology_id, nation_id: nation_id, response: true},
+                        data: { _token: token, technology_id: technology_id, nation_id: nation_id, response: 1, admin_pay: adminPay},
                         success:function(response){
                             hideLoading();
                             refreshTechnologies(response)

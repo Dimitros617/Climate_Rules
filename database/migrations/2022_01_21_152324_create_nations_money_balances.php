@@ -15,11 +15,11 @@ class CreateNationsMoneyBalances extends Migration
     {
         Schema::create('nations_money_balances', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('nation_id_to');
+            $table->unsignedBigInteger('nation_id_to')->nullable();
             $table->unsignedBigInteger('nation_id_from')->nullable();
             $table->unsignedBigInteger('transaction_type');
             $table->integer('money_change');
-            $table->string('description', 400);
+            $table->string('description', 400)->nullable();
             $table->string('reason', 50);
             $table->timestamps();
 

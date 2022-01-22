@@ -8,26 +8,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidáno obarvování ikonek statistických typů u technologií dle hodnoty a pozitivní nebo negativní logiky">
-      <change afterPath="$PROJECT_DIR$/public/js/bank.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/easter-eggs/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/easter-eggs/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/easter-eggs/code-of-conduct.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/easter-eggs/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/easter-eggs/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/bank-one-pay.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/technologi-buy-verification.blade.php" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Připraven frontend pro jednorázové platby v bance">
+      <change afterPath="$PROJECT_DIR$/app/Models/Money_transaction_types.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BankController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BankController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lobbies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobbies.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Nations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Nations_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Special_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Special_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/nations_money_balances.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations_money_balances.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_17_002932_create_nations_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_17_002932_create_nations_technologies.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2022_01_21_152324_create_nations_money_balances.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_21_152324_create_nations_money_balances.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin-setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin-setting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/bank.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/bank.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/technology.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/technology.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bank-one-pay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bank-one-pay.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/bank.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bank.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-buy-verification.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-buy-verification.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -443,14 +441,7 @@
       <workItem from="1642687869481" duration="7234000" />
       <workItem from="1642698649262" duration="348000" />
       <workItem from="1642774651701" duration="13860000" />
-      <workItem from="1642844396266" duration="15288000" />
-    </task>
-    <task id="LOCAL-00057" summary="Doděláno pozicování kapitol a učebnic">
-      <created>1616168062836</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1616168062836</updated>
+      <workItem from="1642844396266" duration="31981000" />
     </task>
     <task id="LOCAL-00058" summary="Dodoělán status nad žákem, přidáno skrývání elementů jako další lock a dodělána defaultní role">
       <created>1616330783171</created>
@@ -788,7 +779,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642791225819</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="Připraven frontend pro jednorázové platby v bance">
+      <created>1642862848347</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1642862848347</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -853,7 +851,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Dodělán panel tlačítek" />
     <MESSAGE value="Předělání databáze + seed" />
     <MESSAGE value="Propojení nového backandu a frontendu" />
     <MESSAGE value="Přidáno admin rozhraní a uprava hodnot statistik z frontendu" />
@@ -878,18 +875,8 @@
     <MESSAGE value="Upraveny některé chyby + příprava databáze pro další změny" />
     <MESSAGE value="Přidáno k technologiím vykreslování vždy všech statistic types + připraven frontend pro banku" />
     <MESSAGE value="Přidáno obarvování ikonek statistických typů u technologií dle hodnoty a pozitivní nebo negativní logiky" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidáno obarvování ikonek statistických typů u technologií dle hodnoty a pozitivní nebo negativní logiky" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/bank.blade.php</url>
-          <line>108</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Připraven frontend pro jednorázové platby v bance" />
+    <option name="LAST_COMMIT_MESSAGE" value="Připraven frontend pro jednorázové platby v bance" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

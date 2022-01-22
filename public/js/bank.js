@@ -7,6 +7,9 @@
 function getOnePayForm(id){
 
     showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+
     $.ajax({
         url: '/lobby/'+id+'/bank/getOnePayForm',
         type: 'get',
@@ -32,15 +35,30 @@ function getOnePayForm(id){
 
                     showLoading();
 
-                    let data =  $( "#edit-lobby-form" ).serialize();
+                    let admin_pay = document.getElementById('admin-pay').checked ? 1 : 0;
+                    let nation_id_from = document.getElementById('one-pay-nation-from').getAttribute('nation_id');
+                    let nation_id_to = document.getElementById('one-pay-nation-to').value;
+                    let amouth = document.getElementById('one-pay-amouth').value;
+                    let description = document.getElementById('one-pay-description').value;
+
+                    if(admin_pay == 1){
+                        amouth = document.getElementById('one-pay-amouth-admin').value;
+                    }
+
+
+                    if(nation_id_to == '-'){
+                        allertError('Platba nebyla možná provést, protože si nevybral příjemce', 500);
+                        hideLoading();
+                        return;
+                    }
 
                     $.ajax({
-                        url: '/addOnePay',
+                        url: '/lobby/'+id+'/bank/addOnePay',
                         type: 'post',
-                        data: data,
+                        data: { _token: token, nation_id_from: nation_id_from, nation_id_to: nation_id_to, amouth: amouth, description: description, admin_pay: admin_pay},
                         success:function(response){
                             hideLoading();
-                            refreshLobbyList();
+                            location.reload();
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Odesláno',

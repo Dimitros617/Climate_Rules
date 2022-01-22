@@ -13,6 +13,7 @@ class Nations extends Model
     use HasFactory;
 
     public  $timestamps = false;
+    protected $fillable = ['money'];
 
     static function removeNation($nation_id){
 
