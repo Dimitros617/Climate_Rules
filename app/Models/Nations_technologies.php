@@ -103,6 +103,23 @@ class Nations_technologies extends Model
             ]);
     }
 
+    public static function getValueOfAllMyTechnologies($nation_id){
+
+        if(Nations_technologies::where('nation_id', $nation_id)->count() == 0){
+            return 0;
+        }
+
+        return DB::table('nations_technologies')
+            ->select(DB::raw("SUM(technologies.price) as total_price"))
+            ->join('lobby_to_technologies','nations_technologies.technology_id','=','lobby_to_technologies.id')
+            ->join('technologies','lobby_to_technologies.technology_id','=','technologies.id')
+            ->where('nations_technologies.nation_id','=',$nation_id)
+            ->where('nations_technologies.status_id','!=', Nations_technologies_status::getIdByCode('new'))
+            ->get()[0]->total_price;
+
+
+    }
+
     public static function getOneTechnologyPatentPrice($technology_id){
 
         if(!Nations_technologies::isTechnologyPatentedBySomeone($technology_id)){

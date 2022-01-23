@@ -48,6 +48,7 @@
 
                     </div>
 
+
                     <div class="d-flex flex-wrap justify-content-between">
                         <span class="fs-5 pt-1">Půjčky jiným</span>
                         <span>
@@ -61,6 +62,15 @@
                         <span class="fs-5 pt-1">Dluhy ostatním</span>
                         <span>
                             <span class="fs-4 fw-bold">0</span>
+                            <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
+                        </span>
+
+                    </div>
+
+                    <div class="d-flex flex-wrap justify-content-between ">
+                        <span class="fs-5 pt-1">Hodnota technologií</span>
+                        <span>
+                            <span class="fs-4 fw-bold">{{$technology_value}}</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
                         </span>
 

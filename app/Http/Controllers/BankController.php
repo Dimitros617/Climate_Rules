@@ -7,6 +7,7 @@ use App\Models\Lobby_to_technologies;
 use App\Models\Money_transaction_types;
 use App\Models\Nations;
 use App\Models\Nations_money_balances;
+use App\Models\Nations_technologies;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -26,9 +27,10 @@ class BankController extends Controller
         $my_nation = Nations::find($nation_id);
         $lobby = Lobbies::find($lobby_id);
         $my_payment_balance = Nations_money_balances::getAllNationTransaction($nation_id);
+        $technology_value = Nations_technologies::getValueOfAllMyTechnologies($nation_id);
 
 
-        return view('bank', ['lobby' => $lobby, 'my_nation' => $my_nation, 'my_payment_balance' => $my_payment_balance]);
+        return view('bank', ['lobby' => $lobby, 'my_nation' => $my_nation, 'my_payment_balance' => $my_payment_balance, 'technology_value' => $technology_value]);
 ;
     }
 

@@ -8,18 +8,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidán backend pro certifikace a patentování technologií">
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidána možnost změnit stav technologie na libovolný + opravena chyba vykreslování rozdělení kol (nadpisu) v &quot;nové techonologie&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/technology.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/technology.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-buy-verification.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-buy-verification.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-admin-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-admin-setting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-certificate-verification.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-certificate-verification.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologies-box.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologies-box.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BankController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BankController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Nations_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bank.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bank.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -435,14 +428,7 @@
       <workItem from="1642698649262" duration="348000" />
       <workItem from="1642774651701" duration="13860000" />
       <workItem from="1642844396266" duration="35103000" />
-      <workItem from="1642932914923" duration="20559000" />
-    </task>
-    <task id="LOCAL-00061" summary="Přidán element pro uploadování souborů jako odpovědí">
-      <created>1616781483467</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1616781483467</updated>
+      <workItem from="1642932914923" duration="21693000" />
     </task>
     <task id="LOCAL-00062" summary="vyhodnocování autotestů a zobrazování výsledků">
       <created>1616961743580</created>
@@ -780,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642945349082</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="Přidána možnost změnit stav technologie na libovolný + opravena chyba vykreslování rozdělení kol (nadpisu) v &quot;nové techonologie&quot;">
+      <created>1642959819514</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1642959819514</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -845,7 +838,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Přidány iconky pro statistic types + připravena databáze pro technologie" />
     <MESSAGE value="Projeno vykreslování dat z databáze + možnost přepínání mezi kartami a seznamem" />
     <MESSAGE value="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů" />
     <MESSAGE value="Umožněno nakupování a zpětné vykreslování stavu technologie vuči národu" />
@@ -870,7 +862,8 @@
     <MESSAGE value="Přidáno schvalováníé plateb technologií, dodělán backend pro jednorázové platby a výpis pohybů na účtu" />
     <MESSAGE value="Připraven frontend pro schvalování certifikací technologií" />
     <MESSAGE value="Přidán backend pro certifikace a patentování technologií" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidán backend pro certifikace a patentování technologií" />
+    <MESSAGE value="Přidána možnost změnit stav technologie na libovolný + opravena chyba vykreslování rozdělení kol (nadpisu) v &quot;nové techonologie&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidána možnost změnit stav technologie na libovolný + opravena chyba vykreslování rozdělení kol (nadpisu) v &quot;nové techonologie&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
