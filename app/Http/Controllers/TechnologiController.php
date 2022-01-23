@@ -51,14 +51,12 @@ class TechnologiController extends Controller
             ->orderBy('statistics_types.id')
             ->get();
 
+        $technology_statuses = DB::table('nations_technologies_status')->get();
+
         $branches = DB::table('branches')->get();
         $areas = DB::table('technologies_areas')->get();
 
-        //return $statistics_types;
-        //return $allTechnologies;
-        //return $my_nation;
-
-        return view($view_name, ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies, 'statistics_types' => $statistics_types, 'branches' => $branches, 'areas' => $areas]);
+        return view($view_name, ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies, 'statistics_types' => $statistics_types, 'branches' => $branches, 'areas' => $areas, 'technology_statuses' => $technology_statuses]);
 
     }
 
@@ -141,7 +139,8 @@ class TechnologiController extends Controller
                 return $this->getTechnologiBuyVerificationView( $lobby_id, $request->technology_id);
             }
 
-            $bank_res = BankController::payAmount(Lobby_to_technologies::getPriceOfTechnology($request->technology_id),$nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay);
+            $amouth = Lobby_to_technologies::getPriceOfTechnology($request->technology_id) + Nations_technologies::getOneTechnologyPatentPrice($request->technology_id);
+            $bank_res = BankController::payAmount($amouth,$nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay);
 
             if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
                 return $bank_res;  //vracím response s chybou;
@@ -163,6 +162,10 @@ class TechnologiController extends Controller
                 if(!Nations_technologies::addNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('active'))){
                     return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
                 }
+
+                if(!Nations_technologies::isTechnologyPatentedBySomeone($request->technology_id)){
+                    Nations_technologies::setNationPatent($request->technology_id,$nation_id,1);
+                }
             }
 
 
@@ -179,13 +182,14 @@ class TechnologiController extends Controller
                 return $this->getTechnologiBuyVerificationView( $lobby_id, $request->technology_id);
             }
 
-            $bank_res = BankController::payAmount(Lobby_to_technologies::getPriceOfTechnology($request->technology_id),$nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay);
+            $amouth = Lobby_to_technologies::getPriceOfTechnology($request->technology_id) + Nations_technologies::getOneTechnologyPatentPrice($request->technology_id);
+            $bank_res = BankController::payAmount( $amouth, $nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay);
 
             if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
                 return $bank_res;  //vracím response s chybou;
             }
 
-            if(Lobby_to_technologies::isTechnologyCertificated()){
+            if(Lobby_to_technologies::isTechnologyCertificated($request->technology_id)){
                 if(!Nations_technologies::setNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('investment'))){
                     return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
                 }
@@ -199,6 +203,10 @@ class TechnologiController extends Controller
 
                 if(!Nations_technologies::setNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('active'))){
                     return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
+                }
+
+                if(!Nations_technologies::isTechnologyPatentedBySomeone($request->technology_id)){
+                    Nations_technologies::setNationPatent($request->technology_id,$nation_id,1);
                 }
             }
 
@@ -241,7 +249,7 @@ class TechnologiController extends Controller
                 return $this->getTechnologiCertificateVerificationView( $lobby_id, $request->technology_id);
             }
 
-            if(Nations_technologies::getOneNationTechnology($nation_id,$request->technology_id)->first_try == 0){
+            if(Nations_technologies::getOneNationTechnology($nation_id,$request->technology_id)->first_try != 1){
                 Nations_technologies::setTechnologyCertificationChose($request->technology_id, $nation_id,$request->description, $request->benefits, $request->disadvantages, $request->business, $request->people);
             }else{
                 return response('Tento formulář už byl jednou odeslán, počkejte na schválení nebo na vrácení!', 500)->header('Content-Type', 'text/plain');
@@ -274,7 +282,7 @@ class TechnologiController extends Controller
                 return response('Chyby při úpravě záznamu v nations_technologies!', 500)->header('Content-Type', 'text/plain');
             }
 
-            if(Lobby_to_technologies::find($request->technology_id)->certificate == 1 && !Nations_technologies::isTechnologyPatentedBySomeone($request->technology_id)){
+            if(!Nations_technologies::isTechnologyPatentedBySomeone($request->technology_id)){
                 Nations_technologies::setNationPatent($request->technology_id,$nation_id,1);
             }
 
@@ -365,6 +373,58 @@ class TechnologiController extends Controller
         if(!$check) {
             return response('Nastala chyba při aktualizaci dat v tabulce lobby_to_technologies ', 500)->header('Content-Type', 'text/plain');
         }
+    }
+
+    public function setNationToTechnologyStatus(Request $request){
+
+        Log::info('TechnologyController:setNationToTechnologyStatus');
+
+        $lobby_id = Lobby_to_technologies::find($request->technology_id)->lobby_id;
+
+        $nation_id = Nations::getNationIdFromLobby($lobby_id, $request->nation_id);
+
+        if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
+            return $nation_id;  //vracím response s chybou;
+        }
+
+
+        if( $request->response == 0) {
+
+            $check = DB::table('nations_technologies')
+                ->where('technology_id', $request->technology_id)
+                ->where('nation_id', $nation_id)
+                ->update([
+                    'status_id' => Nations_technologies_status::getIdByCode($request->code),
+                    'updated_at' => Carbon::now()->toDateTimeString(),
+                ]);
+
+
+            if (!$check) {
+                return response('Nastala chyba při aktualizaci dat v tabulce nations_technologies ', 500)->header('Content-Type', 'text/plain');
+            }
+        }
+
+        if(Nations_technologies::getOneNationTechnology($nation_id, $request->technology_id)->patent == 1 && $request->response == 0){
+            return 0;
+        }
+        if(Nations_technologies::getOneNationTechnology($nation_id, $request->technology_id)->patent == 1 && $request->response == 1){
+
+            $check = DB::table('nations_technologies')
+                ->where('technology_id', $request->technology_id)
+                ->where('nation_id', $nation_id)
+                ->update([
+                    'patent' => 0,
+                    'updated_at' => Carbon::now()->toDateTimeString(),
+                ]);
+
+
+            if(!$check) {
+                return response('Nastala chyba při aktualizaci dat v tabulce nations_technologies ', 500)->header('Content-Type', 'text/plain');
+            }
+        }
+
+
+        return $this->getTechnologiView('technologies-box', $lobby_id);
     }
 
 }

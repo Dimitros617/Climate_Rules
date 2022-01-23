@@ -1,6 +1,6 @@
 <div>
 
-    <div id="technology-certificate-verification" hidden></div>
+    <div id="technology-certificate-verification" admin="{{Auth::permition()->admin}}" first_try="{{$my_nation_technology->first_try}}" hidden></div>
     <input hidden id="admin-pay" class="form-check-input m-0 p-0 ms-1 me-3 mt-1 hidden" role="switch" type="checkbox">
 
     <div class="fw-bold text-black text-center w-100 fs-2 mb-3 pb-1 mt-2" style="border-bottom: 2px solid black">T31 - Název technologie</div>
@@ -76,6 +76,9 @@
 
         if(this.checked){
             document.getElementsByClassName('swal2-confirm')[0].removeAttribute('disabled')
+            document.getElementById('one-pay-deny').checked = false;
+            document.getElementsByClassName('swal2-deny')[0].setAttribute('disabled','')
+
         }else{
             document.getElementsByClassName('swal2-confirm')[0].setAttribute('disabled','')
         }
@@ -91,5 +94,26 @@
             @endif
         </span>
     </div>
+
+    @if($my_nation_technology->first_try == 1 && Auth::permition()->admin ==1)
+        <div class="d-flex flex-wrap mb-3 mt-2 justify-content-center">
+
+            <input onclick="
+
+            if(this.checked){
+                document.getElementsByClassName('swal2-deny')[0].removeAttribute('disabled');
+                document.getElementById('one-pay-verify').checked = false;
+                document.getElementsByClassName('swal2-confirm')[0].setAttribute('disabled','')
+
+            }else{
+                document.getElementsByClassName('swal2-deny')[0].setAttribute('disabled','')
+            }
+
+            "type="checkbox" style="transform: scale(1.2)" id="one-pay-deny" class=" form-check-input m-0 p-0 ms-1 me-3" role="switch">
+            <span >
+                Opravdu chci tento formulář zamítnout a vrátit k přepracování.
+            </span>
+        </div>
+    @endif
 
 </div>

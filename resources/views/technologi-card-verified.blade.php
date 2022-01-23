@@ -52,6 +52,10 @@
 
             @foreach($technology->nations_status as $nation_status)
 
+                @if( $nation_status->code == 'new')
+                    @continue
+                @endif
+
             <div class="bg-light rounded-2 shadow-sm d-flex flex justify-content-between overflow-hidden">
                 <div class="d-grid p-2">
                     <span class="fw-bold fs-4">

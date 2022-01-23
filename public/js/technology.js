@@ -15,15 +15,23 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
             Swal.fire({
                 html: response,
                 showCloseButton: false,
-                showCancelButton: false,
+                showCancelButton: true,
                 showConfirmButton: true,
                 showDenyButton: true,
                 confirmButtonText: `Potvrdit`,
-                denyButtonText: `Zrušit`,
+                cancelButtonText: `Zrušit`,
+                denyButtonText: `Zamítnout`,
                 focusConfirm: false,
                 customClass: 'w-75',
                 onBeforeOpen: function(ele) {
                     document.getElementsByClassName('swal2-confirm')[0].setAttribute('disabled','')
+                    let check = document.getElementById('technology-certificate-verification')
+                    if(check == undefined || check.getAttribute('admin') == 0 || check.getAttribute('first_try') == 0){
+                        document.getElementsByClassName('swal2-deny')[0].setAttribute('hidden','')
+                    }else{
+                        document.getElementsByClassName('swal2-deny')[0].setAttribute('disabled','')
+
+                    }
                 }
 
             }).then((result) => {
@@ -82,7 +90,7 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
 
                 }
                 else if(result.isDenied){
-
+                    setNationToTechnologyStatus('investment', technology_id, nation_id);
                 }
                 else{
 
@@ -104,6 +112,85 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
 
 
 }
+
+function setNationToTechnologyStatus(nation_technology_status_code, technology_id, nation_id = null){
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+    $.ajax({
+        url: '/setNationToTechnologyStatus',
+        type: 'post',
+        data: { _token: token, technology_id: technology_id, nation_id: nation_id, code: nation_technology_status_code, response: 0},
+        success:function(response){
+            hideLoading();
+
+            if(response == 0){
+
+                Swal.fire({
+                    icon: 'question',
+                    title: 'Hmmm...',
+                    text: 'Tento stát má již patent, chcete ho zachovat nebo odebrat?' ,
+                    showCloseButton: false,
+                    showCancelButton: false,
+                    showConfirmButton: true,
+                    showDenyButton: true,
+                    confirmButtonText: `Odebrat`,
+                    denyButtonText: `Zachovat`,
+                    focusConfirm: false,
+                    customClass: 'w-75'
+
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        showLoading();
+                        $.ajax({
+                            url: '/setNationToTechnologyStatus',
+                            type: 'post',
+                            data: { _token: token, technology_id: technology_id, nation_id: nation_id, code: nation_technology_status_code, response: 1},
+                            success:function(response){
+                                hideLoading();
+                                refreshTechnologies(response)
+
+
+                            },
+                            error: function (response){
+                                console.log(response);
+                                let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                                let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+                                allertError(err, code);
+                                hideLoading();
+
+                            }
+                        });
+
+                    }
+                    else if(result.isDenied){
+
+                    }
+                    else{
+
+                    }
+
+                })
+
+            }
+            refreshTechnologies(response)
+
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+
+}
+
 
 
 function swapCardAndRow(showClass, hideClass, ele){

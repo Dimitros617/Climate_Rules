@@ -79,15 +79,16 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveN
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveNationsUser', [NationsController::class,'saveNationsUser']);
 
 //technologies
-Route::middleware(['auth:sanctum', 'verified'])->get('/lobby/{lobby_id?}/technologies', [TechnologiController::class,'show']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->get('/lobby/{lobby_id?}/technologies', [TechnologiController::class,'show']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/changeNationToTechnologyStatus', [TechnologiController::class,'changeNationToTechnologyStatus']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/changeTechnologyParameter', [TechnologiController::class,'changeTechnologyParameter']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/setNationToTechnologyStatus', [TechnologiController::class,'setNationToTechnologyStatus']);
 
 
 //Bank
-Route::middleware(['auth:sanctum', 'verified'])->get('/lobby/{lobby_id?}/bank', [BankController::class,'show']);
-Route::middleware(['auth:sanctum', 'verified'])->get('/lobby/{lobby_id?}/bank/getOnePayForm', [BankController::class,'getOnePayForm']);
-Route::middleware(['auth:sanctum', 'verified'])->post('/lobby/{lobby_id?}/bank/addOnePay', [BankController::class,'addOnePay']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->get('/lobby/{lobby_id?}/bank', [BankController::class,'show']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->get('/lobby/{lobby_id?}/bank/getOnePayForm', [BankController::class,'getOnePayForm']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/lobby/{lobby_id?}/bank/addOnePay', [BankController::class,'addOnePay']);
 
 
 

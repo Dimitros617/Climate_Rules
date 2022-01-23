@@ -84,7 +84,7 @@
             </div>
 
             <div class="d-flex flex-wrap justify-end w-100" style="border-bottom: 2px solid black">
-                <span class="fs-3 text-black pt-1 w-70 text-end">Patent: </span>
+                <span class="fs-3 text-black pt-1 w-70 text-end">Licence: </span>
                 <span class="fs-3 text-black fw-bold w-5rem">{{$technology->patent_price}}</span>
                 <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
 

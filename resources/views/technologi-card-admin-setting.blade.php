@@ -20,7 +20,30 @@
             Kolo:
         </span>
         <span class="w-75">
-            <input onchange="changeTechnologyParameter({{$technology->id}},'round_show',this)" type="number" min="0" value="{{$technology->round_show}}" required>
+            <input class="w-100 rounded-2 shadow-sm p-2" onchange="changeTechnologyParameter({{$technology->id}},'round_show',this)" type="number" min="0" value="{{$technology->round_show}}" required>
+        </span>
+    </div>
+    <div class="d-inline-flex w-100 mb-1">
+        <span class="fw-bold me-4 w-25" data-title="Změna nevrátí ani neupraví statistiky nebo peníze.">
+            Stav:
+        </span>
+        <span class="w-75">
+            <select class="w-100 rounded-2 shadow-sm p-2" onchange="setNationToTechnologyStatus(this.value,{{$technology->id}})">
+                    @php
+                        $ret_code = 'new';
+                        if(count($technology->nations_status) != 0){
+
+                            foreach ($technology->nations_status as $nation_stat){
+                                if($nation_stat->nation_id == $my_nation->id){
+                                    $ret_code = $nation_stat->code;
+                                }
+                            }
+                        }
+                    @endphp
+                @foreach($technology_statuses as $tech_status)
+                <option value="{{$tech_status->code}}" @if($tech_status->code == $ret_code) selected  @endif>{{$tech_status->name}}</option>
+                @endforeach
+            </select>
         </span>
     </div>
 </div>

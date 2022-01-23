@@ -87,7 +87,7 @@
     <div class="rounded-3 bg-white p-2 nation-active-status mb-2 w-100 d-flex flex-wrap">
         @foreach($technology->nations_status as $nation_status)
 
-            @if($nation_status->code != 'active')
+            @if( $nation_status->code == 'new')
                 @continue
             @endif
             <div class="bg-light rounded-2 m-2 shadow-sm d-flex flex justify-content-between overflow-hidden w-25">
@@ -100,7 +100,7 @@
                     </span>
                 </div>
                 <div class="" >
-                    <button type="button" onclick="changeNationToTechnologyStatus(this,{{$technology->id}},{{$nation_status->id}})" class="btn btn-primary w-100 h-100"> {{$nation_status->name}}</button>
+                    @include('technologi-card-verified-button')
                 </div>
 
             </div>
