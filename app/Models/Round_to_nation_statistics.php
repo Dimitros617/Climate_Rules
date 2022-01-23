@@ -270,7 +270,7 @@ class Round_to_nation_statistics extends Model
             ->join('nations','round_to_nation_statistics.nation_id','=','nations.id')
             ->join('statistics_types','round_to_nation_statistics.statistic_type_id','=','statistics_types.id')
             ->where('round_to_nation_statistics.nation_id', $nation_id)
-            ->where('round_to_nation_statistics.round_id', Rounds::where('lobby_id',Nations::where('id',$nation_id)->get()[0]->lobby_id)->orderBy('id', 'desc')->first())
+            ->where('round_to_nation_statistics.round_id', Rounds::where('lobby_id',Nations::where('id',$nation_id)->get()[0]->lobby_id)->orderBy('id', 'desc')->first()->id)
             ->where('statistics_types.code_name', $statistic_type_code)
             ->orderBy('round_to_nation_statistics.id', 'desc')
             ->get()[0];
@@ -292,7 +292,7 @@ class Round_to_nation_statistics extends Model
             ->whereRaw('round_to_nation_statistics.id IN (SELECT MAX(round_to_nation_statistics.id) AS id
                 FROM round_to_nation_statistics
                 WHERE round_to_nation_statistics.nation_id = ' . $nation_id . '
-                AND round_to_nation_statistics.round_id =' . Rounds::where('lobby_id',Nations::where('id',$nation_id)->get()[0]->lobby_id)->orderBy('id', 'desc')->first() . '
+                AND round_to_nation_statistics.round_id =' . Rounds::where('lobby_id',Nations::where('id',$nation_id)->get()[0]->lobby_id)->orderBy('id', 'desc')->first()->id . '
 
                 GROUP BY  round_to_nation_statistics.statistic_type_id)')
             ->orderBy('round_to_nation_statistics.nation_id')

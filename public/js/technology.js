@@ -31,18 +31,42 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
 
                     showLoading();
                     let adminPay = document.getElementById('admin-pay').checked ? 1 : 0;
+                    let data;
+
+                    if(document.getElementById('technology-certificate-verification') != undefined){
+
+                        let description = document.getElementById('technology-certificate-description').value;
+                        let benefits = document.getElementById('technology-certificate-benefits').value;
+                        let disadvantages = document.getElementById('technology-certificate-disadvantages').value;
+                        let business = document.getElementById('technology-certificate-business').value;
+                        let people = document.getElementById('technology-certificate-people').value;
+
+                        data = { _token: token,
+                            technology_id: technology_id,
+                            nation_id: nation_id, response: 1,
+                            admin_pay: adminPay,
+                            description: description,
+                            benefits: benefits,
+                            disadvantages: disadvantages,
+                            business: business,
+                            people: people
+                        };
+                    }else{
+                        data = { _token: token, technology_id: technology_id, nation_id: nation_id, response: 1, admin_pay: adminPay};
+
+                    }
 
                     $.ajax({
                         url: '/changeNationToTechnologyStatus',
                         type: 'post',
-                        data: { _token: token, technology_id: technology_id, nation_id: nation_id, response: 1, admin_pay: adminPay},
+                        data: data,
                         success:function(response){
                             hideLoading();
                             refreshTechnologies(response)
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Odesláno',
-                                text: 'Vaše platba byla úspěšně zpracována.',
+                                text: 'Požadavek jsme úspěšně zpracovaly.',
                             })
 
                         },

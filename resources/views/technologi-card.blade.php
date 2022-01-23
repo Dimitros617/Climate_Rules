@@ -91,26 +91,7 @@
 
 
         <div class="w-100">
-            <button type="button" class="btn btn-primary w-100 text-uppercase" onclick="changeNationToTechnologyStatus(this,{{$technology->id}})">
-
-                @if(count($technology->nations_status) == 0)
-                    Koupit
-                @else
-                    @php
-                    $ret = "Koupit";
-
-                    foreach ($technology->nations_status as $nation_stat){
-                        if($nation_stat->nation_id == $my_nation->id){
-                            $ret = $nation_stat->name;
-                        }
-                    }
-
-                    echo $ret;
-
-                    @endphp
-                @endif
-
-            </button>
+            @include('technologi-card-button')
         </div>
 
         @if(Auth::permition()->admin ==1)

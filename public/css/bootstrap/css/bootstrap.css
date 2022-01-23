@@ -6762,6 +6762,10 @@ a.badge-dark:focus, a.badge-dark.focus {
     height: 36rem !important;
 }
 
+.h-20 {
+    height: 20% !important;
+}
+
 .h-25 {
   height: 25% !important;
 }
@@ -7508,6 +7512,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .fw-bolder {
   font-weight: bolder !important;
+}
+
+.text-small {
+    font-size: 12px !important;
 }
 
 .text-lowercase {

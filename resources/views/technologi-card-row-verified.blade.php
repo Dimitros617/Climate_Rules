@@ -76,8 +76,8 @@
                         {{$nation_status->nation_name}}
                     </span>
                 </div>
-                <div class="" >
-                    <button type="button" onclick="changeNationToTechnologyStatus(this,{{$technology->id}},{{$nation_status->id}})" class="btn btn-primary w-100 h-100"> {{$nation_status->name}}</button>
+                <div class="" onclick="changeNationToTechnologyStatus(this,{{$technology->id}},{{$nation_status->id}})">
+                   @include('technologi-card-verified-button')
                 </div>
 
             </div>

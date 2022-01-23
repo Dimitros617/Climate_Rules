@@ -20,6 +20,7 @@ class CreateLobbyToTechnologies extends Migration
             $table->integer('round_show');
             $table->integer('round_hide')->nullable();
             $table->tinyInteger('certificate')->default('1');
+            $table->tinyInteger('patent')->default('1');
             $table->tinyInteger('visibility')->default('1');
 
 

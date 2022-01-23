@@ -8,13 +8,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidáno schvalováníé plateb technologií, dodělán backend pro jednorázové platby a výpis pohybů na účtu">
-      <change afterPath="$PROJECT_DIR$/resources/views/technologi-certificate-verification.blade.php" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Připraven frontend pro schvalování certifikací technologií">
+      <change afterPath="$PROJECT_DIR$/resources/views/technologi-card-button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/technologi-card-verified-button.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Nations_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_16_235933_create_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_16_235933_create_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_17_001452_create_lobby_to_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_17_001452_create_lobby_to_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.rtl.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/technology.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/technology.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row-statistic-types.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row-statistic-types.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-certificate-verification.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-certificate-verification.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -429,14 +439,8 @@
       <workItem from="1642687869481" duration="7234000" />
       <workItem from="1642698649262" duration="348000" />
       <workItem from="1642774651701" duration="13860000" />
-      <workItem from="1642844396266" duration="34837000" />
-    </task>
-    <task id="LOCAL-00059" summary="Přidáno do hlavičky název učebnice a smazán starý menu bar">
-      <created>1616365005259</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1616365005259</updated>
+      <workItem from="1642844396266" duration="35103000" />
+      <workItem from="1642932914923" duration="10724000" />
     </task>
     <task id="LOCAL-00060" summary="Opravena responzivnost, přidána oprávění přístupu + přidán element na stahování souborů">
       <created>1616777370671</created>
@@ -774,7 +778,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642880252341</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="Připraven frontend pro schvalování certifikací technologií">
+      <created>1642883057828</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1642883057828</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -839,7 +850,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Propojení nového backandu a frontendu" />
     <MESSAGE value="Přidáno admin rozhraní a uprava hodnot statistik z frontendu" />
     <MESSAGE value="Přidány iconky pro statistic types + připravena databáze pro technologie" />
     <MESSAGE value="Projeno vykreslování dat z databáze + možnost přepínání mezi kartami a seznamem" />
@@ -864,7 +874,8 @@
     <MESSAGE value="Přidáno obarvování ikonek statistických typů u technologií dle hodnoty a pozitivní nebo negativní logiky" />
     <MESSAGE value="Připraven frontend pro jednorázové platby v bance" />
     <MESSAGE value="Přidáno schvalováníé plateb technologií, dodělán backend pro jednorázové platby a výpis pohybů na účtu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidáno schvalováníé plateb technologií, dodělán backend pro jednorázové platby a výpis pohybů na účtu" />
+    <MESSAGE value="Připraven frontend pro schvalování certifikací technologií" />
+    <option name="LAST_COMMIT_MESSAGE" value="Připraven frontend pro schvalování certifikací technologií" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

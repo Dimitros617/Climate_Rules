@@ -12,6 +12,12 @@ class Nations_technologies extends Model
 {
     use HasFactory;
 
+    public static function getOneNationTechnology($nation_id, $technology_id){
+        return DB::table('nations_technologies')
+            ->where('nations_technologies.technology_id','=',$technology_id)
+            ->where('nations_technologies.nation_id','=',$nation_id)
+            ->first();
+    }
 
     public static function getAllNationsStatusOfTechnology($technology_id){
 
@@ -104,13 +110,30 @@ class Nations_technologies extends Model
         }
 
         $nation_technology_patented = Nations_technologies::where('id', $technology_id)->where('patent', 1)->first()->nation_id;
-        return Round_to_nation_statistics::lastRoundOneStatisticOneNation(Statistics_types::getIdByCode('level_economy'),$nation_technology_patented);
+        return Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('level_economy'),$nation_technology_patented);
 
     }
 
     public static function isTechnologyPatentedBySomeone($technology_id){
 
         return Nations_technologies::where('id', $technology_id)->where('patent', 1)->count() == 0 ? false : true;
+    }
+
+    public static function setTechnologyCertificationChose($technology_id, $nation_id, $description, $benefits, $disadvantages, $business, $people){
+
+        return DB::table('nations_technologies')
+            ->where('technology_id', $technology_id)
+            ->where('nation_id', $nation_id)
+            ->update([
+                'first_try' => 1,
+                'chose_description' => $description,
+                'chose_benefits' => $benefits,
+                'chose_disadvantages' => $disadvantages,
+                'chose_business' => $business,
+                'chose_people' => $people,
+                'updated_at' => Carbon::now()->toDateTimeString(),
+            ]);
+
     }
 
 }
