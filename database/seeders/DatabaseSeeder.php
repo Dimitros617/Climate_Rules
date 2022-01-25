@@ -4366,7 +4366,6 @@ class DatabaseSeeder extends Seeder
             'price' => 0,
             'certificate' => 0,
             'visibility' => 0,
-            'img_url' => 'https://d15-a.sdn.cz/d_15/c_img_gY_Z/uQkGAm.jpeg',
             'branch_id' => 1,
             'area_id' => 2,
         ]);
@@ -4409,7 +4408,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 24,
             'certificate' => 0,
-            'img_url' => 'https://d15-a.sdn.cz/d_15/c_img_gY_Z/uQkGAm.jpeg',
+            'img_url' => '/Img/technology-img/T03-img.png',
             'branch_id' => 1,
             'area_id' => 2,
         ]);
@@ -4434,7 +4433,6 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 12,
             'certificate' => 1,
-            'img_url' => 'https://wdet.org/media/daguerre/2019/10/07/6113b4cc203daf0eb857.png',
             'branch_id' => 1,
             'area_id' => 2,
         ]);
@@ -4475,7 +4473,6 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 18,
             'certificate' => 1,
-            'img_url' => 'https://www.ekobydleni.eu/i/TUNIS1-580x326-1.jpg',
             'branch_id' => 1,
             'area_id' => 2,
         ]);
@@ -4516,6 +4513,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 11,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T06-img.png',
             'branch_id' => 6,
             'area_id' => 2,
         ]);
@@ -4556,6 +4554,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 11,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T08-img.png',
             'branch_id' => 6,
             'area_id' => 2,
         ]);
@@ -4590,6 +4589,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 4,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T09-img.png',
             'branch_id' => 1,
             'area_id' => 3,
         ]);
@@ -4615,6 +4615,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 10,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T11-img.png',
             'branch_id' => 1,
             'area_id' => 3,
         ]);
@@ -4745,6 +4746,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 6,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T17-img.png',
             'branch_id' => 1,
             'area_id' => 2,
         ]);
@@ -4779,6 +4781,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 3,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T18-img.png',
             'branch_id' => 5,
             'area_id' => 3,
         ]);
@@ -4804,6 +4807,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 10,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T19-img.png',
             'branch_id' => 1,
             'area_id' => 7,
         ]);
@@ -4897,6 +4901,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 1,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T22-img.png',
             'branch_id' => 1,
             'area_id' => 6,
         ]);
@@ -4984,6 +4989,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 0,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T26-img.png',
             'branch_id' => 1,
             'area_id' => 3,
         ]);
@@ -5040,6 +5046,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 12,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T28-img.png',
             'branch_id' => 1,
             'area_id' => 3,
         ]);
@@ -5099,6 +5106,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 12,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T30-img.png',
             'branch_id' => 6,
             'area_id' => 1,
         ]);
@@ -5127,6 +5135,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 19,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T31-img.png',
             'branch_id' => 2,
             'area_id' => 3,
         ]);
@@ -5158,6 +5167,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 15,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T32-img.png',
             'branch_id' => 1,
             'area_id' => 3,
         ]);
@@ -5183,6 +5193,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 8,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T34-img.png',
             'branch_id' => 1,
             'area_id' => 3,
         ]);
@@ -5214,6 +5225,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 11,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T35-img.png',
             'branch_id' => 6,
             'area_id' => 2,
         ]);
@@ -5310,6 +5322,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 2,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T39-img.png',
             'branch_id' => 8,
             'area_id' => 1,
         ]);
@@ -5335,6 +5348,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 20,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T40-img.png',
             'branch_id' => 9,
             'area_id' => 3,
         ]);
@@ -5378,6 +5392,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 8,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T41-img.png',
             'branch_id' => 9,
             'area_id' => 3,
         ]);
@@ -5434,6 +5449,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 16,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T45-img.png',
             'branch_id' => 2,
             'area_id' => 3,
         ]);
@@ -5465,6 +5481,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 16,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T46-img.png',
             'branch_id' => 3,
             'area_id' => 4,
         ]);
@@ -5515,6 +5532,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 10,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T48-img.png',
             'branch_id' => 5,
             'area_id' => 3,
         ]);
@@ -5546,6 +5564,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 17,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T49-img.png',
             'branch_id' => 9,
             'area_id' => 3,
         ]);
@@ -5596,6 +5615,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 13,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T51-img.png',
             'branch_id' => 5,
             'area_id' => 3,
         ]);
@@ -5621,6 +5641,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 10,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T52-img.png',
             'branch_id' => 5,
             'area_id' => 3,
         ]);
@@ -5702,6 +5723,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 11,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T55-img.png',
             'branch_id' => 6,
             'area_id' => 7,
         ]);
