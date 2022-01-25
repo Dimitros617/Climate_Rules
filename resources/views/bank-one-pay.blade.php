@@ -96,7 +96,7 @@
         }
 
         " type="checkbox" style="transform: scale(1.2)" id="one-pay-verify" class=" form-check-input m-0 p-0 ms-1 me-3" role="switch">
-        <span > Opravdu chci tuto platbu odeslat.</span>
+        <span >Opravdu chci tuto platbu odeslat.</span>
     </div>
 
 </div>

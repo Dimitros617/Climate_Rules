@@ -25,7 +25,7 @@
                     </a>
 
                 </div>
-                <p class="copyright">©Nvias 2021</p>
+                <p class="copyright">©Dominik Frolík 2021</p>
             </div>
 
             <div class="column" style="min-width: 550px">
@@ -34,7 +34,7 @@
                     <br>
                     Poznejte svůj stát a jeho specifika, implementujte technologie, plňte úkoly i své tajné cíle, zachraňte svět.
                     <br>
-                    Projekt vznikl na motivy deskové hry Vládci klimatu od Tomáše Mrkvičky
+                    Projekt vznikl na motivy deskové hry Vládci klimatu od Tomáše Mrkvičky.
 
                 </p>
 

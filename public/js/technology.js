@@ -74,7 +74,7 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Odesláno',
-                                text: 'Požadavek jsme úspěšně zpracovaly.',
+                                text: 'Požadavek jsme úspěšně zpracovali.',
                             })
 
                         },
@@ -251,15 +251,163 @@ function changeTechnologyParameter(technology_id, parameter, ele){
 
 }
 
-function searchTechnology(formId){
+function getTechnologySetting(technology_id){
 
 
-    let id = "#" + formId;
-    let a = $("#" + formId).serialize()
-    let b = a;
+    $.ajax({
+        url: '/getTechnologySetting/' + technology_id,
+        type: 'get',
+        success:function(response){
+            hideLoading();
+
+
+                Swal.fire({
+                    html: response,
+                    showCloseButton: false,
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    showDenyButton: false,
+                    focusConfirm: false,
+                    customClass: 'w-75',
+
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+
+
+                    }
+                    else if(result.isDenied){
+
+                    }
+                    else{
+
+                    }
+
+                })
+
+
+
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
 
 }
 
+function saveImage(form){
+
+    $.ajax({
+        url: '/saveImage',
+        method: 'post',
+        data: new FormData(form),
+        processData: false,
+        contentType: false,
+        datatype : "application/json",
+        success:function(response){
+
+            refreshTechnologySettingGallery(response);
+
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+}
+
+function removeImage(technology_id, url){
+
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+    $.ajax({
+        url: '/removeImage',
+        type: 'delete',
+        data: { _token: token, technology_id: technology_id, url: url},
+        success:function(response){
+
+            refreshTechnologySettingGallery(response);
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+}
+
+function setImage(technology_id, url, final_url = null){
+
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+    $.ajax({
+        url: '/setImage',
+        type: 'post',
+        data: { _token: token, technology_id: technology_id, url: url},
+        success:function(response){
+
+            let images = document.getElementsByClassName('technology-card-image-' + technology_id);
+            for(let img of images){
+                let refresh = '?random=' + new Date().getTime();
+                img.src = final_url == null ? url + refresh : final_url + refresh;
+            }
+            refreshTechnologySettingGallery(response);
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+}
+
+function isUrlValidImage(url){
+
+
+    let regex = /^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi
+    let result;
+    if (url.match(regex)){
+        result = {
+            match: url.match(regex)
+        }
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Ajajaj!',
+            text: 'Dle našeho regexu není tento odkaz na obrázek, vložte odkaz přímo na obrázek.' ,
+            customClass: {
+                container: 'su-shake-horizontal',
+            }
+        })
+    }
+    console.log(result);
+    return result;
+
+}
+
+
+function refreshTechnologySettingGallery(HTML){
+    document.getElementById('technology-setting-image-gallery').innerHTML = HTML;
+}
 
 function refreshTechnologies(HTML){
 

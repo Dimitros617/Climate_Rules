@@ -16,7 +16,7 @@
         <div class="mb-2 ">
             <div class="position-relative text-center rounded-3 overflow-hidden">
 
-                <img class="w-100 mb-3" src="{{URL::asset($technology->img_url)}}">
+                <img class="w-100 mb-3 technology-card-image-{{$technology->technology_id}}"  src="{{URL::asset($technology->img_url)}}">
                 <div class=" technology-code fs-1 fw-bold text-white position-absolute " style="mix-blend-mode: difference; opacity: 0.9; bottom: 4px; left: 4px" >
                     {{$technology->code}}
                 </div>

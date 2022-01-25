@@ -19,6 +19,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class TechnologiController extends Controller
 {
@@ -106,6 +107,36 @@ class TechnologiController extends Controller
 
 
         return view('technologi-certificate-verification', ['lobby' => $lobby, 'my_nation' => $my_nation, 'technology' => $technology, 'my_nation_technology' => $my_nation_technology]);
+
+    }
+
+    function getTechnologySetting($technology_id){
+
+        Log::info('TechnologiController:getTechnologySetting' . $technology_id);
+
+        $technology = Technologies::where('id', $technology_id)->first();
+        $images = $this->getAllTechnologyImages();
+
+
+        return view('technologi-setting', ['technology' => $technology, 'images' => $images]);
+    }
+
+    function getAllTechnologyImages(){
+
+        $all_img = Storage::disk('technology-img')->allFiles();
+
+        for ($i = 0 ; $i < count($all_img); $i++){
+            $all_img[$i] = '/Img/technology-img/' . $all_img[$i];
+        }
+
+        $all_assigned_img = Technologies::where('img_url', '!=', '/Img/logo_mini_transparent_gray.png')->where('img_url', 'not like', '%/Img/technology-img/%')->groupBy('img_url')->get();
+
+        foreach ($all_assigned_img as $img){
+            array_push($all_img, $img->img_url);
+        }
+
+        return $all_img;
+
 
     }
 
@@ -425,6 +456,90 @@ class TechnologiController extends Controller
 
 
         return $this->getTechnologiView('technologies-box', $lobby_id);
+    }
+
+    function saveImage(Request $request){
+
+        Log::info('TechnologyController:saveImage');
+
+        if($request->img != "") {
+            $validatedData = $request->validate([
+                'img' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:4092',
+            ]);
+
+            $img_type = $request->file('img')->getClientOriginalExtension();
+            $img_name = $request->file('img')->getClientOriginalName();
+//            $img_path = Carbon::now()->toDateTimeString().'.'.$img_type;
+            request()->img->move(public_path('/Img/technology-img'), $img_name);
+            $img_name = '/Img/technology-img/'.$img_name;
+        }
+
+
+        $images = $this->getAllTechnologyImages();
+
+        return view('technologi-images-selector-gallery', ['images' => $images]);
+
+    }
+
+    function setImage(Request $request){
+
+        Log::info('TechnologyController:setImage');
+
+        $check = DB::table('technologies')
+            ->where('id', $request->technology_id)
+            ->update([
+                'img_url' => $request->url,
+            ]);
+
+
+        if(!$check) {
+            return response('Nastala chyba při aktualizaci dat v tabulce technologies ', 500)->header('Content-Type', 'text/plain');
+        }
+
+        $images = $this->getAllTechnologyImages();
+
+        return view('technologi-images-selector-gallery', ['images' => $images]);
+
+
+    }
+
+    function removeImage(Request $request){
+
+        Log::info('TechnologyController:removeImage');
+
+        $all_technologies_used_image = Technologies::where('img_url', $request->url)->get();
+
+        foreach ($all_technologies_used_image as $img){
+
+            $check = DB::table('technologies')
+                ->where('id', $img->id)
+                ->update([
+                    'img_url' => '/Img/logo_mini_transparent_gray.png',
+                ]);
+
+
+            if(!$check) {
+                return response('Nastala chyba při aktualizaci dat v tabulce technologies ', 500)->header('Content-Type', 'text/plain');
+            }
+        }
+
+        if (is_file(public_path($request->url))) {
+            $check = unlink(public_path($img->url));
+            if(!$check){
+                return response('Chyba při mazání souboru ze složky!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+            }
+        }
+        //SMAZAt později debug else
+        else{
+            return response('Nenalezli jsme soubor ve složce!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+
+        }
+
+        $images = $this->getAllTechnologyImages();
+
+        return view('technologi-images-selector-gallery', ['images' => $images]);
+
+
     }
 
 }

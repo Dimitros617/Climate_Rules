@@ -13,7 +13,7 @@
                         </span>
                     @endif
     <span class="technology-work-status fw-bold fs-5">
-    {{--                    Počet států kteří mají technologii nakoupenou--}}
+    {{--                    Počet států, které mají technologii nakoupenou--}}
         {{$technology->workStatus}}
                     </span>
 

@@ -90,7 +90,7 @@
             @elseif($my_nation_technology->first_try == 1 && Auth::permition()->admin ==1)
                 Opravdu chci tento formulář schválit.
             @else
-                Opravdu chci tento formulář odeslat, a jsem si vědom že to mohu udělat <b class="text-red"> pouze jednou</b>
+                Opravdu chci tento formulář odeslat a jsem si vědom, že to mohu udělat <b class="text-red"> pouze jednou. </b>
             @endif
         </span>
     </div>

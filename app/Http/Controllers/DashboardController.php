@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Round_to_nation_statistics;
+use App\Models\Technologies;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 use Livewire\Response;
 
 class DashboardController extends Controller
@@ -44,13 +47,20 @@ class DashboardController extends Controller
 
     function showHelp(){
 
-        $nation = response('Nelze vstoupit, tvémů clonovanému účtu je přiřazeno více hráčů! Odstranili jsme clonované účty, zkuste to znovu a předělíme Vám nový clon účet.', 500)->header('Content-Type', 'text/plain');
+        $all_img = Storage::disk('technology-img')->allFiles();
 
-        if(str_contains( get_class($nation), 'Response')){
-
-            return 'yes';
+        for ($i = 0 ; $i < count($all_img); $i++){
+            $all_img[$i] = '/Img/technology-img/' . $all_img[$i];
         }
-        return'NO';
+
+        $all_assigned_img = Technologies::where('img_url', '!=', '/Img/logo_mini_transparent_gray.png')->where('img_url', 'not like', '%/Img/technology-img/%')->groupBy('img_url')->get();
+
+        foreach ($all_assigned_img as $img){
+            array_push($all_img, $img->img_url);
+        }
+
+        return $all_img;
+
     }
 
 

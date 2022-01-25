@@ -17,6 +17,16 @@ function allertError(text, code = undefined){
         if(code == 401 && text === undefined){
             text = "Nejste přihlášeni nebo nemáte dostatečné oprávnění k této akci."
         }
+
+        if(code == 422){
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm...',
+                text: 'Tento soubor není obrázek v podporovaném formátu: jpg, png, jpeg, gif, svg. Nebo je větší než 4Mb' ,
+
+            })
+            return;
+        }
     }
 
     Swal.fire({

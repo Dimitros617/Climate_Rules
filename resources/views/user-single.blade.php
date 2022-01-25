@@ -15,7 +15,7 @@
                         uživateli {{$user[0] -> userNick}}</h1>
 
                     <p class="mt-1 text-md text-muted">
-                        Pozor, aby jste neupravily něco jiného!
+                        Pozor, aby jste neupravili něco jiného!
                     </p>
                 </div>
             </div>

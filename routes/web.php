@@ -83,6 +83,11 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->get('/lobby/{
 Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/changeNationToTechnologyStatus', [TechnologiController::class,'changeNationToTechnologyStatus']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/changeTechnologyParameter', [TechnologiController::class,'changeTechnologyParameter']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/setNationToTechnologyStatus', [TechnologiController::class,'setNationToTechnologyStatus']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/getTechnologySetting/{technology_id?}', [TechnologiController::class,'getTechnologySetting']);
+
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveImage', [TechnologiController::class,'saveImage']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->delete('/removeImage', [TechnologiController::class,'removeImage']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/setImage', [TechnologiController::class,'setImage']);
 
 
 //Bank

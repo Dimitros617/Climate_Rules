@@ -69,7 +69,7 @@
                     </div>
                 </div>
             @else
-                <div class="display-4 pt-4 pb-4">Upss.. Nic jsme tu nenašly.</div>
+                <div class="display-4 pt-4 pb-4">Upss... Nic jsme tu nenašli.</div>
             @endif
 
         </div>

@@ -47,7 +47,7 @@ function getOnePayForm(id){
 
 
                     if(nation_id_to == '-'){
-                        allertError('Platba nebyla možná provést, protože si nevybral příjemce', 500);
+                        allertError('Platbu nebylo možná provést, protože jsi nevybral příjemce', 500);
                         hideLoading();
                         return;
                     }

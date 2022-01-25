@@ -117,7 +117,6 @@ class Nations_technologies extends Model
             ->where('nations_technologies.status_id','!=', Nations_technologies_status::getIdByCode('new'))
             ->get()[0]->total_price;
 
-
     }
 
     public static function getOneTechnologyPatentPrice($technology_id){

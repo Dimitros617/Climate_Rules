@@ -28,7 +28,7 @@
     <div class="container p-6   mt-4">
 
         <h1 class="display-1 mb-4 me-5 text-su-orange pt-4 pb-5">Ups!</h1>
-        <div class="h6 ms-5 ps-5 pt-5 pb-5 text-left"> Aktuálně Vás nemůžeme registrovat. Nemámě žádnou výchozí roly, kterou bychom mohly přidělit.
+        <div class="h6 ms-5 ps-5 pt-5 pb-5 text-left"> Aktuálně Vás nemůžeme registrovat. Nemámě žádnou výchozí roli, kterou bychom mohli přidělit.
             <br><br><b>Zkuste kontaktovat správce systému.</b>
         </div>
     </div>

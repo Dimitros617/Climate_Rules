@@ -109,6 +109,76 @@ transition-duration: 0.5s;
     background-color: white;
 }
 
+.display-hover{
+    visibility: hidden;
+}
+
+.display-hover:hover{
+    visibility: unset;
+}
+
+.chapter_img {
+    width: 200px;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: flow-root;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gray-box {
+    filter:opacity(0%);
+    background: #00000091;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transition-duration: 0.5s;
+
+}
+
+.gray-box:hover {
+    filter:opacity(100%);
+}
+
+.status-icon svg {
+    transform: scale(2);
+    color: white;
+}
+
+.status-icon svg:hover {
+    transform: scale(2.1);
+    filter: grayscale(50%);
+}
+
+.status-icon {
+    /* transform: scale(2); */
+    display: flex;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    flex: 0 50%;
+    /* height: 100px; */
+    margin-bottom: 2%;
+    padding: 1.5rem;
+}
+
+.global-status-table-row:hover{
+    background-color: #0099cd2e !important;
+}
+
+
+.lock.status-icon, .image.status-icon {
+    align-items: flex-end;
+}
+
 /*Custom title*/
 
 [data-title] {
