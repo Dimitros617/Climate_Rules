@@ -22,7 +22,7 @@ class CreateTechnologies extends Migration
             $table->tinyInteger('visibility')->default('1');
             $table->tinyInteger('certificate')->default('1');
             $table->tinyInteger('patent')->default('1');
-            $table->string('img_url',200)->default('/Img/logo_mini_transparent_gray.png');
+            $table->string('img_url',200)->default('/Img/default_technology_image.png');
             $table->unsignedBigInteger('branch_id');
             $table->unsignedBigInteger('area_id');
             $table->integer('round_show')->default('1');

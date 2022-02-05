@@ -4,7 +4,7 @@
      style="border-radius: 0 0.5rem 0.5rem 0 ; z-index: 800;"
 onload="dragElement(this)">
 
-    <div hidden class="admin-panel-box-setting w-90 d-inline-flex justify-content-between p-2 ms-4 me-3">
+    <div  class="admin-panel-box-setting w-90 d-flex  justify-content-between p-2 ms-4 me-3" hidden>
         {{--    users--}}
         <div class="d-grid m-2 text-center bg-white rounded-3 p-4">
             <span class="fs-7 fw-bold mb-2">Uživatel</span>
@@ -36,7 +36,7 @@ onload="dragElement(this)">
     </div>
 
     <div  id="admin-panel-box-header" class="bg-red w-3rem p-2 justify-content-center fw-bold text-white d-flex animate-05 hover-size-01 cursor-pointer min-h-5rem"
-    onclick=" showAndHideElement(this.parentNode, 'admin-panel-box-setting')">
+    onclick=" showAndHideElement(this.parentNode, 'admin-panel-box-setting')" >
 
 
             <svg hidden="" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="hide bi bi-chevron-compact-left align-self-center animate-05 hover-size-01" viewBox="0 0 16 16">

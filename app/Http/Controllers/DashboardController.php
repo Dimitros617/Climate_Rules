@@ -47,19 +47,7 @@ class DashboardController extends Controller
 
     function showHelp(){
 
-        $all_img = Storage::disk('technology-img')->allFiles();
-
-        for ($i = 0 ; $i < count($all_img); $i++){
-            $all_img[$i] = '/Img/technology-img/' . $all_img[$i];
-        }
-
-        $all_assigned_img = Technologies::where('img_url', '!=', '/Img/logo_mini_transparent_gray.png')->where('img_url', 'not like', '%/Img/technology-img/%')->groupBy('img_url')->get();
-
-        foreach ($all_assigned_img as $img){
-            array_push($all_img, $img->img_url);
-        }
-
-        return $all_img;
+        return view( 'dashboard');
 
     }
 

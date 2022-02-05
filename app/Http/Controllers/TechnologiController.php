@@ -514,7 +514,7 @@ class TechnologiController extends Controller
             $check = DB::table('technologies')
                 ->where('id', $img->id)
                 ->update([
-                    'img_url' => '/Img/logo_mini_transparent_gray.png',
+                    'img_url' => '/Img/default_technology_image.png',
                 ]);
 
 
@@ -529,11 +529,11 @@ class TechnologiController extends Controller
                 return response('Chyba při mazání souboru ze složky!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
             }
         }
-        //SMAZAt později debug else
-        else{
-            return response('Nenalezli jsme soubor ve složce!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
-
-        }
+//        //SMAZAt později debug else
+//        else{
+//            return response('Nenalezli jsme soubor ve složce!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+//
+//        }
 
         $images = $this->getAllTechnologyImages();
 
