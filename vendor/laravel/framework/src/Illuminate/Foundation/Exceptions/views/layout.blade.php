@@ -12,16 +12,13 @@
 
         <!-- Styles -->
         <style>
-
-            body{
-
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 100;
                 height: 100vh;
-                background-image: url("/Img/background.jpg");
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
+                margin: 0;
             }
 
             .full-height {

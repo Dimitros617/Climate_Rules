@@ -117,4 +117,5 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->ge
 
 //help
 Route::get('/help', [DashboardController::class,'showHelp']);
+Route::get('/help-test', [DashboardController::class,'helpTest']);
 

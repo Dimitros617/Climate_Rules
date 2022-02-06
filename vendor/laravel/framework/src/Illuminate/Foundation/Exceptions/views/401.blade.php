@@ -1,5 +1,5 @@
 @extends('errors::minimal')
 
-@section('title', __('Neautorizováno'))
+@section('title', __('Unauthorized'))
 @section('code', '401')
-@section('message', 'Na toto nemáte dostatečná oprávnění')
+@section('message', __('Unauthorized'))
