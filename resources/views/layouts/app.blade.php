@@ -30,21 +30,27 @@
 {{--    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>--}}
 {{--    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>--}}
 
-    <script id="script-batch" type="text/javascript">
-        (function(d){
-            var js = d.createElement('script'); js.async = true; js.defer = true;
-            js.src = "/js/jquery/jquery.min.js";
-            d.getElementsByTagName('head')[0].appendChild(js);
+{{--    <script id="script-batch" type="text/javascript">--}}
+{{--        (function(d){--}}
+{{--            var js = d.createElement('script'); js.async = true; js.defer = true;--}}
+{{--            js.src = "/js/jquery/jquery.min.js";--}}
+{{--            d.getElementsByTagName('head')[0].appendChild(js);--}}
 
-            var jsUi = d.createElement('script'); jsUi.async = true; jsUi.defer = true;
-            jsUi.src = "/js/jquery/jquery-ui.min.js";
-            d.getElementsByTagName('head')[0].appendChild(jsUi);
-        }(document));
-    </script>
+{{--            var jsUi = d.createElement('script'); jsUi.async = true; jsUi.defer = true;--}}
+{{--            jsUi.src = "/js/jquery/jquery-ui.min.js";--}}
+{{--            d.getElementsByTagName('head')[0].appendChild(jsUi);--}}
+{{--        }(document));--}}
+
+{{--        $(function(){--}}
+{{--            $('div[onload]').trigger('onload');--}}
+{{--            $('input[onload]').trigger('onload');--}}
+{{--            $('span[onload]').trigger('onload');--}}
+{{--        });--}}
+{{--    </script>--}}
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
-{{--    <script src="/js/jquery/jquery.min.js"></script>--}}
-{{--    <script src="/js/jquery/jquery-ui.min.js"></script>--}}
+    <script src="/js/jquery/jquery.min.js"></script>
+    <script src="/js/jquery/jquery-ui.min.js"></script>
 
     <script src="{{ URL::asset('js/main.js') }}" defer></script>
     <script src="{{ URL::asset('js/button-menu.js') }}"></script>

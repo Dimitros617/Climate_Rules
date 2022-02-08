@@ -4276,44 +4276,44 @@ class DatabaseSeeder extends Seeder
         7 M (medicine) - Lékařství / Medicína
         */
 
-        DB::table('technologies_areas')->insert([
+        DB::table('areas')->insert([
             'id' => '1',
             'name' => 'Nezařazeno',
             'description' => 'Popisek k nezařazeno',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tree-fill" viewBox="0 0 16 16"><path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z"/></svg>',
         ]);
 
-        DB::table('technologies_areas')->insert([
+        DB::table('areas')->insert([
             'name' => 'Zemědělství',
             'description' => 'Popisek k zemědělství',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tree-fill" viewBox="0 0 16 16"><path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z"/></svg>',
         ]);
 
-        DB::table('technologies_areas')->insert([
+        DB::table('areas')->insert([
             'name' => 'Energetika',
             'description' => 'Popisek k energetice',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-battery-charging" viewBox="0 0 16 16">  <path d="M9.585 2.568a.5.5 0 0 1 .226.58L8.677 6.832h1.99a.5.5 0 0 1 .364.843l-5.334 5.667a.5.5 0 0 1-.842-.49L5.99 9.167H4a.5.5 0 0 1-.364-.843l5.333-5.667a.5.5 0 0 1 .616-.09z"/>  <path d="M2 4h4.332l-.94 1H2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h2.38l-.308 1H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>  <path d="M2 6h2.45L2.908 7.639A1.5 1.5 0 0 0 3.313 10H2V6zm8.595-2-.308 1H12a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H9.276l-.942 1H12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.405z"/>  <path d="M12 10h-1.783l1.542-1.639c.097-.103.178-.218.241-.34V10zm0-3.354V6h-.646a1.5 1.5 0 0 1 .646.646zM16 8a1.5 1.5 0 0 1-1.5 1.5v-3A1.5 1.5 0 0 1 16 8z"/></svg>',
         ]);
 
-        DB::table('technologies_areas')->insert([
+        DB::table('areas')->insert([
             'name' => 'Doprava',
             'description' => 'Popisek k dopravě',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stoplights-fill" viewBox="0 0 16 16">  <path fill-rule="evenodd" d="M6 0a2 2 0 0 0-2 2H2c.167.5.8 1.6 2 2v2H2c.167.5.8 1.6 2 2v2H2c.167.5.8 1.6 2 2v1a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-1c1.2-.4 1.833-1.5 2-2h-2V8c1.2-.4 1.833-1.5 2-2h-2V4c1.2-.4 1.833-1.5 2-2h-2a2 2 0 0 0-2-2H6zm3.5 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM8 13a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>',
         ]);
 
-        DB::table('technologies_areas')->insert([
+        DB::table('areas')->insert([
             'name' => 'Vzdělávání',
             'description' => 'Popisek k vzdělávání',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-controller" viewBox="0 0 16 16">  <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z"/>  <path d="M3.051 3.26a.5.5 0 0 1 .354-.613l1.932-.518a.5.5 0 0 1 .62.39c.655-.079 1.35-.117 2.043-.117.72 0 1.443.041 2.12.126a.5.5 0 0 1 .622-.399l1.932.518a.5.5 0 0 1 .306.729c.14.09.266.19.373.297.408.408.78 1.05 1.095 1.772.32.733.599 1.591.805 2.466.206.875.34 1.78.364 2.606.024.816-.059 1.602-.328 2.21a1.42 1.42 0 0 1-1.445.83c-.636-.067-1.115-.394-1.513-.773-.245-.232-.496-.526-.739-.808-.126-.148-.25-.292-.368-.423-.728-.804-1.597-1.527-3.224-1.527-1.627 0-2.496.723-3.224 1.527-.119.131-.242.275-.368.423-.243.282-.494.575-.739.808-.398.38-.877.706-1.513.773a1.42 1.42 0 0 1-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772a2.34 2.34 0 0 1 .433-.335.504.504 0 0 1-.028-.079zm2.036.412c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a13.748 13.748 0 0 0-.748 2.295 12.351 12.351 0 0 0-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 0 0 .426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.504C4.861 9.969 5.978 9.027 8 9.027s3.139.942 3.965 1.855c.164.181.307.348.44.504.214.251.403.472.615.674.318.303.601.468.929.503a.42.42 0 0 0 .426-.241c.18-.408.265-1.02.243-1.776a12.354 12.354 0 0 0-.339-2.406 13.753 13.753 0 0 0-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27-1.036 0-2.063.091-2.913.27z"/></svg>',
         ]);
 
-        DB::table('technologies_areas')->insert([
+        DB::table('areas')->insert([
             'name' => 'Zábava',
             'description' => 'Popisek k zábavě',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-controller" viewBox="0 0 16 16">  <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z"/>  <path d="M3.051 3.26a.5.5 0 0 1 .354-.613l1.932-.518a.5.5 0 0 1 .62.39c.655-.079 1.35-.117 2.043-.117.72 0 1.443.041 2.12.126a.5.5 0 0 1 .622-.399l1.932.518a.5.5 0 0 1 .306.729c.14.09.266.19.373.297.408.408.78 1.05 1.095 1.772.32.733.599 1.591.805 2.466.206.875.34 1.78.364 2.606.024.816-.059 1.602-.328 2.21a1.42 1.42 0 0 1-1.445.83c-.636-.067-1.115-.394-1.513-.773-.245-.232-.496-.526-.739-.808-.126-.148-.25-.292-.368-.423-.728-.804-1.597-1.527-3.224-1.527-1.627 0-2.496.723-3.224 1.527-.119.131-.242.275-.368.423-.243.282-.494.575-.739.808-.398.38-.877.706-1.513.773a1.42 1.42 0 0 1-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772a2.34 2.34 0 0 1 .433-.335.504.504 0 0 1-.028-.079zm2.036.412c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a13.748 13.748 0 0 0-.748 2.295 12.351 12.351 0 0 0-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 0 0 .426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.504C4.861 9.969 5.978 9.027 8 9.027s3.139.942 3.965 1.855c.164.181.307.348.44.504.214.251.403.472.615.674.318.303.601.468.929.503a.42.42 0 0 0 .426-.241c.18-.408.265-1.02.243-1.776a12.354 12.354 0 0 0-.339-2.406 13.753 13.753 0 0 0-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27-1.036 0-2.063.091-2.913.27z"/></svg>',
         ]);
 
-        DB::table('technologies_areas')->insert([
+        DB::table('areas')->insert([
             'name' => 'Lékařství',
             'description' => 'Popisek k lekářství',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bandaid-fill" viewBox="0 0 16 16">  <path d="m2.68 7.676 6.49-6.504a4 4 0 0 1 5.66 5.653l-1.477 1.529-5.006 5.006-1.523 1.472a4 4 0 0 1-5.653-5.66l.001-.002 1.505-1.492.001-.002Zm5.71-2.858a.5.5 0 1 0-.708.707.5.5 0 0 0 .707-.707ZM6.974 6.939a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707ZM5.56 8.354a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm2.828 2.828a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707Zm1.414-2.121a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.706-.708.5.5 0 0 0 .707.708Zm-4.242.707a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm1.414-2.122a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707ZM8.646 3.354l4 4 .708-.708-4-4-.708.708Zm-1.292 9.292-4-4-.708.708 4 4 .708-.708Z"/></svg>',
@@ -4366,8 +4366,17 @@ class DatabaseSeeder extends Seeder
             'price' => 0,
             'certificate' => 0,
             'visibility' => 0,
-            'branch_id' => 1,
+
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 2,
+            'technology_id' => 2,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 2,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4409,8 +4418,16 @@ class DatabaseSeeder extends Seeder
             'price' => 24,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T03-img.jpg',
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 2,
+            'technology_id' => 3,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 3,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4433,8 +4450,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 12,
             'certificate' => 1,
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 2,
+            'technology_id' => 4,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 4,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4473,8 +4498,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 18,
             'certificate' => 1,
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 2,
+            'technology_id' => 5,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 5,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4514,8 +4547,16 @@ class DatabaseSeeder extends Seeder
             'price' => 11,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T06-img.jpg',
-            'branch_id' => 6,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 2,
+            'technology_id' => 6,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 6,
+            'technology_id' => 6,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4555,8 +4596,16 @@ class DatabaseSeeder extends Seeder
             'price' => 11,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T08-img.jpg',
-            'branch_id' => 6,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 2,
+            'technology_id' => 8,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 6,
+            'technology_id' => 8,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4590,8 +4639,16 @@ class DatabaseSeeder extends Seeder
             'price' => 4,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T09-img.jpg',
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 9,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 9,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4616,8 +4673,16 @@ class DatabaseSeeder extends Seeder
             'price' => 10,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T11-img.jpg',
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 11,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 11,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4647,8 +4712,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 18,
             'certificate' => 0,
-            'branch_id' => 2,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 13,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 2,
+            'technology_id' => 13,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4678,8 +4751,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 38,
             'certificate' => 0,
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 15,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 15,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4715,8 +4796,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 16,
             'certificate' => 0,
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 16,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 16,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4747,8 +4836,16 @@ class DatabaseSeeder extends Seeder
             'price' => 6,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T17-img.jpg',
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 2,
+            'technology_id' => 17,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 17,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4782,8 +4879,16 @@ class DatabaseSeeder extends Seeder
             'price' => 3,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T18-img.jpg',
-            'branch_id' => 5,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 18,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 5,
+            'technology_id' => 18,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4808,8 +4913,16 @@ class DatabaseSeeder extends Seeder
             'price' => 10,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T19-img.jpg',
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 7,
+            'technology_id' => 19,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 19,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4839,8 +4952,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 5,
             'certificate' => 0,
-            'branch_id' => 7,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 6,
+            'technology_id' => 20,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 7,
+            'technology_id' => 20,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4864,8 +4985,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 15,
             'certificate' => 0,
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 7,
+            'technology_id' => 21,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 21,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4902,8 +5031,16 @@ class DatabaseSeeder extends Seeder
             'price' => 1,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T22-img.jpg',
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 6,
+            'technology_id' => 22,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 22,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4927,8 +5064,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 10,
             'certificate' => 0,
-            'branch_id' => 7,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 5,
+            'technology_id' => 24,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 7,
+            'technology_id' => 24,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4958,8 +5103,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 10,
             'certificate' => 1,
-            'branch_id' => 7,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 5,
+            'technology_id' => 25,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 7,
+            'technology_id' => 25,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -4990,8 +5143,16 @@ class DatabaseSeeder extends Seeder
             'price' => 0,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T26-img.jpg',
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 26,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 26,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5027,8 +5188,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 7,
             'certificate' => 0,
-            'branch_id' => 7,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 5,
+            'technology_id' => 27,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 7,
+            'technology_id' => 27,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5047,8 +5216,16 @@ class DatabaseSeeder extends Seeder
             'price' => 12,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T28-img.jpg',
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 28,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 28,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5075,8 +5252,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 0,
             'certificate' => 0,
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 4,
+            'technology_id' => 29,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 29,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5107,8 +5292,16 @@ class DatabaseSeeder extends Seeder
             'price' => 12,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T30-img.jpg',
-            'branch_id' => 6,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 1,
+            'technology_id' => 30,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 6,
+            'technology_id' => 30,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5136,8 +5329,16 @@ class DatabaseSeeder extends Seeder
             'price' => 19,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T31-img.jpg',
-            'branch_id' => 2,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 31,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 2,
+            'technology_id' => 31,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5168,8 +5369,16 @@ class DatabaseSeeder extends Seeder
             'price' => 15,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T32-img.jpg',
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 32,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 32,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5194,8 +5403,16 @@ class DatabaseSeeder extends Seeder
             'price' => 8,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T34-img.jpg',
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 34,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 34,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5226,8 +5443,16 @@ class DatabaseSeeder extends Seeder
             'price' => 11,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T35-img.jpg',
-            'branch_id' => 6,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 2,
+            'technology_id' => 35,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 6,
+            'technology_id' => 35,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5266,8 +5491,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 4,
             'certificate' => 0,
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 4,
+            'technology_id' => 37,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 37,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5291,8 +5524,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 7,
             'certificate' => 0,
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 4,
+            'technology_id' => 38,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 38,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5323,8 +5564,16 @@ class DatabaseSeeder extends Seeder
             'price' => 2,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T39-img.jpg',
-            'branch_id' => 8,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 1,
+            'technology_id' => 39,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 8,
+            'technology_id' => 39,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5349,8 +5598,16 @@ class DatabaseSeeder extends Seeder
             'price' => 20,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T40-img.jpg',
-            'branch_id' => 9,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 40,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 9,
+            'technology_id' => 40,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5393,8 +5650,16 @@ class DatabaseSeeder extends Seeder
             'price' => 8,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T41-img.jpg',
-            'branch_id' => 9,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 41,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 9,
+            'technology_id' => 41,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5412,8 +5677,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 0,
             'certificate' => 0,
-            'branch_id' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 43,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 43,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5450,8 +5723,16 @@ class DatabaseSeeder extends Seeder
             'price' => 16,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T45-img.jpg',
-            'branch_id' => 2,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 45,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 2,
+            'technology_id' => 45,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5482,8 +5763,16 @@ class DatabaseSeeder extends Seeder
             'price' => 16,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T46-img.jpg',
-            'branch_id' => 3,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 4,
+            'technology_id' => 46,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 3,
+            'technology_id' => 46,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5507,8 +5796,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 1,
             'price' => 11,
             'certificate' => 1,
-            'branch_id' => 4,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 47,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 4,
+            'technology_id' => 47,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5533,8 +5830,16 @@ class DatabaseSeeder extends Seeder
             'price' => 10,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T48-img.jpg',
-            'branch_id' => 5,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 48,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 5,
+            'technology_id' => 48,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5565,8 +5870,16 @@ class DatabaseSeeder extends Seeder
             'price' => 17,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T49-img.jpg',
-            'branch_id' => 9,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 49,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 9,
+            'technology_id' => 49,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5590,8 +5903,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 14,
             'certificate' => 1,
-            'branch_id' => 2,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 50,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 2,
+            'technology_id' => 50,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5616,8 +5937,16 @@ class DatabaseSeeder extends Seeder
             'price' => 13,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T51-img.jpg',
-            'branch_id' => 5,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 51,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 5,
+            'technology_id' => 51,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5642,8 +5971,16 @@ class DatabaseSeeder extends Seeder
             'price' => 10,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T52-img.jpg',
-            'branch_id' => 5,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 52,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 5,
+            'technology_id' => 52,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5667,8 +6004,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 7,
             'certificate' => 1,
-            'branch_id' => 5,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 53,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 5,
+            'technology_id' => 53,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5698,8 +6043,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 12,
             'certificate' => 0,
-            'branch_id' => 5,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 54,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 5,
+            'technology_id' => 54,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5724,8 +6077,16 @@ class DatabaseSeeder extends Seeder
             'price' => 11,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T55-img.jpg',
-            'branch_id' => 6,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 7,
+            'technology_id' => 55,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 6,
+            'technology_id' => 55,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5749,8 +6110,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
-            'branch_id' => 3,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 81,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 3,
+            'technology_id' => 81,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5780,8 +6149,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
-            'branch_id' => 3,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 82,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 3,
+            'technology_id' => 82,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5811,8 +6188,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
-            'branch_id' => 4,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 1,
+            'technology_id' => 83,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 4,
+            'technology_id' => 83,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5842,8 +6227,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
-            'branch_id' => 4,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 1,
+            'technology_id' => 84,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 4,
+            'technology_id' => 84,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5873,8 +6266,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
-            'branch_id' => 2,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 85,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 2,
+            'technology_id' => 85,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5904,8 +6305,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
-            'branch_id' => 2,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 86,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 2,
+            'technology_id' => 86,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5935,8 +6344,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
-            'branch_id' => 5,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 87,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 5,
+            'technology_id' => 87,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5966,8 +6383,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
-            'branch_id' => 5,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 3,
+            'technology_id' => 88,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 5,
+            'technology_id' => 88,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -5997,8 +6422,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
-            'branch_id' => 6,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 7,
+            'technology_id' => 89,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 6,
+            'technology_id' => 89,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -6028,8 +6461,16 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
-            'branch_id' => 6,
+        ]);
+
+        DB::table('technologies_areas')->insert([
             'area_id' => 7,
+            'technology_id' => 90,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 6,
+            'technology_id' => 90,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([

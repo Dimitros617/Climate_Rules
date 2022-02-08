@@ -15,13 +15,11 @@ class CreateTechnologiesAreas extends Migration
     {
         Schema::create('technologies_areas', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100);
-            $table->string('description');
-            $table->string('icon', 5120);
+            $table->unsignedBigInteger('area_id');
+            $table->unsignedBigInteger('technology_id');
 
-
-            $table->timestamps();
-
+            $table->foreign('area_id')->references('id')->on('areas');
+            $table->foreign('technology_id')->references('id')->on('technologies');
 
         });
     }

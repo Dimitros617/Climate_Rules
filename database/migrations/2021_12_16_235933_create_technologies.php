@@ -23,14 +23,9 @@ class CreateTechnologies extends Migration
             $table->tinyInteger('certificate')->default('1');
             $table->tinyInteger('patent')->default('1');
             $table->string('img_url',200)->default('/Img/default_technology_image.png');
-            $table->unsignedBigInteger('branch_id');
-            $table->unsignedBigInteger('area_id');
             $table->integer('round_show')->default('1');
             $table->integer('round_hide')->nullable();
 
-
-            $table->foreign('branch_id')->references('id')->on('branches');
-            $table->foreign('area_id')->references('id')->on('technologies_areas');
 
 
         });
