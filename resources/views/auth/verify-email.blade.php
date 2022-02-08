@@ -5,7 +5,7 @@
 
             <div style="">
                 {{--            <x-jet-authentication-card-logo />--}}
-                <a href="/"> <img class="block w-75 " src="{{ URL::asset('Img/logo_big_transparent.png') }}"></a>
+                <a href="/"> <img class="block w-75 " style="    margin-left: auto; margin-right: auto;" src="{{ URL::asset('Img/logo_big_transparent.png') }}"></a>
             </div>
 
             <div class="mb-4 text-sm text-gray-600">
@@ -22,7 +22,7 @@
                 <form method="POST" action="{{ route('verification.send') }}">
                     @csrf
 
-                    <div>
+                    <div >
                         <x-jet-button type="submit">
                             {{ __('Resend Verification Email') }}
                         </x-jet-button>

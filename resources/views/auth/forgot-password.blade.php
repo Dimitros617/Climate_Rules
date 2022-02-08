@@ -4,7 +4,7 @@
         <div class="" style="margin: auto;">
             <div class="mt-4 mb-5" style="">
                 {{--            <x-jet-authentication-card-logo />--}}
-                <a href="/"> <img class="block w-75 " src="{{ URL::asset('Img/logo_big_transparent.png') }}"></a>
+                <a href="/"> <img class="block w-75 " style="    margin-left: auto; margin-right: auto;" src="{{ URL::asset('Img/logo_big_transparent.png') }}"></a>
             </div>
 
             <div class="mb-4 text-sm text-gray-600">
@@ -22,7 +22,7 @@
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
 
-                <div class="block">
+                <div class="block" style="justify-content: center; display: flex;">
                 <!-- <x-jet-label for="email" value="{{ __('E-mail') }}" /> -->
                     <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" placeholder="E-mail" :value="old('email')" required autofocus />
                 </div>

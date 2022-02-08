@@ -57,15 +57,16 @@ class DashboardController extends Controller
 
         Log::info('YES');
 
-        $pusher = new Pusher(
-            "c043d5fc6c72a5abf31f",
-            "d3c5e9be3da1fdf6c7fc",
-            "1343195",
-            array('cluster' => 'eu')
-        );
+//        $pusher = new Pusher(
+//            "c043d5fc6c72a5abf31f",
+//            "d3c5e9be3da1fdf6c7fc",
+//            "1343195",
+//            array('cluster' => 'eu')
+//        );
+//
+//        $pusher->trigger('my-channel', 'my-event', array('message' => 'hello worldddd'));
 
-        $pusher->trigger('my-channel', 'my-event', array('message' => 'hello worldddd'));
-
+        event(new MyEvent('hello worldoslav'));
 
     }
 

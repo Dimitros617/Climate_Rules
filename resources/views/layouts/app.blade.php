@@ -41,11 +41,12 @@
             d.getElementsByTagName('head')[0].appendChild(jsUi);
         }(document));
     </script>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
 {{--    <script src="/js/jquery/jquery.min.js"></script>--}}
 {{--    <script src="/js/jquery/jquery-ui.min.js"></script>--}}
 
-    <script src="{{ URL::asset('js/main.js') }}"></script>
+    <script src="{{ URL::asset('js/main.js') }}" defer></script>
     <script src="{{ URL::asset('js/button-menu.js') }}"></script>
     <script src="{{ URL::asset('js/context-menu.js') }}"></script>
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
@@ -93,7 +94,7 @@
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}" ></script>
 
 
 </head>

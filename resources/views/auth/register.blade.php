@@ -4,7 +4,7 @@
         <div class="" style="margin: auto;">
             <div class="mt-4 mb-5" style="">
                 {{--            <x-jet-authentication-card-logo />--}}
-                <a href="/"> <img class="block w-75 " src="{{ URL::asset('Img/logo_big_transparent.png') }}"></a>
+                <a href="/"> <img class="block w-75 " style="    margin-left: auto; margin-right: auto;" src="{{ URL::asset('Img/logo_big_transparent.png') }}"></a>
             </div>
 
             <x-jet-validation-errors class="mb-4" />
@@ -13,24 +13,24 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
-                <div class="mt-4">
+                <div class="mt-4" style="justify-content: center; display: flex;">
                 <!--<x-jet-label for="surname" value="{{ __('Přezdívka') }}" /> -->
                     <x-jet-input id="nick" class="block mt-1 w-full p-2 border-0 rounded-2 w-75 bg-light" type="text" name="nick" placeholder="Přezdívka " :value="old('nick')" required autofocus autocomplete="nickname" />
                 </div>
 
 
-                <div class="mt-4">
+                <div class="mt-4" style="justify-content: center; display: flex;">
                 <!--<x-jet-label for="email" value="{{ __('E-mail') }}" />-->
                     <x-jet-input id="email" class="block mt-1 w-full p-2 border-0 rounded-2 w-75 bg-light" type="email" name="email" placeholder="E-mail" :value="old('email')" required />
                 </div>
 
                 <br>
-                <div class="mt-4">
+                <div class="mt-4" style="justify-content: center; display: flex;">
                 <!--<x-jet-label for="password" value="{{ __('Heslo') }}" />-->
                     <x-jet-input id="password" class="block mt-1 w-full p-2 border-0 rounded-2 w-75 bg-light" type="password" name="password" placeholder="Heslo" required autocomplete="new-password" />
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-4" style="justify-content: center; display: flex;">
                 <!--<x-jet-label for="password_confirmation" value="{{ __('Potvrdit heslo') }}" />-->
                     <x-jet-input id="password_confirmation" class="block mt-1 w-full p-2 border-0 rounded-2 w-75 bg-light" type="password" name="password_confirmation" placeholder="Potvrdit heslo" required autocomplete="new-password" />
                 </div>

@@ -1,6 +1,8 @@
 <?php
 
+use App\Events\MyEvent;
 use Illuminate\Support\Facades\Broadcast;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,15 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+Broadcast::channel('chat', function ($user) {
+    Log::info('YES - channel');
+
+    return $user;
+});
+
+//Broadcast::channel('my-channel', function ($user) {
+//    Log::info('YES -  my channel');
+//    event(new MyEvent('hello worldoslav2'));
+//    return "yess";
+//});
