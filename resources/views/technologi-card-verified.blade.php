@@ -52,7 +52,7 @@
                         {{$nation_status->updated_at}}
                     </span>
                 </div>
-                <div class="" onclick="changeNationToTechnologyStatus(this,{{$technology->id}},{{$nation_status->id}})">
+                <div class="" >
                     @include('technologi-card-verified-button')
                 </div>
 

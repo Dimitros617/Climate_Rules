@@ -61,14 +61,20 @@ class TechnologiController extends Controller
 
     }
 
-    function getTechnologiBuyVerificationView($lobby_id, $technology_id){
+    function getTechnologiBuyVerificationView($lobby_id, $technology_id, $nation_id){
 
         Log::info('TechnologiController:show->getTechnologiBuyVerificationView');
 
-        $nation_id = Nations::getNationIdFromLobby($lobby_id);
+        if($nation_id == null) {
+            $nation_id = Nations::getNationIdFromLobby($lobby_id);
 
-        if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
-            return $nation_id;  //vracím response s chybou;
+            if (!is_int($nation_id) && str_contains(get_class($nation_id), 'Response')) {
+                return $nation_id;  //vracím response s chybou;
+            }
+        }else{
+            if(!Nations::isNationInLobby($nation_id, $lobby_id)){
+                return response('Nelze zobrazit tento formulář, požadovaný hráč není v lobby přiřazen!', 500)->header('Content-Type', 'text/plain');
+            }
         }
 
         $technology = Lobby_to_technologies::getOnetechnologiesFromLobby($technology_id);
@@ -88,14 +94,26 @@ class TechnologiController extends Controller
 
     }
 
-    function getTechnologiCertificateVerificationView($lobby_id, $technology_id){
+    function getTechnologyCertificateForm(Request $request){
+        $lobby_id = Lobby_to_technologies::find($request->technology_id)->lobby_id;
+
+        return $this->getTechnologiCertificateVerificationView($lobby_id, $request->technology_id, $request->nation_id);
+    }
+
+    function getTechnologiCertificateVerificationView($lobby_id, $technology_id, $nation_id = null){
 
         Log::info('TechnologiController:show->getTechnologiCertificateVerificationView');
 
-        $nation_id = Nations::getNationIdFromLobby($lobby_id);
+        if($nation_id == null) {
+            $nation_id = Nations::getNationIdFromLobby($lobby_id);
 
-        if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
-            return $nation_id;  //vracím response s chybou;
+            if (!is_int($nation_id) && str_contains(get_class($nation_id), 'Response')) {
+                return $nation_id;  //vracím response s chybou;
+            }
+        }else{
+            if(!Nations::isNationInLobby($nation_id, $lobby_id)){
+                return response('Nelze zobrazit tento formulář, požadovaný hráč není v lobby přiřazen!', 500)->header('Content-Type', 'text/plain');
+            }
         }
 
         $technology = Lobby_to_technologies::getOnetechnologiesFromLobby($technology_id);
@@ -152,15 +170,21 @@ class TechnologiController extends Controller
 
         $lobby_id = Lobby_to_technologies::find($request->technology_id)->lobby_id;
 
-        $nation_id = Nations::getNationIdFromLobby($lobby_id, $request->nation_id);
+        if($request->nation_id == null) {
+            $nation_id = Nations::getNationIdFromLobby($lobby_id);
 
-        if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
-            return $nation_id;  //vracím response s chybou;
+            if (!is_int($nation_id) && str_contains(get_class($nation_id), 'Response')) {
+                return $nation_id;  //vracím response s chybou;
+            }
+        }else{
+            if(!Nations::isNationInLobby($request->nation_id, $lobby_id)){
+                return response('Nelze zobrazit tento formulář, požadovaný hráč není v lobby přiřazen!', 500)->header('Content-Type', 'text/plain');
+            }
+            $nation_id = $request->nation_id;
         }
 
 
         $status = Nations_technologies::getOneNationStatusOfTechnology($nation_id, $request->technology_id);
-
 
 
         //POkud nejsou žádné interakce státu z danou technologií bereme to jako koupi

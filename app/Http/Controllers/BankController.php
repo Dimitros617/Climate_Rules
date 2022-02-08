@@ -91,25 +91,19 @@ class BankController extends Controller
             }
 
         }else{
-            Log::info('yes');
 
             //Hráč posílá peníze adminovy
             if($nation_id_to == null && $nation_id_from != null) {
-                Log::info('sss');
                 $nationsFromMoney = Nations::find($nation_id_from)->money;
                 if ($nationsFromMoney >= $amount) {
-                    Log::info('ydddes');
                     Nations::find($nation_id_from)->update(['money' => ($nationsFromMoney - $amount)]);
-                    Log::info('ydddddddssssdes');
                     if(!Nations_money_balances::addTransactionRecord($amount, $nation_id_from, $nation_id_to, $flag, $description, $transaction_type_id)){
                         return response('Peníze jsme převedly, ale nepovedlo se nám udělat záznam o transakci.', 500)->header('Content-Type', 'text/plain');
                     }
                 }else{
-                    Log::info('yeeeees');
                     return response('Na tuto transakci nemáš dost finančních prostředků.', 500)->header('Content-Type', 'text/plain');
                 }
             }
-            Log::info('yeswwww');
 
             //Hráč posílá hráci
             if($nation_id_to != null && $nation_id_from != null) {

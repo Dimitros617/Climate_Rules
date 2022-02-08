@@ -147,6 +147,9 @@ function collapseElement(buttonDiv, button, elementsClassAll, elementIdShow){
 function showAndHideElement(parent, classElement){
 
     let collapseElements = parent.getElementsByClassName(classElement)[0];
+    if(collapseElements==undefined){
+        collapseElements = parent.parentNode.getElementsByClassName(classElement)[0];
+    }
     let hidden = collapseElements.getAttribute('hidden');
 
     if(hidden == null){

@@ -38,7 +38,10 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
                 if (result.isConfirmed) {
 
                     showLoading();
-                    let adminPay = document.getElementById('admin-pay').checked ? 1 : 0;
+                    let adminPay = 0;
+                    if(document.getElementById('admin-pay') != undefined) {
+                        adminPay = document.getElementById('admin-pay').checked ? 1 : 0;
+                    }
                     let data;
 
                     if(document.getElementById('technology-certificate-verification') != undefined){
@@ -213,6 +216,118 @@ function swapCardAndRow(showClass, hideClass, ele){
     }
 
     ele.setAttribute('active', 1);
+
+}
+
+function showTechnologyCertificateForm(technology_id, nation_id = null){
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+    $.ajax({
+        url: '/getTechnologyCertificateForm',
+        type: 'post',
+        data: { _token: token, technology_id: technology_id, nation_id: nation_id,},
+        success:function(response){
+            hideLoading();
+
+            Swal.fire({
+                html: response,
+                showCloseButton: false,
+                showCancelButton: true,
+                showConfirmButton: true,
+                showDenyButton: true,
+                confirmButtonText: `Potvrdit`,
+                cancelButtonText: `Zrušit`,
+                denyButtonText: `Zamítnout`,
+                focusConfirm: false,
+                customClass: 'w-75',
+                onBeforeOpen: function(ele) {
+                    document.getElementsByClassName('swal2-confirm')[0].setAttribute('disabled','')
+                    let check = document.getElementById('technology-certificate-verification')
+                    if(check == undefined || check.getAttribute('admin') == 0 || check.getAttribute('first_try') == 0){
+                        document.getElementsByClassName('swal2-deny')[0].setAttribute('hidden','')
+                    }else{
+                        document.getElementsByClassName('swal2-deny')[0].setAttribute('disabled','')
+
+                    }
+                }
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    showLoading();
+                    let data;
+
+                    if(document.getElementById('technology-certificate-verification') != undefined){
+
+                        let description = document.getElementById('technology-certificate-description').value;
+                        let benefits = document.getElementById('technology-certificate-benefits').value;
+                        let disadvantages = document.getElementById('technology-certificate-disadvantages').value;
+                        let business = document.getElementById('technology-certificate-business').value;
+                        let people = document.getElementById('technology-certificate-people').value;
+
+                        data = { _token: token,
+                            technology_id: technology_id,
+                            nation_id: nation_id,
+                            response: 1,
+                            admin_pay: 0,
+                            description: description,
+                            benefits: benefits,
+                            disadvantages: disadvantages,
+                            business: business,
+                            people: people
+                        };
+                    }else{
+                        data = { _token: token, technology_id: technology_id, nation_id: nation_id, response: 1, admin_pay: adminPay};
+
+                    }
+
+                    $.ajax({
+                        url: '/changeNationToTechnologyStatus',
+                        type: 'post',
+                        data: data,
+                        success:function(response){
+                            hideLoading();
+                            refreshTechnologies(response)
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Odesláno',
+                                text: 'Požadavek jsme úspěšně zpracovali.',
+                            })
+
+                        },
+                        error: function (response){
+                            console.log(response);
+                            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+                            allertError(err, code);
+                            hideLoading();
+
+                        }
+                    });
+
+                }
+                else if(result.isDenied){
+                    setNationToTechnologyStatus('investment', technology_id, nation_id);
+                }
+                else{
+
+                }
+
+            })
+
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
 
 }
 
