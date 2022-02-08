@@ -12,7 +12,7 @@
             <div class="col-auto searchButtonDiv">
 
 
-                        <span data-title="Najít" onclick="filterAll('search-form')">
+                        <span data-toggle="tooltip" data-placement="bottom" title="Najít" onclick="filterAll('search-form')">
                             <svg class=" cr-blue animate-02 hover-size-01 cursor-pointer me-2" xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="3rem" width="3rem" viewBox="0 0 24 24"  ><path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                         </span>
                 <span onclick="swapCardAndRow('card-row-container','card-box-container', this)" active="0" class="card-row-swap">
@@ -44,7 +44,7 @@
 
         @foreach($statistics_types as $stat)
             <div class="filter-statistic-type d-inline-flex bg-white rounded-3 m-2 p-3 flex-lg-grow-1 shadow-sm" code="{{$stat->code_name}}">
-                <div class="w-25 me-3 hover-size-01 animate-05" data-title="{{$stat->name}}">
+                <div class="w-25 me-3 hover-size-01 animate-05" data-toggle="tooltip" data-placement="bottom" title="{{$stat->name}}">
                     <div class="w-content mt-3 ms-3 z-0" style="transform: scale(2.5)">@php echo htmlspecialchars_decode($stat->icon) @endphp</div>
                 </div>
                 <div class=" w-75 form-check form-switch d-grid text-center justify-content-center p-0 pt-2">
@@ -123,7 +123,7 @@
             <div class="w-100 p-2 mt-1 d-flex flex-wrap justify-content-center justify-content-md-between">
 
                 <div class="d-inline-flex bg-white rounded-3 m-2 p-4 flex-lg-grow-1 shadow-sm">
-                    <div class="w-25 me-3 hover-size-01 animate-05" data-title="{{$stat->name}}">
+                    <div class="w-25 me-3 hover-size-01 animate-05" data-toggle="tooltip" data-placement="bottom" title="Zobrazovat i technologie, které má někdo koupené a pracuje na nich.">
                         <div class="w-content mt-4 ms-4 z-0" style="transform: scale(2.5)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                                 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
@@ -137,7 +137,7 @@
                 </div>
 
                 <div class="d-inline-flex bg-white rounded-3 m-2 p-4 flex-lg-grow-1 shadow-sm">
-                    <div class="w-25 me-3 hover-size-01 animate-05" data-title="{{$stat->name}}">
+                    <div class="w-25 me-3 hover-size-01 animate-05" data-toggle="tooltip" data-placement="bottom" title="Zobrazit i ty, které má již někdo patentované.">
                         <div class="w-content mt-4 ms-4 z-0" style="transform: scale(2.5)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>

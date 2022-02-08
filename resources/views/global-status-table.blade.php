@@ -13,7 +13,7 @@
 
 
                 @foreach($statistics_types as $statistic_type)
-                    <div class="pb-4 text-center  p-3 " style="flex: 1 1 0px"    data-title="{{$statistic_type->name}}">
+                    <div class="pb-4 text-center  p-3 " style="flex: 1 1 0px"    data-toggle="tooltip" data-placement="bottom" title="{{$statistic_type->name}}">
                         <div class="">
                             <div class="top-0 mb-3"  style="transform: scale(2)">@php echo htmlspecialchars_decode($statistic_type->icon) @endphp</div>
                             <span class="bottom-0 pt-3 fw-bold" style=" font-size: 10px">{{$statistic_type->name}}</span>
@@ -21,7 +21,7 @@
                     </div>
                 @endforeach
 
-                <div class="pb-4 text-center   p-3" style="flex: 1 1 0px" data-title="Příjem = Ekonomika x Daně">
+                <div class="pb-4 text-center   p-3" style="flex: 1 1 0px" data-toggle="tooltip" data-placement="bottom" title="Příjem = Ekonomika x Daně">
                     <div class="top-0 mb-3"  style="transform: scale(2)"><img src="{{URL::asset('Img/CR-coin.svg')}}"></div>
                     <span class="bottom-0 pt-3 fw-bold" style=" font-size: 10px">Příjem</span>
 

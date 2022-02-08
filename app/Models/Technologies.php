@@ -26,8 +26,28 @@ class Technologies extends Model
 
  }
 
- public static function getPriceOfTechnology($technology_id){
-     return Technologies::find($technology_id)->price;
- }
+     public static function getPriceOfTechnology($technology_id){
+         return Technologies::find($technology_id)->price;
+     }
+
+    public static function getAllTechnologyBranches($technology_id){
+
+        return DB::table('technologies_branches')
+            ->select('branches.*')
+            ->join('branches','technologies_branches.branch_id','=','branches.id')
+            ->where('technologies_branches.technology_id','=',$technology_id)
+            ->get();
+
+    }
+
+    public static function getAllTechnologyAreas($technology_id){
+
+        return DB::table('technologies_areas')
+            ->select('areas.*')
+            ->join('areas','technologies_areas.area_id','=','areas.id')
+            ->where('technologies_areas.technology_id','=',$technology_id)
+            ->get();
+
+    }
 
 }

@@ -27,7 +27,7 @@
                     @endphp
 
 
-                    <span data-title="{{$stat->name}} " >
+                    <span data-toggle="tooltip" data-placement="bottom" title="{{$stat->name}} " >
 
                         <div class="pt-1 text-center justify-content-center d-flex text-black" style="transform: scale(2); color: {{$color}}" >
                             @php echo htmlspecialchars_decode($stat->icon) @endphp

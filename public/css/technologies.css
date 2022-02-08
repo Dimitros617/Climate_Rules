@@ -1,17 +1,25 @@
 
-.card-technology-color-bar {
-    height: 2px;
-    padding: 0;
-    margin: 0;
-    content: "";
-    border-radius: 0.4rem 0.4rem 0 0;
-    color: transparent;
-    cursor: help;
+/*.card-technology-color-bar {*/
+/*    height: 2px;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    content: "";*/
+/*    border-radius: 0.4rem 0.4rem 0 0;*/
+/*    color: transparent;*/
+/*    cursor: help;*/
+/*}*/
+
+/*.card-technology-color-bar:hover {*/
+/*    height: 2.6rem;*/
+/*    padding: 0.4rem;*/
+/*    border-radius: 0.4rem 0.4rem 0 0;*/
+/*    color: white;*/
+/*}*/
+
+.technology-card-header-color-branch:first-child{
+    border-radius: 5px 0 0 0 ;
 }
 
-.card-technology-color-bar:hover {
-    height: 2.6rem;
-    padding: 0.4rem;
-    border-radius: 0.4rem 0.4rem 0 0;
-    color: white;
+.technology-card-header-color-branch:last-child{
+    border-radius: 0 5px 0 0 ;
 }

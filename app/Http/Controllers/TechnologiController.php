@@ -55,7 +55,7 @@ class TechnologiController extends Controller
         $technology_statuses = DB::table('nations_technologies_status')->get();
 
         $branches = DB::table('branches')->get();
-        $areas = DB::table('technologies_areas')->get();
+        $areas = DB::table('areas')->get();
 
         return view($view_name, ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies, 'statistics_types' => $statistics_types, 'branches' => $branches, 'areas' => $areas, 'technology_statuses' => $technology_statuses]);
 

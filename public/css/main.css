@@ -179,33 +179,6 @@ transition-duration: 0.5s;
     align-items: flex-end;
 }
 
-/*Custom title*/
-
-[data-title] {
-
-    font-size: 30px; /*optional styling*/
-    transition-duration: 0.2s;
-    position: relative;
-    cursor: help;
-    z-index: 0;
-}
-
-
-[data-title]:hover::before {
-    z-index: 999;
-    content: attr(data-title);
-    position: absolute;
-    bottom: -26px;
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 2px;
-    background: rgba(43, 43, 44, 0.85);
-    color: #fff;
-    font-size: 20px;
-    font-family: sans-serif;
-    white-space: nowrap;
-
-}
 
 
 .statistic_table tr:nth-child(even) {

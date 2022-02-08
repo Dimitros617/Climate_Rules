@@ -1,4 +1,4 @@
-<div class="bg-light rounded-3 p-3 m-3 ms-5 me-5  d-flex flex-wrap justify-content-around text-center ">
+<div class="bg-light rounded-3 p-3 m-1 ms-5 me-5  d-flex flex-wrap justify-content-around text-center ">
 
     @foreach($statistics_types as $stat)
         <div class="technology-statistic-type d-grid" code="{{$stat->code_name}}">
@@ -23,7 +23,7 @@
 
             @endphp
 
-            <span data-title="{{$stat->name}} " code="{{$stat->code_name}}">
+            <span data-toggle="tooltip" data-placement="bottom" title="{{$stat->name}} " code="{{$stat->code_name}}">
 
                 <div class="pt-1 text-center justify-content-center d-flex"
                      style="transform: scale(2); color: {{$color}}" >

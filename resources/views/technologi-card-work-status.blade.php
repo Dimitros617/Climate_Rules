@@ -1,5 +1,5 @@
 <div class="d-grid text-center p-3 m-2 bg-light rounded-3 animate-05 hover-size-01 hover-shadow cursor-pointer z-0"
-     data-title="Státy, které mají technologii rozpracovanou."
+     data-toggle="tooltip" data-placement="bottom" title="Státy, které mají technologii rozpracovanou."
      onclick="showAndHideElement(this.parentNode.parentNode.parentNode,'nation-work-status')">
                     @if($technology->workStatus > 0)
                         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">

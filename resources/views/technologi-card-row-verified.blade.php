@@ -17,7 +17,7 @@
                     <span class="technology-branch text-small bottom-0">
                         {{$technology->branch_name}}
                     </span>
-                    <span class="technology-area text-end bottom-0" data-title="{{$technology->area_name}}">
+                    <span class="technology-area text-end bottom-0" data-toggle="tooltip" data-placement="bottom" title="{{$technology->area_name}}">
                         <div class="pt-1 me-2" style="transform: scale(1.6)">
                             @php echo htmlspecialchars_decode($technology->area_icon) @endphp
                         </div>

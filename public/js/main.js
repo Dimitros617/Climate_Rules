@@ -184,4 +184,7 @@ $(function(){
     $('span[onload]').trigger('onload');
 });
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 
