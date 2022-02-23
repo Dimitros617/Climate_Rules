@@ -8,21 +8,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Propojení databáze s novým frontendem + uprava řádků pro analitické zobrazení">
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Uprava formuláře pro certifikaci technologií. fixed #12">
+      <change afterPath="$PROJECT_DIR$/resources/views/technologi-description.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BankController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BankController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Nations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/technology.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/technology.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-active-status-mini.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-active-status-mini.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-button.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row-verified.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-verified-button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-verified-button.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-verified.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-work-status-mini.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-work-status-mini.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-image.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -474,21 +465,9 @@
       <workItem from="1644148565747" duration="14289000" />
       <workItem from="1644181900328" duration="150000" />
       <workItem from="1644226053408" duration="590000" />
-      <workItem from="1644315507114" duration="27810000" />
-    </task>
-    <task id="LOCAL-00070" summary="Opravena chyba s text, elementy. Opraven image selector a ukládání, Změněn datový typ position na int">
-      <created>1618424103255</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1618424103255</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Přidána funce zobrazení testů nebo vyhození ze stránky po odevzdání testu">
-      <created>1618427384406</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1618427384407</updated>
+      <workItem from="1644315507114" duration="29248000" />
+      <workItem from="1644408271369" duration="1792000" />
+      <workItem from="1645611095841" duration="5139000" />
     </task>
     <task id="LOCAL-00072" summary="New project">
       <created>1630747943009</created>
@@ -819,7 +798,21 @@
       <option name="project" value="LOCAL" />
       <updated>1644341476457</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="Uprava UI a UX karet, opraveny chyby pro kupovaní a zobrazování formulářů nepřihlášených uživatelů">
+      <created>1644346474240</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1644346474240</updated>
+    </task>
+    <task id="LOCAL-00120" summary="Uprava formuláře pro certifikaci technologií. fixed #12">
+      <created>1645613007445</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1645613007445</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -884,8 +877,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Přidny user list a nastavení permition + first user admin převedení a nové ikonky" />
-    <MESSAGE value="Opraveny závažné chyby z testování, upravena responzibilita některých prvků" />
     <MESSAGE value="Upravena responsibilita stránky národu" />
     <MESSAGE value="Předělány karty u technologí frontend + sortění a rozdělení podle kol" />
     <MESSAGE value="Připravený frontend pro vyhledávání a filtrovaní technologií + předělané zobrazovaní technologií" />
@@ -909,7 +900,9 @@
     <MESSAGE value="Uprava Auth bladů po composer updatu" />
     <MESSAGE value="Uprava databáze M:N technologie a branches, areas" />
     <MESSAGE value="Propojení databáze s novým frontendem + uprava řádků pro analitické zobrazení" />
-    <option name="LAST_COMMIT_MESSAGE" value="Propojení databáze s novým frontendem + uprava řádků pro analitické zobrazení" />
+    <MESSAGE value="Uprava UI a UX karet, opraveny chyby pro kupovaní a zobrazování formulářů nepřihlášených uživatelů" />
+    <MESSAGE value="Uprava formuláře pro certifikaci technologií. fixed #12" />
+    <option name="LAST_COMMIT_MESSAGE" value="Uprava formuláře pro certifikaci technologií. fixed #12" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

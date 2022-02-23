@@ -128,6 +128,16 @@ class TechnologiController extends Controller
 
     }
 
+    /**
+     * @param $technology_id -> table technologies
+     * @return void
+     */
+    function getTechnologyDescription($technology_id){
+        $technology = Technologies::find($technology_id);
+
+        return view('technologi-description', ['technology' => $technology]);
+    }
+
     function getTechnologySetting($technology_id){
 
         Log::info('TechnologiController:getTechnologySetting' . $technology_id);

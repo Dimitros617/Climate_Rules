@@ -366,6 +366,51 @@ function changeTechnologyParameter(technology_id, parameter, ele){
 
 }
 
+/**
+ *
+ * @param technology_id -> table tchnologies
+ */
+function getTechnologyDescription(technology_id){
+
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+    $.ajax({
+        url: '/getTechnologyDescription/' + technology_id,
+        type: 'get',
+        data: { _token: token, technology_id: technology_id},
+        success:function(response){
+            hideLoading();
+            Swal.fire({
+                html: response,
+                showCloseButton: false,
+                showCancelButton: true,
+                showConfirmButton: false,
+                showDenyButton: false,
+                confirmButtonText: `Potvrdit`,
+                cancelButtonText: `Zavřít`,
+                denyButtonText: `Zamítnout`,
+                focusConfirm: false,
+                customClass: 'w-75',
+
+            }).then((result) => {
+            })
+
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+
+}
+
 function getTechnologySetting(technology_id){
 
 
