@@ -4319,6 +4319,12 @@ class DatabaseSeeder extends Seeder
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bandaid-fill" viewBox="0 0 16 16">  <path d="m2.68 7.676 6.49-6.504a4 4 0 0 1 5.66 5.653l-1.477 1.529-5.006 5.006-1.523 1.472a4 4 0 0 1-5.653-5.66l.001-.002 1.505-1.492.001-.002Zm5.71-2.858a.5.5 0 1 0-.708.707.5.5 0 0 0 .707-.707ZM6.974 6.939a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707ZM5.56 8.354a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm2.828 2.828a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707Zm1.414-2.121a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.706-.708.5.5 0 0 0 .707.708Zm-4.242.707a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm1.414-2.122a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707ZM8.646 3.354l4 4 .708-.708-4-4-.708.708Zm-1.292 9.292-4-4-.708.708 4 4 .708-.708Z"/></svg>',
         ]);
 
+        DB::table('areas')->insert([
+            'name' => 'Lékařství',
+            'description' => 'Popisek k lekářství',
+            'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bandaid-fill" viewBox="0 0 16 16">  <path d="m2.68 7.676 6.49-6.504a4 4 0 0 1 5.66 5.653l-1.477 1.529-5.006 5.006-1.523 1.472a4 4 0 0 1-5.653-5.66l.001-.002 1.505-1.492.001-.002Zm5.71-2.858a.5.5 0 1 0-.708.707.5.5 0 0 0 .707-.707ZM6.974 6.939a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707ZM5.56 8.354a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm2.828 2.828a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707Zm1.414-2.121a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.706-.708.5.5 0 0 0 .707.708Zm-4.242.707a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm1.414-2.122a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707ZM8.646 3.354l4 4 .708-.708-4-4-.708.708Zm-1.292 9.292-4-4-.708.708 4 4 .708-.708Z"/></svg>',
+        ]);
+
 
         //Stav
 
@@ -4361,7 +4367,7 @@ class DatabaseSeeder extends Seeder
             'id' => 2,
             'code' => 'T02',
             'name' => 'Daň z masa',
-            'description' => 'Popisek Daň z masa',
+            'description' => '',
             'round_show' => 9,
             'price' => 0,
             'certificate' => 0,
@@ -4413,8 +4419,8 @@ class DatabaseSeeder extends Seeder
             'id' => 3,
             'code' => 'T03',
             'name' => 'Zalesnění',
-            'description' => 'Popisek Zalesnění',
-            'round_show' => 2,
+            'description' => '',
+            'round_show' => 3,
             'price' => 24,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T03-img.jpg',
@@ -4446,10 +4452,11 @@ class DatabaseSeeder extends Seeder
             'id' => 4,
             'code' => 'T04',
             'name' => 'Protipovodňová technologie',
-            'description' => 'Popisek Protipovodňová technologie',
-            'round_show' => 1,
+            'description' => '',
+            'round_show' => 2,
             'price' => 12,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T04-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -4494,10 +4501,11 @@ class DatabaseSeeder extends Seeder
             'id' => 5,
             'code' => 'T05',
             'name' => 'Mořské stěny',
-            'description' => 'Popisek Mořské stěny',
-            'round_show' => 1,
+            'description' => '',
+            'round_show' => 2,
             'price' => 18,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T05-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -4542,8 +4550,8 @@ class DatabaseSeeder extends Seeder
             'id' => 6,
             'code' => 'T06',
             'name' => 'Zavlažovací systémy',
-            'description' => 'Popisek Zavlažovací systémy',
-            'round_show' => 1,
+            'description' => '',
+            'round_show' => 2,
             'price' => 11,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T06-img.jpg',
@@ -4591,9 +4599,9 @@ class DatabaseSeeder extends Seeder
             'id' => 8,
             'code' => 'T08',
             'name' => 'Daň z vody',
-            'description' => 'Popisek Daň z vody',
-            'round_show' => 4,
-            'price' => 11,
+            'description' => '',
+            'round_show' => 5,
+            'price' => 0,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T08-img.jpg',
         ]);
@@ -4610,13 +4618,13 @@ class DatabaseSeeder extends Seeder
 
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 8,
-            'statistic_type_id' => 4,
+            'statistic_type_id' => 3,
             'index_move' => 1,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 8,
-            'statistic_type_id' => 7,
+            'statistic_type_id' => 4,
             'index_move' => -1,
         ]);
 
@@ -4634,8 +4642,8 @@ class DatabaseSeeder extends Seeder
             'id' => 9,
             'code' => 'T09',
             'name' => 'Mediální propagace snižování spotřeby',
-            'description' => 'Popisek Mediální propagace snižování spotřeby',
-            'round_show' => 4,
+            'description' => '',
+            'round_show' => 5,
             'price' => 4,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T09-img.jpg',
@@ -4668,8 +4676,8 @@ class DatabaseSeeder extends Seeder
             'id' => 11,
             'code' => 'T11',
             'name' => 'Investice do obnovitelých zdrojů',
-            'description' => 'Popisek Investice do obnovitelých zdrojů',
-            'round_show' => 2,
+            'description' => '',
+            'round_show' => 3,
             'price' => 10,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T11-img.jpg',
@@ -4707,11 +4715,12 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 13,
             'code' => 'T13',
-            'name' => 'Dotace na vodíková vozidla',
-            'description' => 'Popisek Dotace na vodíková vozidla',
-            'round_show' => 2,
+            'name' => 'Investice do elektromobility',
+            'description' => 'Popište, jaké zdroje energie lze v elektromobilitě využít. Z balíku 100 % investice rozhdodněte, kolika procenty byste který druh podpořili a proč.',
+            'round_show' => 3,
             'price' => 18,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T13-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -4747,8 +4756,8 @@ class DatabaseSeeder extends Seeder
             'id' => 15,
             'code' => 'T15',
             'name' => 'Vodíková fúze',
-            'description' => 'Popisek Vodíková fúze',
-            'round_show' => 4,
+            'description' => '',
+            'round_show' => 5,
             'price' => 38,
             'certificate' => 0,
         ]);
@@ -4792,8 +4801,8 @@ class DatabaseSeeder extends Seeder
             'id' => 16,
             'code' => 'T16',
             'name' => 'Dotace na zateplování',
-            'description' => 'Popisek Dotace na zateplování',
-            'round_show' => 2,
+            'description' => '',
+            'round_show' => 3,
             'price' => 16,
             'certificate' => 0,
         ]);
@@ -4831,8 +4840,8 @@ class DatabaseSeeder extends Seeder
             'id' => 17,
             'code' => 'T17',
             'name' => 'Zavedení odolnějších odrůd',
-            'description' => 'Popisek Zavedení odolnějších odrůd',
-            'round_show' => 2,
+            'description' => '',
+            'round_show' => 3,
             'price' => 6,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T17-img.jpg',
@@ -4863,9 +4872,9 @@ class DatabaseSeeder extends Seeder
         // je speciální technologie - koeficient v proc?
         DB::table('special_technologies')->insert([
             'technology_id' => 17,
-            'code' => 'S/PZ/ZV',
+            'code' => 'S/PZ/VZ/EZ',
             'name' => 'Zavedení odolnějších odrůd',
-            'description' => 'O 50 % snížen dopad sucha, povodní a poklesu zemědělských výnosů',
+            'description' => 'O 50 % snížen dopad sucha, povodní, poklesu zemědělských výnosů a epidemie v zemědělství',
             'coefficient' => 50,
         ]);
 
@@ -4874,8 +4883,8 @@ class DatabaseSeeder extends Seeder
             'id' => 18,
             'code' => 'T18',
             'name' => 'Recyklace Cradle2Cradle',
-            'description' => 'Popisek Recyklace Cradle2Cradle',
-            'round_show' => 2,
+            'description' => '',
+            'round_show' => 3,
             'price' => 3,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T18-img.jpg',
@@ -4908,8 +4917,8 @@ class DatabaseSeeder extends Seeder
             'id' => 19,
             'code' => 'T19',
             'name' => 'Vyléčení rakoviny',
-            'description' => 'Popisek Vyléčení rakoviny',
-            'round_show' => 4,
+            'description' => '',
+            'round_show' => 5,
             'price' => 10,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T19-img.jpg',
@@ -4948,10 +4957,11 @@ class DatabaseSeeder extends Seeder
             'id' => 20,
             'code' => 'T20',
             'name' => 'Virtuální světy',
-            'description' => 'Popisek Virtuální světy',
-            'round_show' => 4,
+            'description' => '',
+            'round_show' => 5,
             'price' => 5,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T20-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -4981,8 +4991,8 @@ class DatabaseSeeder extends Seeder
             'id' => 21,
             'code' => 'T21',
             'name' => 'Zdravotní implantáty',
-            'description' => 'Popisek Zdravotní implantáty',
-            'round_show' => 4,
+            'description' => '',
+            'round_show' => 5,
             'price' => 15,
             'certificate' => 0,
         ]);
@@ -5026,8 +5036,8 @@ class DatabaseSeeder extends Seeder
             'id' => 22,
             'code' => 'T22',
             'name' => 'Domácí 3D projekce',
-            'description' => 'Popisek Domácí 3D projekce',
-            'round_show' => 2,
+            'description' => '',
+            'round_show' => 3,
             'price' => 1,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T22-img.jpg',
@@ -5060,8 +5070,8 @@ class DatabaseSeeder extends Seeder
             'id' => 24,
             'code' => 'T24',
             'name' => 'Virtuální školství a úřady',
-            'description' => 'Popisek Virtuální školství a úřady',
-            'round_show' => 4,
+            'description' => '',
+            'round_show' => 5,
             'price' => 10,
             'certificate' => 0,
         ]);
@@ -5099,10 +5109,11 @@ class DatabaseSeeder extends Seeder
             'id' => 25,
             'code' => 'T25',
             'name' => 'Technologie superlearningu',
-            'description' => 'Popisek Technologie superlearningu',
-            'round_show' => 1,
+            'description' => '',
+            'round_show' => 2,
             'price' => 10,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T25-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -5138,8 +5149,8 @@ class DatabaseSeeder extends Seeder
             'id' => 26,
             'code' => 'T26',
             'name' => 'Daň z ropy',
-            'description' => 'Popisek Daň z ropy',
-            'round_show' => 3,
+            'description' => '',
+            'round_show' => 4,
             'price' => 0,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T26-img.jpg',
@@ -5184,8 +5195,8 @@ class DatabaseSeeder extends Seeder
             'id' => 27,
             'code' => 'T27',
             'name' => 'Virtuální turistika',
-            'description' => 'Popisek Virtuální turistika',
-            'round_show' => 2,
+            'description' => '',
+            'round_show' => 3,
             'price' => 7,
             'certificate' => 0,
         ]);
@@ -5211,8 +5222,8 @@ class DatabaseSeeder extends Seeder
             'id' => 28,
             'code' => 'T28',
             'name' => 'Protipožární systémy',
-            'description' => 'Popisek Protipožární systémy',
-            'round_show' => 3,
+            'description' => '',
+            'round_show' => 4,
             'price' => 12,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T28-img.jpg',
@@ -5248,10 +5259,11 @@ class DatabaseSeeder extends Seeder
             'id' => 29,
             'code' => 'T29',
             'name' => 'Zákaz cestování',
-            'description' => 'Popisek Zákaz cestování',
-            'round_show' => 3,
+            'description' => '',
+            'round_show' => 4,
             'price' => 0,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T29-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -5287,8 +5299,8 @@ class DatabaseSeeder extends Seeder
             'id' => 30,
             'code' => 'T30',
             'name' => 'Monitoring vzniku požáru',
-            'description' => 'Popisek Monitoring vzniku požáru',
-            'round_show' => 1,
+            'description' => '',
+            'round_show' => 2,
             'price' => 12,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T30-img.jpg',
@@ -5324,8 +5336,8 @@ class DatabaseSeeder extends Seeder
             'id' => 31,
             'code' => 'T31',
             'name' => 'Vodíková energetika',
-            'description' => 'Popisek Vodíková energetika',
-            'round_show' => 3,
+            'description' => '',
+            'round_show' => 4,
             'price' => 19,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T31-img.jpg',
@@ -5364,8 +5376,8 @@ class DatabaseSeeder extends Seeder
             'id' => 32,
             'code' => 'T32',
             'name' => 'Pouštní solární elektřina',
-            'description' => 'Popisek Pouštní solární elektřina',
-            'round_show' => 3,
+            'description' => '',
+            'round_show' => 4,
             'price' => 15,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T32-img.jpg',
@@ -5398,8 +5410,8 @@ class DatabaseSeeder extends Seeder
             'id' => 34,
             'code' => 'T34',
             'name' => 'Odstavení uhelných elektráren',
-            'description' => 'Popisek Odstavení uhelných elektráren',
-            'round_show' => 1,
+            'description' => '',
+            'round_show' => 2,
             'price' => 8,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T34-img.jpg',
@@ -5438,8 +5450,8 @@ class DatabaseSeeder extends Seeder
             'id' => 35,
             'code' => 'T35',
             'name' => 'Zadržování vody v krajině',
-            'description' => 'Popisek Zadržování vody v krajině',
-            'round_show' => 3,
+            'description' => '',
+            'round_show' => 4,
             'price' => 11,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T35-img.jpg',
@@ -5487,8 +5499,8 @@ class DatabaseSeeder extends Seeder
             'id' => 37,
             'code' => 'T37',
             'name' => 'Městské zóny bez aut',
-            'description' => 'Popisek Městské zóny bez aut',
-            'round_show' => 2,
+            'description' => '',
+            'round_show' => 3,
             'price' => 4,
             'certificate' => 0,
         ]);
@@ -5520,8 +5532,8 @@ class DatabaseSeeder extends Seeder
             'id' => 38,
             'code' => 'T38',
             'name' => 'MHD zdarma',
-            'description' => 'Popisek MHD zdarma',
-            'round_show' => 1,
+            'description' => '',
+            'round_show' => 2,
             'price' => 7,
             'certificate' => 0,
         ]);
@@ -5559,8 +5571,8 @@ class DatabaseSeeder extends Seeder
             'id' => 39,
             'code' => 'T39',
             'name' => 'Nanotechnologie',
-            'description' => 'Popisek Nanotechnologie',
-            'round_show' => 1,
+            'description' => '',
+            'round_show' => 2,
             'price' => 2,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T39-img.jpg',
@@ -5593,8 +5605,8 @@ class DatabaseSeeder extends Seeder
             'id' => 40,
             'code' => 'T40',
             'name' => 'Vesmírná elektrárna',
-            'description' => 'Popisek Vesmírná elektrárna',
-            'round_show' => 3,
+            'description' => '',
+            'round_show' => 4,
             'price' => 20,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T40-img.jpg',
@@ -5645,8 +5657,8 @@ class DatabaseSeeder extends Seeder
             'id' => 41,
             'code' => 'T41',
             'name' => 'Těžba surovin ve vesmíru',
-            'description' => 'Popisek Těžba surovin ve vesmíru',
-            'round_show' => 4,
+            'description' => '',
+            'round_show' => 5,
             'price' => 8,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T41-img.jpg',
@@ -5673,8 +5685,8 @@ class DatabaseSeeder extends Seeder
             'id' => 43,
             'code' => 'T43',
             'name' => 'Daň z letecké dopravy',
-            'description' => 'Popisek Daň z letecké dopravy',
-            'round_show' => 2,
+            'description' => '',
+            'round_show' => 3,
             'price' => 0,
             'certificate' => 0,
         ]);
@@ -5718,9 +5730,9 @@ class DatabaseSeeder extends Seeder
             'id' => 45,
             'code' => 'T45',
             'name' => 'Vodíkový pohon',
-            'description' => 'Popisek Vodíkový pohon',
-            'round_show' => 1,
-            'price' => 16,
+            'description' => '',
+            'round_show' => 2,
+            'price' => 18,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T45-img.jpg',
         ]);
@@ -5758,9 +5770,9 @@ class DatabaseSeeder extends Seeder
             'id' => 46,
             'code' => 'T46',
             'name' => 'Autonomní řízení vozidel',
-            'description' => 'Popisek Autonomní řízení vozidel',
-            'round_show' => 1,
-            'price' => 16,
+            'description' => '',
+            'round_show' => 2,
+            'price' => 7,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T46-img.jpg',
         ]);
@@ -5783,8 +5795,14 @@ class DatabaseSeeder extends Seeder
 
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 46,
+            'statistic_type_id' => 4,
+            'index_move' => 1,
+        ]);
+
+        DB::table('technologies_statistics_types_changes')->insert([
+            'technology_id' => 46,
             'statistic_type_id' => 7,
-            'index_move' => -1,
+            'index_move' => 1,
         ]);
 
 
@@ -5792,9 +5810,9 @@ class DatabaseSeeder extends Seeder
             'id' => 47,
             'code' => 'T47',
             'name' => 'Podpora rozvoje AI',
-            'description' => 'Popisek Podpora rozvoje AI',
-            'round_show' => 1,
-            'price' => 11,
+            'description' => '',
+            'round_show' => 2,
+            'price' => 13,
             'certificate' => 1,
         ]);
 
@@ -5825,9 +5843,9 @@ class DatabaseSeeder extends Seeder
             'id' => 48,
             'code' => 'T48',
             'name' => 'Sdílená ekonomika',
-            'description' => 'Popisek Sdílená ekonomika',
-            'round_show' => 1,
-            'price' => 10,
+            'description' => 'Společné používání jedné věci. Já i soused potřebujeme používat auto, ale ani jeden z nás nepotřebujeme, aby to bylo jeho vlastní auto. A stejně to může fungovat i mezi státy. Sdílet lze například výrobu elektřiny, výrobu aut a jejich součástek, bydlení atd.',
+            'round_show' => 2,
+            'price' => 3,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T48-img.jpg',
         ]);
@@ -5854,20 +5872,14 @@ class DatabaseSeeder extends Seeder
             'index_move' => -1,
         ]);
 
-        DB::table('technologies_statistics_types_changes')->insert([
-            'technology_id' => 48,
-            'statistic_type_id' => 6,
-            'index_move' => 1,
-        ]);
-
 
         DB::table('technologies')->insert([
             'id' => 49,
             'code' => 'T49',
             'name' => 'Vesmírné technologie',
-            'description' => 'Popisek Vesmírné technologie',
-            'round_show' => 1,
-            'price' => 17,
+            'description' => '',
+            'round_show' => 2,
+            'price' => 14,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T49-img.jpg',
         ]);
@@ -5888,19 +5900,13 @@ class DatabaseSeeder extends Seeder
             'index_move' => 2,
         ]);
 
-        DB::table('technologies_statistics_types_changes')->insert([
-            'technology_id' => 49,
-            'statistic_type_id' => 4,
-            'index_move' => 1,
-        ]);
-
 
         DB::table('technologies')->insert([
             'id' => 50,
             'code' => 'T50',
             'name' => 'Autonomní vodíková vozidla',
-            'description' => 'Popisek Autonomní vodíková vozidla',
-            'round_show' => 3,
+            'description' => '',
+            'round_show' => 4,
             'price' => 14,
             'certificate' => 1,
         ]);
@@ -5932,8 +5938,8 @@ class DatabaseSeeder extends Seeder
             'id' => 51,
             'code' => 'T51',
             'name' => 'Ekodesign produktů',
-            'description' => 'Popisek Ekodesign produktů',
-            'round_show' => 2,
+            'description' => 'Ekodesign: začíná se již od návrhu produktu tak, aby měl minimální dopad na životní prostředí (nebo rovnou dopad pozitivní). Například takové výrobky, které se po vyhození celé rozloží a nic po nich nezbude.',
+            'round_show' => 3,
             'price' => 13,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T51-img.jpg',
@@ -5966,9 +5972,9 @@ class DatabaseSeeder extends Seeder
             'id' => 52,
             'code' => 'T52',
             'name' => 'Zpracování vyhořelého jaderného paliva',
-            'description' => 'Popisek Zpracování vyhořelého jaderného paliva',
-            'round_show' => 3,
-            'price' => 10,
+            'description' => '',
+            'round_show' => 4,
+            'price' => 5,
             'certificate' => 0,
             'img_url' => '/Img/technology-img/T52-img.jpg',
         ]);
@@ -5999,9 +6005,9 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 53,
             'code' => 'T53',
-            'name' => 'Sdílená ekonomika',
-            'description' => 'Popisek Sdílená ekonomika',
-            'round_show' => 4,
+            'name' => 'Výroba dle 3R principů',
+            'description' => 'Snížit množství odpadů tím, že věci využijeme znovu nebo jinak (z anglického reduce - reuse - recycle).',
+            'round_show' => 5,
             'price' => 7,
             'certificate' => 1,
         ]);
@@ -6039,8 +6045,8 @@ class DatabaseSeeder extends Seeder
             'id' => 54,
             'code' => 'T54',
             'name' => 'Biomimikry ve stavitelství',
-            'description' => 'Popisek Biomimikry ve stavitelství',
-            'round_show' => 3,
+            'description' => 'Využívání principů, které běžně fungují v přírodě, ve stavitelství. Inspirovat se můžeme třeba u kaktusů, některé z nich rostou tak, aby jejich horní části vrhaly stín na spodek rostliny a tím ji ochlazovaly.',
+            'round_show' => 4,
             'price' => 12,
             'certificate' => 0,
         ]);
@@ -6072,8 +6078,8 @@ class DatabaseSeeder extends Seeder
             'id' => 55,
             'code' => 'T55',
             'name' => 'Termovize',
-            'description' => 'Popisek Termovize',
-            'round_show' => 1,
+            'description' => '',
+            'round_show' => 2,
             'price' => 11,
             'certificate' => 1,
             'img_url' => '/Img/technology-img/T55-img.jpg',
@@ -6103,10 +6109,81 @@ class DatabaseSeeder extends Seeder
 
 
         DB::table('technologies')->insert([
+            'id' => 58,
+            'code' => 'T58',
+            'name' => 'Projektový den Climate rules',
+            'description' => 'Zjisti základní informace o tomto projektu.',
+            'round_show' => 1,
+            'price' => 5,
+            'certificate' => 1,
+            'img_url' => '/Img/technology-img/T58-img.jpg',
+        ]);
+
+        DB::table('technologies_areas')->insert([
+            'area_id' => 5,
+            'technology_id' => 58,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 58,
+        ]);
+
+        DB::table('technologies_statistics_types_changes')->insert([
+            'technology_id' => 58,
+            'statistic_type_id' => 4,
+            'index_move' => 1,
+        ]);
+
+
+        DB::table('technologies')->insert([
+            'id' => 59,
+            'code' => 'T59',
+            'name' => 'Inovace ve vzdělávání',
+            'description' => '',
+            'round_show' => 1,
+            'price' => 12,
+            'certificate' => 0,
+            'img_url' => '/Img/technology-img/T59-img.jpg',
+        ]);
+
+        DB::table('technologies_areas')->insert([
+            'area_id' => 5,
+            'technology_id' => 59,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 1,
+            'technology_id' => 59,
+        ]);
+
+        DB::table('technologies_statistics_types_changes')->insert([
+            'technology_id' => 59,
+            'statistic_type_id' => 4,
+            'index_move' => 1,
+        ]);
+
+        DB::table('technologies_statistics_types_changes')->insert([
+            'technology_id' => 59,
+            'statistic_type_id' => 7,
+            'index_move' => -1,
+        ]);
+
+        // je speciální technologie - koeficient v proc?
+        DB::table('special_technologies')->insert([
+            'technology_id' => 59,
+            'code' => 'NV',
+            'name' => 'Inovace ve vzdělávání',
+            'description' => 'Ochrana před nízkou kvalitou vzdělávání',
+            'coefficient' => 100,
+        ]);
+
+
+        DB::table('technologies')->insert([
             'id' => 81,
             'code' => 'T81',
-            'name' => 'EAŘ - Autonomní taxi',
-            'description' => 'Popisek EAŘ - Autonomní taxi',
+            'name' => 'EAŘ - Autonomní osobní přeprava',
+            'description' => 'Naprogramujte mBota tak, aby při zjištění překážky postupně zpomaloval a zastavil před ní. Bonus: Cítíte-li se na víc, zajistěte, aby se mBot při zjištění překážky pokusil ji objet a pokračovat ve stejném směru. Pokud se mu 4x za sebou nepodaří najít volný prostor pro pokračování v jízdě, zastaví se.',
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
@@ -6145,7 +6222,7 @@ class DatabaseSeeder extends Seeder
             'id' => 82,
             'code' => 'T82',
             'name' => 'EAŘ - Autonomní dálková přeprava',
-            'description' => 'Popisek EAŘ - Autonomní dálková přeprava',
+            'description' => 'Naučte autíčko Maqueen tak, aby rozpoznalo vámi určený objekt před sebou a následovalo jej.',
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
@@ -6184,7 +6261,7 @@ class DatabaseSeeder extends Seeder
             'id' => 83,
             'code' => 'T83',
             'name' => 'EAI - Rozpoznávání obrazu',
-            'description' => 'Popisek EAI - Rozpoznávání obrazu',
+            'description' => 'Připravte určování rostliných a živočišných druhů či potenciálních chorob rostlin na základě rozpoznání obrazu dle upřesnění TCA.',
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
@@ -6223,7 +6300,7 @@ class DatabaseSeeder extends Seeder
             'id' => 84,
             'code' => 'T84',
             'name' => 'EAI - Rozpoznávání zvuku',
-            'description' => 'Popisek EAI - Rozpoznávání zvuku',
+            'description' => 'Připravte experiment na rozpoznání zvuku pomocí teachable machine či jiné tecnologie dle upřesnění TCA.',
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
@@ -6262,7 +6339,7 @@ class DatabaseSeeder extends Seeder
             'id' => 85,
             'code' => 'T85',
             'name' => 'EVT - Vodík v mobilitě',
-            'description' => 'Popisek EVT - Vodík v mobilitě',
+            'description' => 'Sestavte experiment výroby vodíku pomocí elektrolýzy a následně generování elektrického proudu z vyrobeného vodíku pro pohyb elektromobilu.',
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
@@ -6301,7 +6378,7 @@ class DatabaseSeeder extends Seeder
             'id' => 86,
             'code' => 'T86',
             'name' => 'EVT - Vodík v energetice',
-            'description' => 'Popisek EVT - Vodík v energetice',
+            'description' => 'Sestavte experiment výroby vodíku pomocí elektrolýzy a následně generování elektrického proudu z vyrobeného vodíku pro provoz zařízení.',
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
@@ -6340,7 +6417,7 @@ class DatabaseSeeder extends Seeder
             'id' => 87,
             'code' => 'T87',
             'name' => 'ECE - Ekologické náhrady',
-            'description' => 'Popisek ECE - Ekologické náhrady',
+            'description' => 'Navrhněte vhodné ekologické nahrazení produktů předaných či určených TCA.',
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
@@ -6379,7 +6456,7 @@ class DatabaseSeeder extends Seeder
             'id' => 88,
             'code' => 'T88',
             'name' => 'ECE - Průmyslová symbióza',
-            'description' => 'Popisek ECE - Průmyslová symbióza',
+            'description' => 'Navrhněte vhodné využití, aby generovaný odpad našel uplatnění jako zdroj v jiné výrobě, tj. aby to, co je pro jednu továrnu odpadem, bylo pro jinou továrnu výrobním materiálem.',
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
@@ -6418,7 +6495,7 @@ class DatabaseSeeder extends Seeder
             'id' => 89,
             'code' => 'T89',
             'name' => 'ETV - Termovize a tkáně',
-            'description' => 'Popisek ETV - Termovize a tkáně',
+            'description' => 'Navrhněte vhodné řešení využití termovize v oblasti živých tkání a organismů.',
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
@@ -6457,7 +6534,7 @@ class DatabaseSeeder extends Seeder
             'id' => 90,
             'code' => 'T90',
             'name' => 'ETV - Termovize a materiály',
-            'description' => 'Popisek ETV - Termovize a materiály',
+            'description' => 'Navrhněte vhodné řešení využití termovize v oblasti materiálů.',
             'round_show' => 4,
             'price' => 20,
             'certificate' => 1,
@@ -6487,6 +6564,85 @@ class DatabaseSeeder extends Seeder
 
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 90,
+            'statistic_type_id' => 7,
+            'index_move' => -2,
+        ]);
+
+
+
+        DB::table('technologies')->insert([
+            'id' => 91,
+            'code' => 'T91',
+            'name' => 'EVR - Virtuální realita pro život',
+            'description' => 'Navrhněte vhodné řešení využití virtuální reality v oblasti sociální a zlepšení kvality života.',
+            'round_show' => 4,
+            'price' => 20,
+            'certificate' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
+            'area_id' => 7,
+            'technology_id' => 91,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 7,
+            'technology_id' => 91,
+        ]);
+
+        DB::table('technologies_statistics_types_changes')->insert([
+            'technology_id' => 91,
+            'statistic_type_id' => 4,
+            'index_move' => 1,
+        ]);
+
+        DB::table('technologies_statistics_types_changes')->insert([
+            'technology_id' => 91,
+            'statistic_type_id' => 7,
+            'index_move' => -2,
+        ]);
+
+        DB::table('technologies_statistics_types_changes')->insert([
+            'technology_id' => 91,
+            'statistic_type_id' => 6,
+            'index_move' => 1,
+        ]);
+
+
+        DB::table('technologies')->insert([
+            'id' => 92,
+            'code' => 'T92',
+            'name' => 'EVR - Virtuální realita pro ekonomiku',
+            'description' => 'Navrhněte vhodné řešení využití virtuální reality v oblasti ekonomiky, hospodářství, byznysu.',
+            'round_show' => 4,
+            'price' => 20,
+            'certificate' => 1,
+        ]);
+
+        DB::table('technologies_areas')->insert([
+            'area_id' => 7,
+            'technology_id' => 92,
+        ]);
+
+        DB::table('technologies_branches')->insert([
+            'branch_id' => 7,
+            'technology_id' => 92,
+        ]);
+
+        DB::table('technologies_statistics_types_changes')->insert([
+            'technology_id' => 92,
+            'statistic_type_id' => 1,
+            'index_move' => 1,
+        ]);
+
+        DB::table('technologies_statistics_types_changes')->insert([
+            'technology_id' => 92,
+            'statistic_type_id' => 4,
+            'index_move' => 1,
+        ]);
+
+        DB::table('technologies_statistics_types_changes')->insert([
+            'technology_id' => 92,
             'statistic_type_id' => 7,
             'index_move' => -2,
         ]);
