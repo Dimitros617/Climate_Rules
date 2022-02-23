@@ -6640,8 +6640,16 @@ a.badge-dark:focus, a.badge-dark.focus {
   width: 25% !important;
 }
 
+.w-30 {
+    width: 30% !important;
+}
+
 .w-50 {
   width: 50% !important;
+}
+
+.w-60 {
+    width: 60% !important;
 }
 
 .w-70 {
