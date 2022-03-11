@@ -35,7 +35,11 @@ function getOnePayForm(id){
 
                     showLoading();
 
-                    let admin_pay = document.getElementById('admin-pay').checked ? 1 : 0;
+                    let admin_pay = 0;
+                    if(document.getElementById('admin-pay') != null && document.getElementById('admin-pay').checked){
+                        admin_pay = 1;
+                    }
+
                     let nation_id_from = document.getElementById('one-pay-nation-from').getAttribute('nation_id');
                     let nation_id_to = document.getElementById('one-pay-nation-to').value;
                     let amouth = document.getElementById('one-pay-amouth').value;
