@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -183,6 +184,48 @@ class Lobbies extends Model
         return DB::table('nations')
             ->where('nations.lobby_id','=',$lobby_id)
             ->get();
+    }
+
+    static function getOneNationRoundIcome($nation_id){
+
+        $nation = DB::table('nations')
+            ->where('id','=',$nation_id)
+            ->first();
+
+
+            $economy = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('economy'),$nation->id);
+            $tax = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('tax'),$nation->id);
+
+            $nation->round_income = $economy * $tax;
+
+
+        return $nation;
+    }
+
+    static function getAllNationsRoundIcomeFromLobby($lobby_id){
+
+        $nations = DB::table('nations')
+                ->where('nations.lobby_id','=',$lobby_id)
+                ->get();
+
+        foreach ($nations as $nation){
+            $economy = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('economy'),$nation->id);
+            $tax = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('tax'),$nation->id);
+
+            $nation->round_income = $economy * $tax;
+        }
+
+        return $nations;
+    }
+
+    function updateActualLobbyGasses($lobby_id, $gasses){
+        return DB::table('lobbies')
+            ->where('id', $lobby_id)
+            ->update([
+                'actual_gasses' => $gasses,
+                'updated_at' => Carbon::now()->toDateTimeString(),
+
+            ]);
     }
 
 

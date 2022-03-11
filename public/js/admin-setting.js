@@ -89,10 +89,61 @@ function addRound(lobbyId){
     $.ajax({
         url: '/addRound',
         type: 'post',
-        data: { _token: token, lobbyId: lobbyId},
+        data: { _token: token, lobbyId: lobbyId, response: 0},
         success:function(response){
             hideLoading();
-            document.location.reload(true);
+
+            Swal.fire({
+                html: response,
+                showCloseButton: false,
+                showCancelButton: false,
+                showConfirmButton: true,
+                showDenyButton: true,
+                confirmButtonText: `Potvrdit`,
+                denyButtonText: `Zrušit`,
+                focusConfirm: false,
+                customClass: 'w-50',
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    showLoading();
+
+                    //TODO load data check pro připsání peněz za kolo
+
+                    $.ajax({
+                        url: '/addRound',
+                        type: 'post',
+                        data: { _token: token, lobbyId: lobbyId, response: 1},
+                        success:function(response){
+                            hideLoading();
+                            location.reload();
+                            // Swal.fire({
+                            //     icon: 'success',
+                            //     title: 'Odesláno',
+                            //     text: 'Vaše platba byla úspěšně zpracována.',
+                            // })
+                        },
+                        error: function (response){
+                            console.log(response);
+                            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+                            allertError(err, code);
+                            hideLoading();
+
+                        }
+                    });
+
+                }
+                else if(result.isDenied){
+
+                }
+                else{
+
+                }
+
+            })
+
 
         },
         error: function (response){

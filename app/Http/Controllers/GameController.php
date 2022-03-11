@@ -101,8 +101,15 @@ class GameController extends Controller
         Log::info('GameController:addRound');
 
 
-        if(!Rounds::newRound($request->lobbyId)){
-            return response('Nastal problém při vytváření nového kola v lobby. ', 500)->header('Content-Type', 'text/plain');
+        if($request->response == 0){
+            $lobby = Lobbies::find($request->lobby_id);
+            $all_nation = Lobbies::getAllNationsRoundIcomeFromLobby($request->lobby_id);
+            $gasses_increase = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::lastValueOneStatisticAllNation($request->lobby_id,'gasses')) - Lobbies::where('id', $request->lobby_id)->first()->actual_gasses;
+            return view('technologi-buy-verification', ['lobby' => $lobby, 'all_nation' => $all_nation, 'gasses_increase' => $gasses_increase]);
+        }else{
+            if(!Rounds::newRound($request->lobbyId)){
+                return response('Nastal problém při vytváření nového kola v lobby. ', 500)->header('Content-Type', 'text/plain');
+            }
         }
 
     }

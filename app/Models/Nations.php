@@ -109,5 +109,13 @@ class Nations extends Model
         return $ret_nation_id;
     }
 
+    static function getOneNationRoundIcome($nation_id){
+        return Lobbies::getOneNationRoundIcome($nation_id);
+    }
+
+    static function getAllNationsRoundIcomeFromLobby($lobby_id){
+        return Lobbies::getAllNationsRoundIcomeFromLobby($lobby_id);
+    }
+
 
 }
