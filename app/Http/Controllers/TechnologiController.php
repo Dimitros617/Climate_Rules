@@ -61,7 +61,7 @@ class TechnologiController extends Controller
 
     }
 
-    function getTechnologiBuyVerificationView($lobby_id, $technology_id, $nation_id){
+    function getTechnologiBuyVerificationView($lobby_id, $technology_id, $nation_id=null){
 
         Log::info('TechnologiController:show->getTechnologiBuyVerificationView');
 
@@ -455,11 +455,18 @@ class TechnologiController extends Controller
 
         if( $request->response == 0) {
 
+            if($request->first_try != null){
+                $first_try = $request->first_try;
+            }else{
+                $first_try = Nations_technologies::where('technology_id',$request->technology_id)->where('nation_id',$nation_id)->first()->first_try;
+            }
+
             $check = DB::table('nations_technologies')
                 ->where('technology_id', $request->technology_id)
                 ->where('nation_id', $nation_id)
                 ->update([
                     'status_id' => Nations_technologies_status::getIdByCode($request->code),
+                    'first_try' => $first_try,
                     'updated_at' => Carbon::now()->toDateTimeString(),
                 ]);
 

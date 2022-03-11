@@ -23,6 +23,6 @@ use Illuminate\Support\ServiceProvider;
      */
     public function boot()
     {
-        //\URL::forceScheme('https');
+//        \URL::forceScheme('https');
     }
 }

@@ -93,7 +93,7 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
 
                 }
                 else if(result.isDenied){
-                    setNationToTechnologyStatus('investment', technology_id, nation_id);
+                    setNationToTechnologyStatus('investment', technology_id, nation_id, 0);
                 }
                 else{
 
@@ -116,7 +116,7 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
 
 }
 
-function setNationToTechnologyStatus(nation_technology_status_code, technology_id, nation_id = null){
+function setNationToTechnologyStatus(nation_technology_status_code, technology_id, nation_id = null, first_try = null){
 
     showLoading();
     let token = document.getElementById('csrf_token').getAttribute('content');
@@ -124,7 +124,7 @@ function setNationToTechnologyStatus(nation_technology_status_code, technology_i
     $.ajax({
         url: '/setNationToTechnologyStatus',
         type: 'post',
-        data: { _token: token, technology_id: technology_id, nation_id: nation_id, code: nation_technology_status_code, response: 0},
+        data: { _token: token, technology_id: technology_id, nation_id: nation_id, code: nation_technology_status_code, response: 0, first_try: first_try},
         success:function(response){
             hideLoading();
 
