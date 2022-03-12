@@ -209,9 +209,8 @@ class Lobbies extends Model
                 ->get();
 
         foreach ($nations as $nation){
-            $economy = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('economy'),$nation->id);
-            $tax = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('tax'),$nation->id);
-
+            $economy = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('economy'),$nation->id)->value;
+            $tax = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('tax'),$nation->id)->value;
             $nation->round_income = $economy * $tax;
         }
 

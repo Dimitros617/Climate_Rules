@@ -80,7 +80,7 @@ function decreaseValue(nationId, statisticTypeCode){
     });
 }
 
-function addRound(lobbyId){
+function addRound(lobby_id){
 
     showLoading();
     let token = document.getElementById('csrf_token').getAttribute('content');
@@ -89,7 +89,7 @@ function addRound(lobbyId){
     $.ajax({
         url: '/addRound',
         type: 'post',
-        data: { _token: token, lobbyId: lobbyId, response: 0},
+        data: { _token: token, lobby_id: lobby_id, response: 0},
         success:function(response){
             hideLoading();
 
@@ -109,12 +109,12 @@ function addRound(lobbyId){
 
                     showLoading();
 
-                    //TODO load data check pro připsání peněz za kolo
+                    let add_income = document.getElementsByClassName('next-round-add-income')[0].checked ? 1 : 0;
 
                     $.ajax({
                         url: '/addRound',
                         type: 'post',
-                        data: { _token: token, lobbyId: lobbyId, response: 1},
+                        data: { _token: token, lobby_id: lobby_id, response: 1, add_income: add_income},
                         success:function(response){
                             hideLoading();
                             location.reload();

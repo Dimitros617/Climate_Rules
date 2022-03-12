@@ -8,13 +8,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Opravena chyba při posílání peněz mezi hráči. fixed #17">
-      <change afterPath="$PROJECT_DIR$/resources/views/lobby-admin-panel-new-round.blade.php" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Příprava na popup okno přidání kola, počítání SP a příjmů států.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BankController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BankController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Lobbies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobbies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Nations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/admin-setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin-setting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lobby-admin-panel-new-round.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobby-admin-panel-new-round.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -469,14 +469,8 @@
       <workItem from="1644408271369" duration="1792000" />
       <workItem from="1645611095841" duration="9163000" />
       <workItem from="1645688939004" duration="1055000" />
-      <workItem from="1647010424528" duration="11670000" />
-    </task>
-    <task id="LOCAL-00077" summary="Pridán vstup do lobby - ověřování oprávnění a řidělení hráčů + HTTP code stránky">
-      <created>1630942076321</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1630942076322</updated>
+      <workItem from="1647010424528" duration="12905000" />
+      <workItem from="1647077237813" duration="7231000" />
     </task>
     <task id="LOCAL-00078" summary="Oprava HTTP codu">
       <created>1630942114819</created>
@@ -814,7 +808,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647015254960</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="Příprava na popup okno přidání kola, počítání SP a příjmů států.">
+      <created>1647022811296</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1647022811296</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -879,7 +880,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Upraveny některé chyby + příprava databáze pro další změny" />
     <MESSAGE value="Přidáno k technologiím vykreslování vždy všech statistic types + připraven frontend pro banku" />
     <MESSAGE value="Přidáno obarvování ikonek statistických typů u technologií dle hodnoty a pozitivní nebo negativní logiky" />
     <MESSAGE value="Připraven frontend pro jednorázové platby v bance" />
@@ -904,7 +904,8 @@
     <MESSAGE value="Přidány nové obrázky" />
     <MESSAGE value="Opravena chyba při vracení schválení technologie. fixed #31" />
     <MESSAGE value="Opravena chyba při posílání peněz mezi hráči. fixed #17" />
-    <option name="LAST_COMMIT_MESSAGE" value="Opravena chyba při posílání peněz mezi hráči. fixed #17" />
+    <MESSAGE value="Příprava na popup okno přidání kola, počítání SP a příjmů států." />
+    <option name="LAST_COMMIT_MESSAGE" value="Příprava na popup okno přidání kola, počítání SP a příjmů států." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -8,6 +8,7 @@ use App\Models\Money_transaction_types;
 use App\Models\Nations;
 use App\Models\Nations_money_balances;
 use App\Models\Nations_technologies;
+use App\Models\Rounds;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -125,4 +126,18 @@ class BankController extends Controller
         return 1;
 
     }
+
+    public static function payNewRoundNationsIncome($lobby_id){
+        $nations = Lobbies::getAllNationsRoundIcomeFromLobby($lobby_id);
+
+        foreach ($nations as $nation){
+            $bank_res = BankController::payAmount($nation->round_income,null,$nation->id,('new_round_'.Rounds::getCountRoundsInLobby($lobby_id)),Money_transaction_types::getIdByCode('common_pay'),1,('Platba za ' . Rounds::getCountRoundsInLobby($lobby_id) . ' období'));
+            if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
+                return $bank_res;  //vracím response s chybou;
+            }
+        }
+
+        return 1;
+    }
+
 }
