@@ -114,7 +114,7 @@ class GameController extends Controller
                     return $bank_res;  //vracím response s chybou;
                 }
             }
-            if(!Rounds::newRound($request->lobbyId)){
+            if(!Rounds::newRound($request->lobby_id)){
                 return response('Nastal problém při vytváření nového kola v lobby. ', 500)->header('Content-Type', 'text/plain');
             }
         }
