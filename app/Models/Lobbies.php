@@ -202,7 +202,7 @@ class Lobbies extends Model
         return $nation;
     }
 
-    static function getAllNationsRoundIcomeFromLobby($lobby_id){
+    public static function getAllNationsRoundIcomeFromLobby($lobby_id){
 
         $nations = DB::table('nations')
                 ->where('nations.lobby_id','=',$lobby_id)
@@ -217,14 +217,36 @@ class Lobbies extends Model
         return $nations;
     }
 
-    function updateActualLobbyGasses($lobby_id, $gasses){
-        return DB::table('lobbies')
+    public static function updateActualLobbyGasses($lobby_id, $gasses_value = null, $gasses_increas_of = null){
+
+        Log::info($gasses_value);
+        Log::info($gasses_increas_of);
+        if($gasses_value === null && $gasses_increas_of === null){
+            return response('Nelze změnit hodnota SP, nebylo definováno o kolik nebo na jakou hodnotu!', 500)->header('Content-Type', 'text/plain');
+        }
+
+        if($gasses_value === null && $gasses_increas_of !== null){
+            $gasses = Lobbies::where('id',$lobby_id)->first()->actual_gasses + $gasses_increas_of;
+        }
+
+        if($gasses_value !== null && $gasses_increas_of === null){
+            $gasses = $gasses_value;
+        }
+
+        $check = DB::table('lobbies')
             ->where('id', $lobby_id)
             ->update([
                 'actual_gasses' => $gasses,
                 'updated_at' => Carbon::now()->toDateTimeString(),
 
             ]);
+
+        if($check){
+            return 1;
+        }else{
+            return response('Nepodařilo se upravit data v databázi, tabulka Lobbies!', 500)->header('Content-Type', 'text/plain');
+
+        }
     }
 
 

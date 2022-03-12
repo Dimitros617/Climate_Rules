@@ -100,12 +100,12 @@ class GameController extends Controller
     function addRound(Request $request){
         Log::info('GameController:addRound');
 
+        $gasses_increase = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::lastValueOneStatisticAllNation($request->lobby_id,'gasses')) - Lobbies::where('id', $request->lobby_id)->first()->actual_gasses;
 
         if($request->response == 0){
             $lobby = Lobbies::find($request->lobby_id);
             $all_nations = Lobbies::getAllNationsRoundIcomeFromLobby($request->lobby_id);
             Log::info(Lobbies::where('id', $request->lobby_id)->first());
-            $gasses_increase = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::lastValueOneStatisticAllNation($request->lobby_id,'gasses')) - Lobbies::where('id', $request->lobby_id)->first()->actual_gasses;
             return view('lobby-admin-panel-new-round', ['lobby' => $lobby, 'all_nations' => $all_nations, 'gasses_increase' => $gasses_increase]);
         }else{
             if($request->add_income == 1){
@@ -114,8 +114,13 @@ class GameController extends Controller
                     return $bank_res;  //vracím response s chybou;
                 }
             }
+
             if(!Rounds::newRound($request->lobby_id)){
                 return response('Nastal problém při vytváření nového kola v lobby. ', 500)->header('Content-Type', 'text/plain');
+            }
+            $gass_res = Lobbies::updateActualLobbyGasses($request->lobby_id,null,$gasses_increase);
+            if(!is_int($gass_res) && str_contains( get_class($gass_res), 'Response')){
+                return $gass_res;  //vracím response s chybou;
             }
         }
 
