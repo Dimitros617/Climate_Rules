@@ -426,6 +426,7 @@ class TechnologiController extends Controller
 
         Log::info('TechnologyController:changeTechnologyParameter');
 
+        $lobby_id = Lobby_to_technologies::where('id', $request->technology_id)->first()->lobby_id;
 
         $check = DB::table('lobby_to_technologies')
             ->where('id', $request->technology_id)
@@ -437,6 +438,8 @@ class TechnologiController extends Controller
 
         if(!$check) {
             return response('Nastala chyba při aktualizaci dat v tabulce lobby_to_technologies ', 500)->header('Content-Type', 'text/plain');
+        }else{
+            return $this->getTechnologiView('technologies-box', $lobby_id);
         }
     }
 
