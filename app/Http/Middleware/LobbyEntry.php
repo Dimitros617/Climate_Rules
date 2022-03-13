@@ -36,7 +36,7 @@ class LobbyEntry
             ->count();
 
         if($count == 0){
-            abort(403);
+            return response('Do této hry nemáte přístup, váš účet není přižazen žádnému státu ve hře!' . $request->table, 500)->header('Content-Type', 'text/plain');
         }else{
             return $next($request);
         }

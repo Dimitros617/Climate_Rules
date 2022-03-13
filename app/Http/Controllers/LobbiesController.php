@@ -289,6 +289,7 @@ class LobbiesController extends Controller
             return $nation_id;  //vracím response s chybou;
         }
 
+
         $lobby = Lobbies::find($lobby_id);
         $my_nation = Nations::find($nation_id);
         $nations = Nations::where('lobby_id',$lobby_id)->get();
