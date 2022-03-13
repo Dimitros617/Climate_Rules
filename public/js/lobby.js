@@ -218,7 +218,7 @@ function editLobbyNations(id){
                             console.log(response);
                             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
                             let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
-            allertError(err, code);
+                            allertError(err, code);
                             hideLoading();
 
                         }

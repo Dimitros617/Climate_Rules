@@ -49,4 +49,27 @@ class Rounds extends Model
     static function getCountRoundsInLobby($lobby_id){
         return Rounds::where('lobby_id', $lobby_id)->count();
     }
+
+    /**
+     * @param $round_id
+     * @param $nation_id
+     * @return bool|null
+     */
+    static function hasNationSetTaxInRound($round_id, $nation_id){
+
+        $ret = DB::table('round_to_nation_statistics')
+            ->where('round_id', $round_id)
+            ->where('nation_id', $nation_id)
+            ->where('statistic_type_id', Statistics_types::getIdByCode('tax'))
+            ->where('reason', 'like', '%tax_change%')
+            ->count();
+
+        if($ret == 1){
+            return 1;
+        }elseif ($ret == 0){
+            return 0;
+        }else{
+            return null;
+        }
+    }
 }

@@ -15,8 +15,19 @@
                 <div class="my_row d-flex flex-wrap flex-md-row d-md-inline-flex w-100 bg-white m-1 m-md-2 p-0 p-md-2 rounded-3 animate-05  justify-content-between">
 
                     <div class="head_statistic_type fw-bold w-content d-inline-flex p-3 mx-auto mx-md-0 mt-2 text-center">
-                        <div class="w-content h-content" style="transform: scale(2)">@php echo htmlspecialchars_decode($table_row[0]->icon) @endphp</div>
-                        <div class="ms-4">{{$table_row[0]->name}}</div>
+                        <div class="d-inline-flex">
+                            <div class="w-content h-content" style="transform: scale(2)">@php echo htmlspecialchars_decode($table_row[0]->icon) @endphp</div>
+                            <div class="ms-4">{{$table_row[0]->name}}</div>
+                        </div>
+                        <div>
+                        @if($edit_tax == 0 && $table_row[0]->code_name == 'tax')
+                            <div class="ms-5 hover-size-01 cursor-pointer animate-02" style="transform: scale(1.3)" onclick="changeNationTax()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                </svg>
+                            </div>
+                        @endif
+                        </div>
                     </div>
 
                     <div class="w-100 w-lg-85    d-flex flex-wrap justify-content-center justify-content-md-between d-sm-inline-flex">

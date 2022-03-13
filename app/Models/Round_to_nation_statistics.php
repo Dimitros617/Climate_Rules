@@ -76,7 +76,7 @@ class Round_to_nation_statistics extends Model
     static function countvalues($stats){
 
         Log::info('Round_to_nation_statistics:countvalues');
-        Log::info($stats);
+
         $count = 0;
 
         foreach ($stats as $stat){
@@ -398,7 +398,7 @@ class Round_to_nation_statistics extends Model
      * @param $reason - String proč a odkud se daná hodnota změnila - flag
      * @return int - 0 - hodnota je mimo hranice tabulky; 1 = OK ; -1 = Nenalezena aktuální hodnota; -2 = Chyba při vytváření nového záznamu do round_to_nation_statistics; -3 = Nelze hodnotu posunout OUTOFBOUNCE
      */
-    static function decreaseStaticticValueOfNation($nationId, $statisticCode, $step, $reason = null){
+    static function decreaseStaticticValueOfNation($nationId, $statisticCode, $step, $reason = null, $read = false){
 
         Log::info('Round_to_nation_statistics:decreaseStaticticValueOfNation');
 
@@ -457,6 +457,44 @@ class Round_to_nation_statistics extends Model
         }
     }
 
+    static function getMoveStaticticValueOfNation($nationId, $statisticCode, $step){
+
+        Log::info('Round_to_nation_statistics:getMoveStaticticValueOfNation');
+
+
+        $curentValue = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode($statisticCode),$nationId);
+
+
+        $allIndexFromSet = DB::table('nation_statistic_values')
+            ->where('lobby_id', $curentValue->lobby_id)
+            ->where('set', $curentValue->statistic_values_set)
+            ->where('statistics_type_id',$curentValue->statistic_type_id )
+            ->orderBy('nation_statistic_values.index','ASC')
+            ->get();
+
+        //Na jakém reálém indexu všech hodnot z dané sady se nachází naše puvodní kterou chceme svýšit
+        $indexInArray = -1;
+        for ($i = 0; $i < count($allIndexFromSet); $i++){
+            if($curentValue->index == $allIndexFromSet[$i]->index && $curentValue->value == $allIndexFromSet[$i]->value){
+                $indexInArray = $i;
+                break;
+            }
+        }
+        if($indexInArray == -1){
+            return response('Nenašly jsme aktuální hodnotu prot jsme nemohly zjistit posun!', 500)->header('Content-Type', 'text/plain');
+
+        }
+        if($indexInArray+$step < 0 || $indexInArray+$step >= count($allIndexFromSet)){
+            return null;
+        }
+        else{
+
+            $newIndexFromSet = $allIndexFromSet[($indexInArray+$step)];
+
+            return $newIndexFromSet->value;
+        }
+    }
+
     public static function setMinStaticticValueOfNation($nationId, $statisticCode, $reason = null){
         return Round_to_nation_statistics::setBorderStaticticValueOfNation($nationId, $statisticCode, "LOW", $reason);
     }
@@ -511,6 +549,9 @@ class Round_to_nation_statistics extends Model
 
     }
 
+    static function hasNationSetTaxInRound($round_id, $nation_id){
+        return Rounds::hasNationSetTaxInRound($round_id, $nation_id);
+    }
 
 
 }

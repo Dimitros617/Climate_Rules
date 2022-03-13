@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lobbies;
+use App\Models\Lobby_to_technologies;
 use App\Models\Nations;
 use App\Models\Round_to_nation_statistics;
 use App\Models\Rounds;
+use App\Models\Statistics_types;
+use App\Models\Technologies;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -105,7 +108,6 @@ class GameController extends Controller
         if($request->response == 0){
             $lobby = Lobbies::find($request->lobby_id);
             $all_nations = Lobbies::getAllNationsRoundIcomeFromLobby($request->lobby_id);
-            Log::info(Lobbies::where('id', $request->lobby_id)->first());
             return view('lobby-admin-panel-new-round', ['lobby' => $lobby, 'all_nations' => $all_nations, 'gasses_increase' => $gasses_increase]);
         }else{
             if($request->add_income == 1){
@@ -148,6 +150,81 @@ class GameController extends Controller
 
 
         return $users;
+
+    }
+
+    function changeNationTax(Request $request){
+        Log::info('GameController:changeNationTax');
+
+        $nation_id = Nations::getNationIdFromLobby($request->lobby_id);
+
+        if (!is_int($nation_id) && str_contains(get_class($nation_id), 'Response')) {
+            return $nation_id;  //vracím response s chybou;
+        }
+
+        $is_first_this_round = Rounds::hasNationSetTaxInRound(Rounds::getLastRound($request->lobby_id)->id,$nation_id);
+        if($is_first_this_round==1){
+            return response('V tomto období jste již daně upravily, zkuste to zase příště!', 500)->header('Content-Type', 'text/plain');
+        }elseif ($is_first_this_round === null){
+            return response('Hmm v tomto kole již byla daň upravena vícekrát!', 500)->header('Content-Type', 'text/plain');
+        }
+
+        if($request->response == 0){
+
+            $before_tax = Round_to_nation_statistics::getMoveStaticticValueOfNation($nation_id,'tax',-1);
+
+            Log::info($before_tax);
+            if ($before_tax !== null && !is_int($before_tax) && str_contains(get_class($before_tax), 'Response')) {
+                return $before_tax;  //vracím response s chybou;
+            }
+
+            $after_tax = Round_to_nation_statistics::getMoveStaticticValueOfNation($nation_id,'tax',1);
+
+            if ($after_tax !== null && !is_int($after_tax) && str_contains(get_class($after_tax), 'Response')) {
+                return $after_tax;  //vracím response s chybou;
+            }
+
+
+            $statistic_types = Lobbies::where('id', Nations::find($nation_id)->lobby_id)->select('id')->first();
+            $statistic_types->economy = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('economy'),$nation_id)->value;
+            $statistic_types->before_tax = $before_tax;
+            $statistic_types->actual_tax = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('tax'),$nation_id)->value;
+            $statistic_types->after_tax = $after_tax;
+            $statistic_types->economy_icon  = Statistics_types::where('id', Statistics_types::getIdByCode('economy'))->first()->icon;
+            $statistic_types->tax_icon  = Statistics_types::where('id',Statistics_types::getIdByCode('tax'))->first()->icon;
+            $statistic_types->economy_name  = Statistics_types::where('id', Statistics_types::getIdByCode('economy'))->first()->name;
+            $statistic_types->tax_name  = Statistics_types::where('id',Statistics_types::getIdByCode('tax'))->first()->name;
+
+            return view('nation-edit-tax', ['statistic_types' => $statistic_types]);
+        }else{
+
+            $flag = 'Nation_tax_change';
+            $statics_types = ['tax', 'happiness', 'level_happiness'];
+            $statics_types_inverted = [0, 1, 1];
+            for ($i = 0; $i < count($statics_types); $i++) {
+
+                $stat_type = $statics_types[$i];
+                $step = Statistics_types::where('code_name', $stat_type)->first()->positive_value == 1 ? $request->tax_increase : $request->tax_increase * -1;
+                $step = $statics_types_inverted[$i] == 0 ? $step : $step * -1;
+                $ret = Round_to_nation_statistics::changeStatisticValueOfNation($nation_id, $stat_type, $step, $flag);
+
+                if ($ret != 1) {
+                    if ($ret == -3) {
+                        return response('Ups zadaný index posunu je mimo hranice tabulky!', 500)->header('Content-Type', 'text/plain');
+                    }
+                    if ($ret == -2) {
+                        return response('Nastala chyba při Ukládání nového záznamu do tabulky roun_to_nation_statistics!', 500)->header('Content-Type', 'text/plain');
+                    }
+                    if ($ret == -1) {
+                        return response('Nastala chyba při hledání aktuální hodnoty který je nastavená v tabulce nation_statistics_values. Aktuální hodnota nenalezena!', 500)->header('Content-Type', 'text/plain');
+                    }
+                    if ($ret == 0) {
+                        Round_to_nation_statistics::setBorderStaticticValueOfNation($nation_id, $stat_type, $step, $flag);
+                    }
+                }
+            }
+        }
+
 
     }
 }

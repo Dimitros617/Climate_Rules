@@ -75,6 +75,14 @@
                         </span>
 
                     </div>
+                    <div class="d-flex flex-wrap justify-content-between ">
+                        <span class="fs-5 pt-1">Příjem za další období</span>
+                        <span>
+                            <span class="fs-4 fw-bold">{{$next_round_icome}}</span>
+                            <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
+                        </span>
+
+                    </div>
                 </div>
 
                 <div class=" w-50 d-grid">
@@ -82,6 +90,7 @@
                     <button class="btn btn-primary w-90 m-2 ms-5" onclick="getOnePayForm({{$lobby->id}})">Jednorázová platba</button>
                     <button class="btn btn-primary w-90 m-2 ms-5" disabled>Půjčit někomu</button>
                     <button class="btn btn-primary w-90 m-2 ms-5" disabled>Zažádat o půjčku</button>
+                    <button class="btn btn-primary w-90 m-2 ms-5" @if($edit_tax == 1) disabled @endif onclick="changeNationTax()">Změnit daně</button>
 
                 </div>
 

@@ -117,5 +117,9 @@ class Nations extends Model
         return Lobbies::getAllNationsRoundIcomeFromLobby($lobby_id);
     }
 
+    static function hasNationSetTaxInRound($round_id, $nation_id){
+        return Rounds::hasNationSetTaxInRound($round_id, $nation_id);
+    }
+
 
 }

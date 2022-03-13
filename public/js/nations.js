@@ -135,3 +135,106 @@ function refreshNationsEditList(){
     });
 
 }
+
+function changeNationTax(){
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+    let lobby_id = document.getElementById('lobby-id').getAttribute('lobbyId');
+
+    $.ajax({
+        url: '/changeNationTax',
+        type: 'post',
+        data: { _token: token, lobby_id: lobby_id, response: 0},
+        success:function(response){
+            hideLoading();
+
+            Swal.fire({
+                html: response,
+                showCloseButton: false,
+                showCancelButton: false,
+                showConfirmButton: true,
+                showDenyButton: true,
+                confirmButtonText: `Uložit`,
+                denyButtonText: `Zrušit`,
+                focusConfirm: false,
+                customClass: 'w-50',
+                onBeforeOpen: function(ele) {
+                    document.getElementsByClassName('swal2-confirm')[0].setAttribute('disabled','')
+                }
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    showLoading();
+
+                    let tax_increase = document.getElementById('nation-tax-increse').value;
+
+                    if(tax_increase == 0){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Nastaveno',
+                            text: 'Vše jsme nastavily..',
+                        })
+                        hideLoading();
+                        return;
+                    }
+
+                    $.ajax({
+                        url: '/changeNationTax',
+                        type: 'post',
+                        data: { _token: token, lobby_id: lobby_id, response: 1, tax_increase: tax_increase},
+                        success:function(response){
+                            hideLoading();
+                            location.reload();
+
+                        },
+                        error: function (response){
+                            console.log(response);
+                            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+                            allertError(err, code);
+                            hideLoading();
+
+                        }
+                    });
+
+                }
+                else if(result.isDenied){
+
+                }
+                else{
+
+                }
+
+            })
+
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+
+}
+
+function changeNationTaxButton(ele){
+
+    let par = ele.parentNode.children;
+
+    for (let el of par){
+        el.classList.remove('cr-bg-blue');
+        el.classList.add('bg-light');
+    }
+
+    ele.classList.add('cr-bg-blue')
+    ele.classList.remove('bg-light');
+    document.getElementById('nation-tax-increse').value = ele.getAttribute('value');
+    document.getElementsByClassName('swal2-confirm')[0].setAttribute('disabled','')
+    document.getElementById('change-tax-verify').checked = false;
+}

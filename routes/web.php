@@ -65,6 +65,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/updateGlobalTable/{id:id}
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/increaseValue', [GameController::class,'increaseValue']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/decreaseValue', [GameController::class,'decreaseValue']);
 
+Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/changeNationTax', [GameController::class,'changeNationTax']);
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/getCountRounds/{lobbyID?}', [GameController::class,'getCountRounds']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/getLobbyUsers/{lobbyID?}', [GameController::class,'getLobbyUsers']);
 

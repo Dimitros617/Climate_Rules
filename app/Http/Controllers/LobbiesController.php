@@ -345,8 +345,10 @@ class LobbiesController extends Controller
         $rounds = Rounds::where('lobby_id',$lobby_id)->get();
         $last_round = Rounds::getLastRound($lobby_id);
         $my_table = Nation_statistic_values::getNationTableWithActualValues($nation_id);
+        $edit_tax = Rounds::hasNationSetTaxInRound(Rounds::getLastRound($lobby_id)->id,$nation_id);
 
-        return view('local-status', [ 'my_table' => $my_table, 'lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'rounds' => $rounds, 'last_round' => $last_round]);
+
+        return view('local-status', [ 'my_table' => $my_table, 'lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'rounds' => $rounds, 'last_round' => $last_round, 'edit_tax' => $edit_tax]);
 
 
 
