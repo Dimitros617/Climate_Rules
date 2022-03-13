@@ -20,7 +20,7 @@
             <div class="column" style="min-width: 550px">
                 <img src="/Img/logo_big.svg">
                 <div class="button container">
-                    <a href="/lobbies">
+                    <a href="/login">
                         <button class="play_button"> HRÁT </button>
                     </a>
 
