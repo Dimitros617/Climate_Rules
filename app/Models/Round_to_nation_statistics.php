@@ -307,7 +307,7 @@ class Round_to_nation_statistics extends Model
      * Funce je roscestník pro increase nebo decrease StatisticValueOfNation podle $step za je zápozná nebo kladná
      * @param $nationId
      * @param $statisticCode
-     * @param $step
+     * @param $step - int kladný nebo záporný
      * @param $reason - String flag pro to kdo hodnotu upravil a proč
      * @return int - 0 - hodnota je mimo hranice tabulky; 1 = OK ; -1 = Nenalezena aktuální hodnota; -2 = Chyba při vytváření nového záznamu do round_to_nation_statistics; -3 = Nelze hodnotu posunout OUTOFBOUNCE
      *

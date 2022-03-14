@@ -246,4 +246,93 @@ function setUserClone(userId,  lobbyId = document.getElementById('lobby-id').get
 
 }
 
+function getEditNationStatisticTypes(nation_id){
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+    let lobby_id = document.getElementById('lobby-id').getAttribute('lobbyId');
+
+    $.ajax({
+        url: '/getEditNationStatisticTypes/'+ nation_id,
+        type: 'get',
+        success:function(response){
+            hideLoading();
+
+            Swal.fire({
+                html: response,
+                showCloseButton: false,
+                showCancelButton: false,
+                showConfirmButton: false,
+                showDenyButton: false,
+                focusConfirm: false,
+                customClass: 'w-90',
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+
+                }
+                else if(result.isDenied){
+
+                }
+                else{
+
+                }
+
+            })
+
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+
+}
+
+function changeNationStatisticTypes(table_box, nation_id){
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+
+    statistic_types = [];
+
+    for (let i = 0; i < table_box.children.length-1; i++){
+        let move_value = table_box.children[i].getElementsByClassName('statisic-type-admin-change')[0];
+        let code_name = move_value.getAttribute('statistic-type-code');
+        move_value = move_value.value - move_value.getAttribute('last-value');
+        statistic_types.push({statistic_type_code_name: code_name, move: move_value })
+    }
+
+
+    $.ajax({
+        url: '/changeNationStatisticTypes',
+        type: 'post',
+        data: { _token: token, statistic_types: statistic_types, nation_id: nation_id},
+        success:function(response){
+            Swal.fire({
+                icon: 'success',
+                title: 'Nastaveno',
+                text: 'Vše jsme nastavily a uložily v pořádku.',
+            })
+            document.location.reload(true);
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+}
+
 

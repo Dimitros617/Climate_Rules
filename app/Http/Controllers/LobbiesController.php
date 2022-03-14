@@ -317,8 +317,15 @@ class LobbiesController extends Controller
         return view('global-status', ['lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'nations' => $nations, 'rounds' => $rounds, 'last_round' => $last_round, 'statistics_types' => $statistics_types]);
 
     }
+    function getEditNationStatisticTypes($nation_id){
 
-    function getLobbyNation($lobby_id, $nation_id = null){
+        Log::info('LobbiesController:getEditNationStatisticTypes');
+
+        $lobby_id = Nations::where('id', $nation_id)->first()->lobby_id;
+        return $this->getLobbyNation($lobby_id,$nation_id,'local-status-table');
+    }
+
+    function getLobbyNation($lobby_id, $nation_id = null, $view = 'local-status'){
 
         Log::info('LobbiesController:getLobbyNation');
 
@@ -334,10 +341,18 @@ class LobbiesController extends Controller
         }
 
 
-        $nation_id = Nations::getNationIdFromLobby($lobby_id);
 
-        if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
-            return $nation_id;  //vracím response s chybou;
+        if($nation_id == null) {
+            $nation_id = Nations::getNationIdFromLobby($lobby_id);
+
+            if (!is_int($nation_id) && str_contains(get_class($nation_id), 'Response')) {
+                return $nation_id;  //vracím response s chybou;
+            }
+        }else{
+            if(!Nations::isNationInLobby($nation_id, $lobby_id)){
+                return response('Nelze zobrazit tento formulář, požadovaný hráč není v lobby přiřazen!', 500)->header('Content-Type', 'text/plain');
+            }
+            $nation_id = $nation_id;
         }
 
         $lobby = Lobbies::find($lobby_id);
@@ -347,8 +362,9 @@ class LobbiesController extends Controller
         $my_table = Nation_statistic_values::getNationTableWithActualValues($nation_id);
         $edit_tax = Rounds::hasNationSetTaxInRound(Rounds::getLastRound($lobby_id)->id,$nation_id);
 
-
-        return view('local-status', [ 'my_table' => $my_table, 'lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'rounds' => $rounds, 'last_round' => $last_round, 'edit_tax' => $edit_tax]);
+//        return $my_table;
+//        default local-status view
+        return view($view, [ 'my_table' => $my_table, 'lobby' => $lobby, 'lobby_phase' => $lobby_phase, 'my_nation' => $my_nation, 'rounds' => $rounds, 'last_round' => $last_round, 'edit_tax' => $edit_tax]);
 
 
 

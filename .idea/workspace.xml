@@ -8,19 +8,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Uprava refreshe technologií při změně parametrů. fixed #16">
-      <change afterPath="$PROJECT_DIR$/resources/views/nation-edit-tax.blade.php" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidána možnost upravy daní a jejich závislotí jednou za kolo. fixed #23">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BankController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BankController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Nations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Rounds.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Rounds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/lobby.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/lobby.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin-setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin-setting.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/nations.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/nations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/bank.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bank.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -479,14 +474,8 @@
       <workItem from="1645688939004" duration="1055000" />
       <workItem from="1647010424528" duration="12905000" />
       <workItem from="1647077237813" duration="9326000" />
-      <workItem from="1647183280935" duration="19061000" />
-    </task>
-    <task id="LOCAL-00084" summary="Propojení nového backandu a frontendu">
-      <created>1637526128405</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1637526128405</updated>
+      <workItem from="1647183280935" duration="19684000" />
+      <workItem from="1647240809695" duration="8552000" />
     </task>
     <task id="LOCAL-00085" summary="Přidáno admin rozhraní a uprava hodnot statistik z frontendu">
       <created>1637618578330</created>
@@ -824,7 +813,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647184854703</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Přidána možnost upravy daní a jejich závislotí jednou za kolo. fixed #23">
+      <created>1647208525541</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1647208525541</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -889,7 +885,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Přidána možnost změnit stav technologie na libovolný + opravena chyba vykreslování rozdělení kol (nadpisu) v &quot;nové techonologie&quot;" />
     <MESSAGE value="Do banky přidána možnost vidět value of all technologies" />
     <MESSAGE value="Uprava češtiny a textů" />
     <MESSAGE value="Přidán správce obrázků a možnost měnit obrázky u technologií + srovnána tabulka v global-status-table.blade.php" />
@@ -914,7 +909,8 @@
     <MESSAGE value="Debug. fixed #25" />
     <MESSAGE value="Debug. fixed #26" />
     <MESSAGE value="Uprava refreshe technologií při změně parametrů. fixed #16" />
-    <option name="LAST_COMMIT_MESSAGE" value="Uprava refreshe technologií při změně parametrů. fixed #16" />
+    <MESSAGE value="Přidána možnost upravy daní a jejich závislotí jednou za kolo. fixed #23" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidána možnost upravy daní a jejich závislotí jednou za kolo. fixed #23" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -922,7 +918,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/js/bank.js</url>
           <line>29</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

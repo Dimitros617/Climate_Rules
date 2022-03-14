@@ -31,11 +31,15 @@
             </div>
             @foreach($nations as $nation)
             <div class="global-status-table-row rounded-4 overflow-hidden d-flex flex-wrap w-100 mb-2 justify-content-around bg-white shadow-sm">
-                <div class="cr-gradient fs-7 mb-2 p-3 flex-grow-2 w-20 fw-bold" >{{$nation->name}}</div>
+                <div class="cr-gradient fs-5 mb-2 p-3 flex-grow-2 w-20 fw-bold @if(Auth::check() && Auth::permition()->admin == "1") cursor-pointer animate-02 @endif"
+                     @if(Auth::check() && Auth::permition()->admin == "1")
+                     onclick="getEditNationStatisticTypes({{$nation->id}})"
+                     @endif
+                >{{$nation->name}}</div>
 
                 @foreach($statistics_types as $statistic_type)
 {{--                        onmouseleave="thHoverOff(this)" --}}
-                <div class=" fs-7 text-center hover-size-01 flex-grow-1  p-3 fw-bold" style="flex: 1 1 0px; border-left: 3px solid #f4f5f7" nationId="{{$nation->id}}" staticticTypeCode="{{$statistic_type->code_name}}" @if(Auth::check() && Auth::permition()->admin == "1") onmouseenter="thHoverOn(this)" onmouseleave="thHoverOff(this)" @endif>
+                <div class=" fs-5 text-center hover-size-01 flex-grow-1  p-3 fw-bold" style="flex: 1 1 0px; border-left: 3px solid #f4f5f7" nationId="{{$nation->id}}" staticticTypeCode="{{$statistic_type->code_name}}" @if(Auth::check() && Auth::permition()->admin == "1") onmouseenter="thHoverOn(this)" onmouseleave="thHoverOff(this)" @endif>
 
                     @if(Auth::check() && Auth::permition()->admin == "1")
                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-caret-left-fill @if(str_contains($statistic_type->code_name, 'level')) muted @endif " viewBox="0 0 16 16" display="none" onclick="decreaseValue(this.parentNode.getAttribute('nationId'), this.parentNode.getAttribute('staticticTypeCode'))">

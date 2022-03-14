@@ -227,4 +227,35 @@ class GameController extends Controller
 
 
     }
+
+    function changeNationStatisticTypes(Request $request){
+        Log::info('GameController:changeNationStatisticTypes');
+
+        $statistic_types = json_decode(json_encode($request->statistic_types));
+        for ($i = 0; $i < count($statistic_types); $i++) {
+
+            $stat_type = $statistic_types[$i]->statistic_type_code_name;
+            $step = $statistic_types[$i]->move;
+            if ($step == 0 ){
+                continue;
+            }
+            $ret = Round_to_nation_statistics::changeStatisticValueOfNation($request->nation_id, $stat_type, $step, ('Manual_admin_change_global:'. Auth::user()->id));
+
+            if ($ret != 1) {
+                if ($ret == -3) {
+                    return response('Ups zadaný index posunu je mimo hranice tabulky!', 500)->header('Content-Type', 'text/plain');
+                }
+                if ($ret == -2) {
+                    return response('Nastala chyba při Ukládání nového záznamu do tabulky roun_to_nation_statistics!', 500)->header('Content-Type', 'text/plain');
+                }
+                if ($ret == -1) {
+                    return response('Nastala chyba při hledání aktuální hodnoty který je nastavená v tabulce nation_statistics_values. Aktuální hodnota nenalezena!', 500)->header('Content-Type', 'text/plain');
+                }
+                if ($ret == 0) {
+                    Round_to_nation_statistics::setBorderStaticticValueOfNation($request->nation_id, $stat_type, $step, ('Manual_admin_change_global:'. Auth::user()->id));
+                }
+            }
+        }
+
+    }
 }

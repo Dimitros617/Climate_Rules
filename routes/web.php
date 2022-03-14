@@ -62,8 +62,11 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin', 'lobby'])->get
 //Game
 Route::middleware(['auth:sanctum', 'verified'])->get('/updateTemperatureActualValue/{id:id}', [GameController::class,'updateTemperatureActualValue']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/updateGlobalTable/{id:id}', [GameController::class,'updateGlobalTable']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/getEditNationStatisticTypes/{nation_id:nation_id}', [LobbiesController::class,'getEditNationStatisticTypes']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/increaseValue', [GameController::class,'increaseValue']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/decreaseValue', [GameController::class,'decreaseValue']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/changeNationStatisticTypes', [GameController::class,'changeNationStatisticTypes']);
+
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->post('/changeNationTax', [GameController::class,'changeNationTax']);
 
