@@ -507,7 +507,7 @@ class Round_to_nation_statistics extends Model
         /**
      * @param $nationId
      * @param $statisticCode
-     * @param $border - String -> 'MIN' nebo 'MAX' podle toho jaké maximum chceme nastavit nebo Integer kladný nebo záporný
+     * @param $border - String -> 'LOW' nebo 'HIGH' podle toho jaké maximum chceme nastavit nebo Integer kladný nebo záporný
      * @param null $reason
      * @return bool -> Info o správném vyzvoření záznamu v databázi v tabulce round to nation statistics
      */
@@ -528,7 +528,10 @@ class Round_to_nation_statistics extends Model
             $newIndexFromSet = $allIndexFromSet[count($allIndexFromSet)-1];
         }elseif($border == "LOW" || $border < 0){
             $newIndexFromSet = $allIndexFromSet[0];
-        }else{
+        }elseif ($border == 0){
+            Log::error('Byla zadána 0 nelze zjistit kam máme hodnotu nastavit');
+        }
+        else{
             Log::error('Border byl nastaven na ' . $border . " nastavte pouze HIGH nebo LOW ve stringu");
         }
 

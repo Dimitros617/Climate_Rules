@@ -109,6 +109,7 @@ class GameController extends Controller
             $lobby = Lobbies::find($request->lobby_id);
             $all_nations = Lobbies::getAllNationsRoundIcomeFromLobby($request->lobby_id);
             return view('lobby-admin-panel-new-round', ['lobby' => $lobby, 'all_nations' => $all_nations, 'gasses_increase' => $gasses_increase]);
+        // Potvrzení dalšího kola -> nastavení věcí na konci kola a nového kola
         }else{
             if($request->add_income == 1){
                 $bank_res = BankController::payNewRoundNationsIncome($request->lobby_id);
@@ -123,6 +124,97 @@ class GameController extends Controller
             $gass_res = Lobbies::updateActualLobbyGasses($request->lobby_id,null,$gasses_increase);
             if(!is_int($gass_res) && str_contains( get_class($gass_res), 'Response')){
                 return $gass_res;  //vracím response s chybou;
+            }
+
+            $all_nations = Lobbies::getAllNationsFromLobby($request->lobby_id);
+            foreach ($all_nations as $nation){
+
+                $happiness = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('happiness'),$nation->id)->value;
+
+                if($happiness < 2){
+                    $step = -1;
+                    $flag = 'New_round_happines_under_2';
+                    $ret = Round_to_nation_statistics::changeStatisticValueOfNation($nation->id,'economy',$step,$flag);
+
+                    if ($ret != 1) {
+                        if ($ret == -3) {
+                            return response('Ups zadaný index posunu je mimo hranice tabulky!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == -2) {
+                            return response('Nastala chyba při Ukládání nového záznamu do tabulky roun_to_nation_statistics!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == -1) {
+                            return response('Nastala chyba při hledání aktuální hodnoty který je nastavená v tabulce nation_statistics_values. Aktuální hodnota nenalezena!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == 0) {
+                            Round_to_nation_statistics::setBorderStaticticValueOfNation($nation->id, 'economy', $step, $flag);
+                        }
+                    }
+
+                    $step = -1;
+                    $flag = 'New_round_happines_under_2';
+                    $ret = Round_to_nation_statistics::changeStatisticValueOfNation($nation->id,'level_economy',$step,$flag);
+
+                    if ($ret != 1) {
+                        if ($ret == -3) {
+                            return response('Ups zadaný index posunu je mimo hranice tabulky!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == -2) {
+                            return response('Nastala chyba při Ukládání nového záznamu do tabulky roun_to_nation_statistics!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == -1) {
+                            return response('Nastala chyba při hledání aktuální hodnoty který je nastavená v tabulce nation_statistics_values. Aktuální hodnota nenalezena!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == 0) {
+                            Round_to_nation_statistics::setBorderStaticticValueOfNation($nation->id, 'level_economy', $step, $flag);
+                        }
+                    }
+                }
+
+                $health = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('health'),$nation->id)->value;
+                $start_health = Round_to_nation_statistics::firstValueOneStatisticOneNation(Statistics_types::getIdByCode('health'),$nation->id)->value;
+                Log::info($health);
+                Log::info($start_health);
+                if($health < $start_health){
+                    $step = -1;
+                    $flag = 'New_round_health_under_start';
+                    $ret = Round_to_nation_statistics::changeStatisticValueOfNation($nation->id,'happiness',$step,$flag);
+
+                    if ($ret != 1) {
+                        if ($ret == -3) {
+                            return response('Ups zadaný index posunu je mimo hranice tabulky!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == -2) {
+                            return response('Nastala chyba při Ukládání nového záznamu do tabulky roun_to_nation_statistics!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == -1) {
+                            return response('Nastala chyba při hledání aktuální hodnoty který je nastavená v tabulce nation_statistics_values. Aktuální hodnota nenalezena!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == 0) {
+                            Round_to_nation_statistics::setBorderStaticticValueOfNation($nation->id, 'happiness', $step, $flag);
+                        }
+                    }
+
+                    $step = 1;
+                    $flag = 'New_round_health_under_start';
+                    $ret = Round_to_nation_statistics::changeStatisticValueOfNation($nation->id,'level_happiness',$step,$flag);
+
+                    if ($ret != 1) {
+                        if ($ret == -3) {
+                            return response('Ups zadaný index posunu je mimo hranice tabulky!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == -2) {
+                            return response('Nastala chyba při Ukládání nového záznamu do tabulky roun_to_nation_statistics!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == -1) {
+                            return response('Nastala chyba při hledání aktuální hodnoty který je nastavená v tabulce nation_statistics_values. Aktuální hodnota nenalezena!', 500)->header('Content-Type', 'text/plain');
+                        }
+                        if ($ret == 0) {
+                            Round_to_nation_statistics::setBorderStaticticValueOfNation($nation->id, 'level_happiness', $step, $flag);
+                        }
+                    }
+                }
+
             }
         }
 

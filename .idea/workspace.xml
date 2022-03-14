@@ -8,16 +8,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidána možnost upravy daní a jejich závislotí jednou za kolo. fixed #23">
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidána možnost měnit statistics types jednoho státu najednou. fixed #20">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin-setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin-setting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/nations.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/nations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -475,14 +469,8 @@
       <workItem from="1647010424528" duration="12905000" />
       <workItem from="1647077237813" duration="9326000" />
       <workItem from="1647183280935" duration="19684000" />
-      <workItem from="1647240809695" duration="8552000" />
-    </task>
-    <task id="LOCAL-00085" summary="Přidáno admin rozhraní a uprava hodnot statistik z frontendu">
-      <created>1637618578330</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1637618578330</updated>
+      <workItem from="1647240809695" duration="8966000" />
+      <workItem from="1647261491692" duration="3284000" />
     </task>
     <task id="LOCAL-00086" summary="Přidány iconky pro statistic types + připravena databáze pro technologie">
       <created>1639843824646</created>
@@ -820,7 +808,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647208525541</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="Přidána možnost měnit statistics types jednoho státu najednou. fixed #20">
+      <created>1647255673593</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1647255673594</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -885,7 +880,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Do banky přidána možnost vidět value of all technologies" />
     <MESSAGE value="Uprava češtiny a textů" />
     <MESSAGE value="Přidán správce obrázků a možnost měnit obrázky u technologií + srovnána tabulka v global-status-table.blade.php" />
     <MESSAGE value="Přidán nový seeder, + obrázky k technologiím" />
@@ -910,7 +904,8 @@
     <MESSAGE value="Debug. fixed #26" />
     <MESSAGE value="Uprava refreshe technologií při změně parametrů. fixed #16" />
     <MESSAGE value="Přidána možnost upravy daní a jejich závislotí jednou za kolo. fixed #23" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidána možnost upravy daní a jejich závislotí jednou za kolo. fixed #23" />
+    <MESSAGE value="Přidána možnost měnit statistics types jednoho státu najednou. fixed #20" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidána možnost měnit statistics types jednoho státu najednou. fixed #20" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
