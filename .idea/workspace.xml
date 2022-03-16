@@ -8,10 +8,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidán telescope a opravena chyba vykreslování technologií podle kola.">
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Opravena chyba při nákupu technologií, získání hodnoty ceny licence.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Nations_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lobbies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobbies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bank-one-pay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bank-one-pay.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/technologi-buy-verification.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-buy-verification.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -473,14 +475,7 @@
       <workItem from="1647183280935" duration="19684000" />
       <workItem from="1647240809695" duration="8966000" />
       <workItem from="1647261491692" duration="4947000" />
-      <workItem from="1647432003126" duration="8056000" />
-    </task>
-    <task id="LOCAL-00088" summary="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů">
-      <created>1640123987836</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1640123987836</updated>
+      <workItem from="1647432003126" duration="12202000" />
     </task>
     <task id="LOCAL-00089" summary="Umožněno nakupování a zpětné vykreslování stavu technologie vuči národu">
       <created>1640183826878</created>
@@ -818,7 +813,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647436471030</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="Opravena chyba při nákupu technologií, získání hodnoty ceny licence.">
+      <created>1647455203676</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1647455203676</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -883,7 +885,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Přidán nový seeder, + obrázky k technologiím" />
     <MESSAGE value="Optimalizace načítání stránek a souborů, příprava na implementaci web socketů" />
     <MESSAGE value="Zprovozněny websockety - základ debug" />
     <MESSAGE value="Upraveny sockety na local server + vytvořen server a client side" />
@@ -908,7 +909,8 @@
     <MESSAGE value="Přidána možnost měnit statistics types jednoho státu najednou. fixed #20" />
     <MESSAGE value="Přidána automatické přepočty na konci kola. fixed #24" />
     <MESSAGE value="Přidán telescope a opravena chyba vykreslování technologií podle kola." />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidán telescope a opravena chyba vykreslování technologií podle kola." />
+    <MESSAGE value="Opravena chyba při nákupu technologií, získání hodnoty ceny licence." />
+    <option name="LAST_COMMIT_MESSAGE" value="Opravena chyba při nákupu technologií, získání hodnoty ceny licence." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

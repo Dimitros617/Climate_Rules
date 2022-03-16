@@ -90,23 +90,23 @@
 
             </div>
 
-{{--            <div class="d-flex flex-wrap justify-end w-100" style="border-bottom: 2px solid black">--}}
-{{--                <span class="fs-3 text-black pt-1 pb-1 w-70 fw-bold text-end">Cena celkem: </span>--}}
-{{--                <span class="fs-3 text-black fw-bold w-5rem">--}}
-{{--                    @php echo $technology->price + $technology->patent_price @endphp--}}
-{{--                </span>--}}
-{{--                <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">--}}
+            <div class="d-flex flex-wrap justify-end w-100" style="border-bottom: 2px solid black">
+                <span class="fs-3 text-black pt-1 pb-1 w-70 fw-bold text-end">Cena celkem: </span>
+                <span class="fs-3 text-black fw-bold w-5rem">
+                    @php echo $technology->price + $technology->patent_price @endphp
+                </span>
+                <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
 
-{{--            </div>--}}
+            </div>
 
-{{--            <div class="d-flex flex-wrap justify-end w-100 mt-2">--}}
-{{--                <span class="fs-4  pt-1 w-70 text-end">Zůstatek po koupi: </span>--}}
-{{--                <span class="fs-3  fw-bold w-5rem">--}}
-{{--                    @php echo $my_nation->money - ($technology->price + $technology->patent_price) @endphp--}}
-{{--                </span>--}}
-{{--                <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">--}}
+            <div class="d-flex flex-wrap justify-end w-100 mt-2">
+                <span class="fs-4  pt-1 w-70 text-end">Zůstatek po koupi: </span>
+                <span class="fs-3  fw-bold w-5rem">
+                    @php echo $my_nation->money - ($technology->price + $technology->patent_price) @endphp
+                </span>
+                <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
 
-{{--            </div>--}}
+            </div>
 
         </div>
     </div>

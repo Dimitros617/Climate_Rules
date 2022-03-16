@@ -219,8 +219,7 @@ class Lobbies extends Model
 
     public static function updateActualLobbyGasses($lobby_id, $gasses_value = null, $gasses_increas_of = null){
 
-        Log::info($gasses_value);
-        Log::info($gasses_increas_of);
+
         if($gasses_value === null && $gasses_increas_of === null){
             return response('Nelze změnit hodnota SP, nebylo definováno o kolik nebo na jakou hodnotu!', 500)->header('Content-Type', 'text/plain');
         }

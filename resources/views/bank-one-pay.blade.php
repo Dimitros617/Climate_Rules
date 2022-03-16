@@ -43,7 +43,7 @@
             <select id="one-pay-nation-to" class="rounded-2 shadow-sm p-2 w-100" onclick="if(document.getElementById('one-pay-verify').checked)document.getElementById('one-pay-verify').click()">
                 <option disabled id="one-pay-blank-nation-select" value="-">---</option>
                 @foreach($allNations as $nation)
-                <option @if($nation->id == $my_nation->id) hidden disabled @endif id="one-pay-my-nation-select" value="{{$nation->id}}">{{$nation->name}}</option>
+                <option @if($nation->id == $my_nation->id && Auth::permition()->admin !=1) hidden disabled @endif id="one-pay-my-nation-select" value="{{$nation->id}}">{{$nation->name}}</option>
                 @endforeach
             </select>
         </span>

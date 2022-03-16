@@ -299,7 +299,7 @@ class LobbiesController extends Controller
             ->where('lobby_id', '=', $lobby_id)
             ->orderBy('id')
             ->first();
-        $last_round->gases = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::lastValueOneStatisticAllNation($lobby_id,'gasses'));
+        $last_round->gases = Lobbies::where('id',$lobby_id)->first()->actual_gasses;
         $statistics_types = DB::table('statistics_types')
             ->select('statistics_types.*')
             ->join('nation_statistic_values','statistics_types.id','=','nation_statistic_values.statistics_type_id')

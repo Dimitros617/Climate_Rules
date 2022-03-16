@@ -103,7 +103,7 @@ class GameController extends Controller
     function addRound(Request $request){
         Log::info('GameController:addRound');
 
-        $gasses_increase = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::lastValueOneStatisticAllNation($request->lobby_id,'gasses')) - Lobbies::where('id', $request->lobby_id)->first()->actual_gasses;
+        $gasses_increase = Round_to_nation_statistics::countvalues( Round_to_nation_statistics::lastValueOneStatisticAllNation($request->lobby_id,'gasses')) ;
 
         if($request->response == 0){
             $lobby = Lobbies::find($request->lobby_id);
