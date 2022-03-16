@@ -173,8 +173,7 @@ class GameController extends Controller
 
                 $health = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('health'),$nation->id)->value;
                 $start_health = Round_to_nation_statistics::firstValueOneStatisticOneNation(Statistics_types::getIdByCode('health'),$nation->id)->value;
-                Log::info($health);
-                Log::info($start_health);
+
                 if($health < $start_health){
                     $step = -1;
                     $flag = 'New_round_health_under_start';

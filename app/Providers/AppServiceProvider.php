@@ -13,7 +13,10 @@ use Illuminate\Support\ServiceProvider;
      */
     public function register()
     {
-        //
+//        if ($this->app->environment('local')) {
+//            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+//            $this->app->register(TelescopeServiceProvider::class);
+//        }
     }
 
     /**
@@ -23,6 +26,9 @@ use Illuminate\Support\ServiceProvider;
      */
     public function boot()
     {
-//        \URL::forceScheme('https');
+        if (env('APP_URL')!='localhost') {
+
+        \URL::forceScheme('https');
+        }
     }
 }

@@ -72,7 +72,7 @@ class Lobby_to_technologies extends Model
                         ->select('lobby_to_technologies.*','technologies.name AS technology_name','technologies.code','technologies.description AS technologies_description','technologies.price','technologies.img_url')
                         ->join('technologies','lobby_to_technologies.technology_id','=','technologies.id')
                         ->where('lobby_to_technologies.lobby_id','=',$lobby_id)
-                        ->orderBy('technologies.round_show')
+                        ->orderBy('lobby_to_technologies.round_show')
                         ->orderBy('technologies.code')
                         ->get();
 

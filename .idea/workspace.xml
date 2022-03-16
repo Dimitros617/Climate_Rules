@@ -8,10 +8,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidána možnost měnit statistics types jednoho státu najednou. fixed #20">
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidána automatické přepočty na konci kola. fixed #24">
+      <change afterPath="$PROJECT_DIR$/app/Providers/TelescopeServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/telescope.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/app-dark.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Round_to_nation_statistics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,6 +258,7 @@
       <path value="$PROJECT_DIR$/vendor/react/promise-stream" />
       <path value="$PROJECT_DIR$/vendor/react/socket" />
       <path value="$PROJECT_DIR$/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/vendor/laravel/telescope" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -470,14 +485,8 @@
       <workItem from="1647077237813" duration="9326000" />
       <workItem from="1647183280935" duration="19684000" />
       <workItem from="1647240809695" duration="8966000" />
-      <workItem from="1647261491692" duration="3284000" />
-    </task>
-    <task id="LOCAL-00086" summary="Přidány iconky pro statistic types + připravena databáze pro technologie">
-      <created>1639843824646</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1639843824646</updated>
+      <workItem from="1647261491692" duration="4947000" />
+      <workItem from="1647432003126" duration="3291000" />
     </task>
     <task id="LOCAL-00087" summary="Projeno vykreslování dat z databáze + možnost přepínání mezi kartami a seznamem">
       <created>1639865363723</created>
@@ -815,7 +824,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647255673594</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="Přidána automatické přepočty na konci kola. fixed #24">
+      <created>1647265834730</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1647265834731</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -880,7 +896,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Uprava češtiny a textů" />
     <MESSAGE value="Přidán správce obrázků a možnost měnit obrázky u technologií + srovnána tabulka v global-status-table.blade.php" />
     <MESSAGE value="Přidán nový seeder, + obrázky k technologiím" />
     <MESSAGE value="Optimalizace načítání stránek a souborů, příprava na implementaci web socketů" />
@@ -905,7 +920,8 @@
     <MESSAGE value="Uprava refreshe technologií při změně parametrů. fixed #16" />
     <MESSAGE value="Přidána možnost upravy daní a jejich závislotí jednou za kolo. fixed #23" />
     <MESSAGE value="Přidána možnost měnit statistics types jednoho státu najednou. fixed #20" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidána možnost měnit statistics types jednoho státu najednou. fixed #20" />
+    <MESSAGE value="Přidána automatické přepočty na konci kola. fixed #24" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidána automatické přepočty na konci kola. fixed #24" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
