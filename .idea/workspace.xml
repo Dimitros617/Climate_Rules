@@ -8,24 +8,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidána automatické přepočty na konci kola. fixed #24">
-      <change afterPath="$PROJECT_DIR$/app/Providers/TelescopeServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/telescope.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/app-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Přidán telescope a opravena chyba vykreslování technologií podle kola.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GameController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TechnologiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lobby_to_technologies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Nations_technologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nations_technologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-buy-verification.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-buy-verification.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -486,14 +473,7 @@
       <workItem from="1647183280935" duration="19684000" />
       <workItem from="1647240809695" duration="8966000" />
       <workItem from="1647261491692" duration="4947000" />
-      <workItem from="1647432003126" duration="3291000" />
-    </task>
-    <task id="LOCAL-00087" summary="Projeno vykreslování dat z databáze + možnost přepínání mezi kartami a seznamem">
-      <created>1639865363723</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1639865363723</updated>
+      <workItem from="1647432003126" duration="8056000" />
     </task>
     <task id="LOCAL-00088" summary="Přidán admin panel, přidávání kol a měnění pohledu admin dle klonování uživatele, opraveno upravoavání indexů">
       <created>1640123987836</created>
@@ -831,7 +811,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647265834731</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="Přidán telescope a opravena chyba vykreslování technologií podle kola.">
+      <created>1647436471029</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1647436471030</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -896,7 +883,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Přidán správce obrázků a možnost měnit obrázky u technologií + srovnána tabulka v global-status-table.blade.php" />
     <MESSAGE value="Přidán nový seeder, + obrázky k technologiím" />
     <MESSAGE value="Optimalizace načítání stránek a souborů, příprava na implementaci web socketů" />
     <MESSAGE value="Zprovozněny websockety - základ debug" />
@@ -921,7 +907,8 @@
     <MESSAGE value="Přidána možnost upravy daní a jejich závislotí jednou za kolo. fixed #23" />
     <MESSAGE value="Přidána možnost měnit statistics types jednoho státu najednou. fixed #20" />
     <MESSAGE value="Přidána automatické přepočty na konci kola. fixed #24" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidána automatické přepočty na konci kola. fixed #24" />
+    <MESSAGE value="Přidán telescope a opravena chyba vykreslování technologií podle kola." />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidán telescope a opravena chyba vykreslování technologií podle kola." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

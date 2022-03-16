@@ -126,7 +126,7 @@ class Nations_technologies extends Model
         }
 
         $nation_technology_patented = Nations_technologies::where('id', $technology_id)->where('patent', 1)->first()->nation_id;
-        return Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('level_economy'),$nation_technology_patented);
+        return Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('level_economy'),$nation_technology_patented)->value;
 
     }
 

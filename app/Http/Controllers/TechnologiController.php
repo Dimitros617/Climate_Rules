@@ -33,12 +33,13 @@ class TechnologiController extends Controller
     function getTechnologiView($view_name, $lobby_id){
 
         Log::info('TechnologiController:show->getTechnologiView');
-
+        Log::info('11');
         $nation_id = Nations::getNationIdFromLobby($lobby_id);
 
         if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
             return $nation_id;  //vracím response s chybou;
         }
+        Log::info('1');
 
         $allTechnologies = Lobby_to_technologies::getAlltechnologiesFromLobby($lobby_id);
         $my_nation = Nations::find($nation_id);
@@ -52,12 +53,15 @@ class TechnologiController extends Controller
             ->orderBy('statistics_types.id')
             ->get();
 
+        Log::info('2');
+
+
         $technology_statuses = DB::table('nations_technologies_status')->get();
 
         $branches = DB::table('branches')->get();
         $areas = DB::table('areas')->get();
 
-        return $allTechnologies;
+//        return $allTechnologies;
         return view($view_name, ['lobby' => $lobby, 'roundNumber' => $roundNumber, 'my_nation' => $my_nation, 'allTechnologies' => $allTechnologies, 'statistics_types' => $statistics_types, 'branches' => $branches, 'areas' => $areas, 'technology_statuses' => $technology_statuses]);
 
     }
@@ -88,7 +92,6 @@ class TechnologiController extends Controller
             ->groupBy('statistics_types.code_name')
             ->orderBy('statistics_types.id')
             ->get();
-
 
 
         return view('technologi-buy-verification', ['lobby' => $lobby, 'my_nation' => $my_nation,  'statistics_types' => $statistics_types, 'technology' => $technology]);
