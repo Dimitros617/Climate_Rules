@@ -8,7 +8,7 @@
                     <span data-toggle="tooltip" data-placement="bottom" title="Fáze hry: {{$lobby_phase->name}}" class="scale-200 p-2">
                         @php echo htmlspecialchars_decode($lobby_phase->icon) @endphp
                     </span>
-        <span class="fs-7">
+        <span class="fs-5">
                        <b> @php echo count($rounds); @endphp.</b> kolo
                     </span>
     </div>

@@ -59,7 +59,7 @@
                 @endforeach
 
 {{--                income count počítání příjmů--}}
-                <div class="fs-7 text-center hover-size-01 flex-grow-1 p-3 fw-bold" style="flex: 1 1 0px; border-left: 3px solid #f4f5f7">
+                <div class="fs-5 text-center hover-size-01 flex-grow-1 p-3 fw-bold" style="flex: 1 1 0px; border-left: 3px solid #f4f5f7">
                     @php  echo ($nation->stats[0]->economy * $nation->stats[0]->tax) @endphp
                 </div>
             </div>

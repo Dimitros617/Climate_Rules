@@ -291,7 +291,7 @@ class GameController extends Controller
 
             $flag = 'Nation_tax_change';
             $statics_types = ['tax', 'happiness', 'level_happiness'];
-            $statics_types_inverted = [0, 1, 1];
+            $statics_types_inverted = [0, 1, 0];
             for ($i = 0; $i < count($statics_types); $i++) {
 
                 $stat_type = $statics_types[$i];

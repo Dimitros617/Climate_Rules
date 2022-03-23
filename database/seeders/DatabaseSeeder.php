@@ -4492,7 +4492,7 @@ class DatabaseSeeder extends Seeder
             'technology_id' => 4,
             'code' => 'PZ',
             'name' => 'Protipovodňová technologie',
-            'description' => 'Ochrana před povodní',
+            'description' => 'Ochrana před povodněmi',
             'coefficient' => 100,
         ]);
 
@@ -4633,7 +4633,7 @@ class DatabaseSeeder extends Seeder
             'technology_id' => 8,
             'code' => 'S',
             'name' => 'Daň z vody',
-            'description' => 'Ochrana před suchem',
+            'description' => 'O 50 % snižuje dopady sucha',
             'coefficient' => 50,
         ]);
 
@@ -4760,6 +4760,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 5,
             'price' => 38,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T15-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -4805,6 +4806,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 16,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T16-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -4874,7 +4876,7 @@ class DatabaseSeeder extends Seeder
             'technology_id' => 17,
             'code' => 'S/PZ/VZ/EZ',
             'name' => 'Zavedení odolnějších odrůd',
-            'description' => 'O 50 % snížen dopad sucha, povodní, poklesu zemědělských výnosů a epidemie v zemědělství',
+            'description' => 'O 50 % snižuje dopad sucha, povodní, poklesu zemědělských výnosů a epidemie v zemědělství',
             'coefficient' => 50,
         ]);
 
@@ -4995,6 +4997,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 5,
             'price' => 15,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T21-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -5074,6 +5077,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 5,
             'price' => 10,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T24-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -5199,6 +5203,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 7,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T27-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -5490,7 +5495,7 @@ class DatabaseSeeder extends Seeder
             'technology_id' => 35,
             'code' => 'S/PZ',
             'name' => 'Zadržování vody v krajině',
-            'description' => 'Ochrana před suchem a záplavami',
+            'description' => 'Ochrana před suchem a záplavami/povodněmi',
             'coefficient' => 100,
         ]);
 
@@ -5503,6 +5508,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 4,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T37-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -5536,6 +5542,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 7,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T38-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -5689,6 +5696,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 3,
             'price' => 0,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T43-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -5814,6 +5822,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 2,
             'price' => 13,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T47-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -6010,6 +6019,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 5,
             'price' => 7,
             'certificate' => 1,
+            'img_url' => '/Img/technology-img/T53-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
@@ -6049,6 +6059,7 @@ class DatabaseSeeder extends Seeder
             'round_show' => 4,
             'price' => 12,
             'certificate' => 0,
+            'img_url' => '/Img/technology-img/T54-img.jpg',
         ]);
 
         DB::table('technologies_areas')->insert([
