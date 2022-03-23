@@ -1,13 +1,27 @@
 
 <div class="column d-flex flex-wrap w-100 justify-content-around">
 
-    <div class="rounded-4 bg-light shadow-sm w-15rem h-17rem  text-center p-4 d-grid cursor-pointer animate-05 hover-size-01 m-2">
+    <div class="rounded-4 bg-light shadow-sm w-15rem h-17rem  text-center px-4 py-3 d-grid cursor-pointer animate-05 hover-size-01 m-2">
 
-        <label for="gas_count" class="text-start mt-4 mb-1 cr-green fw-bold">Celkem SP</label>
+        <label for="gas_count" class="text-start mt-1 mb-1 cr-green fw-bold">Celkem SP</label>
         <input name="gas_count" class="border-0 bg-white p-2 ps-4 pe-4 shadow-sm rounded-4 text-black w-100" disabled value="{{$count_gas}}">
 
-        <label for="temperature_step" class="text-start mt-4 cr-green mb-1 fw-bold">Posun o 0,5 C</label>
-        <input name="temperature_step" class="border-0 bg-white p-2 ps-4 pe-4 shadow-sm rounded-4 text-black w-100" disabled value="{{$temp_step}}">
+        <label for="temperature_step" class="text-start mt-3 cr-green mb-1 fw-bold">Posun o 0,5 C</label>
+        <input name="temperature_step" id="temperature_step" class="border-0 bg-white p-2 ps-4 pe-4 shadow-sm rounded-4 text-black w-100" disabled value="{{$temp_step}}">
+
+        <label for="temperature_step" class="text-start mt-3 cr-green mb-1 fw-bold">Počáteční hodnoty</label>
+        <div class="d-inline-flex">
+            <div class="border-0 bg-white p-1  shadow-sm rounded-4 text-black d-inline-flex">
+                <input id="temperature_start_gasses" onfocusout="editLobbyStartTemperature(this)" type="number" class="border-0 bg-white px-2  pe-1 rounded-4 text-black w-70" default_value="{{$temp_step*2}}"  value="{{$temp_step*2}}">
+                <span class="w-30 pt-1">SP</span>
+            </div>
+            <div class="mx-2 text-black fw-bold fs-3">=</div>
+            <div class="border-0 bg-white p-2  shadow-sm rounded-4 text-black d-inline-flex">
+                <input id="temperature_start_temperature" onfocusout="editLobbyStartTemperature(this)"  type="number" class="border-0 bg-white px-2  pe-1 rounded-4 text-black w-70" default_value="1"  value="1">
+                <span class="w-30 pt-0">°C</span>
+            </div>
+        </div>
+
     </div>
 
 @foreach($nations as $nation)

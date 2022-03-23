@@ -335,4 +335,125 @@ function changeNationStatisticTypes(table_box, nation_id){
     });
 }
 
+function loadActualGass(ele){
+
+    let lobby_id = document.getElementById('lobby-id').getAttribute('lobbyId');
+    $.ajax({
+        url: '/getLobbyGasses/'+ lobby_id,
+        type: 'get',
+
+        success:function(response){
+            ele.value = response;
+            ele.setAttribute('default_value', response);
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+
+
+}
+
+function loadActualGasStep(ele){
+
+    let lobby_id = document.getElementById('lobby-id').getAttribute('lobbyId');
+    $.ajax({
+        url: '/getLobbyGasStep/'+ lobby_id,
+        type: 'get',
+
+        success:function(response){
+            ele.value = response;
+            ele.setAttribute('default_value', response);
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+
+
+}
+
+function loadActualTemperature(ele){
+
+    let lobby_id = document.getElementById('lobby-id').getAttribute('lobbyId');
+    $.ajax({
+        url: '/getLobbyTemperature/'+ lobby_id,
+        type: 'get',
+
+        success:function(response){
+            ele.value = response;
+            ele.setAttribute('default_value', response);
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+
+
+}
+
+function editAdminLobbyStartTemperature(ele){
+
+    if(ele.value == ele.getAttribute('default_value')){
+        return;
+    }
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+    let lobby_id = document.getElementById('lobby-id').getAttribute('lobbyId');
+
+    let gass_step = document.getElementById('temperature_step').value;
+
+    let gasses;
+    let temperature;
+
+    if(ele.getAttribute('id')=="temperature_start_gasses"){
+        gasses = ele.value;
+        temperature = (ele.value / gass_step)* 0.5;
+    }else{
+        gasses = (ele.value / 0.5) * gass_step;
+        temperature = ele.value;
+    }
+
+    $.ajax({
+        url: '/changeLobbyStartTemperature',
+        type: 'post',
+        data: { _token: token, lobby_id: lobby_id, gasses: gasses, temperature: temperature},
+        success:function(response){
+            hideLoading();
+            document.getElementById('temperature_start_temperature').value = temperature;
+            document.getElementById('temperature_start_gasses').value = gasses;
+
+            document.getElementById('temperature_start_temperature').setAttribute('default_value',temperature );
+            document.getElementById('temperature_start_gasses').setAttribute('default_value',gasses );
+
+            updateTemperatureActualValue(lobby_id);
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+
+}
+
 

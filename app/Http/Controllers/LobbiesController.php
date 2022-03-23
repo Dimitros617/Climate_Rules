@@ -412,5 +412,45 @@ class LobbiesController extends Controller
 
     }
 
+    function changeLobbyStartTemperature(Request $request){
+        Log::info('LobbiesController:changeLobbyStartTemperature');
+
+
+        $check = DB::table('lobbies')
+            ->where('id', $request->lobby_id)
+            ->update([
+                'temperature' => $request->temperature,
+                'actual_gasses' => $request->gasses,
+                'updated_at' => Carbon::now()->toDateTimeString(),
+            ]);
+
+
+        if(!$check) {
+            return response('Nastala chyba při ukládání dat do tabulky lobbies ', 500)->header('Content-Type', 'text/plain');
+        }
+
+    }
+
+    function getLobbyGasStep($id){
+        Log::info('LobbiesController:getLobbyGasStep');
+
+        return Lobbies::where('id', $id)->first()->gas_step;
+
+    }
+
+    function getLobbyGasses($id){
+        Log::info('LobbiesController:getLobbyGasses');
+
+        return Lobbies::where('id', $id)->first()->actual_gasses;
+
+    }
+
+    function getLobbyTemperature($id){
+        Log::info('LobbiesController:getLobbyTemperature');
+
+        return Lobbies::where('id', $id)->first()->temperature;
+
+    }
+
 
 }

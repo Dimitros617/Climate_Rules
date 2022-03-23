@@ -33,6 +33,27 @@ onload="dragElement(this)">
             </span>
 
         </div>
+
+        {{--    Teplota--}}
+        <div class="d-grid m-2 text-center bg-white rounded-3 p-4">
+            <span class="fs-7 fw-bold mb-2"> Skleníkové plyny a Teplota</span>
+
+            <div class="d-inline-flex">
+                <input hidden disabled id="temperature_step" onload="loadActualGasStep(this)" type="number" class="border-0 bg-white px-2  pe-1 rounded-4 text-black w-70" default_value="0"  value="0">
+
+                <div class="border-0 bg-light p-2  shadow-sm rounded-4 text-black d-inline-flex w-100">
+                    <input id="temperature_start_gasses" onfocusout="editAdminLobbyStartTemperature(this)" onload="loadActualGass(this)" type="number" class="border-0 bg-light px-2  pe-1 rounded-4 text-black w-4rem" default_value="0"  value="0">
+                    <span class="w-30 pt-1 pe-1">SP</span>
+                </div>
+                <div class="mx-2 text-black fw-bold fs-3">=</div>
+                <div class="border-0 bg-light p-2 shadow-sm rounded-4 text-black d-inline-flex w-100">
+                    <input id="temperature_start_temperature" onfocusout="editAdminLobbyStartTemperature(this)" onload="loadActualTemperature(this)"  type="number" class="border-0 bg-light px-2  pe-1 rounded-4 text-black w-4rem" default_value="0"  value="0">
+                    <span class="w-30 pt-0 pe-1">°C</span>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
     <div  id="admin-panel-box-header" class="bg-red w-3rem p-2 justify-content-center fw-bold text-white d-flex animate-05 hover-size-01 cursor-pointer min-h-5rem"

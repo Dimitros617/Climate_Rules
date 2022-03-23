@@ -184,11 +184,11 @@ function editLobbyNations(id){
             Swal.fire({
                 html: response,
                 showCloseButton: false,
-                showCancelButton: false,
+                showCancelButton: true,
                 showConfirmButton: false,
                 showDenyButton: false,
                 confirmButtonText: `Uložit`,
-                denyButtonText: `Zrušit`,
+                cancelButtonText: `Zavřít`,
                 focusConfirm: false,
                 customClass: 'w-75',
 
@@ -245,6 +245,53 @@ function editLobbyNations(id){
     });
 
 
+
+}
+
+function editLobbyStartTemperature(ele){
+
+    if(ele.value == ele.getAttribute('default_value')){
+        return;
+    }
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+    let lobby_id = document.getElementById('nations_lobby_table').getAttribute('lobby_id');
+
+    let gass_step = document.getElementById('temperature_step').value;
+
+    let gasses;
+    let temperature;
+
+    if(ele.getAttribute('id')=="temperature_start_gasses"){
+         gasses = ele.value;
+         temperature = (ele.value / gass_step)* 0.5;
+    }else{
+         gasses = (ele.value / 0.5) * gass_step;
+         temperature = ele.value;
+    }
+
+    $.ajax({
+        url: '/changeLobbyStartTemperature',
+        type: 'post',
+        data: { _token: token, lobby_id: lobby_id, gasses: gasses, temperature: temperature},
+        success:function(response){
+            hideLoading();
+            document.getElementById('temperature_start_temperature').value = temperature;
+            document.getElementById('temperature_start_gasses').value = gasses;
+
+            document.getElementById('temperature_start_temperature').setAttribute('default_value',temperature );
+            document.getElementById('temperature_start_gasses').setAttribute('default_value',gasses );
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
 
 }
 

@@ -49,6 +49,12 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->get('/editLo
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/saveLobby', [LobbiesController::class,'saveLobby']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->delete('/removeLobby', [LobbiesController::class,'removeLobby']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/setUserClone', [LobbiesController::class,'setUserClone']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:admin'])->post('/changeLobbyStartTemperature', [LobbiesController::class,'changeLobbyStartTemperature']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->get('/getLobbyTemperature/{id:id}', [LobbiesController::class,'getLobbyTemperature']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->get('/getLobbyGasses/{id:id}', [LobbiesController::class,'getLobbyGasses']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:play'])->get('/getLobbyGasStep/{id:id}', [LobbiesController::class,'getLobbyGasStep']);
+
+
 
 
 //Lobby - global

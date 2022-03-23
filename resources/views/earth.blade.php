@@ -95,6 +95,16 @@
             background-position-x: 600px;
         }
     }
+
+    @media only screen and (max-width: 1000px) {
+        .clouds, .land, .ocean-glare {
+           -webkit-animation:none !important;
+           -moz-animation:none !important;
+           -o-animation:none !important;
+            animation:none !important;
+        }
+    }
+
 </style>
 
 
