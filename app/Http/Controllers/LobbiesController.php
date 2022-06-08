@@ -29,6 +29,10 @@ class LobbiesController extends Controller
     function showLobbies()
     {
         Log::info('LobbiesController:showAlllobbies');
+        Log::info(config('app.locale'));
+
+//        Languages::setLang("cs");
+
 
         $firstUser = $this->checkUserAlone();
         if($firstUser != null){
@@ -71,6 +75,8 @@ class LobbiesController extends Controller
     function getLobbies(){
 
         Log::info('LobbiesController:getLobbies');
+        Log::info(config('app.locale'));
+
         $data = DB::table('lobbies')
             ->orderBy('visible', 'desc')
             ->orderBy('name', 'asc')
@@ -125,7 +131,7 @@ class LobbiesController extends Controller
         Lobby_to_technologies::copyTechnologies(Lobbies::all()->last()->id);
 
         if(!$check){
-            return response('Chyba při ukládání do databáze Lobbies!', 500)->header('Content-Type', 'text/plain');
+            return response('Chyba při ukládání do tabulky Lobbies!', 500)->header('Content-Type', 'text/plain');
         }
 
     }

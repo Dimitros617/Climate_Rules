@@ -33,7 +33,7 @@ class PermitionController extends Controller
         }
 
         $permition = new permition;
-        $permition->name = 'Nové oprávnění';
+        $permition->name = 'Untitled';
         $permition->possibility_read = 0;
         $permition->new_user = 0;
         $permition->edit_content = 0;

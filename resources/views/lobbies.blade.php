@@ -61,7 +61,7 @@
     <div class="lobbies-container light-transparent justify-content-between rounded-5 w-85 ms-auto me-auto d-block p-5">
 
         <div class="d-flex justify-content-between pb-2 mb-3" style="    border-bottom: 2px solid black;">
-            <span class="display-5 "> Všechna lobby</span>
+            <span class="display-5 ">  {{config('app.locale')}} {{ __('all_lobbies')}} </span>
             @if(Auth::check() && Auth::permition()->admin == "1")
                 <div onclick="addLobby()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="#659933" class="bi bi-plus-circle-fill cr-green cursor-pointer mt-2 animate-05 hover-size-01" viewBox="0 0 16 16">
