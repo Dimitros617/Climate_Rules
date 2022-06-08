@@ -7,7 +7,7 @@ onload="dragElement(this)">
     <div  class="admin-panel-box-setting w-90 d-flex  justify-content-between p-2 ms-4 me-3" hidden>
         {{--    users--}}
         <div class="d-grid m-2 text-center bg-white rounded-3 p-4">
-            <span class="fs-7 fw-bold mb-2">Uživatel</span>
+            <span class="fs-7 fw-bold mb-2">{{__('user')}}</span>
             <span onload="getLobbyUsers(this)">
                 <select onchange="setUserClone(this.value)" class="admin-box-user-select">
                 </select>
@@ -17,7 +17,7 @@ onload="dragElement(this)">
         {{--    Fáze hry--}}
 
         <div class="d-grid m-2 text-center bg-white rounded-3 p-4">
-            <span class="fs-7 fw-bold mb-2">Fáze hry</span>
+            <span class="fs-7 fw-bold mb-2">{{__('phase_of_the_game')}}</span>
             <span >
                 <select class="admin-box-phase-select">
 
@@ -27,23 +27,23 @@ onload="dragElement(this)">
 
         {{--    Kolo--}}
         <div class="d-grid m-2 text-center bg-white rounded-3 p-4">
-            <span class="fs-7 fw-bold mb-2">Kolo: <span onload="getCountRounds(this)"></span></span>
+            <span class="fs-7 fw-bold mb-2">{{__('round')}}: <span onload="getCountRounds(this)"></span></span>
             <span>
-                <button type="button" class="btn btn-primary" onclick="addRound(document.getElementById('lobby-id').getAttribute('lobbyId'))">Další kolo</button>
+                <button type="button" class="btn btn-primary" onclick="addRound(document.getElementById('lobby-id').getAttribute('lobbyId'))">{{__('next_period')}}</button>
             </span>
 
         </div>
 
         {{--    Teplota--}}
         <div class="d-grid m-2 text-center bg-white rounded-3 p-4">
-            <span class="fs-7 fw-bold mb-2"> Skleníkové plyny a Teplota</span>
+            <span class="fs-7 fw-bold mb-2"> {{__('green_house_gasses_and_teprature')}}</span>
 
             <div class="d-inline-flex">
                 <input hidden disabled id="temperature_step" onload="loadActualGasStep(this)" type="number" class="border-0 bg-white px-2  pe-1 rounded-4 text-black w-70" default_value="0"  value="0">
 
                 <div class="border-0 bg-light p-2  shadow-sm rounded-4 text-black d-inline-flex w-100">
                     <input id="temperature_start_gasses" onfocusout="editAdminLobbyStartTemperature(this)" onload="loadActualGass(this)" type="number" class="border-0 bg-light px-2  pe-1 rounded-4 text-black w-4rem" default_value="0"  value="0">
-                    <span class="w-30 pt-1 pe-1">SP</span>
+                    <span class="w-30 pt-1 pe-1">{{__('gg')}}</span>
                 </div>
                 <div class="mx-2 text-black fw-bold fs-3">=</div>
                 <div class="border-0 bg-light p-2 shadow-sm rounded-4 text-black d-inline-flex w-100">

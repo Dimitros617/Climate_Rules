@@ -24,7 +24,7 @@
                 <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
             </svg>
 
-            <p class="mt-2">@if (Auth::check()) Odhlásit se @else Přihlásit se @endif</p>
+            <p class="mt-2">@if (Auth::check()) {{__('sing_out')}} @else {{__('sign_in')}} @endif</p>
 
             <p class="mt-2 mb-0 pb-0 fw-bold cr-green text-uppercase">@if (Auth::check()) {{Auth::user()->nick}} @endif</p>
         </div>

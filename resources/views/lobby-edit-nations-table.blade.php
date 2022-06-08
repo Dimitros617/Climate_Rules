@@ -3,17 +3,17 @@
 
     <div class="rounded-4 bg-light shadow-sm w-15rem h-17rem  text-center px-4 py-3 d-grid cursor-pointer animate-05 hover-size-01 m-2">
 
-        <label for="gas_count" class="text-start mt-1 mb-1 cr-green fw-bold">Celkem SP</label>
+        <label for="gas_count" class="text-start mt-1 mb-1 cr-green fw-bold">{{__('total_gg')}}</label>
         <input name="gas_count" class="border-0 bg-white p-2 ps-4 pe-4 shadow-sm rounded-4 text-black w-100" disabled value="{{$count_gas}}">
 
-        <label for="temperature_step" class="text-start mt-3 cr-green mb-1 fw-bold">Posun o 0,5 C</label>
+        <label for="temperature_step" class="text-start mt-3 cr-green mb-1 fw-bold">{{__('shift_by_0,5_c')}}</label>
         <input name="temperature_step" id="temperature_step" class="border-0 bg-white p-2 ps-4 pe-4 shadow-sm rounded-4 text-black w-100" disabled value="{{$temp_step}}">
 
-        <label for="temperature_step" class="text-start mt-3 cr-green mb-1 fw-bold">Počáteční hodnoty</label>
+        <label for="temperature_step" class="text-start mt-3 cr-green mb-1 fw-bold">{{__('starting_value')}}</label>
         <div class="d-inline-flex">
             <div class="border-0 bg-white p-1  shadow-sm rounded-4 text-black d-inline-flex">
                 <input id="temperature_start_gasses" onfocusout="editLobbyStartTemperature(this)" type="number" class="border-0 bg-white px-2  pe-1 rounded-4 text-black w-70" default_value="{{$temp_step*2}}"  value="{{$temp_step*2}}">
-                <span class="w-30 pt-1">SP</span>
+                <span class="w-30 pt-1">{{__('gg')}}</span>
             </div>
             <div class="mx-2 text-black fw-bold fs-3">=</div>
             <div class="border-0 bg-white p-2  shadow-sm rounded-4 text-black d-inline-flex">
@@ -31,7 +31,7 @@
         element_id="{{$nation->id}}"
     >
         <div class="d-flex flex-wrap justify-content-between mb-2" >
-            <span class="fw-bold text-black">Hráč</span>
+            <span class="fw-bold text-black">{{__('player')}}</span>
             <span class="cursor-pointer animate-05 hover-size-01 text-black" onclick="removeNation({{$nation->id}})">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                     <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
@@ -51,13 +51,13 @@
         </div>
 
         <div class="text-end mt-3 ">
-            <span>{{$nation->gasses}} SP</span>
+            <span>{{$nation->gasses}} {{__('gg')}}</span>
         </div>
 
         <hr class="mt-1">
 
         <div class="text-start mb-2">
-            <span class="text-start text-black fw-bold mb-2">Uživatel</span>
+            <span class="text-start text-black fw-bold mb-2">{{__('user')}}</span>
         </div>
 
         <div>
@@ -79,7 +79,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" fill="currentColor" class="bi bi-plus-circle-fill cr-green ms-auto me-auto d-block mt-4" viewBox="0 0 16 16">
             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
         </svg>
-        <span class="cr-green fw-bold text-center mt-4">Nový stát / hráč</span>
+        <span class="cr-green fw-bold text-center mt-4">{{__('new_state_/_player')}}</span>
     </div>
 </div>
 

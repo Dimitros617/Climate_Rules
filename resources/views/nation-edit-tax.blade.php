@@ -1,8 +1,8 @@
 <div class="d-grid ">
-    <span class="fs-2 mb-4 mt-2 fw-bold pb-1 text-black" style="border-bottom: 2px solid black;">Nastavení daní</span>
+    <span class="fs-2 mb-4 mt-2 fw-bold pb-1 text-black" style="border-bottom: 2px solid black;">{{__('taxes_settings')}}</span>
 
 
-    <div class="fw-bold fs-5 mb-3 text-black">Očekávaný příjem za další období</div>
+    <div class="fw-bold fs-5 mb-3 text-black">{{__('expected_income_for_the_next_period')}}</div>
 
     <div class="d-inline-flex text-black p-2 justify-content-center">
         <div class="d-grid text-center" data-toggle="tooltip" data-placement="bottom" title="{{$statistic_types->economy_name}}">
@@ -27,7 +27,7 @@
         <div class="fw-bold fs-3 p-2" style="padding-top: 1.5rem !important;">
             =
         </div>
-        <div class="d-grid text-center" data-toggle="tooltip" data-placement="bottom" title="Příjem">
+        <div class="d-grid text-center" data-toggle="tooltip" data-placement="bottom" title="{{__('income')}}">
             <span>
                 <img style="transform: scale(2)" src="{{URL::asset('Img/CR-coin.svg')}}">
             </span>
@@ -39,8 +39,8 @@
 
     </div>
 
-    <div class="fw-bold fs-5 mb-1 text-black mt-3"> Upravit daň na další období</div>
-    <div class="fs-7 mb-3"> Daň ovlivnuje náladu obyvatelstva.</div>
+    <div class="fw-bold fs-5 mb-1 text-black mt-3"> {{__('edit_taxes_for_the_next_period')}}</div>
+    <div class="fs-7 mb-3"> {{__('taxes_effect_mood_of_the_inhabitants')}}.</div>
 
     <input type="number" id="nation-tax-increse" value="0" hidden>
 
@@ -61,7 +61,7 @@
         }
 
         " type="checkbox" style="transform: scale(1.2)" id="change-tax-verify" class=" form-check-input m-0 p-0 ms-1 me-3" role="switch">
-        <span >Opravdu chci změnit daně na příští období. Vím, že to mohu udělat jen jednou za období.</span>
+        <span >{{__('taxes_change')}}</span>
     </div>
 
 </div>

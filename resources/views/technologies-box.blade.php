@@ -10,7 +10,7 @@
             @if($technology->round_show > $last_round_show)
                 <div class="round-separator w-100 mb-4 mt-7 p-3 fw-bold fs-2 text-center d-inline-flex justify-content-around">
                     <span class="bg-dark w-25 h-5px rounded-2 mt-3"></span>
-                    {{$technology->round_show}}. KOLO
+                    {{$technology->round_show}}. {{__('round')}}
                     <span class="bg-dark w-25 h-5px rounded-2 mt-3"></span>
                 </div>
             @endif
@@ -30,7 +30,7 @@
             @if($technology->round_show > $last_round_show)
                 <div class="round-separator w-100 mb-4 mt-7 p-3 fw-bold fs-2 text-center d-inline-flex justify-content-around">
                     <span class="bg-dark w-25 h-5px rounded-2 mt-3"></span>
-                    {{$technology->round_show}}. KOLO
+                    {{$technology->round_show}}. {{__('round')}}
                     <span class="bg-dark w-25 h-5px rounded-2 mt-3"></span>
                 </div>
             @endif

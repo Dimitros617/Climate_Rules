@@ -13,13 +13,13 @@
                 <div class="list-group pt-4 pb-4">
 
                     <div class="hlavicka w-100" >
-                        <span class="display-5 w-100" style="    border-bottom: 2px solid black;"> Seznam uživatelů</span>
+                        <span class="display-5 w-100" style="    border-bottom: 2px solid black;"> {{__('user_list')}}</span>
                         <div class="search">
                             <div class="bg-gray-100 rounded-3 modal-open">
                                 <div class="card-body row no-gutters align-items-center h-4rem">
 
                                     <div class="col">
-                                        <input class="form-control-borderless p-2 rounded-3 overflow-hidden fs-5" id="search" type="search" placeholder="Zadejte hledaný výraz">
+                                        <input class="form-control-borderless p-2 rounded-3 overflow-hidden fs-5" id="search" type="search" placeholder="{{__('enter_a_search_term')}}">
 
                                     </div>
 
@@ -30,7 +30,7 @@
 
                                     <div class="col-auto searchButtonDiv">
 
-                                        <button class="btn btn-lg btn-success searchButton" type="submit" onclick="userFind(this)">Najít</button>
+                                        <button class="btn btn-lg btn-success searchButton" type="submit" onclick="userFind(this)">{{__('search')}}</button>
                                         <button class="btn btn-lg btn-primary searchButton" data-sort="none" sort="desc" onclick="userSort(this)">&#8681;</button>
                                     </div>
 
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             @else
-                <div class="display-4 pt-4 pb-4">Upss... Nic jsme tu nenašli.</div>
+                <div class="display-4 pt-4 pb-4">{{__('upss..._we_did_not_find_anything')}}</div>
             @endif
 
         </div>

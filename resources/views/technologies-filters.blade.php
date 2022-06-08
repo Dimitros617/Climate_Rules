@@ -58,7 +58,7 @@
     <div>
         <div class="w-100 z-50 d-flex justify-content-end">
                     <span class="cursor-pointer text-end p-2 me-3 fw-bold text-muted" onclick="showAndHideElement(this.parentNode.parentNode,'advance-filter')">
-                        <span>Pokročilé filtry</span>
+                        <span>{{__('advanced_filters')}}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down animate-05 hover-size-01 show" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
                         </svg>
@@ -72,9 +72,9 @@
 
                 <div class="d-inline-flex bg-white rounded-3 m-2 p-3 flex-lg-grow-1 shadow-sm">
                     <div class=" text-center justify-content-center w-100">
-                        <label class="fs-4 fw-bold w-100 text-center">Zaměření</label>
+                        <label class="fs-4 fw-bold w-100 text-center">{{__('focus')}}</label>
                         <select onchange="filterAll('search-form')" class="filter-branch form-select w-100" aria-label="Default select example">
-                            <option selected value="-">Nevybráno</option>
+                            <option selected value="-">{{__('not_selected')}}</option>
                             @foreach($branches as $branch)
                                 <option value="{{$branch->name}}">{{$branch->name}}</option>
                             @endforeach
@@ -84,9 +84,9 @@
 
                 <div class="d-inline-flex bg-white rounded-3 m-2 p-3 flex-lg-grow-1 shadow-sm">
                     <div class=" text-center justify-content-center w-100">
-                        <label class="fs-4 fw-bold w-100 text-center">Oblast</label>
+                        <label class="fs-4 fw-bold w-100 text-center">{{__('area')}}</label>
                         <select onchange="filterAll('search-form')" class="filter-areas form-select w-100" aria-label="Default select example">
-                            <option selected value="-">Nevybráno</option>
+                            <option selected value="-">{{__('not_selected')}}</option>
                             @foreach($areas as $area)
                                 <option value="{{$area->name}}">{{$area->name}}</option>
                             @endforeach
@@ -96,11 +96,11 @@
 
                 <div class="filter-price d-inline-flex bg-white rounded-3 m-2 p-3 flex-lg-grow-1 shadow-sm">
                     <div class=" text-center justify-content-center w-25">
-                        <label class="fs-4 fw-bold w-100 text-center">Cena</label>
+                        <label class="fs-4 fw-bold w-100 text-center">{{__('price')}}</label>
                         <select onchange="filterAll('search-form')" class="filter-price-sort form-select w-100" aria-label="Default select example">
-                            <option selected value="-" disabled>Netříděno</option>
-                            <option  value="-1">Sestupně</option>
-                            <option  value="1">Vzestupně</option>
+                            <option selected value="-" disabled>{{__('unsorted')}}</option>
+                            <option  value="-1">{{__('descending')}}</option>
+                            <option  value="1">{{__('ascending')}}</option>
 
                         </select>
                     </div>
@@ -123,7 +123,7 @@
             <div class="w-100 p-2 mt-1 d-flex flex-wrap justify-content-center justify-content-md-between">
 
                 <div class="d-inline-flex bg-white rounded-3 m-2 p-4 flex-lg-grow-1 shadow-sm">
-                    <div class="w-25 me-3 hover-size-01 animate-05" data-toggle="tooltip" data-placement="bottom" title="Zobrazovat i technologie, které má někdo koupené a pracuje na nich.">
+                    <div class="w-25 me-3 hover-size-01 animate-05" data-toggle="tooltip" data-placement="bottom" title="{{__('show_also_technologies')}}">
                         <div class="w-content mt-4 ms-4 z-0" style="transform: scale(2.5)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                                 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
@@ -132,12 +132,12 @@
                     </div>
                     <div class=" d-grid w-75 form-check form-switch  text-center justify-content-center p-0 ">
                         <input onchange="filterAll('search-form')" style="transform: scale(1.2)" class="filter-work form-check-input m-0 p-0 ms-1" checked type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label mt-1 fw-bold fs-5"  for="">Někým rozpracované</label>
+                        <label class="form-check-label mt-1 fw-bold fs-5"  for="">{{__('someone_is_working_on_this')}}</label>
                     </div>
                 </div>
 
                 <div class="d-inline-flex bg-white rounded-3 m-2 p-4 flex-lg-grow-1 shadow-sm">
-                    <div class="w-25 me-3 hover-size-01 animate-05" data-toggle="tooltip" data-placement="bottom" title="Zobrazit i ty, které má již někdo patentované.">
+                    <div class="w-25 me-3 hover-size-01 animate-05" data-toggle="tooltip" data-placement="bottom" title="{{__('already_patented')}}">
                         <div class="w-content mt-4 ms-4 z-0" style="transform: scale(2.5)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
@@ -147,14 +147,14 @@
                     </div>
                     <div class="d-grid w-75 form-check form-switch  text-center justify-content-center p-0 ">
                         <input onchange="filterAll('search-form')" style="transform: scale(1.2)" class="filter-active form-check-input m-0 p-0 ms-1" checked type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label mt-1 fw-bold fs-5"  for="">Někým patentované</label>
+                        <label class="form-check-label mt-1 fw-bold fs-5"  for="">{{__('patented_by_someone')}}</label>
                     </div>
                 </div>
 
                 <div class="d-inline-flex bg-white rounded-3 m-2 p-4 flex-lg-grow-1 shadow-sm">
                     <div class="d-grid w-75 form-check form-switch  text-center justify-content-center p-0">
                         <input onchange="filterAll('search-form')" style="transform: scale(1.2)" class="filter-round form-check-input m-0 p-0 ms-1" checked type="checkbox" role="switch" id="flexSwitchCheckDefault" disabled>
-                        <label class="form-check-label mt-1 fw-bold fs-5" for="">Rozdělovat podle kol</label>
+                        <label class="form-check-label mt-1 fw-bold fs-5" for="">{{__('divide_by_rounds')}}</label>
                     </div>
                 </div>
 

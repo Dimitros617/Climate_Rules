@@ -1,5 +1,5 @@
 <div class="d-grid text-center p-3 m-2 bg-light rounded-3 animate-05 hover-size-01 hover-shadow cursor-pointer z-0 h-content"
-     data-toggle="tooltip" data-placement="bottom" title="Státy ({{$technology->activeStatus}}), které již dokončily technologii."
+     data-toggle="tooltip" data-placement="bottom" title="{{__('states_technology')}} ({{$technology->activeStatus}})"
      onclick="showAndHideElement(this.parentNode.parentNode.parentNode,'nation-active-status')">
 
                         @if($technology->activeStatus > 0)

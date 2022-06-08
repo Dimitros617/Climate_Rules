@@ -8,8 +8,8 @@
     <div class="d-grid w-100 mb-4">
         <div class="flex-wrap d-flex w-100">
             <div class="w-30 d-grid text-start pe-3">
-                <span class="fw-bold fs-3 text-black">Popis</span>
-                <span class="text-start fs-6">Popište vybranou technologii a základní princip funkčnosti.</span>
+                <span class="fw-bold fs-3 text-black">{{__('label')}}</span>
+                <span class="text-start fs-6">  {{__('describe_the_selected_technology')}}       </span>
             </div>
             <div class="w-70">
                 <textarea @if($my_nation_technology->first_try == 1 && Auth::permition()->admin !=1) disabled @endif id="technology-certificate-description" class="w-100 p-2 rounded-2 shadow-sm" style="min-height: 100px; min-width: 100%; max-width: 100%" maxlength="2000" placeholder="Zde popište technologii, max 2000 znaků." >{{$my_nation_technology->chose_description}}</textarea>
@@ -21,11 +21,9 @@
     <div class="d-grid w-100 mb-4">
         <div class="flex-wrap d-flex w-100">
             <div class="w-30 d-grid text-start pe-3">
-                <span class="fw-bold fs-3 text-black">Výhody</span>
+                <span class="fw-bold fs-3 text-black"> {{__('benefits')}} </span>
                 <span class="text-start fs-6">
-                    Jaké výhody technologie přináší pro planetu a vaši zemi?
-                    <br>
-                    U každé výhody napište zdůvodnění.
+                    {{__('what_benefits')}}
                 </span>
             </div>
             <div class="w-70">
@@ -38,11 +36,9 @@
     <div class="d-grid w-100 mb-4">
         <div class="flex-wrap d-flex w-100">
             <div class="w-30 d-grid text-start pe-3">
-                <span class="fw-bold fs-3 text-black">Nevýhody</span>
+                <span class="fw-bold fs-3 text-black">{{__('disadvantages')}}</span>
                 <span class="text-start fs-6">
-                    Zhodnoťte kriticky, jaké nevýhody a rizika s sebou nese vybraná technologie?
-                    <br>
-                    U každé nevýhody napište zdůvodnění.
+                    {{__('what_disadvantages')}}
                 </span>
             </div>
             <div class="w-70">
@@ -55,11 +51,9 @@
     <div class="d-grid w-100 mb-4">
         <div class="flex-wrap d-flex w-100">
             <div class="w-30 d-grid text-start pe-3">
-                <span class="fw-bold fs-3 text-black">Business využití</span>
+                <span class="fw-bold fs-3 text-black">{{__('business_of_use')}}</span>
                 <span class="text-start fs-6">
-                    Popište, jaký má technologie potenciál na využití ve firemní sféře.
-                    <br>
-                    Jaké firmy by mohly na technologii vydělávat a jak?
+                    {{__('describe_the_selected_technology_potencial')}}
                 </span>
             </div>
             <div class="w-70">
@@ -72,11 +66,9 @@
     <div class="d-grid w-100 mb-4">
         <div class="flex-wrap d-flex w-100">
             <div class="w-30 d-grid text-start pe-3">
-                <span class="fw-bold fs-3 text-black">Přínos pro lidi</span>
+                <span class="fw-bold fs-3 text-black">{{__('benefits_for_people')}}</span>
                 <span class="text-start fs-6">
-                    Jak vysvětlíte svým občanům, proč jste investovali právě do této technologie?
-                    <br>
-                    Jaké přínosy má technologie pro lidi a proč?
+                    {{__('how_do_we_explain')}}
                 </span>
             </div>
             <div class="w-70">
@@ -102,11 +94,11 @@
         " @if($my_nation_technology->first_try == 1 && Auth::permition()->admin !=1) disabled @endif type="checkbox" style="transform: scale(1.2)" id="one-pay-verify" class=" form-check-input m-0 p-0 ms-1 me-3" role="switch">
         <span >
             @if($my_nation_technology->first_try == 1 && Auth::permition()->admin !=1)
-                Formulář nelze znovu odeslat, počkejte na schválení nebo na vrácení.
+                {{__('resubmitted')}}
             @elseif($my_nation_technology->first_try == 1 && Auth::permition()->admin ==1)
-                Opravdu chci tento formulář schválit.
+                {{__('i_really_want_to_aprove_this_form.')}}
             @else
-                Opravdu chci tento formulář odeslat a jsem si vědom, že to mohu udělat <b class="text-red"> pouze jednou. </b>
+                {{__('to_submit')}}
             @endif
         </span>
     </div>
@@ -127,7 +119,7 @@
 
             "type="checkbox" style="transform: scale(1.2)" id="one-pay-deny" class=" form-check-input m-0 p-0 ms-1 me-3" role="switch">
             <span >
-                Opravdu chci tento formulář zamítnout a vrátit k přepracování.
+                {{__('back_to_editing')}}
             </span>
         </div>
     @endif

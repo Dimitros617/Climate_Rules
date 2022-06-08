@@ -35,12 +35,12 @@
                                   <path d="M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z"/>
                                 </svg>
                             </span>
-                        Souhrn
+                            {{ __('summarize')}}
                     </div>
 
                     <div class="d-flex flex-wrap justify-content-between">
                         <span class="fs-4 pt-1">
-                            Zůstatek</span>
+                            {{ __('balance')}}</span>
                         <span>
                             <span class="fs-3 fw-bold">{{$my_nation->money}}</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
@@ -50,7 +50,7 @@
 
 
                     <div class="d-flex flex-wrap justify-content-between">
-                        <span class="fs-5 pt-1">Půjčky jiným</span>
+                        <span class="fs-5 pt-1">{{ __('loans_to_others')}}</span>
                         <span>
                             <span class="fs-4 fw-bold">0</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="d-flex flex-wrap justify-content-between">
-                        <span class="fs-5 pt-1">Dluhy ostatním</span>
+                        <span class="fs-5 pt-1">{{ __('debts_to_others')}}</span>
                         <span>
                             <span class="fs-4 fw-bold">0</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="d-flex flex-wrap justify-content-between ">
-                        <span class="fs-5 pt-1">Hodnota technologií</span>
+                        <span class="fs-5 pt-1">{{ __('value_of_technology')}}</span>
                         <span>
                             <span class="fs-4 fw-bold">{{$technology_value}}</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
@@ -76,7 +76,7 @@
 
                     </div>
                     <div class="d-flex flex-wrap justify-content-between ">
-                        <span class="fs-5 pt-1">Příjem za další období</span>
+                        <span class="fs-5 pt-1">{{ __('income_for_a_longer_period')}}</span>
                         <span>
                             <span class="fs-4 fw-bold">{{$next_round_icome}}</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
@@ -87,10 +87,10 @@
 
                 <div class=" w-50 d-grid">
 
-                    <button class="btn btn-primary w-90 m-2 ms-5" onclick="getOnePayForm({{$lobby->id}})">Jednorázová platba</button>
-                    <button class="btn btn-primary w-90 m-2 ms-5" disabled>Půjčit někomu</button>
-                    <button class="btn btn-primary w-90 m-2 ms-5" disabled>Zažádat o půjčku</button>
-                    <button class="btn btn-primary w-90 m-2 ms-5" @if($edit_tax == 1) disabled @endif onclick="changeNationTax()">Změnit daně</button>
+                    <button class="btn btn-primary w-90 m-2 ms-5" onclick="getOnePayForm({{$lobby->id}})">{{ __('one-time_payment')}}</button>
+                    <button class="btn btn-primary w-90 m-2 ms-5" disabled>{{ __('lend_to_somebody')}}</button>
+                    <button class="btn btn-primary w-90 m-2 ms-5" disabled>{{ __('apply_for_a_loan')}}</button>
+                    <button class="btn btn-primary w-90 m-2 ms-5" @if($edit_tax == 1) disabled @endif onclick="changeNationTax()">{{ __('change_taxes')}}</button>
 
                 </div>
 

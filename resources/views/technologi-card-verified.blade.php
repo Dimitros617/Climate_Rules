@@ -24,7 +24,7 @@
             </div>
             <div class="pt-5">
                 <span class="fs-5 text-muted">
-                    Cena:
+                    {{__('price')}}:
                 </span>
                 <span class=" fw-bold d-inline-flex fs-2">
                         <span class="technology-price">{{$technology->price}}</span>

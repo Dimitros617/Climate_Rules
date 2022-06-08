@@ -11,11 +11,10 @@
         <div class="d-grid w-75 mx-auto bg-light rounded-3 shadow-sm overflow-hidden p-4">
             <div class="md:col-span-1">
                 <div class="px-4 sm:px-0">
-                    <h1 class="fs-1 fw-bold">Informace o
-                        uživateli {{$user[0] -> userNick}}</h1>
+                    <h1 class="fs-1 fw-bold">{{__('user_info')}} {{$user[0] -> userNick}}</h1>
 
                     <p class="mt-1 text-md text-muted">
-                        Pozor, aby jste neupravili něco jiného!
+                        {{__('attention')}}
                     </p>
                 </div>
             </div>
@@ -36,7 +35,7 @@
                                 <!-- Přezdívka -->
                                 <div class="d-inline-flex w-100">
                                     <label class="fs-3 fw-bold me-2 w-25" for="nick">
-                                        Přezdívka
+                                        {{__('nickname')}}
                                     </label>
 
                                     <input class=" rounded-3 fs-5 shadow-sm w-75 mt-1 p-2" id="nick" style="border: 1px solid silver;"
@@ -60,8 +59,7 @@
                                 </div>
 
                                 <div class="d-inline-flex w-100">
-                                    <label class="fs-3 fw-bold me-2 w-25" for="selectPermition">Role
-                                        uživatele: </label>
+                                    <label class="fs-3 fw-bold me-2 w-25" for="selectPermition">{{__('users_role')}}: </label>
                                     <select class="form-select fs-5 rounded-md shadow-sm mt-1 w-75"
                                             name="selectPermition"
                                             oninput="document.getElementById('userDataForm').getElementsByClassName('submit')[0].removeAttribute('hidden')">
@@ -81,7 +79,7 @@
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
                             <button type="submit button"
                                     class="btn btn-danger w-25 float-end p-2 w-10rem text-white px-4 py-2">
-                                <div id="buttonText" class="fs-5">Uložit změny</div>
+                                <div id="buttonText" class="fs-5">{{__('save_changes')}}</div>
                                 <div id="buttonLoading" class="spinner-grow text-light" role="status" hidden></div>
                             </button>
                         </div>

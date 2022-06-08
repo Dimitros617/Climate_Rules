@@ -5,7 +5,7 @@
 
 {{--    Technology id to tabulky technologies--}}
     <div id="technology-setting-id" technology_id="{{$technology->id}}"></div>
-    <div class="fs-2 mb-4 mt-2 fw-bold pb-1 text-black d-grid" style="border-bottom: 2px solid black;">Nastavení technologie - {{$technology->code}}
+    <div class="fs-2 mb-4 mt-2 fw-bold pb-1 text-black d-grid" style="border-bottom: 2px solid black;">{{__('technology_settings')}} - {{$technology->code}}
     <span class="fs-5 mt-1 ">{{$technology->name}}</span>
     </div>
 

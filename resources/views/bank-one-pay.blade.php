@@ -1,7 +1,7 @@
 <div class="d-grid">
-    <span class="fs-2 mb-4 mt-2 fw-bold pb-1 text-black" style="border-bottom: 2px solid black;">Poslat jednorázovou platbu</span>
+    <span class="fs-2 mb-4 mt-2 fw-bold pb-1 text-black" style="border-bottom: 2px solid black;">{{ __('send_a_one-time_payment')}}</span>
     <div class="d-flex flex-wrap mb-3">
-        <span class="w-7rem pt-1 text-end pe-3">Od:</span>
+        <span class="w-7rem pt-1 text-end pe-3">{{ __('from_state')}}:</span>
         <span id="one-pay-nation-from" class="fs-4 fw-bold text-black" name="{{$my_nation->name}}" nation_id="{{$my_nation->id}}">{{$my_nation->name}}</span>
     </div>
 
@@ -16,7 +16,7 @@
             }
 
             if(this.checked){
-                document.getElementById('one-pay-nation-from').innerHTML = 'Centrální banka'
+                document.getElementById('one-pay-nation-from').innerHTML = '{{__('central_bank')}}'
                 document.getElementById('one-pay-my-nation-select').removeAttribute('hidden');
                 document.getElementById('one-pay-my-nation-select').removeAttribute('disabled');
                 document.getElementById('amouth-admin').removeAttribute('hidden');
@@ -33,12 +33,13 @@
 
             }"
             >
-            <span class="pt-1 text-end pe-3 text-red">Odeslat platbu jako centrální banka</span>
+            <span class="pt-1 text-end pe-3 text-red">{{ __('send_the_payment_as_a_central_bank')}}</span>
+            
         </div>
     @endif
 
     <div class="d-flex flex-wrap mb-3">
-        <span class="w-7rem pt-1 text-end pe-3">Komu:</span>
+        <span class="w-7rem pt-1 text-end pe-3">{{ __('to_state')}}:</span>
         <span class="w-50">
             <select id="one-pay-nation-to" class="rounded-2 shadow-sm p-2 w-100" onclick="if(document.getElementById('one-pay-verify').checked)document.getElementById('one-pay-verify').click()">
                 <option disabled id="one-pay-blank-nation-select" value="-">---</option>
@@ -50,7 +51,7 @@
     </div>
 
     <div class="d-flex flex-wrap mb-3">
-        <span class="w-7rem pt-1 text-end pe-3">Částka:</span>
+        <span class="w-7rem pt-1 text-end pe-3">{{ __('amount')}}:</span>
         <span id="amouth-user">
             <span class="p-2 fw-bold">1</span>
             <input type="range" value="1" min="1" max="{{$my_nation->money}}" id="one-pay-amouth" oninput="this.parentNode.getElementsByClassName('number')[0].value = this.value" class="range" onclick="if(document.getElementById('one-pay-verify').checked)document.getElementById('one-pay-verify').click()">
@@ -80,7 +81,7 @@
     </div>
 
     <div class="d-flex flex-wrap mb-3 mt-4">
-        <span class="w-7rem pt-1 text-end pe-3">Poznámka:</span>
+        <span class="w-7rem pt-1 text-end pe-3">{{ __('note')}}:</span>
         <span class="w-75"><textarea id="one-pay-description" maxlength="350" class="w-100 rounded-2 shadow-sm p-2" style="max-height: 200px; min-height: 50px" placeholder="Zde můžete zadat poznámku k platbě, MAX 350 znaků"></textarea></span>
     </div>
 
@@ -96,7 +97,7 @@
         }
 
         " type="checkbox" style="transform: scale(1.2)" id="one-pay-verify" class=" form-check-input m-0 p-0 ms-1 me-3" role="switch">
-        <span >Opravdu chci tuto platbu odeslat.</span>
+        <span >{{ __('i_really_want_to_send_this_payment')}}.</span>
     </div>
 
 </div>

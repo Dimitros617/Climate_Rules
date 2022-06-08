@@ -8,18 +8,18 @@
 
     <div class="d-grid w-95" onload="setTemperatureBar(this, {{$lobby->gas_step}}); setTemperatureActualValue({{$lobby->gas_step}}, @if(count($rounds) != 0){{$last_round->gases}}@endif )">
         <div class="temperature_labels d-flex flex-wrap justify-content-between text-center fw-bold">
-            <span class="flex-grow-1 fw-bold fs-7 text-start" data-toggle="tooltip" data-placement="bottom" title="Auktuální teplota"><span id="temperature-bar-actual-temp">Počítám...</span> °C</span>
-        </div>
+            <span class="flex-grow-1 fw-bold fs-7 text-start" data-toggle="tooltip" data-placement="bottom" title="{{__('current_temperature')}}"><span id="temperature-bar-actual-temp">{{__('iam_counting')}}...</span> °C</span>
+        </div> 
         <div class="temp-line d-flex flex-wrap justify-content-between text-center fw-bold">
             <span id="temperature-bar-step-line" class="flex-grow-1 h-5px temp-bg-color-0"></span>
-            <span id="temperature-bar-actual-pointer" class="temperature-bar-actual-pointer position-absolute animate-05 " data-toggle="tooltip" data-placement="bottom" title="Aktuální hodnota"  style="margin-top: -10px; opacity: 0.9" onclick="updateTemperatureActualValue({{$lobby->id}})">
+            <span id="temperature-bar-actual-pointer" class="temperature-bar-actual-pointer position-absolute animate-05 " data-toggle="tooltip" data-placement="bottom" title="{{__('current_value')}}"  style="margin-top: -10px; opacity: 0.9" onclick="updateTemperatureActualValue({{$lobby->id}})">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
                     <circle cx="8" cy="8" r="8"/>
                 </svg>
             </span>
         </div>
         <div class="gasses_labels d-flex flex-wrap justify-content-between text-center text-black">
-            <span class="flex-grow-1 fw-bold fs-7 text-start" data-toggle="tooltip" data-placement="bottom" title="Auktuální skleníkové plyny"><span id="temperature-bar-actual-gas">...</span> SP</span>
+            <span class="flex-grow-1 fw-bold fs-7 text-start" data-toggle="tooltip" data-placement="bottom" title="{{__('current_greenhouse_gases')}}"><span id="temperature-bar-actual-gas">...</span> {{__('gg')}}</span>
         </div>
 
     </div>
