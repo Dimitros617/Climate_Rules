@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('permition')->insert([
             'id' => 1,
-            'name' => 'Nový',
+            'name' => 'new',
             'default' => 1,
             'show' => 1,
             'play' => 0,
@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('permition')->insert([
             'id' => 2,
-            'name' => 'Ověřený',
+            'name' => 'verified',
             'show' => 1,
             'play' => 1,
             'admin' => 0,
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('permition')->insert([
             'id' => 3,
-            'name' => 'Admin',
+            'name' => 'admin',
             'show' => 1,
             'play' => 1,
             'admin' => 1,
@@ -46,9 +46,13 @@ class DatabaseSeeder extends Seeder
         //languages
 
         DB::table('languages')->insert([
-            'id' => 1,
             'name' => 'Čeština',
             'code' => 1,
+
+        ]);
+        DB::table('languages')->insert([
+            'name' => 'English',
+            'code' => 2,
 
         ]);
 
@@ -58,21 +62,21 @@ class DatabaseSeeder extends Seeder
 
         DB::table('difficulties')->insert([
             'id' => 1,
-            'name' => 'Easy',
+            'name' => 'easy',
             'code' => 1,
 
         ]);
 
         DB::table('difficulties')->insert([
             'id' => 2,
-            'name' => 'Medium',
+            'name' => 'medium',
             'code' => 2,
 
         ]);
 
         DB::table('difficulties')->insert([
             'id' => 3,
-            'name' => 'Hard',
+            'name' => 'hard',
             'code' => 3,
 
         ]);
@@ -84,7 +88,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('phases')->insert([
             'id' => 1,
-            'name' => 'Nová',
+            'name' => 'new',
             'code' => 1,
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>',
 
@@ -92,7 +96,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('phases')->insert([
             'id' => 2,
-            'name' => 'Probíhá',
+            'name' => 'going_on',
             'code' => 2,
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hourglass-split" viewBox="0 0 16 16"><path d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z"/></svg>',
 
@@ -100,28 +104,28 @@ class DatabaseSeeder extends Seeder
 
         DB::table('phases')->insert([
             'id' => 3,
-            'name' => 'Zprávy',
+            'name' => 'news',
             'code' => 3,
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-dots-fill" viewBox="0 0 16 16"><path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>',
 
         ]);
         DB::table('phases')->insert([
             'id' => 4,
-            'name' => 'Daně',
+            'name' => 'taxes',
             'code' => 4,
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">  <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"/>  <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z"/>  <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>  <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/></svg>',
 
         ]);
         DB::table('phases')->insert([
             'id' => 5,
-            'name' => 'Pauza',
+            'name' => 'break',
             'code' => 5,
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"/></svg>',
 
         ]);
         DB::table('phases')->insert([
             'id' => 6,
-            'name' => 'Ukončeno',
+            'name' => 'done',
             'code' => 6,
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-flag-fill" viewBox="0 0 16 16">  <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"/></svg>',
 
@@ -287,7 +291,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('statistics_types')->insert([
             'position' => 1,
-            'name' => 'Ekonomika',
+            'name' => 'economy',
             'code_name' => 'economy',
             'unit' => 'CRi',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/></svg>',
@@ -295,7 +299,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('statistics_types')->insert([
             'position' => 2,
-            'name' => 'Kupní síla',
+            'name' => 'purchasing_power',
             'code_name' => 'level_economy',
             'unit' => 'CRi',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><g><rect fill="none" height="24" width="24"/><path d="M19,14V6c0-1.1-0.9-2-2-2H3C1.9,4,1,4.9,1,6v8c0,1.1,0.9,2,2,2h14C18.1,16,19,15.1,19,14z M17,14H3V6h14V14z M10,7 c-1.66,0-3,1.34-3,3s1.34,3,3,3s3-1.34,3-3S11.66,7,10,7z M23,7v11c0,1.1-0.9,2-2,2H4c0-1,0-0.9,0-2h17V7C22.1,7,22,7,23,7z"/></g></svg>',
@@ -303,7 +307,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('statistics_types')->insert([
             'position' => 3,
-            'name' => 'Daň',
+            'name' => 'taxes',
             'code_name' => 'tax',
             'unit' => 'CRi',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M7.5,4C5.57,4,4,5.57,4,7.5S5.57,11,7.5,11S11,9.43,11,7.5S9.43,4,7.5,4z M7.5,9C6.67,9,6,8.33,6,7.5S6.67,6,7.5,6 S9,6.67,9,7.5S8.33,9,7.5,9z M16.5,13c-1.93,0-3.5,1.57-3.5,3.5s1.57,3.5,3.5,3.5s3.5-1.57,3.5-3.5S18.43,13,16.5,13z M16.5,18 c-0.83,0-1.5-0.67-1.5-1.5s0.67-1.5,1.5-1.5s1.5,0.67,1.5,1.5S17.33,18,16.5,18z M5.41,20L4,18.59L18.59,4L20,5.41L5.41,20z"/></g></g></g></svg>',
@@ -311,7 +315,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('statistics_types')->insert([
             'position' => 4,
-            'name' => 'Nálada',
+            'name' => 'happiness',
             'code_name' => 'happiness',
             'unit' => 'CRi',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><circle cx="15.5" cy="9.5" r="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M12 16c-1.48 0-2.75-.81-3.45-2H6.88c.8 2.05 2.79 3.5 5.12 3.5s4.32-1.45 5.12-3.5h-1.67c-.7 1.19-1.97 2-3.45 2zm-.01-14C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>',
@@ -319,7 +323,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('statistics_types')->insert([
             'position' => 5,
-            'name' => 'Nespokojenost',
+            'name' => 'discontent',
             'code_name' => 'level_happiness',
             'unit' => 'CRi',
             'positive_value' => 0,
@@ -328,7 +332,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('statistics_types')->insert([
             'position' => 6,
-            'name' => 'Délka života',
+            'name' => 'life_expectancy',
             'code_name' => 'health',
             'unit' => 'let',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>',
@@ -336,7 +340,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('statistics_types')->insert([
             'position' => 7,
-            'name' => 'Znečištění',
+            'name' => 'pollution',
             'code_name' => 'gasses',
             'unit' => 'CRi',
             'positive_value' => 0,
@@ -4196,70 +4200,70 @@ class DatabaseSeeder extends Seeder
 
         DB::table('branches')->insert([
             'id' => '1',
-            'name' => 'Nezařazeno',
+            'name' => 'unclassified',
             'code' => 'nothing',
             'color' => 'aaaead',
         ]);
 
         DB::table('branches')->insert([
             'id' => '2',
-            'name' => 'Vodíková technologie',
+            'name' => 'hydrogen',
             'code' => 'hydrogen',
             'color' => '209be1',
         ]);
 
         DB::table('branches')->insert([
             'id' => '3',
-            'name' => 'Autonomní řízení',
+            'name' => 'autonomous',
             'code' => 'autodrive',
             'color' => 'ebc80c',
         ]);
 
         DB::table('branches')->insert([
             'id' => '4',
-            'name' => 'Umělá inteligence',
+            'name' => 'artificial',
             'code' => 'ai',
             'color' => 'ebc80c',
         ]);
 
         DB::table('branches')->insert([
             'id' => '5',
-            'name' => 'Cirkulární ekonomika',
+            'name' => 'circular',
             'code' => 'circular',
             'color' => 'ebc80c',
         ]);
 
         DB::table('branches')->insert([
             'id' => '6',
-            'name' => 'Termovize',
+            'name' => 'thermovision',
             'code' => 'thermo',
             'color' => 'ebc80c',
         ]);
 
         DB::table('branches')->insert([
             'id' => '7',
-            'name' => 'Virtuální realita',
+            'name' => 'vr',
             'code' => 'vr',
             'color' => 'ebc80c',
         ]);
 
         DB::table('branches')->insert([
             'id' => '8',
-            'name' => 'Nanotechnologie',
+            'name' => 'nanotechnology',
             'code' => 'nano',
             'color' => 'ebc80c',
         ]);
 
         DB::table('branches')->insert([
             'id' => '9',
-            'name' => 'Vesmírné technologie',
+            'name' => 'space',
             'code' => 'space',
             'color' => 'ebc80c',
         ]);
 
         DB::table('branches')->insert([
             'id' => '10',
-            'name' => 'Čistější zdroje a úspora energie',
+            'name' => 'sources',
             'code' => 'energy',
             'color' => 'ebc80c',
         ]);
@@ -4278,58 +4282,53 @@ class DatabaseSeeder extends Seeder
 
         DB::table('areas')->insert([
             'id' => '1',
-            'name' => 'Nezařazeno',
+            'name' => 'unclassified',
             'description' => 'Popisek k nezařazeno',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tree-fill" viewBox="0 0 16 16"><path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z"/></svg>',
         ]);
 
         DB::table('areas')->insert([
-            'name' => 'Zemědělství',
+            'name' => 'agriculture',
             'description' => 'Popisek k zemědělství',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tree-fill" viewBox="0 0 16 16"><path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z"/></svg>',
         ]);
 
         DB::table('areas')->insert([
-            'name' => 'Energetika',
+            'name' => 'power_industry',
             'description' => 'Popisek k energetice',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-battery-charging" viewBox="0 0 16 16">  <path d="M9.585 2.568a.5.5 0 0 1 .226.58L8.677 6.832h1.99a.5.5 0 0 1 .364.843l-5.334 5.667a.5.5 0 0 1-.842-.49L5.99 9.167H4a.5.5 0 0 1-.364-.843l5.333-5.667a.5.5 0 0 1 .616-.09z"/>  <path d="M2 4h4.332l-.94 1H2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h2.38l-.308 1H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>  <path d="M2 6h2.45L2.908 7.639A1.5 1.5 0 0 0 3.313 10H2V6zm8.595-2-.308 1H12a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H9.276l-.942 1H12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.405z"/>  <path d="M12 10h-1.783l1.542-1.639c.097-.103.178-.218.241-.34V10zm0-3.354V6h-.646a1.5 1.5 0 0 1 .646.646zM16 8a1.5 1.5 0 0 1-1.5 1.5v-3A1.5 1.5 0 0 1 16 8z"/></svg>',
         ]);
 
         DB::table('areas')->insert([
-            'name' => 'Doprava',
+            'name' => 'transport',
             'description' => 'Popisek k dopravě',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stoplights-fill" viewBox="0 0 16 16">  <path fill-rule="evenodd" d="M6 0a2 2 0 0 0-2 2H2c.167.5.8 1.6 2 2v2H2c.167.5.8 1.6 2 2v2H2c.167.5.8 1.6 2 2v1a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-1c1.2-.4 1.833-1.5 2-2h-2V8c1.2-.4 1.833-1.5 2-2h-2V4c1.2-.4 1.833-1.5 2-2h-2a2 2 0 0 0-2-2H6zm3.5 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM8 13a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>',
         ]);
 
         DB::table('areas')->insert([
-            'name' => 'Vzdělávání',
+            'name' => 'education',
             'description' => 'Popisek k vzdělávání',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-controller" viewBox="0 0 16 16">  <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z"/>  <path d="M3.051 3.26a.5.5 0 0 1 .354-.613l1.932-.518a.5.5 0 0 1 .62.39c.655-.079 1.35-.117 2.043-.117.72 0 1.443.041 2.12.126a.5.5 0 0 1 .622-.399l1.932.518a.5.5 0 0 1 .306.729c.14.09.266.19.373.297.408.408.78 1.05 1.095 1.772.32.733.599 1.591.805 2.466.206.875.34 1.78.364 2.606.024.816-.059 1.602-.328 2.21a1.42 1.42 0 0 1-1.445.83c-.636-.067-1.115-.394-1.513-.773-.245-.232-.496-.526-.739-.808-.126-.148-.25-.292-.368-.423-.728-.804-1.597-1.527-3.224-1.527-1.627 0-2.496.723-3.224 1.527-.119.131-.242.275-.368.423-.243.282-.494.575-.739.808-.398.38-.877.706-1.513.773a1.42 1.42 0 0 1-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772a2.34 2.34 0 0 1 .433-.335.504.504 0 0 1-.028-.079zm2.036.412c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a13.748 13.748 0 0 0-.748 2.295 12.351 12.351 0 0 0-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 0 0 .426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.504C4.861 9.969 5.978 9.027 8 9.027s3.139.942 3.965 1.855c.164.181.307.348.44.504.214.251.403.472.615.674.318.303.601.468.929.503a.42.42 0 0 0 .426-.241c.18-.408.265-1.02.243-1.776a12.354 12.354 0 0 0-.339-2.406 13.753 13.753 0 0 0-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27-1.036 0-2.063.091-2.913.27z"/></svg>',
         ]);
 
         DB::table('areas')->insert([
-            'name' => 'Zábava',
+            'name' => 'leisure',
             'description' => 'Popisek k zábavě',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-controller" viewBox="0 0 16 16">  <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z"/>  <path d="M3.051 3.26a.5.5 0 0 1 .354-.613l1.932-.518a.5.5 0 0 1 .62.39c.655-.079 1.35-.117 2.043-.117.72 0 1.443.041 2.12.126a.5.5 0 0 1 .622-.399l1.932.518a.5.5 0 0 1 .306.729c.14.09.266.19.373.297.408.408.78 1.05 1.095 1.772.32.733.599 1.591.805 2.466.206.875.34 1.78.364 2.606.024.816-.059 1.602-.328 2.21a1.42 1.42 0 0 1-1.445.83c-.636-.067-1.115-.394-1.513-.773-.245-.232-.496-.526-.739-.808-.126-.148-.25-.292-.368-.423-.728-.804-1.597-1.527-3.224-1.527-1.627 0-2.496.723-3.224 1.527-.119.131-.242.275-.368.423-.243.282-.494.575-.739.808-.398.38-.877.706-1.513.773a1.42 1.42 0 0 1-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772a2.34 2.34 0 0 1 .433-.335.504.504 0 0 1-.028-.079zm2.036.412c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a13.748 13.748 0 0 0-.748 2.295 12.351 12.351 0 0 0-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 0 0 .426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.504C4.861 9.969 5.978 9.027 8 9.027s3.139.942 3.965 1.855c.164.181.307.348.44.504.214.251.403.472.615.674.318.303.601.468.929.503a.42.42 0 0 0 .426-.241c.18-.408.265-1.02.243-1.776a12.354 12.354 0 0 0-.339-2.406 13.753 13.753 0 0 0-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27-1.036 0-2.063.091-2.913.27z"/></svg>',
         ]);
 
         DB::table('areas')->insert([
-            'name' => 'Lékařství',
+            'name' => 'medicine',
             'description' => 'Popisek k lekářství',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bandaid-fill" viewBox="0 0 16 16">  <path d="m2.68 7.676 6.49-6.504a4 4 0 0 1 5.66 5.653l-1.477 1.529-5.006 5.006-1.523 1.472a4 4 0 0 1-5.653-5.66l.001-.002 1.505-1.492.001-.002Zm5.71-2.858a.5.5 0 1 0-.708.707.5.5 0 0 0 .707-.707ZM6.974 6.939a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707ZM5.56 8.354a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm2.828 2.828a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707Zm1.414-2.121a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.706-.708.5.5 0 0 0 .707.708Zm-4.242.707a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm1.414-2.122a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707ZM8.646 3.354l4 4 .708-.708-4-4-.708.708Zm-1.292 9.292-4-4-.708.708 4 4 .708-.708Z"/></svg>',
         ]);
 
-        DB::table('areas')->insert([
-            'name' => 'Lékařství',
-            'description' => 'Popisek k lekářství',
-            'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bandaid-fill" viewBox="0 0 16 16">  <path d="m2.68 7.676 6.49-6.504a4 4 0 0 1 5.66 5.653l-1.477 1.529-5.006 5.006-1.523 1.472a4 4 0 0 1-5.653-5.66l.001-.002 1.505-1.492.001-.002Zm5.71-2.858a.5.5 0 1 0-.708.707.5.5 0 0 0 .707-.707ZM6.974 6.939a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707ZM5.56 8.354a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm2.828 2.828a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707Zm1.414-2.121a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.706-.708.5.5 0 0 0 .707.708Zm-4.242.707a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm1.414-2.122a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707ZM8.646 3.354l4 4 .708-.708-4-4-.708.708Zm-1.292 9.292-4-4-.708.708 4 4 .708-.708Z"/></svg>',
-        ]);
 
 
         //Stav
 
         DB::table('nations_technologies_status')->insert([
-            'name' => 'Koupit',
+            'name' => 'buy',
             'code' => 'new',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/></svg>',
         ]);
@@ -4341,19 +4340,19 @@ class DatabaseSeeder extends Seeder
 //        ]);
 
         DB::table('nations_technologies_status')->insert([
-            'name' => 'Certifikovat',
+            'name' => 'certificate',
             'code' => 'investment',
             'icon' => '',
         ]);
 
         DB::table('nations_technologies_status')->insert([
-            'name' => 'Schvalování certifikace',
+            'name' => 'certification_approaval',
             'code' => 'certificate',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation" viewBox="0 0 16 16">  <path d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z"/>  <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/></svg>',
         ]);
 
         DB::table('nations_technologies_status')->insert([
-            'name' => 'Aktivní',
+            'name' => 'aktive',
             'code' => 'active',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">  <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/></svg>',
         ]);
@@ -4366,7 +4365,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 2,
             'code' => 'T02',
-            'name' => 'Daň z masa',
+            'name' => 'meat_taxes',
             'description' => '',
             'round_show' => 9,
             'price' => 0,
@@ -4418,7 +4417,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 3,
             'code' => 'T03',
-            'name' => 'Zalesnění',
+            'name' => 'afforestation',
             'description' => '',
             'round_show' => 3,
             'price' => 24,
@@ -4451,7 +4450,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 4,
             'code' => 'T04',
-            'name' => 'Protipovodňová technologie',
+            'name' => 'flood_protection_technology',
             'description' => '',
             'round_show' => 2,
             'price' => 12,
@@ -4491,7 +4490,7 @@ class DatabaseSeeder extends Seeder
         DB::table('special_technologies')->insert([
             'technology_id' => 4,
             'code' => 'PZ',
-            'name' => 'Protipovodňová technologie',
+            'name' => 'flood_protection',
             'description' => 'Ochrana před povodněmi',
             'coefficient' => 100,
         ]);
@@ -4500,7 +4499,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 5,
             'code' => 'T05',
-            'name' => 'Mořské stěny',
+            'name' => 'sea_walls',
             'description' => '',
             'round_show' => 2,
             'price' => 18,
@@ -4540,7 +4539,7 @@ class DatabaseSeeder extends Seeder
         DB::table('special_technologies')->insert([
             'technology_id' => 5,
             'code' => 'T',
-            'name' => 'Mořské stěny',
+            'name' => 'sea_walls',
             'description' => 'Ochrana před tsunami',
             'coefficient' => 100,
         ]);
@@ -4549,7 +4548,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 6,
             'code' => 'T06',
-            'name' => 'Zavlažovací systémy',
+            'name' => 'irrigation_systems',
             'description' => '',
             'round_show' => 2,
             'price' => 11,
@@ -4589,7 +4588,7 @@ class DatabaseSeeder extends Seeder
         DB::table('special_technologies')->insert([
             'technology_id' => 6,
             'code' => 'S',
-            'name' => 'Zavlažovací systémy',
+            'name' => 'irrigation_systems',
             'description' => 'Ochrana před suchem',
             'coefficient' => 100,
         ]);
@@ -4598,7 +4597,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 8,
             'code' => 'T08',
-            'name' => 'Daň z vody',
+            'name' => 'water_taxes',
             'description' => '',
             'round_show' => 5,
             'price' => 0,
@@ -4632,7 +4631,7 @@ class DatabaseSeeder extends Seeder
         DB::table('special_technologies')->insert([
             'technology_id' => 8,
             'code' => 'S',
-            'name' => 'Daň z vody',
+            'name' => 'water_tax',
             'description' => 'O 50 % snižuje dopady sucha',
             'coefficient' => 50,
         ]);
@@ -4641,7 +4640,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 9,
             'code' => 'T09',
-            'name' => 'Mediální propagace snižování spotřeby',
+            'name' => 'media_promotion',
             'description' => '',
             'round_show' => 5,
             'price' => 4,
@@ -4675,7 +4674,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 11,
             'code' => 'T11',
-            'name' => 'Investice do obnovitelých zdrojů',
+            'name' => 'investment_in_renewable_reasources',
             'description' => '',
             'round_show' => 3,
             'price' => 10,
@@ -4715,7 +4714,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 13,
             'code' => 'T13',
-            'name' => 'Investice do elektromobility',
+            'name' => 'investment_in_electromobility',
             'description' => 'Popište, jaké zdroje energie lze v elektromobilitě využít. Z balíku 100 % investice rozhdodněte, kolika procenty byste který druh podpořili a proč.',
             'round_show' => 3,
             'price' => 18,
@@ -4755,7 +4754,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 15,
             'code' => 'T15',
-            'name' => 'Vodíková fúze',
+            'name' => 'hydrogen_fusion',
             'description' => '',
             'round_show' => 5,
             'price' => 38,
@@ -4801,7 +4800,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 16,
             'code' => 'T16',
-            'name' => 'Dotace na zateplování',
+            'name' => 'subvention',
             'description' => '',
             'round_show' => 3,
             'price' => 16,
@@ -4841,7 +4840,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 17,
             'code' => 'T17',
-            'name' => 'Zavedení odolnějších odrůd',
+            'name' => 'implementation_of_resistent_cultivares',
             'description' => '',
             'round_show' => 3,
             'price' => 6,
@@ -4875,7 +4874,7 @@ class DatabaseSeeder extends Seeder
         DB::table('special_technologies')->insert([
             'technology_id' => 17,
             'code' => 'S/PZ/VZ/EZ',
-            'name' => 'Zavedení odolnějších odrůd',
+            'name' => 'implementation',
             'description' => 'O 50 % snižuje dopad sucha, povodní, poklesu zemědělských výnosů a epidemie v zemědělství',
             'coefficient' => 50,
         ]);
@@ -4884,7 +4883,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 18,
             'code' => 'T18',
-            'name' => 'Recyklace Cradle2Cradle',
+            'name' => 'recycle_cradle2cradle',
             'description' => '',
             'round_show' => 3,
             'price' => 3,
@@ -4918,7 +4917,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 19,
             'code' => 'T19',
-            'name' => 'Vyléčení rakoviny',
+            'name' => 'cure_cancer',
             'description' => '',
             'round_show' => 5,
             'price' => 10,
@@ -4958,7 +4957,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 20,
             'code' => 'T20',
-            'name' => 'Virtuální světy',
+            'name' => 'virtual_worlds',
             'description' => '',
             'round_show' => 5,
             'price' => 5,
@@ -4992,7 +4991,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 21,
             'code' => 'T21',
-            'name' => 'Zdravotní implantáty',
+            'name' => 'medical_impants',
             'description' => '',
             'round_show' => 5,
             'price' => 15,
@@ -5038,7 +5037,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 22,
             'code' => 'T22',
-            'name' => 'Domácí 3D projekce',
+            'name' => 'homw_3d_projection',
             'description' => '',
             'round_show' => 3,
             'price' => 1,
@@ -5072,7 +5071,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 24,
             'code' => 'T24',
-            'name' => 'Virtuální školství a úřady',
+            'name' => 'virtual_education_and_offices',
             'description' => '',
             'round_show' => 5,
             'price' => 10,
@@ -5112,7 +5111,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 25,
             'code' => 'T25',
-            'name' => 'Technologie superlearningu',
+            'name' => 'superlearning_technology',
             'description' => '',
             'round_show' => 2,
             'price' => 10,
@@ -5152,7 +5151,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 26,
             'code' => 'T26',
-            'name' => 'Daň z ropy',
+            'name' => 'oil_taxes',
             'description' => '',
             'round_show' => 4,
             'price' => 0,
@@ -5198,7 +5197,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 27,
             'code' => 'T27',
-            'name' => 'Virtuální turistika',
+            'name' => 'virtual_tourism',
             'description' => '',
             'round_show' => 3,
             'price' => 7,
@@ -5226,7 +5225,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 28,
             'code' => 'T28',
-            'name' => 'Protipožární systémy',
+            'name' => 'fire-fighting_systems',
             'description' => '',
             'round_show' => 4,
             'price' => 12,
@@ -5254,7 +5253,7 @@ class DatabaseSeeder extends Seeder
         DB::table('special_technologies')->insert([
             'technology_id' => 28,
             'code' => 'P',
-            'name' => 'Protipožární systémy',
+            'name' => 'fire-fighting',
             'description' => 'Ochrana před požáry',
             'coefficient' => 100,
         ]);
@@ -5263,7 +5262,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 29,
             'code' => 'T29',
-            'name' => 'Zákaz cestování',
+            'name' => 'travel_ban',
             'description' => '',
             'round_show' => 4,
             'price' => 0,
@@ -5303,7 +5302,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 30,
             'code' => 'T30',
-            'name' => 'Monitoring vzniku požáru',
+            'name' => 'fire_monitoring',
             'description' => '',
             'round_show' => 2,
             'price' => 12,
@@ -5331,7 +5330,7 @@ class DatabaseSeeder extends Seeder
         DB::table('special_technologies')->insert([
             'technology_id' => 30,
             'code' => 'P',
-            'name' => 'Monitoring vzniku požáru',
+            'name' => 'fire_monitoring',
             'description' => 'Ochrana před požáry',
             'coefficient' => 100,
         ]);
@@ -5340,7 +5339,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 31,
             'code' => 'T31',
-            'name' => 'Vodíková energetika',
+            'name' => 'hydrogen_energy',
             'description' => '',
             'round_show' => 4,
             'price' => 19,
@@ -5380,7 +5379,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 32,
             'code' => 'T32',
-            'name' => 'Pouštní solární elektřina',
+            'name' => 'desert_solar_electricity',
             'description' => '',
             'round_show' => 4,
             'price' => 15,
@@ -5414,7 +5413,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 34,
             'code' => 'T34',
-            'name' => 'Odstavení uhelných elektráren',
+            'name' => 'decommissioning',
             'description' => '',
             'round_show' => 2,
             'price' => 8,
@@ -5454,7 +5453,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 35,
             'code' => 'T35',
-            'name' => 'Zadržování vody v krajině',
+            'name' => 'water_retention_landscape',
             'description' => '',
             'round_show' => 4,
             'price' => 11,
@@ -5494,7 +5493,7 @@ class DatabaseSeeder extends Seeder
         DB::table('special_technologies')->insert([
             'technology_id' => 35,
             'code' => 'S/PZ',
-            'name' => 'Zadržování vody v krajině',
+            'name' => 'water_retention',
             'description' => 'Ochrana před suchem a záplavami/povodněmi',
             'coefficient' => 100,
         ]);
@@ -5503,7 +5502,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 37,
             'code' => 'T37',
-            'name' => 'Městské zóny bez aut',
+            'name' => 'no_cars_public_zones',
             'description' => '',
             'round_show' => 3,
             'price' => 4,
@@ -5537,7 +5536,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 38,
             'code' => 'T38',
-            'name' => 'MHD zdarma',
+            'name' => 'public_transport',
             'description' => '',
             'round_show' => 2,
             'price' => 7,
@@ -5577,7 +5576,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 39,
             'code' => 'T39',
-            'name' => 'Nanotechnologie',
+            'name' => 'nanotechnology',
             'description' => '',
             'round_show' => 2,
             'price' => 2,
@@ -5611,7 +5610,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 40,
             'code' => 'T40',
-            'name' => 'Vesmírná elektrárna',
+            'name' => 'space_plant',
             'description' => '',
             'round_show' => 4,
             'price' => 20,
@@ -5663,7 +5662,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 41,
             'code' => 'T41',
-            'name' => 'Těžba surovin ve vesmíru',
+            'name' => 'space_mining',
             'description' => '',
             'round_show' => 5,
             'price' => 8,
@@ -5691,7 +5690,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 43,
             'code' => 'T43',
-            'name' => 'Daň z letecké dopravy',
+            'name' => 'air_transport_taxes',
             'description' => '',
             'round_show' => 3,
             'price' => 0,
@@ -5737,7 +5736,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 45,
             'code' => 'T45',
-            'name' => 'Vodíkový pohon',
+            'name' => 'hydrogen_propulsion',
             'description' => '',
             'round_show' => 2,
             'price' => 18,
@@ -5777,7 +5776,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 46,
             'code' => 'T46',
-            'name' => 'Autonomní řízení vozidel',
+            'name' => 'autonomous_personal_transport',
             'description' => '',
             'round_show' => 2,
             'price' => 7,
@@ -5817,7 +5816,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 47,
             'code' => 'T47',
-            'name' => 'Podpora rozvoje AI',
+            'name' => 'support_of_ai_development',
             'description' => '',
             'round_show' => 2,
             'price' => 13,
@@ -5851,7 +5850,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 48,
             'code' => 'T48',
-            'name' => 'Sdílená ekonomika',
+            'name' => 'sharing_economy',
             'description' => 'Společné používání jedné věci. Já i soused potřebujeme používat auto, ale ani jeden z nás nepotřebujeme, aby to bylo jeho vlastní auto. A stejně to může fungovat i mezi státy. Sdílet lze například výrobu elektřiny, výrobu aut a jejich součástek, bydlení atd.',
             'round_show' => 2,
             'price' => 3,
@@ -5885,7 +5884,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 49,
             'code' => 'T49',
-            'name' => 'Vesmírné technologie',
+            'name' => 'space_technology',
             'description' => '',
             'round_show' => 2,
             'price' => 14,
@@ -5913,7 +5912,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 50,
             'code' => 'T50',
-            'name' => 'Autonomní vodíková vozidla',
+            'name' => 'autonomous_hydrogen_cars',
             'description' => '',
             'round_show' => 4,
             'price' => 14,
@@ -5946,7 +5945,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 51,
             'code' => 'T51',
-            'name' => 'Ekodesign produktů',
+            'name' => 'ekodesign_products',
             'description' => 'Ekodesign: začíná se již od návrhu produktu tak, aby měl minimální dopad na životní prostředí (nebo rovnou dopad pozitivní). Například takové výrobky, které se po vyhození celé rozloží a nic po nich nezbude.',
             'round_show' => 3,
             'price' => 13,
@@ -5980,7 +5979,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 52,
             'code' => 'T52',
-            'name' => 'Zpracování vyhořelého jaderného paliva',
+            'name' => 'nuclear',
             'description' => '',
             'round_show' => 4,
             'price' => 5,
@@ -6014,7 +6013,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 53,
             'code' => 'T53',
-            'name' => 'Výroba dle 3R principů',
+            'name' => '3r_principles',
             'description' => 'Snížit množství odpadů tím, že věci využijeme znovu nebo jinak (z anglického reduce - reuse - recycle).',
             'round_show' => 5,
             'price' => 7,
@@ -6054,7 +6053,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 54,
             'code' => 'T54',
-            'name' => 'Biomimikry ve stavitelství',
+            'name' => 'biomimicry',
             'description' => 'Využívání principů, které běžně fungují v přírodě, ve stavitelství. Inspirovat se můžeme třeba u kaktusů, některé z nich rostou tak, aby jejich horní části vrhaly stín na spodek rostliny a tím ji ochlazovaly.',
             'round_show' => 4,
             'price' => 12,
@@ -6088,7 +6087,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 55,
             'code' => 'T55',
-            'name' => 'Termovize',
+            'name' => 'thermovision',
             'description' => '',
             'round_show' => 2,
             'price' => 11,
@@ -6122,7 +6121,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 58,
             'code' => 'T58',
-            'name' => 'Projektový den Climate rules',
+            'name' => 'project_day_climate_rules',
             'description' => 'Zjisti základní informace o tomto projektu.',
             'round_show' => 1,
             'price' => 5,
@@ -6150,7 +6149,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 59,
             'code' => 'T59',
-            'name' => 'Inovace ve vzdělávání',
+            'name' => 'innovation_in_education',
             'description' => '',
             'round_show' => 1,
             'price' => 12,
@@ -6184,7 +6183,7 @@ class DatabaseSeeder extends Seeder
         DB::table('special_technologies')->insert([
             'technology_id' => 59,
             'code' => 'NV',
-            'name' => 'Inovace ve vzdělávání',
+            'name' => 'innovation',
             'description' => 'Ochrana před nízkou kvalitou vzdělávání',
             'coefficient' => 100,
         ]);
@@ -6193,7 +6192,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 81,
             'code' => 'T81',
-            'name' => 'EAŘ - Autonomní osobní přeprava',
+            'name' => 'eař_-_autonomous_personal_transport',
             'description' => 'Naprogramujte mBota tak, aby při zjištění překážky postupně zpomaloval a zastavil před ní. Bonus: Cítíte-li se na víc, zajistěte, aby se mBot při zjištění překážky pokusil ji objet a pokračovat ve stejném směru. Pokud se mu 4x za sebou nepodaří najít volný prostor pro pokračování v jízdě, zastaví se.',
             'round_show' => 4,
             'price' => 20,
@@ -6232,7 +6231,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 82,
             'code' => 'T82',
-            'name' => 'EAŘ - Autonomní dálková přeprava',
+            'name' => 'eař_-_autonomous_long-haul_trucking',
             'description' => 'Naučte autíčko Maqueen tak, aby rozpoznalo vámi určený objekt před sebou a následovalo jej.',
             'round_show' => 4,
             'price' => 20,
@@ -6271,7 +6270,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 83,
             'code' => 'T83',
-            'name' => 'EAI - Rozpoznávání obrazu',
+            'name' => 'eai_-_image_recognition',
             'description' => 'Připravte určování rostliných a živočišných druhů či potenciálních chorob rostlin na základě rozpoznání obrazu dle upřesnění TCA.',
             'round_show' => 4,
             'price' => 20,
@@ -6310,7 +6309,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 84,
             'code' => 'T84',
-            'name' => 'EAI - Rozpoznávání zvuku',
+            'name' => 'eai_-_sound_recognition',
             'description' => 'Připravte experiment na rozpoznání zvuku pomocí teachable machine či jiné tecnologie dle upřesnění TCA.',
             'round_show' => 4,
             'price' => 20,
@@ -6349,7 +6348,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 85,
             'code' => 'T85',
-            'name' => 'EVT - Vodík v mobilitě',
+            'name' => 'evt_-_hydrogen_mobility',
             'description' => 'Sestavte experiment výroby vodíku pomocí elektrolýzy a následně generování elektrického proudu z vyrobeného vodíku pro pohyb elektromobilu.',
             'round_show' => 4,
             'price' => 20,
@@ -6388,7 +6387,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 86,
             'code' => 'T86',
-            'name' => 'EVT - Vodík v energetice',
+            'name' => 'evt_-_hydrogen_in_the_power_industry',
             'description' => 'Sestavte experiment výroby vodíku pomocí elektrolýzy a následně generování elektrického proudu z vyrobeného vodíku pro provoz zařízení.',
             'round_show' => 4,
             'price' => 20,
@@ -6427,7 +6426,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 87,
             'code' => 'T87',
-            'name' => 'ECE - Ekologické náhrady',
+            'name' => 'ece_-_eco-friendly_substitutes',
             'description' => 'Navrhněte vhodné ekologické nahrazení produktů předaných či určených TCA.',
             'round_show' => 4,
             'price' => 20,
@@ -6466,7 +6465,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 88,
             'code' => 'T88',
-            'name' => 'ECE - Průmyslová symbióza',
+            'name' => 'ece_-_industrial_symbiosis',
             'description' => 'Navrhněte vhodné využití, aby generovaný odpad našel uplatnění jako zdroj v jiné výrobě, tj. aby to, co je pro jednu továrnu odpadem, bylo pro jinou továrnu výrobním materiálem.',
             'round_show' => 4,
             'price' => 20,
@@ -6505,7 +6504,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 89,
             'code' => 'T89',
-            'name' => 'ETV - Termovize a tkáně',
+            'name' => 'etv_-_thermal_imaging_and_tissues',
             'description' => 'Navrhněte vhodné řešení využití termovize v oblasti živých tkání a organismů.',
             'round_show' => 4,
             'price' => 20,
@@ -6544,7 +6543,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 90,
             'code' => 'T90',
-            'name' => 'ETV - Termovize a materiály',
+            'name' => 'etv_-_thermal_imaging_and_materials',
             'description' => 'Navrhněte vhodné řešení využití termovize v oblasti materiálů.',
             'round_show' => 4,
             'price' => 20,
@@ -6584,7 +6583,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 91,
             'code' => 'T91',
-            'name' => 'EVR - Virtuální realita pro život',
+            'name' => 'evr_-_vr_in_life',
             'description' => 'Navrhněte vhodné řešení využití virtuální reality v oblasti sociální a zlepšení kvality života.',
             'round_show' => 4,
             'price' => 20,
@@ -6623,7 +6622,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies')->insert([
             'id' => 92,
             'code' => 'T92',
-            'name' => 'EVR - Virtuální realita pro ekonomiku',
+            'name' => 'evr_-_vr_in_economy',
             'description' => 'Navrhněte vhodné řešení využití virtuální reality v oblasti ekonomiky, hospodářství, byznysu.',
             'round_show' => 4,
             'price' => 20,
@@ -6663,37 +6662,37 @@ class DatabaseSeeder extends Seeder
         //Money trancastion types
 
         DB::table('money_transaction_types')->insert([
-            'name' => 'Běžná platba',
+            'name' => 'common_pay',
             'code' => 'common_pay',
         ]);
 
         DB::table('money_transaction_types')->insert([
-            'name' => 'Splátka dluhu',
+            'name' => 'debit_pay',
             'code' => 'debt_pay',
         ]);
 
         DB::table('money_transaction_types')->insert([
-            'name' => 'Půjčka',
+            'name' => 'loan',
             'code' => 'loan',
         ]);
 
         DB::table('money_transaction_types')->insert([
-            'name' => 'Pokuta',
+            'name' => 'penalty',
             'code' => 'penalty',
         ]);
 
         DB::table('money_transaction_types')->insert([
-            'name' => 'Odměna',
+            'name' => 'reward_pay',
             'code' => 'reward_pay',
         ]);
 
         DB::table('money_transaction_types')->insert([
-            'name' => 'Nákup',
+            'name' => 'buy_pay',
             'code' => 'buy_pay',
         ]);
 
         DB::table('money_transaction_types')->insert([
-            'name' => 'Ostatní',
+            'name' => 'other',
             'code' => 'other',
         ]);
 
