@@ -2,12 +2,12 @@
 
     <div class="me-2 d-table" style="width: 10px">
         @foreach($technology->branches as $branch)
-            <div class="w-100 d-table-cell" data-toggle="tooltip" data-placement="bottom" title="{{$branch->name}}" style="background-color: #{{$branch->color}}"></div>
+            <div class="w-100 d-table-cell" data-toggle="tooltip" data-placement="bottom" title="{{__($branch->name)}}" style="background-color: #{{$branch->color}}"></div>
         @endforeach
     </div>
     <div class="d-flex flex-wrap" style="width: 98%">
         <div class=" technology-name fw-bold fs-5 p-2 ps-3 pe-3 text-start w-100 text-uppercase">
-            {{$technology->technology_name}}
+            {{__($technology->technology_name)}}
         </div>
 
         <div class="w-100 d-inline-flex">

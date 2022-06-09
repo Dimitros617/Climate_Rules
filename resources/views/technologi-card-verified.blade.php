@@ -10,7 +10,7 @@
             @include('technologi-card-image')
             <div class="text-center mt-3">
                 <span class="technology-name fw-bold fs-5 mt-5 text-center w-100 text-uppercase">
-                    {{$technology->technology_name}}
+                    {{__($technology->technology_name)}}
                 </span>
             </div>
         </div>

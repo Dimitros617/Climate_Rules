@@ -3,7 +3,7 @@
     <span class="text-center mt--1  mb--1 text-uppercase"> {{__('current_year')}}  @include('earth')
 
     <div class="d-flex flex-wrap justify-content-between p-2 ps-4">
-                    <span data-toggle="tooltip" data-placement="bottom" title="Fáze hry: {{$lobby_phase->name}}" class="scale-200 p-2">
+                    <span data-toggle="tooltip" data-placement="bottom" title="{{__('phase_of_the_game')}}: {{__($lobby_phase->name)}}" class="scale-200 p-2">
                         @php echo htmlspecialchars_decode($lobby_phase->icon) @endphp
                     </span>
         <span class="fs-5">

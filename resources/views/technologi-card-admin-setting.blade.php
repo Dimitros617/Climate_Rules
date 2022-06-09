@@ -41,7 +41,7 @@
                         }
                     @endphp
                 @foreach($technology_statuses as $tech_status)
-                <option value="{{$tech_status->code}}" @if($tech_status->code == $ret_code) selected  @endif>{{$tech_status->name}}</option>
+                <option value="{{$tech_status->code}}" @if($tech_status->code == $ret_code) selected  @endif>{{__($tech_status->name)}}</option>
                 @endforeach
             </select>
         </span>

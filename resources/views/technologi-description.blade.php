@@ -5,10 +5,10 @@
     </div>
 
     <div class="w-70 p-3">
-        <div class="fw-bold text-black text-center w-100 fs-2 mb-3 pb-1 mt-2" style="border-bottom: 2px solid black">{{$technology->code}} - {{$technology->name}}</div>
+        <div class="fw-bold text-black text-center w-100 fs-2 mb-3 pb-1 mt-2" style="border-bottom: 2px solid black">{{$technology->code}} - {{__($technology->name)}}</div>
 
         <div>
-            {{$technology->description}}
+            {{__($technology->description)}}
         </div>
     </div>
 </div>

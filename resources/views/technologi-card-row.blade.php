@@ -3,7 +3,7 @@
 
     <div class="me-2 d-table" style="width: 10px">
         @foreach($technology->branches as $branch)
-        <div class="w-100 d-table-cell" data-toggle="tooltip" data-placement="bottom" title="{{$branch->name}}" style="background-color: #{{$branch->color}}"></div>
+        <div class="w-100 d-table-cell" data-toggle="tooltip" data-placement="bottom" title="{{__($branch->name)}}" style="background-color: #{{$branch->color}}"></div>
         @endforeach
     </div>
 
@@ -62,7 +62,7 @@
 
                 <div class="pt-4 w-50 text-center">
                             <span class="fs-5 text-muted">
-                                Cena:
+                                {{__('price')}}:
                             </span>
                             <span class="fw-bold d-inline-flex fs-2">
                                 <span class="technology-price">{{$technology->price}}</span>
@@ -95,7 +95,7 @@
                         </span>
                     </div>
                     <div class="" >
-                        <button type="button" disabled class="btn btn-primary w-100 h-100"> {{$nation_status->name}}</button>
+                        <button type="button" disabled class="btn btn-primary w-100 h-100"> {{__($nation_status->name)}}</button>
                     </div>
 
                 </div>
@@ -115,7 +115,7 @@
                         </span>
                     </div>
                     <div class="" >
-                        <button type="button" disabled class="btn btn-primary w-100 h-100"> {{$nation_status->name}}</button>
+                        <button type="button" disabled class="btn btn-primary w-100 h-100"> {{__($nation_status->name)}}</button>
                     </div>
 
                 </div>

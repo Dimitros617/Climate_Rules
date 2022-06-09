@@ -19,7 +19,7 @@
                     <div class="head_statistic_type fw-bold w-content d-inline-flex p-3 mx-auto mx-md-0 mt-2 text-center">
                         <div class="d-inline-flex">
                             <div class="w-content h-content" style="transform: scale(2)">@php echo htmlspecialchars_decode($table_row[0]->icon) @endphp</div>
-                            <div class="ms-4">{{$table_row[0]->name}}</div>
+                            <div class="ms-4">{{__($table_row[0]->name)}}</div>
                         </div>
                         <div>
                         @if($edit_tax == 0 && $table_row[0]->code_name == 'tax')

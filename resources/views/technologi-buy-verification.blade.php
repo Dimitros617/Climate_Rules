@@ -11,7 +11,7 @@
 
             <div class="d-flex flex-wrap mb-3">
                 <span class="w-7rem pt-1 text-end me-3">{{__('technologies')}}:</span>
-                <span id="one-pay-technology" class="fs-4 fw-bold text-black w-75 text-start" >{{$technology->technology_name}} </span>
+                <span id="one-pay-technology" class="fs-4 fw-bold text-black w-75 text-start" >{{__($technology->technology_name)}} </span>
             </div>
 
             <div class="d-flex flex-wrap mb-3 ">

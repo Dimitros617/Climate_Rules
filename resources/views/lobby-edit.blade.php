@@ -26,7 +26,7 @@
         <input class="phase border-0 bg-light rounded-4"  name="phase" value="{{$lobby->phase}}" hidden>
         <select class="border-0 bg-light p-2 ps-4 pe-4 shadow-sm rounded-4" onchange="this.parentNode.getElementsByClassName('phase')[0].value = this.value">
             @foreach($phases as $phase)
-                <option value="{{$phase->code}}" @if($phase->code == $lobby->phase) selected @endif @if($phase->code == 1) disabled @endif>{{$phase->name}}</option>
+                <option value="{{$phase->code}}" @if($phase->code == $lobby->phase) selected @endif @if($phase->code == 1) disabled @endif>{{__($phase->name)}}</option>
 
             @endforeach
         </select>
@@ -35,7 +35,7 @@
         <input class="difficulty border-0 bg-light rounded-4"  name="difficulty" value="{{$lobby->difficulty}}" hidden>
         <select class="border-0 bg-light p-2 ps-4 pe-4 shadow-sm rounded-4"  onchange="this.parentNode.getElementsByClassName('difficulty')[0].value = this.value">
             @foreach($difficulties as $difficulty)
-                <option value="{{$difficulty->code}}" @if($difficulty->code == $lobby->difficulty) selected @endif>{{$difficulty->name}}</option>
+                <option value="{{$difficulty->code}}" @if($difficulty->code == $lobby->difficulty) selected @endif>{{__($difficulty->name)}}</option>
 
             @endforeach
         </select>
@@ -44,7 +44,7 @@
         <input class="language border-0 bg-light rounded-4"  name="language" value="{{$lobby->language}}" hidden>
         <select class="border-0 bg-light p-2 ps-4 pe-4 shadow-sm rounded-4" onchange="this.parentNode.getElementsByClassName('language')[0].value = this.value">
             @foreach($languages as $language)
-                <option value="{{$language->code}}" @if($language->code == $lobby->language) selected @endif>{{$language->name}}</option>
+                <option value="{{$language->code}}" @if($language->code == $lobby->language) selected @endif>{{__($language->name)}}</option>
 
             @endforeach
         </select>

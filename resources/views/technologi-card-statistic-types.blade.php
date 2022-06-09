@@ -27,7 +27,7 @@
                     @endphp
 
 
-                    <span data-toggle="tooltip" data-placement="bottom" title="{{$stat->name}} " >
+                    <span data-toggle="tooltip" data-placement="bottom" title="{{__($stat->name)}} " >
 
                         <div class="pt-1 text-center justify-content-center d-flex text-black" style="transform: scale(2); color: {{$color}}" >
                             @php echo htmlspecialchars_decode($stat->icon) @endphp
@@ -45,7 +45,7 @@
     </div>
     <div class="w-100 d-flex flex-wrap justify-content-around text-center">
         @foreach($technology->special_events as $event)
-            <div class="d-grid" data-toggle="tooltip" data-placement="bottom" title="{{$event->name}} ">
+            <div class="d-grid" data-toggle="tooltip" data-placement="bottom" title="{{__($event->name)}} ">
                 <span class=" m-1 mt-2 fs-5 fw-bold">{{$event->code}}</span>
                 <span class=" fs-6 ">{{$event->coefficient}}%</span>
             </div>

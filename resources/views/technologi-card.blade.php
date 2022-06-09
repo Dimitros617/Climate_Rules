@@ -10,7 +10,7 @@
 
             <div class="text-center mt-3">
                 <span class=" technology-name fw-bold fs-5 mt-5 text-center w-100 text-uppercase">
-                    {{$technology->technology_name}}
+                    {{__($technology->technology_name)}}
                 </span>
 
             </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="pt-3">
                 <span class="fs-5 text-muted">
-                    Cena:
+                    {{__('price')}}:
                 </span>
                 <span class="fw-bold d-inline-flex fs-2">
                         <span class="technology-price">{{$technology->price}}</span>
@@ -52,7 +52,7 @@
                     </span>
                     </div>
                     <div class="" >
-                        <button type="button" disabled class="btn btn-primary w-100 h-100"> {{$nation_status->name}}</button>
+                        <button type="button" disabled class="btn btn-primary w-100 h-100"> {{__($nation_status->name)}}</button>
                     </div>
 
                 </div>
@@ -72,7 +72,7 @@
                     </span>
                     </div>
                     <div class="" >
-                        <button type="button" disabled class="btn btn-primary w-100 h-100"> {{$nation_status->name}}</button>
+                        <button type="button" disabled class="btn btn-primary w-100 h-100"> {{__($nation_status->name)}}</button>
                     </div>
 
                 </div>

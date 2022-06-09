@@ -17,7 +17,7 @@
     <div class="d-grid flex-column p-3 position-absolute" style="border-radius: 5px 0 0 5px; background-color: rgba(0,0,0,0.17); top: 5px; right: 0px">
         @foreach($technology->areas as $area)
 
-            <span class="h-content text-white m-1 animate-02 hover-size-01" data-toggle="tooltip" data-placement="bottom" title="{{$area->name}}" style="transform: scale(1.5); opacity: 0.9;">
+            <span class="h-content text-white m-1 animate-02 hover-size-01" data-toggle="tooltip" data-placement="bottom" title="{{__($area->name)}}" style="transform: scale(1.5); opacity: 0.9;">
                                         @php echo htmlspecialchars_decode($area->icon) @endphp
                             </span>
         @endforeach

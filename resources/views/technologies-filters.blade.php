@@ -4,7 +4,7 @@
         <div class="card-body row no-gutters align-items-center h-4rem">
 
             <div class="col">
-                <input name="search" class="filter-search form-control-borderless p-3 fs-4 z-50  rounded-3 overflow-hidden fs-5 shadow-sm" id="search" type="search" placeholder="Zadejte hledaný výraz">
+                <input name="search" class="filter-search form-control-borderless p-3 fs-4 z-50  rounded-3 overflow-hidden fs-5 shadow-sm" id="search" type="search" placeholder="{{__('enter_a_search_term')}}">
 
             </div>
 
@@ -12,7 +12,7 @@
             <div class="col-auto searchButtonDiv">
 
 
-                        <span data-toggle="tooltip" data-placement="bottom" title="Najít" onclick="filterAll('search-form')">
+                        <span data-toggle="tooltip" data-placement="bottom" title="{{__('search')}}" onclick="filterAll('search-form')">
                             <svg class=" cr-blue animate-02 hover-size-01 cursor-pointer me-2" xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="3rem" width="3rem" viewBox="0 0 24 24"  ><path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                         </span>
                 <span onclick="swapCardAndRow('card-row-container','card-box-container', this)" active="0" class="card-row-swap">
@@ -44,12 +44,12 @@
 
         @foreach($statistics_types as $stat)
             <div class="filter-statistic-type d-inline-flex bg-white rounded-3 m-2 p-3 flex-lg-grow-1 shadow-sm" code="{{$stat->code_name}}">
-                <div class="w-25 me-3 hover-size-01 animate-05" data-toggle="tooltip" data-placement="bottom" title="{{$stat->name}}">
+                <div class="w-25 me-3 hover-size-01 animate-05" data-toggle="tooltip" data-placement="bottom" title="{{__($stat->name)}}">
                     <div class="w-content mt-3 ms-3 z-0" style="transform: scale(2.5)">@php echo htmlspecialchars_decode($stat->icon) @endphp</div>
                 </div>
                 <div class=" w-75 form-check form-switch d-grid text-center justify-content-center p-0 pt-2">
                     <input onchange="filterAll('search-form')" style="transform: scale(1.2)" class="form-check-input m-0 p-0 ms-1" checked type="checkbox" role="switch" name="{{$stat->code_name}}" id="flexSwitchCheckDefault">
-                    <label class="form-check-label mt-1 fw-bold" style=" font-size: 10px" for="flexSwitchCheckDefault">{{$stat->name}}</label>
+                    <label class="form-check-label mt-1 fw-bold" style=" font-size: 10px" for="flexSwitchCheckDefault">{{__($stat->name)}}</label>
                 </div>
             </div>
         @endforeach
@@ -76,7 +76,7 @@
                         <select onchange="filterAll('search-form')" class="filter-branch form-select w-100" aria-label="Default select example">
                             <option selected value="-">{{__('not_selected')}}</option>
                             @foreach($branches as $branch)
-                                <option value="{{$branch->name}}">{{$branch->name}}</option>
+                                <option value="{{__($branch->name)}}">{{__($branch->name)}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -88,7 +88,7 @@
                         <select onchange="filterAll('search-form')" class="filter-areas form-select w-100" aria-label="Default select example">
                             <option selected value="-">{{__('not_selected')}}</option>
                             @foreach($areas as $area)
-                                <option value="{{$area->name}}">{{$area->name}}</option>
+                                <option value="{{__($area->name)}}">{{__($area->name)}}</option>
                             @endforeach
                         </select>
                     </div>

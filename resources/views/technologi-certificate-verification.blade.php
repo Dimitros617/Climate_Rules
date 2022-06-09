@@ -3,7 +3,7 @@
     <div id="technology-certificate-verification" admin="{{Auth::permition()->admin}}" first_try="{{$my_nation_technology->first_try}}" hidden></div>
     <input hidden id="admin-pay" class="form-check-input m-0 p-0 ms-1 me-3 mt-1 hidden" role="switch" type="checkbox">
 
-    <div class="fw-bold text-black text-center w-100 fs-2 mb-3 pb-1 mt-2" style="border-bottom: 2px solid black">{{$technology->code}} - {{$technology->technology_name}}</div>
+    <div class="fw-bold text-black text-center w-100 fs-2 mb-3 pb-1 mt-2" style="border-bottom: 2px solid black">{{$technology->code}} - {{__($technology->technology_name)}}</div>
 
     <div class="d-grid w-100 mb-4">
         <div class="flex-wrap d-flex w-100">

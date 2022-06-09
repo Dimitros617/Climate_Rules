@@ -9,7 +9,7 @@
         <div class="d-flex flex-wrap">
             @foreach($technology->areas as $area)
 
-                <span class="h-content m-1 animate-02 hover-size-01" data-toggle="tooltip" data-placement="bottom" title="{{$area->name}}" style="transform: scale(1.4); opacity: 0.9;">
+                <span class="h-content m-1 animate-02 hover-size-01" data-toggle="tooltip" data-placement="bottom" title="{{__($area->name)}}" style="transform: scale(1.4); opacity: 0.9;">
                         @php echo htmlspecialchars_decode($area->icon) @endphp
                 </span>
 
