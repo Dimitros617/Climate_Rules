@@ -147,9 +147,12 @@ return [
 
     'attributes' => [
         'password' => 'Heslo',
+        'confirm_password' => 'Potvrdit heslo',
         'current_password' => 'Aktuální heslo',
         'surname' => 'Příjmení',
         'name' => 'Jméno',
+        'nickname' => 'Přezdívka',
+        'email_or_nickname' => 'E-mail nebo přezdívka',
         'phone' => 'Telefon',
         'email' => 'E-mail',
     ],

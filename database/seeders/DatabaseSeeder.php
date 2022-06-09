@@ -47,12 +47,12 @@ class DatabaseSeeder extends Seeder
 
         DB::table('languages')->insert([
             'name' => 'Čeština',
-            'code' => 1,
+            'code' => 'cs',
 
         ]);
         DB::table('languages')->insert([
             'name' => 'English',
-            'code' => 2,
+            'code' => 'en',
 
         ]);
 

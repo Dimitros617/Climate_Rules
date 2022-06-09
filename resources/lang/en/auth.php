@@ -15,5 +15,9 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'login' => 'Login',
+    'create_account' => 'Create account',
+    'i_want_new_account' => 'I want new account!',
+    'i_already_have_my_own_account' => 'I already have my own account!',
 
 ];

@@ -244,6 +244,7 @@ class LobbiesController extends Controller
             return response('Nelze změnit fázy hry dokud nejsou přidáni hráči.', 500)->header('Content-Type', 'text/plain');
         }
 
+        Log::info($request->language);
 
         $check = DB::table('lobbies')
                 ->where('id', $request->id)
@@ -254,7 +255,7 @@ class LobbiesController extends Controller
                     'updated_at' => Carbon::now()->toDateTimeString(),
                     'phase' => $request->phase,
                     'difficulty' => $request->difficulty,
-                    'language' => $request->language,
+                    'language' => Languages::where("code", $request->language)->first()->id
                 ]);
 
 
@@ -294,6 +295,10 @@ class LobbiesController extends Controller
         if(!is_int($nation_id) && str_contains( get_class($nation_id), 'Response')){
             return $nation_id;  //vracím response s chybou;
         }
+
+        //Nastavení jazyka pro uživatele v lobby
+
+        Languages::setUserLanguage($lobby_id);
 
 
         $lobby = Lobbies::find($lobby_id);

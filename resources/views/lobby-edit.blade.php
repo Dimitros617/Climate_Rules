@@ -44,7 +44,7 @@
         <input class="language border-0 bg-light rounded-4"  name="language" value="{{$lobby->language}}" hidden>
         <select class="border-0 bg-light p-2 ps-4 pe-4 shadow-sm rounded-4" onchange="this.parentNode.getElementsByClassName('language')[0].value = this.value">
             @foreach($languages as $language)
-                <option value="{{$language->code}}" @if($language->code == $lobby->language) selected @endif>{{__($language->name)}}</option>
+                <option value="{{$language->code}}" @if($language->id == $lobby->language) selected @endif>{{__($language->name)}}</option>
 
             @endforeach
         </select>

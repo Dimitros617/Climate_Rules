@@ -20,24 +20,24 @@
 
                 <div style="justify-content: center; display: flex;">
                 <!-- <x-jet-label for="email" value="{{ __('E-mail nebo přezdívka') }}" /> -->
-                    <x-jet-input id="email" class="block mt-3 w-full p-2 border-0 rounded-2 w-75 bg-light"  name="nick" placeholder="E-mail nebo přezdívka" :value="old('email')" required  autofocus />
+                    <x-jet-input id="email" class="block mt-3 w-full p-2 border-0 rounded-2 w-75 bg-light"  name="nick" placeholder="{{ __('validation.attributes.email_or_nickname') }}" :value="old('email')" required  autofocus />
                 </div>
 
                 <div class="mt-4 mb-4" style="justify-content: center; display: flex;">
-                <!-- <x-jet-label for="password" value="{{ __('Heslo') }}" /> -->
-                    <x-jet-input id="password" class="block mt-1 w-full p-2 border-0 rounded-2 w-75 bg-light" type="password" name="password" placeholder="Heslo" required autocomplete="current-password" />
+                <!-- <x-jet-label for="password" value="{{ __('password') }}" /> -->
+                    <x-jet-input id="password" class="block mt-1 w-full p-2 border-0 rounded-2 w-75 bg-light" type="password" name="password" placeholder="{{ __('validation.attributes.password') }}" required autocomplete="current-password" />
                 </div>
 
 
                 <div class="flex items-center justify-end ">
                     <x-jet-button class="h6 btn btn-primary">
-                        {{ __('Přihlásit se') }}
+                        {{ __('auth.login') }}
                     </x-jet-button>
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}"">
-                    {{ __('Chci nový účet!') }}
+                    {{ __('auth.i_want_new_account') }}
                     </a>
                 </div>
 

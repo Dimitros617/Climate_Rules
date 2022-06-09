@@ -136,17 +136,27 @@ return [
         ],
     ],
 
-    /*
+       /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
-    | of "email". This simply helps us make our messages more expressive.
+    | The following language lines are used to swap attribute place-holders
+    | with something more reader friendly such as E-Mail Address instead
+    | of "email". This simply helps us make messages a little cleaner.
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'password' => 'Password',
+        'confirm_password' => 'Confirm password',
+        'current_password' => 'Current password',
+        'surname' => 'Surname',
+        'name' => 'Name',
+        'nickname' => 'Nickname',
+        'email_or_nickname' => 'E-mail or Nickname',
+        'phone' => 'Phone',
+        'email' => 'E-mail',
+    ],
 
 ];
