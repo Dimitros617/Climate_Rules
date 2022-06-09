@@ -22,8 +22,8 @@ function getOnePayForm(id){
                 showCancelButton: false,
                 showConfirmButton: true,
                 showDenyButton: true,
-                confirmButtonText: `Odeslat platbu`,
-                denyButtonText: `Zrušit platbu`,
+                confirmButtonText: Lang.get('js_messages.send_payment'),
+                denyButtonText: Lang.get('js_messages.cancel_payment'),
                 focusConfirm: false,
                 customClass: 'w-50',
                 onBeforeOpen: function(ele) {
@@ -51,7 +51,7 @@ function getOnePayForm(id){
 
 
                     if(nation_id_to == '-'){
-                        allertError('Platbu nebylo možná provést, protože jsi nevybral příjemce', 500);
+                        allertError(Lang.get('js_messages.the_payment_could_not_be_made_because_you_did_not_select_a_payee'), 500);
                         hideLoading();
                         return;
                     }
@@ -65,8 +65,8 @@ function getOnePayForm(id){
                             location.reload();
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Odesláno',
-                                text: 'Vaše platba byla úspěšně zpracována.',
+                                title: Lang.get('js_messages.send'),
+                                text: Lang.get('js_messages.your_payment_was_processed_successfully') + '.',
                             })
 
                         },

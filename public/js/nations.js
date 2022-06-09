@@ -155,8 +155,8 @@ function changeNationTax(){
                 showCancelButton: false,
                 showConfirmButton: true,
                 showDenyButton: true,
-                confirmButtonText: `Uložit`,
-                denyButtonText: `Zrušit`,
+                confirmButtonText: Lang.get('js_messages.save'),
+                denyButtonText: Lang.get('js_messages.cancel'),
                 focusConfirm: false,
                 customClass: 'w-50',
                 onBeforeOpen: function(ele) {
@@ -173,8 +173,8 @@ function changeNationTax(){
                     if(tax_increase == 0){
                         Swal.fire({
                             icon: 'success',
-                            title: 'Nastaveno',
-                            text: 'Vše jsme nastavily..',
+                            title: Lang.get('js_messages.set'),
+                            text: Lang.get('js_messages.we_set_everything_up_and_saved_it_correctly'),
                         })
                         hideLoading();
                         return;

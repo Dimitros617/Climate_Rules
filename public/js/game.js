@@ -3,7 +3,7 @@
 function setTemperatureBar(ele, step){
 
     if(step == 0){
-        ele.getElementsByClassName("temperature_labels")[0].innerHTML = "Juuu... Nastala chyba při vytváření grafu, krok je nastaven na 0 (gass_step v lobbies)";
+        ele.getElementsByClassName("temperature_labels")[0].innerHTML = Lang.get('js_messages.an_error_occurred_while_creating_the_chart_the_step_is_set_to_0');
         return;
     }
     let temp = 0;

@@ -195,6 +195,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        JsLocalization\JsLocalizationServiceProvider::class
 
     ),
 

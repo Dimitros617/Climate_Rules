@@ -1,15 +1,23 @@
 
+
+
+
 function removeLobby(id){
+
+    var locale = Lang.get('js_messages.remove');
+
+    let b = 1;
+
     Swal.fire({
         icon: 'question',
-        title:'Smazat?',
-        text: 'Opravdu chcete toto lobby smazat?',
+        title: Lang.get('js_messages.remove') +'?',
+        text: Lang.get('js_messages.are_you_sure_you_want_to_delete_this_lobby') + '?',
         showCloseButton: false,
         showCancelButton: false,
         showConfirmButton: true,
         showDenyButton: true,
-        confirmButtonText: `Smazat`,
-        denyButtonText: `Zrušit`,
+        confirmButtonText: Lang.get('js_messages.remove'),
+        denyButtonText: Lang.get('js_messages.cancel'),
         focusConfirm: false,
     }).then((result) => {
         if (result.isConfirmed) {
@@ -109,8 +117,8 @@ function editLobby(id){
                 showCancelButton: false,
                 showConfirmButton: true,
                 showDenyButton: true,
-                confirmButtonText: `Uložit`,
-                denyButtonText: `Zrušit`,
+                confirmButtonText: Lang.get('js_messages.save'),
+                denyButtonText: Lang.get('js_messages.cancel'),
                 focusConfirm: false,
                 customClass: 'w-75',
 
@@ -131,8 +139,8 @@ function editLobby(id){
                             refreshLobbyList();
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Uloženo',
-                                text: 'Všechno nastaveno!',
+                                title: Lang.get('js_messages.saved'),
+                                text: Lang.get('js_messages.everything_set') + '!',
                             })
 
                         },
@@ -187,8 +195,8 @@ function editLobbyNations(id){
                 showCancelButton: true,
                 showConfirmButton: false,
                 showDenyButton: false,
-                confirmButtonText: `Uložit`,
-                cancelButtonText: `Zavřít`,
+                confirmButtonText: Lang.get('js_messages.save'),
+                cancelButtonText: Lang.get('js_messages.cancel'),
                 focusConfirm: false,
                 customClass: 'w-75',
 
@@ -209,8 +217,8 @@ function editLobbyNations(id){
                             refreshLobbyList();
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Uloženo',
-                                text: 'Všechno nastaveno!',
+                                title: Lang.get('js_messages.saved'),
+                                text: Lang.get('js_messages.everything_set') + '!',
                             })
 
                         },

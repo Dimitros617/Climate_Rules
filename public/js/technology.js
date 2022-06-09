@@ -18,9 +18,9 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
                 showCancelButton: true,
                 showConfirmButton: true,
                 showDenyButton: true,
-                confirmButtonText: `Potvrdit`,
-                cancelButtonText: `Zrušit`,
-                denyButtonText: `Zamítnout`,
+                confirmButtonText: Lang.get('js_messages.confirm'),
+                cancelButtonText: Lang.get('js_messages.cancel'),
+                denyButtonText: Lang.get('js_messages.reject'),
                 focusConfirm: false,
                 customClass: 'w-75',
                 onBeforeOpen: function(ele) {
@@ -76,8 +76,8 @@ function changeNationToTechnologyStatus(ele_button, technology_id, nation_id = n
                             refreshTechnologies(response)
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Odesláno',
-                                text: 'Požadavek jsme úspěšně zpracovali.',
+                                title: Lang.get('js_messages.send'),
+                                text: Lang.get('js_messages.we_have_successfully_processed_the_request') + '.',
                             })
 
                         },
@@ -133,13 +133,13 @@ function setNationToTechnologyStatus(nation_technology_status_code, technology_i
                 Swal.fire({
                     icon: 'question',
                     title: 'Hmmm...',
-                    text: 'Tento stát má již patent, chcete ho zachovat nebo odebrat?' ,
+                    text:  Lang.get('js_messages.this_state_already_has_a_patent_you_want_to_keep_or_remove_it') + '?' ,
                     showCloseButton: false,
                     showCancelButton: false,
                     showConfirmButton: true,
                     showDenyButton: true,
-                    confirmButtonText: `Odebrat`,
-                    denyButtonText: `Zachovat`,
+                    confirmButtonText: Lang.get('js_messages.removed'),
+                    denyButtonText: Lang.get('js_messages.preserve'),
                     focusConfirm: false,
                     customClass: 'w-75'
 
@@ -237,9 +237,9 @@ function showTechnologyCertificateForm(technology_id, nation_id = null){
                 showCancelButton: true,
                 showConfirmButton: true,
                 showDenyButton: true,
-                confirmButtonText: `Potvrdit`,
-                cancelButtonText: `Zrušit`,
-                denyButtonText: `Zamítnout`,
+                confirmButtonText: Lang.get('js_messages.confirm'),
+                cancelButtonText: Lang.get('js_messages.removed'),
+                denyButtonText: Lang.get('js_messages.reject'),
                 focusConfirm: false,
                 customClass: 'w-75',
                 onBeforeOpen: function(ele) {
@@ -292,8 +292,8 @@ function showTechnologyCertificateForm(technology_id, nation_id = null){
                             refreshTechnologies(response)
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Odesláno',
-                                text: 'Požadavek jsme úspěšně zpracovali.',
+                                title: Lang.get('js_messages.send'),
+                                text: Lang.get('js_messages.we_have_successfully_processed_the_request') + '.',
                             })
 
                         },
@@ -388,9 +388,9 @@ function getTechnologyDescription(technology_id){
                 showCancelButton: true,
                 showConfirmButton: false,
                 showDenyButton: false,
-                confirmButtonText: `Potvrdit`,
-                cancelButtonText: `Zavřít`,
-                denyButtonText: `Zamítnout`,
+                confirmButtonText: Lang.get('js_messages.confirm'),
+                cancelButtonText: Lang.get('js_messages.cancel'),
+                denyButtonText: Lang.get('js_messages.reject'),
                 focusConfirm: false,
                 customClass: 'w-75',
 
@@ -552,8 +552,8 @@ function isUrlValidImage(url){
     } else {
         Swal.fire({
             icon: 'error',
-            title: 'Ajajaj!',
-            text: 'Dle našeho regexu není tento odkaz na obrázek, vložte odkaz přímo na obrázek.' ,
+            title: 'Uhh!',
+            text: Lang.get('js_messages.cccording_to_our_regex_there_is_no_link_to_the_image_please_insert_the_link_directly_to_the_image') + '.' ,
             customClass: {
                 container: 'su-shake-horizontal',
             }

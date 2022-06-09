@@ -13,14 +13,14 @@ function allertError(text, code = undefined){
     if(code !== undefined){
 
         if(code == 401 && text === undefined){
-            text = "Nejste přihlášeni nebo nemáte dostatečné oprávnění k této akci."
+            text = Lang.get('js_messages.you_are_not_logged_in_or_you_do_not_have_sufficient_permissions_for_this_action') + "."
         }
 
         if(code == 422){
             Swal.fire({
                 icon: 'error',
                 title: 'Hmm...',
-                text: 'Tento soubor není obrázek v podporovaném formátu: jpg, png, jpeg, gif, svg. Nebo je větší než 4Mb' ,
+                text: Lang.get('js_messages.this_file_is_not_an_image_in_the_supported_format') ,
 
             })
             return;
@@ -29,7 +29,7 @@ function allertError(text, code = undefined){
 
     Swal.fire({
         icon: 'error',
-        title: 'Hmm... CHYBA!',
+        title: Lang.get('js_messages.something_went_wrong') + '!',
         text: text ,
         customClass: {
             container: 'su-shake-horizontal',
@@ -40,7 +40,7 @@ function allertError(text, code = undefined){
 function allertWarning(text){
     Swal.fire({
         icon: 'warning',
-        title: 'Pozor!',
+        title: Lang.get('js_messages.caution') + '!',
         text: text ,
     })
 }
@@ -60,14 +60,14 @@ function removeElement(table, id, fce){
 
     Swal.fire({
         icon: 'question',
-        title:'Smazat?',
-        text: 'Opravdu chcete tuto položku smazat?',
+        title: Lang.get('js_messages.remove') + '?',
+        text: Lang.get('js_messages.are_you_sure_you_want_to_delete_this') + '?',
         showCloseButton: false,
         showCancelButton: false,
         showConfirmButton: true,
         showDenyButton: true,
-        confirmButtonText: `Smazat`,
-        denyButtonText: `Zrušit`,
+        confirmButtonText: Lang.get('js_messages.remove'),
+        denyButtonText: Lang.get('js_messages.cancel'),
         focusConfirm: false,
     }).then((result) => {
         if (result.isConfirmed) {

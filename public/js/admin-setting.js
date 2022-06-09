@@ -99,8 +99,8 @@ function addRound(lobby_id){
                 showCancelButton: false,
                 showConfirmButton: true,
                 showDenyButton: true,
-                confirmButtonText: `Potvrdit`,
-                denyButtonText: `Zrušit`,
+                confirmButtonText: Lang.get('js_messages.confirm'),
+                denyButtonText: Lang.get('js_messages.cancel'),
                 focusConfirm: false,
                 customClass: 'w-50',
 
@@ -318,8 +318,8 @@ function changeNationStatisticTypes(table_box, nation_id){
         success:function(response){
             Swal.fire({
                 icon: 'success',
-                title: 'Nastaveno',
-                text: 'Vše jsme nastavily a uložily v pořádku.',
+                title: Lang.get('js_messages.set'),
+                text: Lang.get('js_messages.we_set_everything_up_and_saved_it_correctly') + '.',
             })
             document.location.reload(true);
 

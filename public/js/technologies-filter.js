@@ -31,8 +31,8 @@ function filterAll(filterBox){
 
     }
 
-    console.log('Počet průchodů:' + window.counterDebug);
-    console.timeEnd('FilterCounter: ')
+   // console.log('Počet průchodů:' + window.counterDebug);
+    //console.timeEnd('FilterCounter: ')
 
 }
 

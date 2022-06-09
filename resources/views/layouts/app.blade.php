@@ -1,3 +1,5 @@
+
+@include('js-localization::head')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -8,12 +10,14 @@
     <!--
 
      -----------------------------------------------
-     Tento systém vytvořil Dominik Frolík jako Bakalářksou práci:
+     Tento systém vytvořil Dominik Frolík pro Nvias:
 
      -----------------------------------------------
 
 
      -->
+
+     
 
     <title>@yield('title') | CR</title>
     <link rel="icon" href="{{ URL::asset('Img/logo_mini_transparent_square.png') }}">
@@ -105,6 +109,9 @@
 
 </head>
 <body class="font-sans antialiased">
+
+    @yield('js-localization.head')
+
 <div class="min-h-screen bg-gray-100 bg-su-blue-texture " style="padding-bottom: 8rem" >
     @livewire('navigation-dropdown')
 
