@@ -30,7 +30,7 @@ Route::get('/logout', function () {  auth()->logout(); return redirect('/lobbies
 Route::get('/', function () {    return view('welcome');});
 
 Route::get('/dashboard', function () {  return redirect('/lobbies'); });
-Route::get('/lang/{lang?}', [LanguageController::class,'switchLang']);
+Route::get('/setLang/{lang?}', [LanguageController::class,'switchLang']);
 
 
 
