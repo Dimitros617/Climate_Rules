@@ -102,7 +102,7 @@ class LobbiesController extends Controller
         Log::info('LobbiesController:addLobby');
 
         $language = DB::table('languages')
-            ->where('code', '=', '1')
+            ->where('code', '=', config('app.locale'))
             ->get();
 
         if(count($language) == 0) {

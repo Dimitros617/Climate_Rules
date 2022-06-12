@@ -9,6 +9,7 @@ WORKDIR /app
 COPY . /app
 RUN composer install
 RUN php artisan config:clear
+RUN php artisan js-localization:refresh
 
 CMD ./run.sh
 EXPOSE $APP_PORT

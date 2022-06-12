@@ -25,7 +25,7 @@ class Localization
         $locale = config('app.locale');
         
 
-        if(Auth::user()->language != null){
+        if(Auth::check() && Auth::user()->language != null){
 
             $locale =  Languages::where("id", Auth::user()->language)->first()->code;
         }
