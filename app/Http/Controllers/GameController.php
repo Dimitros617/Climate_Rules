@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lobbies;
 use App\Models\Lobby_to_technologies;
 use App\Models\Nations;
+use App\Models\Phases;
 use App\Models\Round_to_nation_statistics;
 use App\Models\Rounds;
 use App\Models\Statistics_types;
@@ -241,6 +242,27 @@ class GameController extends Controller
 
 
         return $users;
+
+    }
+
+    function getPhases($lobbyID){
+        Log::info('GameController:getPhases');
+        $phases =  Phases::all();
+
+        foreach ($phases as $phase){
+
+            $lobbyPhaseId = Lobbies::where('id', $lobbyID)->first()->phase;
+
+            $phase->name = __($phase->name);
+            if($phase->id == $lobbyPhaseId){
+                $phase->checked = 1;
+            }else{
+                $phase->checked = 0;
+            }
+        }
+
+
+        return $phases;
 
     }
 

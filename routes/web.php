@@ -50,6 +50,7 @@ Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'])->post('/saveLobby', [LobbiesController::class,'saveLobby']);
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'])->delete('/removeLobby', [LobbiesController::class,'removeLobby']);
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'])->post('/setUserClone', [LobbiesController::class,'setUserClone']);
+Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'])->post('/setPhases', [LobbiesController::class,'setPhases']);
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'])->post('/changeLobbyStartTemperature', [LobbiesController::class,'changeLobbyStartTemperature']);
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:play'])->get('/getLobbyTemperature/{id:id}', [LobbiesController::class,'getLobbyTemperature']);
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:play'])->get('/getLobbyGasses/{id:id}', [LobbiesController::class,'getLobbyGasses']);
@@ -79,6 +80,8 @@ Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:play']
 
 Route::middleware(['localization', 'auth:sanctum', 'verified'])->get('/getCountRounds/{lobbyID?}', [GameController::class,'getCountRounds']);
 Route::middleware(['localization', 'auth:sanctum', 'verified'])->get('/getLobbyUsers/{lobbyID?}', [GameController::class,'getLobbyUsers']);
+Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'])->get('/getPhases/{lobbyID?}', [GameController::class,'getPhases']);
+
 
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'])->post('/addRound', [GameController::class,'addround']);
 

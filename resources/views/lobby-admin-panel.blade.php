@@ -18,8 +18,8 @@ onload="dragElement(this)">
 
         <div class="d-grid m-2 text-center bg-white rounded-3 p-4">
             <span class="fs-7 fw-bold mb-2">{{__('phase_of_the_game')}}</span>
-            <span >
-                <select class="admin-box-phase-select">
+            <span onload="getPhases(this)">
+                <select class="admin-box-phases-select" onchange="setPhases(this.value)">
 
                 </select>
             </span>

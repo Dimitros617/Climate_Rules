@@ -214,6 +214,7 @@ function getLobbyUsers(ele, lobbyID = document.getElementById('lobby-id').getAtt
 
 }
 
+
 /**
  *
  * @param userID - id uživatele kterého chceme klonovat
@@ -229,6 +230,69 @@ function setUserClone(userId,  lobbyId = document.getElementById('lobby-id').get
         url: '/setUserClone',
         type: 'post',
         data: { _token: token, lobbyId: lobbyId, userID: userId},
+        success:function(response){
+
+            document.location.reload(true);
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+
+}
+
+
+function getPhases(ele, lobbyID = document.getElementById('lobby-id').getAttribute('lobbyID')){
+
+    $.ajax({
+        url: '/getPhases/' + lobbyID,
+        type: 'get',
+        success:function(response){
+
+            for(let phases of response){
+                let name = phases['name'];
+                let id = phases['id'];
+
+                let option = document.createElement('option');
+                option.setAttribute('value', id);
+                option.innerHTML = name;
+                if(phases['checked'] == 1){
+                    option.setAttribute('selected','')
+                }
+                ele.getElementsByClassName('admin-box-phases-select')[0].appendChild(option);
+            }
+
+
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
+
+}
+
+function setPhases(phaseId, lobbyId = document.getElementById('lobby-id').getAttribute('lobbyID')){
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+
+    $.ajax({
+        url: '/setPhases',
+        type: 'post',
+        data: { _token: token, lobbyId: lobbyId, phaseId: phaseId},
         success:function(response){
 
             document.location.reload(true);

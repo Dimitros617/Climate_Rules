@@ -423,6 +423,14 @@ class LobbiesController extends Controller
 
     }
 
+    
+    function setPhases(Request $request){
+        Log::info('LobbiesController:setPhases');
+
+        Phases::setLobbyPhase($request->lobbyId, $request->phaseId);
+
+    }
+
     function changeLobbyStartTemperature(Request $request){
         Log::info('LobbiesController:changeLobbyStartTemperature');
 
