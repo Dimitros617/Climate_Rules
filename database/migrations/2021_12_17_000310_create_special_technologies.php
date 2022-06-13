@@ -20,6 +20,7 @@ class CreateSpecialTechnologies extends Migration
             $table->string('name',100);
             $table->string('code',20);
             $table->string('description');
+            $table->string('icon');
             $table->integer('coefficient');
 
             $table->timestamps();

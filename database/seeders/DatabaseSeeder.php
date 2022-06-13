@@ -3886,7 +3886,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('nations_templates')->insert([
             'id' => 2,
-            'name' => 'Aso-chin',
+            'name' => 'Aso-Tchin',
             'statistic_values_set' => 2,
         ]);
 
@@ -4493,6 +4493,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'flood_protection',
             'description' => 'Ochrana před povodněmi',
             'coefficient' => 100,
+            'icon' => '/Img/special-technology-img/tech_spec-PZ.png',
         ]);
 
 
@@ -4542,6 +4543,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'sea_walls',
             'description' => 'Ochrana před tsunami',
             'coefficient' => 100,
+            'icon' => '/Img/special-technology-img/tech_spec-T.png',
         ]);
 
 
@@ -4591,6 +4593,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'irrigation_systems',
             'description' => 'Ochrana před suchem',
             'coefficient' => 100,
+            'icon' => '/Img/special-technology-img/tech_spec-S.png',
         ]);
 
 
@@ -4634,6 +4637,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'water_tax',
             'description' => 'O 50 % snižuje dopady sucha',
             'coefficient' => 50,
+            'icon' => '/Img/special-technology-img/tech_spec-S-2.png',
         ]);
 
 
@@ -4877,6 +4881,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'implementation',
             'description' => 'O 50 % snižuje dopad sucha, povodní, poklesu zemědělských výnosů a epidemie v zemědělství',
             'coefficient' => 50,
+            'icon' => '/Img/special-technology-img/tech_spec-S+PZ+EVZ-2.png',
         ]);
 
 
@@ -5256,6 +5261,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'fire-fighting',
             'description' => 'Ochrana před požáry',
             'coefficient' => 100,
+            'icon' => '/Img/special-technology-img/tech_spec-P.png',
         ]);
 
 
@@ -5333,6 +5339,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'fire_monitoring',
             'description' => 'Ochrana před požáry',
             'coefficient' => 100,
+            'icon' => '/Img/special-technology-img/tech_spec-P.png',
         ]);
 
 
@@ -5496,6 +5503,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'water_retention',
             'description' => 'Ochrana před suchem a záplavami/povodněmi',
             'coefficient' => 100,
+            'icon' => '/Img/special-technology-img/tech_spec-S+PZ.png',
         ]);
 
 
@@ -6186,6 +6194,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'innovation',
             'description' => 'Ochrana před nízkou kvalitou vzdělávání',
             'coefficient' => 100,
+            'icon' => '/Img/special-technology-img/tech_spec-NV.png',
         ]);
 
 
@@ -6194,8 +6203,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T81',
             'name' => 'eař_-_autonomous_personal_transport',
             'description' => 'Naprogramujte mBota tak, aby při zjištění překážky postupně zpomaloval a zastavil před ní. Bonus: Cítíte-li se na víc, zajistěte, aby se mBot při zjištění překážky pokusil ji objet a pokračovat ve stejném směru. Pokud se mu 4x za sebou nepodaří najít volný prostor pro pokračování v jízdě, zastaví se.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6218,7 +6227,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 81,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -6233,8 +6242,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T82',
             'name' => 'eař_-_autonomous_long-haul_trucking',
             'description' => 'Naučte autíčko Maqueen tak, aby rozpoznalo vámi určený objekt před sebou a následovalo jej.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6263,7 +6272,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 82,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
 
@@ -6272,8 +6281,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T83',
             'name' => 'eai_-_image_recognition',
             'description' => 'Připravte určování rostliných a živočišných druhů či potenciálních chorob rostlin na základě rozpoznání obrazu dle upřesnění TCA.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6296,7 +6305,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 83,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -6311,8 +6320,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T84',
             'name' => 'eai_-_sound_recognition',
             'description' => 'Připravte experiment na rozpoznání zvuku pomocí teachable machine či jiné tecnologie dle upřesnění TCA.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6341,7 +6350,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 84,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
 
@@ -6350,8 +6359,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T85',
             'name' => 'evt_-_hydrogen_mobility',
             'description' => 'Sestavte experiment výroby vodíku pomocí elektrolýzy a následně generování elektrického proudu z vyrobeného vodíku pro pohyb elektromobilu.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6374,7 +6383,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 85,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -6389,8 +6398,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T86',
             'name' => 'evt_-_hydrogen_in_the_power_industry',
             'description' => 'Sestavte experiment výroby vodíku pomocí elektrolýzy a následně generování elektrického proudu z vyrobeného vodíku pro provoz zařízení.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6419,7 +6428,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 86,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
 
@@ -6428,8 +6437,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T87',
             'name' => 'ece_-_eco-friendly_substitutes',
             'description' => 'Navrhněte vhodné ekologické nahrazení produktů předaných či určených TCA.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6452,7 +6461,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 87,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -6467,8 +6476,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T88',
             'name' => 'ece_-_industrial_symbiosis',
             'description' => 'Navrhněte vhodné využití, aby generovaný odpad našel uplatnění jako zdroj v jiné výrobě, tj. aby to, co je pro jednu továrnu odpadem, bylo pro jinou továrnu výrobním materiálem.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6497,7 +6506,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 88,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
 
@@ -6506,8 +6515,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T89',
             'name' => 'etv_-_thermal_imaging_and_tissues',
             'description' => 'Navrhněte vhodné řešení využití termovize v oblasti živých tkání a organismů.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6530,7 +6539,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 89,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -6545,8 +6554,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T90',
             'name' => 'etv_-_thermal_imaging_and_materials',
             'description' => 'Navrhněte vhodné řešení využití termovize v oblasti materiálů.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6575,7 +6584,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 90,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
 
@@ -6585,8 +6594,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T91',
             'name' => 'evr_-_vr_in_life',
             'description' => 'Navrhněte vhodné řešení využití virtuální reality v oblasti sociální a zlepšení kvality života.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6609,7 +6618,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 91,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
         DB::table('technologies_statistics_types_changes')->insert([
@@ -6624,8 +6633,8 @@ class DatabaseSeeder extends Seeder
             'code' => 'T92',
             'name' => 'evr_-_vr_in_economy',
             'description' => 'Navrhněte vhodné řešení využití virtuální reality v oblasti ekonomiky, hospodářství, byznysu.',
-            'round_show' => 4,
-            'price' => 20,
+            'round_show' => 3,
+            'price' => 15,
             'certificate' => 1,
         ]);
 
@@ -6654,7 +6663,7 @@ class DatabaseSeeder extends Seeder
         DB::table('technologies_statistics_types_changes')->insert([
             'technology_id' => 92,
             'statistic_type_id' => 7,
-            'index_move' => -2,
+            'index_move' => -1,
         ]);
 
 
