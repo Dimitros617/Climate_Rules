@@ -238,7 +238,7 @@ class LobbiesController extends Controller
      */
     function saveLobby(Request $request){
 
-        Log::info('LobbiesController:saveLobby');
+        Log::info('LobbiesController:saveLobby ' .  $request->language);
 
         if(Lobbies::countNations($request->id) == 0 && $request->phase != Phases::getIdByCode(1)){
             return response('Nelze změnit fázy hry dokud nejsou přidáni hráči.', 500)->header('Content-Type', 'text/plain');

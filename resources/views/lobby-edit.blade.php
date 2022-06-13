@@ -41,7 +41,11 @@
         </select>
 
         <label for="language" class="text-end mt-4 mb-1">{{__('language')}}</label>
-        <input class="language border-0 bg-light rounded-4"  name="language" value="{{$lobby->language}}" hidden>
+            @foreach($languages as $language)
+                @if($language->id == $lobby->language)
+                <input class="language border-0 bg-light rounded-4"  name="language" value="{{$language->code}}" hidden>
+                @endif
+            @endforeach
         <select class="border-0 bg-light p-2 ps-4 pe-4 shadow-sm rounded-4" onchange="this.parentNode.getElementsByClassName('language')[0].value = this.value">
             @foreach($languages as $language)
                 <option value="{{$language->code}}" @if($language->id == $lobby->language) selected @endif>{{__($language->name)}}</option>

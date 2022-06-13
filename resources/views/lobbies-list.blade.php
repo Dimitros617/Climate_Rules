@@ -17,10 +17,10 @@
              visible="{{$lobby->visible}}"
              style="min-width: 30rem"
         >
-            <div class="d-grid p-4">
-                <span class="display-6 fw-bold">{{$lobby->id}}) {{$lobby->name}}</span>
-                <span>@php echo explode(' ',$lobby->play_date)[0]; @endphp</span>
-                <span>{{$lobby->description}}</span>
+            <div class="d-grid p-4" type="lobbyChild">
+                <span type="lobbyChild" class="display-6 fw-bold">{{$lobby->id}}) {{$lobby->name}}</span>
+                <span type="lobbyChild">@php echo explode(' ',$lobby->play_date)[0]; @endphp</span>
+                <span type="lobbyChild">{{$lobby->description}}</span>
             </div>
 
             <div class="@if($lobby->visible == '1') cr-bg-green @else bg-gray @endif w-5rem d-flex ps-3 animate-05 hover-ps-3 cursor-pointer"

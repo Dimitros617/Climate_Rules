@@ -37,6 +37,13 @@ function rightClick(e) {
 
     window.last_context_element = e.target;
     let atr = window.last_context_element.getAttribute('type');
+    if(atr == 'lobbyChild'){
+        let atrParent = "";
+        do{
+        window.last_context_element = window.last_context_element.parentNode;
+        atrParent = window.last_context_element.getAttribute('type');
+        }while(atrParent != 'lobby');
+    }
     if(!atr == 'lobby' || atr == null){
         return;
     }
