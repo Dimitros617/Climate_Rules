@@ -42,7 +42,7 @@
     "edit_lobby" : "Edit Lobby",
     "assign_states" : "Assign States",
     "hide" : "Hide",
-    
+    "play" : "Play",
     "user" : "User",
     "phase_of_the_game" : "Phase of the game",
     "green_house_gasses_and_teprature" : "Green house gasses and teprature",
@@ -50,7 +50,7 @@
     "income_of_states_for_the_past_period" : "Income of states for the past period",
     "label" : "Label",
     "date_of_the_game" : "Date of the game",
-    
+    "welcome_message" : "An adventure project day in which you fight to save the planet by investing smart and sustainably in new technologies. Get to know your state and its specifics, implement technologies, fulfill tasks and secret goals, save the world. The project was based on the board game Rulers of the Climate by Tomáš Mrkvička.",
     "difficulty" : "Difficulty",
     "language" : "Language",
     "state_in_lobby" : "State in lobby",

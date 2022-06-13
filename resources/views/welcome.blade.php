@@ -21,22 +21,23 @@
                 <img src="/Img/logo_big.svg">
                 <div class="button container">
                     <a href="/login">
-                        <button class="play_button"> HRÁT </button>
+                        <button class="play_button"> {{__('play')}} </button>
                     </a>
 
                 </div>
-                <p class="copyright">©Dominik Frolík 2021</p>
+                <p class="copyright">©Dominik Frolík 2021-2022</p>
+                <p class="copyright bold">
+                    {{env('APP_VERSION', null)}}
+
+                </p>
             </div>
 
             <div class="column" style="min-width: 550px">
                 <p class="promo">
-                    Zážitkový projektový den, při němž chytrým a udržitelným investováním do nových technologií bojujete o záchranu planety.
-                    <br>
-                    Poznejte svůj stát a jeho specifika, implementujte technologie, plňte úkoly i své tajné cíle, zachraňte svět.
-                    <br>
-                    Projekt vznikl na motivy deskové hry Vládci klimatu od Tomáše Mrkvičky.
+                    {{__('welcome_message')}}
 
                 </p>
+
 
 
             </div>

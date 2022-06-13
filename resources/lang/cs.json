@@ -42,7 +42,7 @@
 "edit_lobby" : "Editovat Lobby",
 "assign_states" : "Přiřadit státy",
 "hide" : "Skrýt",
-
+"play" : "Hrát",
 "user" : "Uživatel",
 "phase_of_the_game" : "Fáze hry",
 "green_house_gasses_and_teprature" : "Skleníkové plyny a Teplota",
@@ -50,7 +50,7 @@
 "income_of_states_for_the_past_period" : "Příjem států za minulé období",
 "label" : "Popisek",
 "date_of_the_game" : "Datum hry",
-
+"welcome_message" : "Zážitkový projektový den, při němž chytrým a udržitelným investováním do nových technologií bojujete o záchranu planety. Poznejte svůj stát a jeho specifika, implementujte technologie, plňte úkoly i své tajné cíle, zachraňte svět. Projekt vznikl na motivy deskové hry Vládci klimatu od Tomáše Mrkvičky.",
 "difficulty" : "Obtížnost",
 "language" : "Jazyk",
 "state_in_lobby" : "Státy v lobby",
