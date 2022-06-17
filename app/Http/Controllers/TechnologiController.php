@@ -11,6 +11,7 @@ use App\Models\Nations_technologies;
 use App\Models\Nations_technologies_status;
 use App\Models\Round_to_nation_statistics;
 use App\Models\Rounds;
+use App\Models\Special_technologies;
 use App\Models\Statistics_types;
 use App\Models\Technologies;
 use App\Models\Technologies_statistics_types_changes;
@@ -138,6 +139,14 @@ class TechnologiController extends Controller
      */
     function getTechnologyDescription($technology_id){
         $technology = Technologies::find($technology_id);
+
+        return view('technologi-description', ['technology' => $technology]);
+    }
+
+    function getSpecialTechnologyDescription($special_technology_id){
+        $technology = Special_technologies::where('id', $special_technology_id)->first();
+
+        $technology->img_url = $technology->icon;
 
         return view('technologi-description', ['technology' => $technology]);
     }

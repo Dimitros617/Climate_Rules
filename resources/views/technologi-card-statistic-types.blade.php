@@ -45,7 +45,7 @@
     </div>
     <div class="w-100 d-flex flex-wrap justify-content-around text-center">
         @foreach($technology->special_events as $event)
-            <div class="d-grid" data-toggle="tooltip" data-placement="bottom" title="{{__($event->name)}} ">
+            <div class="d-grid cursor-pointer" data-toggle="tooltip" data-placement="bottom" title="{{__($event->name)}} " onclick="getSpecialTechnologyDescription({{$event->id}})">
                 <img class=" m-1 mt-2 fs-5 fw-bold " style="height: 4rem" src="{{$event->icon}}">
                 <span class=" fs-6 ">{{$event->coefficient}}%</span>
             </div>

@@ -101,6 +101,8 @@ Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'])->get('/getTechnologySetting/{technology_id?}', [TechnologiController::class,'getTechnologySetting']);
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:play'])->post('/getTechnologyCertificateForm', [TechnologiController::class,'getTechnologyCertificateForm']);
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:play'])->get('/getTechnologyDescription/{technology_id?}', [TechnologiController::class,'getTechnologyDescription']);
+Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:play'])->get('/getSpecialTechnologyDescription/{special_technology_id?}', [TechnologiController::class,'getSpecialTechnologyDescription']);
+
 
 
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'])->post('/saveImage', [TechnologiController::class,'saveImage']);
