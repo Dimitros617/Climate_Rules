@@ -83,8 +83,12 @@ class LobbiesController extends Controller
 
         foreach ($data as $dat){
 
-            $dat->openForMe = Lobbies::isUsersFromLobby(Auth::user()->id,$dat->id)? 1 : 0;
-
+            if(Auth::check()) {
+                $dat->openForMe = Lobbies::isUsersFromLobby(Auth::user()->id, $dat->id) ? 1 : 0;
+            }
+            else{
+                $dat->openForMe = 0;
+            }
         }
 
         return $data;
