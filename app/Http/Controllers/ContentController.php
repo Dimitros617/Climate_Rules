@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Log;
 
 class ContentController extends Controller
 {
+    
+    /**
+     * Funkce smaže záznam z tabulky obdržený v request->table a řádek s ID obdržený v request->id
+     * @param Request $request = API sequest z /removeElement
+     * 
+     * @return [Response]
+     */
     function removeElement(Request $request)
     {
 
@@ -26,6 +33,12 @@ class ContentController extends Controller
         }
     }
 
+    /**
+     * Funkce upraví libovolný záznam v tabulce v DB
+     * @param Request $request
+     * 
+     * @return [response]
+     */
     function changeElement(Request $request)
     {
 

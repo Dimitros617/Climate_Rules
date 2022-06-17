@@ -217,6 +217,13 @@ class Lobbies extends Model
         return $nations;
     }
 
+    /**
+     * Funkce má za úkol nastavit nebo upravit stávající hodnotu skleníkových plynů pro dané lobby
+     * @param $lobby_id
+     * @param $gasses_value [null | int] = Hodnota kterou chceme přepsat stav SP v lobby
+     * @param $gasses_increas_of [null | int] = Hodnota o kterou cheme upravi (Snížit nebo zvýšit) stávající hodnotu SP v lobby
+     * @return Response|int
+     */
     public static function updateActualLobbyGasses($lobby_id, $gasses_value = null, $gasses_increas_of = null){
 
 

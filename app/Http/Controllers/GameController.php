@@ -18,6 +18,12 @@ use Illuminate\Support\Facades\Log;
 
 class GameController extends Controller
 {
+
+    /**
+     * Get metoda pro získání
+     * @param $id = lobby ID
+     * @return array pole s hodnotamy aktuálních skleníkových plynů a aktuální kolo
+     */
     function updateTemperatureActualValue($id){
         Log::info('GameController:updateTemperatureActualValue');
 
@@ -31,6 +37,12 @@ class GameController extends Controller
         return [$gas_step, $round];
     }
 
+
+    /**
+     * Funkce vrasí HTML s přehledovou tabulkou global-status-table
+     * @param $id = ID Lobby
+     * @return Response = HTML global-status-table
+     */
     function updateGlobalTable($id){
 
 
@@ -54,7 +66,8 @@ class GameController extends Controller
     }
 
     /**
-     * Metoda u daného národa zvíší o definovaný počet definovaný statisctický ukazatel. pokud je mimo hranice vrací kod 500
+     * Funkce u daného národa zvíší o definovaný počet definovaný statisctický ukazatel. pokud je mimo hranice vrací kod 500
+     * API /increaseValue
      *
      * @param Request $request
      * nationID = id národa u kterého chceme změnit ukazatel
@@ -81,6 +94,15 @@ class GameController extends Controller
 
     }
 
+    /**
+     * Funkce u daného národa sníží o definovaný počet definovaný statisctický ukazatel. pokud je mimo hranice vrací kod 500
+     * API /decreaseValue
+     *
+     * @param Request $request
+     * nationID = id národa u kterého chceme změnit ukazatel
+     * statisticTypeCode = statistický kod ukazatele který chceme u národa snížit
+     * step = O kolik pozic chceme danou hodnotu snížit
+     */
     function decreaseValue(Request $request){
         Log::info('GameController:decreaseValue');
 
@@ -101,6 +123,14 @@ class GameController extends Controller
 
     }
 
+
+    /**
+     * Rekurzivní funkce, pokud je $request->response == 0 Pak se vrací HTML formulář "lobby-admin-panel-new-round" pro nastavení připsání příjmu národu za kolo
+     * Pokud je $request->response == 1
+     * API /addRound
+     * @param Request $request
+     * @return Response|void
+     */
     function addRound(Request $request){
         Log::info('GameController:addRound');
 
@@ -112,6 +142,7 @@ class GameController extends Controller
             return view('lobby-admin-panel-new-round', ['lobby' => $lobby, 'all_nations' => $all_nations, 'gasses_increase' => $gasses_increase]);
         // Potvrzení dalšího kola -> nastavení věcí na konci kola a nového kola
         }else{
+            // Pokud je v requestu nastavena add_income na 1 přište se státům příjem za kolo jinak ne.
             if($request->add_income == 1){
                 $bank_res = BankController::payNewRoundNationsIncome($request->lobby_id);
                 if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
@@ -119,14 +150,18 @@ class GameController extends Controller
                 }
             }
 
+            // Vytvoření nového kola
             if(!Rounds::newRound($request->lobby_id)){
                 return response('Nastal problém při vytváření nového kola v lobby. ', 500)->header('Content-Type', 'text/plain');
             }
+
+            //Změna SP o přírůstek v daném kole.
             $gass_res = Lobbies::updateActualLobbyGasses($request->lobby_id,null,$gasses_increase);
             if(!is_int($gass_res) && str_contains( get_class($gass_res), 'Response')){
                 return $gass_res;  //vracím response s chybou;
             }
 
+            //Uprava hodnoty statistických typů zdraví a nálady pro všechny národy v lobby na konci kola
             $all_nations = Lobbies::getAllNationsFromLobby($request->lobby_id);
             foreach ($all_nations as $nation){
 
@@ -175,6 +210,8 @@ class GameController extends Controller
                 $health = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('health'),$nation->id)->value;
                 $start_health = Round_to_nation_statistics::firstValueOneStatisticOneNation(Statistics_types::getIdByCode('health'),$nation->id)->value;
 
+
+
                 if($health < $start_health){
                     $step = -1;
                     $flag = 'New_round_health_under_start';
@@ -220,11 +257,22 @@ class GameController extends Controller
 
     }
 
+
+    /**
+     * Funkce vrací počet kol v daném lobby
+     * @param $lobbyID
+     * @return mixed
+     */
     function getCountRounds($lobbyID){
         Log::info('GameController:getRoundNumber');
         return Rounds::getCountRoundsInLobby($lobbyID);
     }
 
+    /**
+     * Funkce vrací všechny uživatelé kteří jsou přiřazeni národům v lobby
+     * @param $lobbyID
+     * @return \Illuminate\Support\Collection
+     */
     function getLobbyUsers($lobbyID){
         Log::info('GameController:getLobbyUsers');
         $users =  Lobbies::getAllUsersFromLobby($lobbyID);
@@ -245,6 +293,11 @@ class GameController extends Controller
 
     }
 
+    /**
+     * Funkce vrací všechny fáze které jsou k dispozici a označeny příznakem checked (0|1) které označují která fáze je v lobby aktuálně nastavená
+     * @param $lobbyID
+     * @return Phases[]|\Illuminate\Database\Eloquent\Collection
+     */
     function getPhases($lobbyID){
         Log::info('GameController:getPhases');
         $phases =  Phases::all();
@@ -266,6 +319,14 @@ class GameController extends Controller
 
     }
 
+
+    /**
+     * Rekurzivní funkce, pokud je request-> response == 0 tak se vrací formulář (HTML) kde se dá nastavit změna daní o kolik daného státu,
+     * pokud je request-> response == 1 nastaví funkce změnu daní daného státu v daném lobby
+     * API call /changeNationTax
+     * @param Request $request
+     * @return Response|mixed|void
+     */
     function changeNationTax(Request $request){
         Log::info('GameController:changeNationTax');
 
@@ -312,7 +373,9 @@ class GameController extends Controller
         }else{
 
             $flag = 'Nation_tax_change';
+            //Definice které statistické typi chceme upravit
             $statics_types = ['tax', 'happiness', 'level_happiness'];
+            // nastavení které jsou invertované tedy které se při zvětšení odečítají. 0 = Přičíst je přičíst, 1 = negace po přičtení se hodnota změnší.
             $statics_types_inverted = [0, 1, 0];
             for ($i = 0; $i < count($statics_types); $i++) {
 
@@ -341,6 +404,12 @@ class GameController extends Controller
 
     }
 
+    /**
+     * Funkce změní poslané statistické tipy o daný počet
+     * Voláno API /changeNationStatisticTypes
+     * @param Request $request
+     * @return Response|void
+     */
     function changeNationStatisticTypes(Request $request){
         Log::info('GameController:changeNationStatisticTypes');
 

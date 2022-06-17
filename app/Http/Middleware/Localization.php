@@ -12,6 +12,8 @@ class Localization
 {
     /**
      * Handle an incoming request.
+     * Middleweare načte z databáze přihlášeného uživatele jaký má uložený jazyk u sebe, pokud není přihlášený nebo nemá žádný definovaný uživatel našte sedefaultní jazyk z App.php
+     * Daný jazyk se poté nastaví na stránku kterou chceme načíst
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -23,7 +25,7 @@ class Localization
         Log::info('Middleware:Localization');
 
         $locale = config('app.locale');
-        
+
 
         if(Auth::check() && Auth::user()->language != null){
 

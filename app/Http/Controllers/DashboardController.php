@@ -27,6 +27,11 @@ class DashboardController extends Controller
 
     }
 
+    /**
+     * Funkce kontroluje zda není uživatel který je přihlášený jediný uživatel v systému poté pokud ano a je to poprvé tj označeno "current_team_id" v users table 
+     * jsou mu přiřazena administrátorská oprávnění
+     * @return [null nebo HTML]
+     */
     function checkUserAlone(){
 
         Log::info('DashboardControler:show->checkUserAlone');

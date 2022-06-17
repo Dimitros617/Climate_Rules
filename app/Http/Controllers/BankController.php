@@ -17,6 +17,15 @@ use Illuminate\Support\Facades\Log;
 
 class BankController extends Controller
 {
+    
+    
+    /**
+     * Funkce načte všechny informace pro stránku banky a vytvoří HTML nutné zadat lobby ID poté se automaticky načte Nation ID 
+     * 
+     * @param mixed $lobby_id
+     * 
+     * @return [view] HTML se stránkou banky
+     */
     function show($lobby_id){
 
         Log::info('BankController:show');
@@ -41,6 +50,12 @@ class BankController extends Controller
 ;
     }
 
+    /**
+     * Funkce vrací HTML formulář pro poslání jednorázové platby poté se automaticky načte Nation ID 
+     * @param mixed $lobby_id
+     * 
+     * @return [view] HTML se stránkou pro zobrazení v popUp
+     */
     function getOnePayForm($lobby_id){
 
         Log::info('BankController:getOnePayForm');
@@ -60,6 +75,13 @@ class BankController extends Controller
         ;
     }
 
+
+    /**
+     * 
+     * @param Request $request
+     * 
+     * @return [Response] = 200 nebo 500
+     */
     function addOnePay(Request $request){
 
         Log::info('BankController:addOnePay');
@@ -72,6 +94,18 @@ class BankController extends Controller
 
     }
 
+    /**
+     * Funkce provede platbu či jiné transakce mezi subjekty (nations nebo admin)
+     * @param mixed $amount [int] = Hodnota kterou chceme převést
+     * @param mixed $nation_id_from [int] = ID národa od kterého chceme peníze převést (Může být null pro převedení od admina, peníze se prostě vytvoří)
+     * @param mixed $nation_id_to [int] = ID národa komu chceme poslat peníze  (Může být null pro převedení pro admina, peníze se prostě zničí)
+     * @param mixed $flag [string] = interní záznam do databáze kdo a proč transakci udělal (String)
+     * @param mixed $transaction_type_id [int] = Id tansakce k platbě z tabulky Transaction_types
+     * @param int $admin_pay [int] = Hodnota 1 pokud se jedná o platbu kterou provádí administrátor či 0 defatulně nastavená pokud ne
+     * @param null $description [string] = popisek k platbě zadaná uživatelem
+     * 
+     * @return [1 nebo Response]
+     */
     public static function payAmount($amount, $nation_id_from, $nation_id_to, $flag, $transaction_type_id, $admin_pay = 0, $description = null){
 
         Log::info('BankController:payAmount');
@@ -82,6 +116,7 @@ class BankController extends Controller
             if(Auth::check() && Auth::permition()->admin != 1){
                 return response('Dobrý pokus, ale na tohle nemáš dostatečná oprávnění!', 500)->header('Content-Type', 'text/plain');
             }
+
             //Není příjemce admin - Admin posílá peníze hráči
             if($nation_id_to != null){
                 $nationsMoney = Nations::find($nation_id_to)->money;
@@ -133,6 +168,12 @@ class BankController extends Controller
 
     }
 
+    /**
+     * Funkce  automaticky přičte všem státům v lobby příjem (round_income)
+     * @param mixed $lobby_id
+     * 
+     * @return [1 nebo Response]
+     */
     public static function payNewRoundNationsIncome($lobby_id){
         $nations = Lobbies::getAllNationsRoundIcomeFromLobby($lobby_id);
 
