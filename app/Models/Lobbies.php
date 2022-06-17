@@ -174,6 +174,21 @@ class Lobbies extends Model
 
     }
 
+    static function isUsersFromLobby($user_id, $lobby_id){
+
+        $check = DB::table('nations')
+            ->where('nations.lobby_id','=',$lobby_id)
+            ->where('nations.user_id','=',$user_id)
+            ->count();
+
+        if($check == 1){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
     /**
      * Metoda vrací pole obsahující záznamy všech narodu (nations) které jsou přiděleny v konkrétním lobby
      * @param $lobby_id

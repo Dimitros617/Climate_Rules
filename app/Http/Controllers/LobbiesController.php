@@ -31,7 +31,6 @@ class LobbiesController extends Controller
         Log::info('LobbiesController:showAlllobbies');
         Log::info(config('app.locale'));
 
-//        Languages::setLang("cs");
 
 
         $firstUser = $this->checkUserAlone();
@@ -39,6 +38,7 @@ class LobbiesController extends Controller
             return $firstUser;
         }
 
+//        return $this->getLobbies();
         return view('lobbies', ['lobbies' => $this->getLobbies()]);
 
     }
@@ -75,12 +75,17 @@ class LobbiesController extends Controller
     function getLobbies(){
 
         Log::info('LobbiesController:getLobbies');
-        Log::info(config('app.locale'));
 
         $data = DB::table('lobbies')
             ->orderBy('visible', 'desc')
             ->orderBy('name', 'asc')
             ->get();
+
+        foreach ($data as $dat){
+
+            $dat->openForMe = Lobbies::isUsersFromLobby(Auth::user()->id,$dat->id)? 1 : 0;
+
+        }
 
         return $data;
     }
@@ -423,7 +428,7 @@ class LobbiesController extends Controller
 
     }
 
-    
+
     function setPhases(Request $request){
         Log::info('LobbiesController:setPhases');
 
