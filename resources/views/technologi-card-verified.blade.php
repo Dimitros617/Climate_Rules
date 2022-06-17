@@ -1,6 +1,24 @@
 {{--mezera00--}}
 
-<div  class=" technology-card card-box h-content bg-white rounded-4 shadow-lg w-20rem m-2 animate-05 hover-size-001 " filter="0">
+    @php
+
+    $nationsCount = count($technology->nations_status);
+    $activeNationsCount = 0;
+
+    foreach ($technology->nations_status as $nation_status){
+
+        if($nation_status->code == 'new'){
+            continue;
+        }
+        if($nation_status->code == 'active'){
+            $activeNationsCount++;
+        }
+    }
+
+    @endphp
+
+
+<div  class=" technology-card card-box h-content bg-white rounded-4 shadow-lg w-20rem m-2 animate-05 hover-size-001 " @if($nationsCount == $activeNationsCount) hidden @endif filter="0">
 
     @include('technologi-card-header')
 
@@ -43,7 +61,15 @@
                     @continue
                 @endif
 
-            <div class="bg-light rounded-2 shadow-sm d-flex flex justify-content-between overflow-hidden">
+
+
+            <div class="bg-light rounded-2 shadow-sm d-flex flex justify-content-between overflow-hidden
+            @if( $nation_status->code == 'active')
+                    active-technology-nation" hidden
+            @else
+                "
+            @endif
+            >
                 <div class="d-grid p-2">
                     <span class="fw-bold fs-4">
                         {{$nation_status->nation_name}}

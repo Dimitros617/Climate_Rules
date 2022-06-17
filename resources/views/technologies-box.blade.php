@@ -84,6 +84,10 @@
 @if(Auth::permition()->admin ==1)
     <div id="adminTechnologies"  class="collapse-ele overflow-hidden animate-05 p-3 " style="display: none">
 
+        <div class=" w-100 form-check form-switch d-grid text-center justify-content-end p-0 pt-2">
+            <input onchange="filterActiveTechnology(this)" style="transform: scale(1.2)" class="form-check-input ms-auto me-auto p-0 d-block"  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label mt-1 fw-bold" style=" font-size: 10px" for="flexSwitchCheckDefault">{{__("active_technologies")}}</label>
+        </div>
 
         <div id="" class="cards-technology-container card-box-container card-box d-flex flex-wrap justify-content-around cr-empty-element">
             @foreach($allTechnologies as $technology)

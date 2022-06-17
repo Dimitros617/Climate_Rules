@@ -36,6 +36,62 @@ function filterAll(filterBox){
 
 }
 
+function filterActiveTechnology(ele){
+
+
+    let allTechnologies = document.getElementsByClassName('active-technology-nation');
+
+    for (let technology of allTechnologies){
+
+
+
+        if(ele.checked){
+            technology.removeAttribute('hidden');
+            hideOrShowTechnologyCard(technology, 1);
+        }
+        else{
+            technology.setAttribute('hidden', '');
+            hideOrShowTechnologyCard(technology, 0);
+        }
+
+    }
+}
+
+/**
+ * Podpůrná funkce pro funkci filterActiveTechnology zobrazuje nebo skrývá karty na stránce technologie -> karta schválení technologií
+ * zobrazuje a skrývá podle toho zda jsou u karty po skrytí aktivních technoligií ještě nejáké informace k zobrazení pokud ne skryje se celá karta technologie nebo zobrazí
+ * @param technology - Instance NationTechnologie z funkce filterActiveTechnology
+ * @param action [int] - 1 pokud zobrazit, 0 pokud skrýt kartu.
+ */
+function hideOrShowTechnologyCard(technology, action){
+    let allNations = technology.parentNode.children;
+
+    let countNation = allNations.length;
+    let hiddenNation = action == 1 ? countNation : 0;
+    if(action != 1) {
+
+        for (let nation of allNations) {
+            if (nation.hasAttribute('hidden')) {
+                hiddenNation++;
+            }
+        }
+    }
+
+    let cardElement = technology;
+    if(hiddenNation == countNation){
+        do{
+            cardElement = cardElement.parentNode;
+        }while(!cardElement.classList.contains('technology-card'));
+
+        if(action == 1){
+            cardElement.removeAttribute('hidden');
+        }else{
+            cardElement.setAttribute('hidden','');
+        }
+
+    }
+}
+
 function filterText(ele){
 
     let searchValue = ele.value.trim().toLowerCase();
