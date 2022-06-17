@@ -84,7 +84,7 @@
             @include('technologi-card-button')
         </div>
 
-        @if(Auth::permition()->admin ==1)
+        @if(Auth::check() && Auth::permition()->admin ==1)
             <div class="bg-light rounded-4 mt-2">
                 <div class="d-flex flex-wrap">
                     <div class="w-90 text-center p-1 animate-05 hover-size-01  mt-2 cursor-pointer " onclick="showAndHideElement(this.parentNode.parentNode,'setting')">

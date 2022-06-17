@@ -4,7 +4,7 @@
             {{__('visible')}}:
         </span>
         <span class="form-check form-switch w-75">
-            <input  role="switch" class="form-check-input fs-3 m-0" onchange="changeTechnologyParameter({{$technology->id}},'visibility',this)" type="checkbox"  @if($technology->visibility == 1) checked @endif>
+            <input  role="switch" class="form-check-input admin-setting-technology-visibility fs-3 m-0" onchange="changeTechnologyParameter({{$technology->id}},'visibility',this)" type="checkbox"  @if($technology->visibility == 1) checked @endif>
         </span>
     </div>
     <div class="d-inline-flex w-100 mb-1">

@@ -1,4 +1,6 @@
 
+
+
 function thHoverOn(ele){
 
     let svg = ele.getElementsByClassName('bi');
