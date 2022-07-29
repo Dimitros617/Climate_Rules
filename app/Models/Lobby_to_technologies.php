@@ -136,5 +136,9 @@ class Lobby_to_technologies extends Model
         return Technologies::find(Lobby_to_technologies::find($technology_id)->technology_id)->price;
     }
 
+    public static function getCodeOfTechnology($technology_id){
+        return Technologies::where("id", Lobby_to_technologies::where("id", $technology_id)->first()->technology_id)->first()->code;
+    }
+
 
 }

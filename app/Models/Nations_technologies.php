@@ -125,14 +125,23 @@ class Nations_technologies extends Model
             return 0;
         }
 
-        $nation_technology_patented = Nations_technologies::where('id', $technology_id)->where('patent', 1)->first()->nation_id;
+        $nation_technology_patented = Nations_technologies::where('technology_id', $technology_id)->where('patent', 1)->first()->nation_id;
         return Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('level_economy'),$nation_technology_patented)->value;
 
     }
 
     public static function isTechnologyPatentedBySomeone($technology_id){
 
-        return Nations_technologies::where('id', $technology_id)->where('patent', 1)->count() == 0 ? false : true;
+        return Nations_technologies::where('technology_id', $technology_id)->where('patent', 1)->count() == 0 ? false : true;
+    }
+
+    public static function getNationWhoHasPatentedTechnology($technology_id){
+
+        if(Nations_technologies::isTechnologyPatentedBySomeone($technology_id)) {
+            return Nations_technologies::where('technology_id', $technology_id)->where('patent', 1)->first()->nation_id;
+        }else{
+            return null;
+        }
     }
 
     public static function setTechnologyCertificationChose($technology_id, $nation_id, $description, $benefits, $disadvantages, $business, $people){

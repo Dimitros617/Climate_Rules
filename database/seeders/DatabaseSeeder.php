@@ -6705,6 +6705,11 @@ class DatabaseSeeder extends Seeder
             'code' => 'other',
         ]);
 
+        DB::table('money_transaction_types')->insert([
+            'name' => 'charge',
+            'code' => 'charge',
+        ]);
+
 
     }
 }
