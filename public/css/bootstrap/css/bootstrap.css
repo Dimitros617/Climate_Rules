@@ -6351,8 +6351,16 @@ a.badge-dark:focus, a.badge-dark.focus {
   overflow: visible !important;
 }
 
+.overflow-x-scroll {
+  overflow-x: scroll !important;
+}
+
+.overflow-y-scroll {
+    overflow-y: scroll !important;
+}
+
 .overflow-scroll {
-  overflow: scroll !important;
+    overflow: scroll !important;
 }
 
 .d-inline {
@@ -6615,6 +6623,16 @@ a.badge-dark:focus, a.badge-dark.focus {
   border-width: 5px !important;
 }
 
+.min-w-10rem{
+    min-width: 10rem
+}
+.min-w-20rem{
+    min-width: 20rem
+}
+.min-w-30rem{
+    min-width: 30rem
+}
+
 .w-5px {
     width: 5px !important;
 }
@@ -6684,6 +6702,10 @@ a.badge-dark:focus, a.badge-dark.focus {
     width: fit-content !important;
 }
 
+.w-inherit{
+    width: inherit !important;
+}
+
 .w-2rem{
     width: 2rem;
 }
@@ -6705,6 +6727,11 @@ a.badge-dark:focus, a.badge-dark.focus {
 .w-7rem{
     width: 7rem;
 }
+
+.w-8rem{
+    width: 8rem;
+}
+
 .w-10rem{
     width: 10rem;
 }
@@ -6755,6 +6782,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .h-6rem {
     height: 6rem !important;
+}
+
+.h-7rem {
+    height: 7rem !important;
 }
 
 .h-10rem {
@@ -6843,6 +6874,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .flex-column-reverse {
   flex-direction: column-reverse !important;
+}
+
+.flex-1 {
+    flex: 1 !important;
 }
 
 .flex-grow-0 {
@@ -7273,6 +7308,14 @@ a.badge-dark:focus, a.badge-dark.focus {
   margin-left: 0 !important;
 }
 
+.ms--2 {
+    margin-left: -0.5rem !important;
+}
+
+.ms--1 {
+    margin-left: -0.25rem !important;
+}
+
 .ms-1 {
   margin-left: 0.25rem !important;
 }
@@ -7353,6 +7396,11 @@ a.badge-dark:focus, a.badge-dark.focus {
 .px-5 {
   padding-right: 3rem !important;
   padding-left: 3rem !important;
+}
+
+.px-6 {
+    padding-right: 4rem !important;
+    padding-left: 4rem !important;
 }
 
 .py-0 {
@@ -7862,6 +7910,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
     .w-sm-content{
         width: fit-content !important;
+    }
+
+    .h-sm-7rem {
+        height: 7rem !important;
     }
 
     .float-sm-start {
@@ -8534,6 +8586,25 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 @media (min-width: 768px) {
 
+
+    .visible-md {
+        visibility: visible !important;
+    }
+
+    .invisible-md {
+        visibility: hidden !important;
+    }
+
+    .min-w-md-10rem{
+        min-width: 10rem
+    }
+    .min-w-md-20rem{
+        min-width: 20rem
+    }
+    .min-w-md-30rem{
+        min-width: 30rem
+    }
+
     .mt-md--5 {
         margin-top: -5rem !important;
     }
@@ -8541,6 +8612,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
     .w-md-25 {
         width: 25% !important;
+    }
+
+    .w-md-40 {
+        width: 40% !important;
     }
 
     .w-md-50 {
@@ -8573,6 +8648,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
     .w-md-content{
         width: fit-content !important;
+    }
+
+    .h-md-7rem{
+        height: 7rem !important;
     }
 
   .float-md-start {
@@ -9917,6 +9996,43 @@ a.badge-dark:focus, a.badge-dark.focus {
   }
 }
 @media (min-width: 1200px) {
+
+    .w-xl-25 {
+        width: 25% !important;
+    }
+
+    .w-xl-50 {
+        width: 50% !important;
+    }
+
+    .w-xl-70 {
+        width: 70% !important;
+    }
+
+    .w-xl-75 {
+        width: 75% !important;
+    }
+
+    .w-xl-85 {
+        width: 85% !important;
+    }
+
+    .w-xl-90 {
+        width: 90% !important;
+    }
+
+    .w-xl-95 {
+        width: 95% !important;
+    }
+
+    .w-xl-100 {
+        width: 100% !important;
+    }
+
+    .w-xl-content{
+        width: fit-content !important;
+    }
+
   .float-xl-start {
     float: left !important;
   }
@@ -11270,6 +11386,10 @@ a.badge-dark:focus, a.badge-dark.focus {
   .fs-md-4 {
     font-size: 1.5rem !important;
   }
+
+    .fs-md-5 {
+        font-size: 1rem !important;
+    }
 
   .fs-lg-1 {
     font-size: 2.5rem !important;

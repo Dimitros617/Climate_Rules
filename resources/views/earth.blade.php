@@ -9,8 +9,8 @@
         position: relative;
         margin: 0 auto;
         display: block;
-        height: 15vw;
-        width: 15vw;
+        height: 15rem;
+        width: 15rem;
         box-shadow: 2px 4px 20px 1px rgb(0 0 0 / 38%);
         background: rgba(10,80,200,1);
         border-radius: 150px;
@@ -24,21 +24,21 @@
 
     .layer{
         position: absolute;
-        height: 15vw;
-        width: 15vw;
+        height: 15rem;
+        width: 15rem;
         border-radius: 150px;
         overflow: hidden;
     }
     .ambience{
-        height: 10vw;
-        width: 10vw;
+        height: 10rem;
+        width: 10rem;
         box-shadow: 0px 0px 80px 80px rgba(20,200,200,0.5);
         background: rgba(20,200,200,0.5);
         border-radius: 100px;
     }
     .edge{
-        height: 15vw;
-        width: 15vw;
+        height: 15rem;
+        width: 15rem;
         border-radius: 150px;
         box-shadow: inset 0px 0px 100px 20px rgba(0,0,0,0.4);
     }
@@ -96,7 +96,7 @@
         }
     }
 
-    @media only screen and (max-width: 1000px) {
+    @media only screen and (max-width: 1600px) {
         .clouds, .land, .ocean-glare {
            -webkit-animation:none !important;
            -moz-animation:none !important;

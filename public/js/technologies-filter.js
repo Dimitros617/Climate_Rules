@@ -265,6 +265,12 @@ function filterWork(ele){
     for (let technology of allTechnologies){
         window.counterDebug++;
         let val = parseInt(technology.getAttribute('filter'));
+
+        console.log(technology.getElementsByClassName('technology-code')[0].innerHTML)
+        if(technology.getElementsByClassName('technology-work-status')[0] == undefined){
+            let a = technology;
+            let b = 1;
+        }
         if(parseInt(technology.getElementsByClassName('technology-work-status')[0].innerHTML.trim()) > 0 && !ele.checked){
             technology.setAttribute('filter', val+1);
         }

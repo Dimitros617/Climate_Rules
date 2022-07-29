@@ -13,10 +13,10 @@
         <div class="table-box">
 
             @foreach($my_table as $table_row)
-                <div class="my_row d-flex flex-wrap flex-md-row d-md-inline-flex w-100 bg-white m-1 m-md-2 p-0 p-md-2 rounded-3 animate-05  justify-content-between"
+                <div class="my_row d-flex flex-wrap flex-md-row d-md-inline-flex w-100 bg-white m-1 m-md-2 p-1 p-md-2 rounded-3 animate-05 mb-4 justify-content-between"
                 statistic_type_code = "{{$table_row[0]->code_name}}">
 
-                    <div class="head_statistic_type fw-bold w-content d-inline-flex p-3 mx-auto mx-md-0 mt-2 text-center">
+                    <div class="head_statistic_type fw-bold w-content d-inline-flex p-3 mx-auto mx-md-0 mt-2 text-center fs-4 fs-md-5">
                         <div class="d-inline-flex">
                             <div class="w-content h-content" style="transform: scale(2)">@php echo htmlspecialchars_decode($table_row[0]->icon) @endphp</div>
                             <div class="ms-4">{{__($table_row[0]->name)}}</div>
@@ -32,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="w-100 w-lg-85    d-flex flex-wrap justify-content-center justify-content-md-between d-sm-inline-flex">
+                    <div class="w-100 w-xl-85    d-flex flex-wrap justify-content-center justify-content-md-between d-sm-inline-flex">
                         @php
                             $active_index = -1;
                         @endphp
@@ -42,7 +42,7 @@
                                 $active_index = $table_row[$i]->index;
                             }
                             @endphp
-                            <div class=" rounded-3 p-2 m-1 fw-bold fs-4 text-center flex-lg-grow-1 @if(Auth::check() && Auth::permition()->admin == "1") cursor-pointer animate-02 hover-size-01 @endif  @if($table_row[$i]->active == 1) cr-bg-blue @else bg-light @endif"
+                            <div class=" rounded-3 p-2 m-1 fw-bold fs-4 text-center flex-lg-grow-1 flex-1 @if(Auth::check() && Auth::permition()->admin == "1") cursor-pointer animate-02 hover-size-01 @endif  @if($table_row[$i]->active == 1) cr-bg-blue @else bg-light @endif"
                             style="@if($table_row[$i]->first == 1)     border: 3px solid #659933 !important; @endif width: 3.5rem;"
                             onclick="
                                 this.parentNode.getElementsByClassName('statisic-type-admin-change')[0].value = {{$table_row[$i]->index}};

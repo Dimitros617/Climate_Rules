@@ -23,15 +23,15 @@
 
 
 
-    <div class="w-90 ms-auto me-auto d-block">
+    <div class="w-100 w-md-90 ms-auto me-auto d-block">
 
         <div class="d-flex flex-wrap justify-content-center">
-            <div class=" w-75 p-4 m-4 shadow-md rounded-3 bg-white d-flex flex-wrap">
+            <div class="w-100 w-xl-75 w-sm-90  p-4 mb-4 shadow-md rounded-3 bg-white d-flex flex-wrap">
 
-                <div class="w-50 d-grid">
-                    <div class="fw-bold fs-2 mb-2" style="    border-bottom: 2px solid black;">
+                <div class="w-100 w-md-50 d-grid">
+                    <div class="fw-bold fs-2 mb-2 text-center text-md-start" style="    border-bottom: 2px solid black;">
                             <span class="pb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bank2" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bank2 mb-1" viewBox="0 0 16 16">
                                   <path d="M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z"/>
                                 </svg>
                             </span>
@@ -85,12 +85,12 @@
                     </div>
                 </div>
 
-                <div class=" w-50 d-grid">
+                <div class="w-100 w-md-50 d-grid ">
 
-                    <button class="btn btn-primary w-90 m-2 ms-5" onclick="getOnePayForm({{$lobby->id}})">{{ __('one-time_payment')}}</button>
-                    <button class="btn btn-primary w-90 m-2 ms-5" disabled>{{ __('lend_to_somebody')}}</button>
-                    <button class="btn btn-primary w-90 m-2 ms-5" disabled>{{ __('apply_for_a_loan')}}</button>
-                    <button class="btn btn-primary w-90 m-2 ms-5" @if($edit_tax == 1) disabled @endif onclick="changeNationTax()">{{ __('change_taxes')}}</button>
+                    <button class="btn btn-primary w-90 m-2 ms-auto me-auto ms-md-5 mt-4 mt-md-0" onclick="getOnePayForm({{$lobby->id}})">{{ __('one-time_payment')}}</button>
+                    <button class="btn btn-primary w-90 m-2 ms-auto me-auto ms-md-5" disabled>{{ __('lend_to_somebody')}}</button>
+                    <button class="btn btn-primary w-90 m-2 ms-auto me-auto ms-md-5" disabled>{{ __('apply_for_a_loan')}}</button>
+                    <button class="btn btn-primary w-90 m-2 ms-auto me-auto ms-md-5" @if($edit_tax == 1) disabled @endif onclick="changeNationTax()">{{ __('change_taxes')}}</button>
 
                 </div>
 
@@ -98,7 +98,7 @@
 
         </div>
 
-        <div class="d-flex flex-wrap w-75 bg-white rounded-3 shadow-md p-4 mx-auto">
+        <div class="d-flex flex-wrap w-100 w-xl-75 w-sm-90 bg-white rounded-3 shadow-md p-4 mx-auto">
 
             @foreach($my_payment_balance as $balance_item)
             <div class="rounded-3 shadow-sm p-3 m-1 w-100 d-flex flex-wrap justify-content-between bg-light">
@@ -125,18 +125,31 @@
                                 <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
                             </svg>
                             <span class="fs-5 fw-bold">{{$balance_item->nation_name_to}}</span>
+
+                            @if($balance_item->description != null)
+                            <div class="ms-2">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-quote" viewBox="0 0 16 16">
+                                      <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+                                      <path d="M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z"/>
+                                    </svg>
+                                </span>
+                                {{__($balance_item->description)}}
+                            </div>
+                            @endif
+
                         </div>
 
                     </div>
                 </div>
 
                 <div>
-                    <span class="fw-bold fs-2 @if($balance_item->nation_id_from == $my_nation->id) text-red @else text-green @endif ">
-                        @if($balance_item->nation_id_from == $my_nation->id)- @else + @endif
-                        {{$balance_item->money_change}}
+                    <span class="fw-bold fs-2 @if($balance_item->nation_id_from == $my_nation->id || $balance_item->money_change < 0) text-red @else text-green @endif ">
+                        @if($balance_item->nation_id_from == $my_nation->id || $balance_item->money_change < 0)- @else + @endif
+                        @php echo abs($balance_item->money_change) @endphp
                     </span>
                     <span>
-                        <img class="@if($balance_item->nation_id_from == $my_nation->id) text-red @else text-green @endif" style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
+                        <img class="@if($balance_item->nation_id_from == $my_nation->id || $balance_item->money_change < 0) text-red @else text-green @endif" style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
                     </span>
                 </div>
             </div>

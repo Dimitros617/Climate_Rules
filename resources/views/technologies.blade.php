@@ -15,9 +15,9 @@
 
     <div hidden="" id="lobby-id" lobbyId="{{$allTechnologies[0]->lobby_id}}"></div>
 
-    @include('lobby-admin-panel') 
+    @include('lobby-admin-panel')
 
-    <div class="bg-light shadow-md w-80 ms-auto me-auto d-block p-3 rounded-3 mb-2">
+    <div class="bg-light shadow-md w-100 w-md-90 ms-auto me-auto d-block p-3 rounded-3 mb-2">
 
         @include('technologies-filters')
         <nav id="technologyButtonPanel" class="nav nav-pills nav-justified rounded-3 overflow-hidden mt-5">
@@ -44,7 +44,7 @@
     </div>
 
 
-    <div id="technologyBox" class="bg-white shadow-md w-80 ms-auto me-auto d-block p-3 rounded-3 mb-2">
+    <div id="technologyBox" class="bg-white shadow-md w-100 w-md-90 ms-auto me-auto d-block p-3 rounded-3 mb-2">
 
         @include('technologies-box')
 

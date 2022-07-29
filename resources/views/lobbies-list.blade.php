@@ -9,15 +9,15 @@
         @endif
 
 
-        <div class=" m-3 rounded-4 bg-white w-40rem d-flex  justify-content-between overflow-hidden shadow-sm "
+        <div class=" m-2 m-md-3 rounded-4 bg-white w-100 w-md-40 d-flex  justify-content-between overflow-hidden shadow-sm min-w-20rem min-w-md-30rem"
              type="lobby"
              table="lobbies"
              id="lobby_{{$lobby->id}}"
              element_id="{{$lobby->id}}"
              visible="{{$lobby->visible}}"
-             style="min-width: 30rem"
+             style=""
         >
-            <div class="d-grid p-4" type="lobbyChild">
+            <div class="d-grid p-4 " type="lobbyChild">
                 <span type="lobbyChild" class="display-6 fw-bold">{{$lobby->id}}) {{$lobby->name}}</span>
                 <span type="lobbyChild">@php echo explode(' ',$lobby->play_date)[0]; @endphp</span>
                 <span type="lobbyChild">{{$lobby->description}}</span>

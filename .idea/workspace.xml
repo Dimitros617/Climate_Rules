@@ -8,29 +8,28 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Oprava chybného posunu level_happines při změně daní. Upraven seeder a nové obrázky.&#10; fixed #33">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Localization.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/languages.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/cs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/cs/dictionary.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/cs/message.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/dictionary.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="oprava chyby překladu banky a oprava zámečku lobby pro nepřihlášené uživatele">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LobbiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PermitionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PermitionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Languages.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Languages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2015_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2015_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/technologies-filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/technologies-filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bank-one-pay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bank-one-pay.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bank.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bank.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/button-panel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/button-panel.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/earth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/earth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/global-status-earth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status-earth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/global-status-temperature-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status-temperature-bar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/global-status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-status.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lobbies-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobbies-list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/lobbies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lobbies.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-row-statistic-types.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-row-statistic-types.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-statistic-types.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-statistic-types.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/local-status-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/local-status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/local-status.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-active-status-mini.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-active-status-mini.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologi-card-work-status-mini.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologi-card-work-status-mini.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologies-filters.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologies-filters.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/technologies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/technologies.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +87,10 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/Http/Controllers/GameController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/routes/web.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -113,8 +116,6 @@
       <path value="$PROJECT_DIR$/vendor/psy/psysh" />
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
-      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
-      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
       <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
       <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
       <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
@@ -158,7 +159,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/console" />
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
@@ -230,7 +230,6 @@
       <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
       <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
       <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
-      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
@@ -264,6 +263,9 @@
       <path value="$PROJECT_DIR$/vendor/react/socket" />
       <path value="$PROJECT_DIR$/vendor/react/event-loop" />
       <path value="$PROJECT_DIR$/vendor/laravel/telescope" />
+      <path value="$PROJECT_DIR$/vendor/andywer/js-localization" />
+      <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -285,13 +287,19 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Xamp/htdocs/climate_rules/resources/lang/en&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Xamp/htdocs/climate_rules&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Shell Script&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -495,48 +503,20 @@
       <workItem from="1653742042347" duration="15863000" />
       <workItem from="1654166938431" duration="2432000" />
       <workItem from="1654683861171" duration="6736000" />
-    </task>
-    <task id="LOCAL-00091" summary="Aktivace technologií">
-      <created>1640277682780</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1640277682780</updated>
-    </task>
-    <task id="LOCAL-00092" summary="Napojena aktivace na všechny frontend prvky, opraveny karty a řádky, doděláno admin menu pro technologie">
-      <created>1640350977434</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1640350977434</updated>
-    </task>
-    <task id="LOCAL-00093" summary="Dolán pohled státu -&gt; zobrazení tabulky statistik se kterou pracuje">
-      <created>1640360942633</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1640360942633</updated>
-    </task>
-    <task id="LOCAL-00094" summary="Přidáno zobrazení původní hodnoty státu v nation, přidáno autoinkrementování level statistic typu u technologií">
-      <created>1640428004342</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1640428004342</updated>
-    </task>
-    <task id="LOCAL-00095" summary="Přidán docker + zobrazení users">
-      <created>1640600470545</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1640600470545</updated>
-    </task>
-    <task id="LOCAL-00096" summary="New seeder + opravena chyba s počítání počáteční hodnoty SP">
-      <created>1640609485062</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1640609485062</updated>
+      <workItem from="1654801583051" duration="520000" />
+      <workItem from="1655067870919" duration="94000" />
+      <workItem from="1655405587844" duration="1872000" />
+      <workItem from="1655408172526" duration="72000" />
+      <workItem from="1655408305248" duration="220000" />
+      <workItem from="1655408540185" duration="2794000" />
+      <workItem from="1655411520767" duration="105000" />
+      <workItem from="1655411957381" duration="540000" />
+      <workItem from="1655412531615" duration="4000" />
+      <workItem from="1655412949743" duration="8000" />
+      <workItem from="1655467132533" duration="3933000" />
+      <workItem from="1655480324023" duration="1287000" />
+      <workItem from="1655481647222" duration="9280000" />
+      <workItem from="1659081855990" duration="19453000" />
     </task>
     <task id="LOCAL-00097" summary="Přidny user list a nastavení permition + first user admin převedení a nové ikonky">
       <created>1640624290596</created>
@@ -839,7 +819,49 @@
       <option name="project" value="LOCAL" />
       <updated>1648042568753</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="Přidání části dokumentace">
+      <created>1655471954788</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1655471954789</updated>
+    </task>
+    <task id="LOCAL-00141" summary="Přidání možnosti zobrazování a skrývání technologií s jizž aktivními státy. fixed #36">
+      <created>1655483984642</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1655483984643</updated>
+    </task>
+    <task id="LOCAL-00142" summary="Zobrazování popsiků speciálních technologií kliknutím. fixed #35">
+      <created>1655485293090</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1655485293090</updated>
+    </task>
+    <task id="LOCAL-00143" summary="Zkratka a zobrazovaní viditelnosti technologie na katách. edit #29">
+      <created>1655487199907</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1655487199907</updated>
+    </task>
+    <task id="LOCAL-00144" summary="zobrazování nepřístupných lobby pro hráče zvýrazněno. fixed #27">
+      <created>1655489233326</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1655489233326</updated>
+    </task>
+    <task id="LOCAL-00145" summary="oprava chyby překladu banky a oprava zámečku lobby pro nepřihlášené uživatele">
+      <created>1655500264387</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1655500264387</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -904,12 +926,6 @@
       <path value="$PROJECT_DIR$/app" />
       <path value="$PROJECT_DIR$/bootstrap" />
     </ignored-roots>
-    <MESSAGE value="Upraveny sockety na local server + vytvořen server a client side" />
-    <MESSAGE value="Uprava Auth bladů po composer updatu" />
-    <MESSAGE value="Uprava databáze M:N technologie a branches, areas" />
-    <MESSAGE value="Propojení databáze s novým frontendem + uprava řádků pro analitické zobrazení" />
-    <MESSAGE value="Uprava UI a UX karet, opraveny chyby pro kupovaní a zobrazování formulářů nepřihlášených uživatelů" />
-    <MESSAGE value="Uprava formuláře pro certifikaci technologií. fixed #12" />
     <MESSAGE value="Základní zobrazení popisků technologií." />
     <MESSAGE value="Nový seeder a uprava obrázků" />
     <MESSAGE value="Přidány nové obrázky" />
@@ -929,7 +945,13 @@
     <MESSAGE value="Opravena chyba při nákupu technologií, získání hodnoty ceny licence." />
     <MESSAGE value="Oprava chybného přepočtu SP při novém kole" />
     <MESSAGE value="Oprava chybného posunu level_happines při změně daní. Upraven seeder a nové obrázky.&#10; fixed #33" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oprava chybného posunu level_happines při změně daní. Upraven seeder a nové obrázky.&#10; fixed #33" />
+    <MESSAGE value="Přidání části dokumentace" />
+    <MESSAGE value="Přidání možnosti zobrazování a skrývání technologií s jizž aktivními státy. fixed #36" />
+    <MESSAGE value="Zobrazování popsiků speciálních technologií kliknutím. fixed #35" />
+    <MESSAGE value="Zkratka a zobrazovaní viditelnosti technologie na katách. edit #29" />
+    <MESSAGE value="zobrazování nepřístupných lobby pro hráče zvýrazněno. fixed #27" />
+    <MESSAGE value="oprava chyby překladu banky a oprava zámečku lobby pro nepřihlášené uživatele" />
+    <option name="LAST_COMMIT_MESSAGE" value="oprava chyby překladu banky a oprava zámečku lobby pro nepřihlášené uživatele" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

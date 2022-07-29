@@ -34,7 +34,7 @@
             }"
             >
             <span class="pt-1 text-end pe-3 text-red">{{ __('send_the_payment_as_a_central_bank')}}</span>
-            
+
         </div>
     @endif
 
@@ -43,6 +43,7 @@
         <span class="w-50">
             <select id="one-pay-nation-to" class="rounded-2 shadow-sm p-2 w-100" onclick="if(document.getElementById('one-pay-verify').checked)document.getElementById('one-pay-verify').click()">
                 <option disabled id="one-pay-blank-nation-select" value="-">---</option>
+                <option id="one-pay-my-nation-select" value="null">Centrální banka</option>
                 @foreach($allNations as $nation)
                 <option @if($nation->id == $my_nation->id && Auth::permition()->admin !=1) hidden disabled @endif id="one-pay-my-nation-select" value="{{$nation->id}}">{{$nation->name}}</option>
                 @endforeach
@@ -55,7 +56,7 @@
         <span id="amouth-user">
             <span class="p-2 fw-bold">1</span>
             <input type="range" value="1" min="1" max="{{$my_nation->money}}" id="one-pay-amouth" oninput="this.parentNode.getElementsByClassName('number')[0].value = this.value" class="range" onclick="if(document.getElementById('one-pay-verify').checked)document.getElementById('one-pay-verify').click()">
-            <input type="number" value="1" min="1" max="{{$my_nation->money}}" class="w-4rem number p-2 fw-bold border-0"
+            <input type="number" value="1" min="1" max="{{$my_nation->money}}" class="w-4rem number p-2 fw-bold border-1 shadow-sm rounded-2"
                    onclick="if(document.getElementById('one-pay-verify').checked)document.getElementById('one-pay-verify').click()"
                    onchange="
 
@@ -96,8 +97,8 @@
             document.getElementsByClassName('swal2-confirm')[0].setAttribute('disabled','')
         }
 
-        " type="checkbox" style="transform: scale(1.2)" id="one-pay-verify" class=" form-check-input m-0 p-0 ms-1 me-3" role="switch">
-        <span >{{ __('i_really_want_to_send_this_payment')}}.</span>
+        " type="checkbox" style="transform: scale(1.2)" id="one-pay-verify" class="verify-checkbox form-check-input m-0 p-0 ms-1 me-3" role="switch">
+        <span onclick="document.getElementsByClassName('verify-checkbox')[0].click()" >{{ __('i_really_want_to_send_this_payment')}}.</span>
     </div>
 
 </div>

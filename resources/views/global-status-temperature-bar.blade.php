@@ -6,10 +6,10 @@
         </svg>
     </div>
 
-    <div class="d-grid w-95" onload="setTemperatureBar(this, {{$lobby->gas_step}}); setTemperatureActualValue({{$lobby->gas_step}}, @if(count($rounds) != 0){{$last_round->gases}}@endif )">
+    <div class="d-grid w-90" onload="setTemperatureBar(this, {{$lobby->gas_step}}); setTemperatureActualValue({{$lobby->gas_step}}, @if(count($rounds) != 0){{$last_round->gases}}@endif )">
         <div class="temperature_labels d-flex flex-wrap justify-content-between text-center fw-bold">
             <span class="flex-grow-1 fw-bold fs-7 text-start" data-toggle="tooltip" data-placement="bottom" title="{{__('current_temperature')}}"><span id="temperature-bar-actual-temp">{{__('iam_counting')}}...</span> °C</span>
-        </div> 
+        </div>
         <div class="temp-line d-flex flex-wrap justify-content-between text-center fw-bold">
             <span id="temperature-bar-step-line" class="flex-grow-1 h-5px temp-bg-color-0"></span>
             <span id="temperature-bar-actual-pointer" class="temperature-bar-actual-pointer position-absolute animate-05 " data-toggle="tooltip" data-placement="bottom" title="{{__('current_value')}}"  style="margin-top: -10px; opacity: 0.9" onclick="updateTemperatureActualValue({{$lobby->id}})">

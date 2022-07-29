@@ -1,5 +1,5 @@
 
-    <div class="d-flex justify-content-between pb-2 mb-3" >
+    <div class="d-flex justify-content-between pb-2 mb-3" style="min-width: 890px">
 
         <div class="statistic_table w-100" >
             <div class="mb-1 pb-4 head w-100 d-flex flex-wrap " >

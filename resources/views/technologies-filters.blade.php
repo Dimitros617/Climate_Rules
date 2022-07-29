@@ -40,11 +40,11 @@
 
     </div>
 
-    <div class="filter-statistic-type-box w-100 p-2 mt-3 d-flex flex-wrap justify-content-center justify-content-md-between">
+    <div class="filter-statistic-type-box w-100 p-2 p-xl-3 mt-3 d-flex flex-wrap justify-content-center justify-content-md-between">
 
         @foreach($statistics_types as $stat)
-            <div class="filter-statistic-type d-inline-flex bg-white rounded-3 m-2 p-3 flex-lg-grow-1 shadow-sm" code="{{$stat->code_name}}">
-                <div class="w-25 me-3 hover-size-01 animate-05" data-toggle="tooltip" data-placement="bottom" title="{{__($stat->name)}}">
+            <div class="filter-statistic-type d-inline-flex bg-white rounded-3 m-1 m-xl-2 shadow-sm flex-xl-grow-1" style="padding: 0.75rem" code="{{$stat->code_name}}" >
+                <div class="w-25 me-4 hover-size-01 animate-05" data-toggle="tooltip" data-placement="bottom" title="{{__($stat->name)}}">
                     <div class="w-content mt-3 ms-3 z-0" style="transform: scale(2.5)">@php echo htmlspecialchars_decode($stat->icon) @endphp</div>
                 </div>
                 <div class=" w-75 form-check form-switch d-grid text-center justify-content-center p-0 pt-2">
@@ -104,7 +104,7 @@
 
                         </select>
                     </div>
-                    <div class="inline-flex w-75 p-4 ">
+                    <div class="inline-flex w-75 justify-content-around p-4 ">
                         @php
                             $max_price = -1;
                             foreach ($allTechnologies as $technology){
@@ -114,8 +114,8 @@
                             }
                         @endphp
                         <span class="fs-3 fw-bold">0</span>
-                        <input onchange="filterAll('search-form')" class="range w-70 animate-05" type="range" min="0" max="{{$max_price}}" value="{{$max_price}}" oninput="this.parentNode.getElementsByClassName('number')[0].value = this.value">
-                        <input onchange="filterAll('search-form')" type="number" min="0" max="{{$max_price}}" class="filter-price-border number fs-3 fw-bold bg-transparent border-none" style="width: 3.3rem" value="{{$max_price}}" onchange="this.parentNode.getElementsByClassName('range')[0].value = this.value">
+                        <input onchange="filterAll('search-form')" class="range  animate-05 w-inherit" type="range" min="0" max="{{$max_price}}" value="{{$max_price}}" oninput="this.parentNode.getElementsByClassName('number')[0].value = this.value">
+                        <input onchange="filterAll('search-form')" type="number" min="0" max="{{$max_price}}" class="filter-price-border number fs-3 px-1 fw-bold bg-transparent shadow-sm" style="width: 4.5rem" value="{{$max_price}}" onchange="this.parentNode.getElementsByClassName('range')[0].value = this.value">
                     </div>
                 </div>
 

@@ -59,7 +59,7 @@
     </div>
     @endif
 
-    <div class="lobbies-container light-transparent justify-content-between rounded-5 w-85 ms-auto me-auto d-block p-5">
+    <div class="lobbies-container light-transparent justify-content-between rounded-5 w-100 w-md-85 ms-auto me-auto d-block p-3 p-md-5">
 
         <div class="d-flex justify-content-between pb-2 mb-3" style="    border-bottom: 2px solid black;">
             <span class="display-5 ">  {{ __('all_lobbies')}} </span>
