@@ -36,6 +36,17 @@
             <span class="pt-1 text-end pe-3 text-red">{{ __('send_the_payment_as_a_central_bank')}}</span>
 
         </div>
+
+        <div class="d-flex flex-wrap mb-3">
+            <span class="w-7rem pt-1 text-end pe-3">{{ __('transaction_type')}}:</span>
+            <span class="w-50">
+                <select id="one-pay-transaction-type" class="rounded-2 shadow-sm p-2 w-100" >
+                    @foreach($allTransactionTypes as $transactionType)
+                        <option id="one-pay-transaction-type-select" value="{{$transactionType->code}}">{{__($transactionType->name)}}</option>
+                    @endforeach
+                </select>
+            </span>
+        </div>
     @endif
 
     <div class="d-flex flex-wrap mb-3">

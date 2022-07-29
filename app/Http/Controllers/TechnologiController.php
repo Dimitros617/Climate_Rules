@@ -219,7 +219,7 @@ class TechnologiController extends Controller
 
             $amouth = Lobby_to_technologies::getPriceOfTechnology($request->technology_id) + Nations_technologies::getOneTechnologyPatentPrice($request->technology_id);
             $technology_code = Lobby_to_technologies::getCodeOfTechnology($request->technology_id);
-            $bank_res = BankController::payAmount($amouth,$nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay, __("technology_purchase") . " - " . $technology_code);
+            $bank_res = BankController::payAmount($amouth,$nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay, __('technology_purchase') . " - " . $technology_code);
 
             if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
                 return $bank_res;  //vracím response s chybou;
@@ -230,7 +230,7 @@ class TechnologiController extends Controller
                 $nation_to = Nations_technologies::getNationWhoHasPatentedTechnology($request->technology_id);
                 $technology_code = Lobby_to_technologies::getCodeOfTechnology($request->technology_id);
 
-                $bank_res = BankController::payAmount( Nations_technologies::getOneTechnologyPatentPrice($request->technology_id), $nation_id,$nation_to,'Patent fee:' . $request->admin_pay, Money_transaction_types::getIdByCode('charge') , $request->admin_pay, __("patent_fee") . " - " . $technology_code);
+                $bank_res = BankController::payAmount( Nations_technologies::getOneTechnologyPatentPrice($request->technology_id), $nation_id,$nation_to,'Patent fee:' . $request->admin_pay, Money_transaction_types::getIdByCode('charge') , $request->admin_pay, __('patent_fee') . " - " . $technology_code);
 
                 if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
                     return $bank_res;  //vracím response s chybou;
@@ -275,7 +275,7 @@ class TechnologiController extends Controller
 
             $amouth = Lobby_to_technologies::getPriceOfTechnology($request->technology_id) + Nations_technologies::getOneTechnologyPatentPrice($request->technology_id);
             $technology_code = Lobby_to_technologies::getCodeOfTechnology($request->technology_id);
-            $bank_res = BankController::payAmount( $amouth, $nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay, __("technology_purchase") . " - " . $technology_code);
+            $bank_res = BankController::payAmount( $amouth, $nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay, __('technology_purchase') . " - " . $technology_code);
 
 
             if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
@@ -287,7 +287,7 @@ class TechnologiController extends Controller
                 $nation_to = Nations_technologies::getNationWhoHasPatentedTechnology($request->technology_id);
                 $technology_code = Lobby_to_technologies::getCodeOfTechnology($request->technology_id);
 
-                $bank_res = BankController::payAmount( Nations_technologies::getOneTechnologyPatentPrice($request->technology_id), $nation_id,$nation_to,'Patent fee:' . $request->admin_pay, Money_transaction_types::getIdByCode('charge') , $request->admin_pay, __("patent_fee") . " - " . $technology_code);
+                $bank_res = BankController::payAmount( Nations_technologies::getOneTechnologyPatentPrice($request->technology_id), $nation_id,$nation_to,'Patent fee:' . $request->admin_pay, Money_transaction_types::getIdByCode('charge') , $request->admin_pay, __('patent_fee') . " - " . $technology_code);
 
                 if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
                     return $bank_res;  //vracím response s chybou;

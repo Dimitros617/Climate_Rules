@@ -44,9 +44,11 @@ function getOnePayForm(id){
                     let nation_id_to = document.getElementById('one-pay-nation-to').value;
                     let amouth = document.getElementById('one-pay-amouth').value;
                     let description = document.getElementById('one-pay-description').value;
+                    let transactionType = "common_pay";
 
                     if(admin_pay == 1){
                         amouth = document.getElementById('one-pay-amouth-admin').value;
+                        transactionType = document.getElementById('one-pay-transaction-type').value;
                     }
 
 
@@ -59,7 +61,7 @@ function getOnePayForm(id){
                     $.ajax({
                         url: '/lobby/'+id+'/bank/addOnePay',
                         type: 'post',
-                        data: { _token: token, nation_id_from: nation_id_from, nation_id_to: nation_id_to, amouth: amouth, description: description, admin_pay: admin_pay},
+                        data: { _token: token, nation_id_from: nation_id_from, nation_id_to: nation_id_to, amouth: amouth, description: description, admin_pay: admin_pay, transactionType: transactionType},
                         success:function(response){
                             hideLoading();
                             location.reload();

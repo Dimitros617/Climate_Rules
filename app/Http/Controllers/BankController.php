@@ -69,9 +69,9 @@ class BankController extends Controller
         $my_nation = Nations::find($nation_id);
         $lobby = Lobbies::find($lobby_id);
         $allNations = Lobbies::getAllNationsFromLobby($lobby_id);
+        $allTransactionTypes = Money_transaction_types::all();
 
-
-        return view('bank-one-pay', ['lobby' => $lobby, 'my_nation' => $my_nation, 'allNations' => $allNations]);
+        return view('bank-one-pay', ['lobby' => $lobby, 'my_nation' => $my_nation, 'allNations' => $allNations, 'allTransactionTypes' => $allTransactionTypes]);
         ;
     }
 
@@ -86,7 +86,7 @@ class BankController extends Controller
 
         Log::info('BankController:addOnePay');
 
-        $bank_res = BankController::payAmount($request->amouth,$request->nation_id_from, $request->nation_id_to,'One-pay:'.$request->admin_pay, Money_transaction_types::getIdByCode('common_pay'), $request->admin_pay, $request->description);
+        $bank_res = BankController::payAmount($request->amouth,$request->nation_id_from, $request->nation_id_to,'One-pay:'.$request->admin_pay, Money_transaction_types::getIdByCode($request->transactionType), $request->admin_pay, $request->description);
 
         if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
             return $bank_res;  //vracím response s chybou;
