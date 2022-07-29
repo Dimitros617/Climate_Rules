@@ -92,7 +92,7 @@
         }
 
         " @if($my_nation_technology->first_try == 1 && Auth::permition()->admin !=1) disabled @endif type="checkbox" style="transform: scale(1.2)" id="one-pay-verify" class=" form-check-input m-0 p-0 ms-1 me-3" role="switch">
-        <span >
+        <span onclick="document.getElementById('one-pay-verify').click()">
             @if($my_nation_technology->first_try == 1 && Auth::permition()->admin !=1)
                 {{__('resubmitted')}}
             @elseif($my_nation_technology->first_try == 1 && Auth::permition()->admin ==1)
@@ -118,7 +118,7 @@
             }
 
             "type="checkbox" style="transform: scale(1.2)" id="one-pay-deny" class=" form-check-input m-0 p-0 ms-1 me-3" role="switch">
-            <span >
+            <span onclick="document.getElementById('one-pay-deny').click()">
                 {{__('back_to_editing')}}
             </span>
         </div>

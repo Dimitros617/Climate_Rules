@@ -135,7 +135,7 @@
 
             }"
             >
-            <span class="pt-1 text-end text-red">{{__('make_the_payment_as_a_central_bank')}}</span>
+            <span onclick="document.getElementById('admin-pay').click()" class="pt-1 text-end text-red">{{__('make_the_payment_as_a_central_bank')}}</span>
         </div>
     @endif
 
@@ -150,7 +150,7 @@
         }
 
         " type="checkbox" style="transform: scale(1.2)" id="one-pay-verify" class=" form-check-input m-0 p-0 ms-1 me-3" role="switch">
-        <span > {{__('i_really_want_to_send_this_payment')}}.</span>
+        <span onclick="document.getElementById('one-pay-verify').click()" > {{__('i_really_want_to_send_this_payment')}}.</span>
     </div>
 
 </div>
