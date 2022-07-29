@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Log;
 
 class BankController extends Controller
 {
-    
-    
+
+
     /**
-     * Funkce načte všechny informace pro stránku banky a vytvoří HTML nutné zadat lobby ID poté se automaticky načte Nation ID 
-     * 
+     * Funkce načte všechny informace pro stránku banky a vytvoří HTML nutné zadat lobby ID poté se automaticky načte Nation ID
+     *
      * @param mixed $lobby_id
-     * 
+     *
      * @return [view] HTML se stránkou banky
      */
     function show($lobby_id){
@@ -51,9 +51,9 @@ class BankController extends Controller
     }
 
     /**
-     * Funkce vrací HTML formulář pro poslání jednorázové platby poté se automaticky načte Nation ID 
+     * Funkce vrací HTML formulář pro poslání jednorázové platby poté se automaticky načte Nation ID
      * @param mixed $lobby_id
-     * 
+     *
      * @return [view] HTML se stránkou pro zobrazení v popUp
      */
     function getOnePayForm($lobby_id){
@@ -77,9 +77,9 @@ class BankController extends Controller
 
 
     /**
-     * 
+     *
      * @param Request $request
-     * 
+     *
      * @return [Response] = 200 nebo 500
      */
     function addOnePay(Request $request){
@@ -103,7 +103,7 @@ class BankController extends Controller
      * @param mixed $transaction_type_id [int] = Id tansakce k platbě z tabulky Transaction_types
      * @param int $admin_pay [int] = Hodnota 1 pokud se jedná o platbu kterou provádí administrátor či 0 defatulně nastavená pokud ne
      * @param null $description [string] = popisek k platbě zadaná uživatelem
-     * 
+     *
      * @return [1 nebo Response]
      */
     public static function payAmount($amount, $nation_id_from, $nation_id_to, $flag, $transaction_type_id, $admin_pay = 0, $description = null){
@@ -135,6 +135,10 @@ class BankController extends Controller
         }else{
 
             //Hráč posílá peníze adminovy
+
+            if($nation_id_to == "null"){
+                $nation_id_to = null;
+            }
             if($nation_id_to == null && $nation_id_from != null) {
                 $nationsFromMoney = Nations::find($nation_id_from)->money;
                 if ($nationsFromMoney >= $amount) {
@@ -171,7 +175,7 @@ class BankController extends Controller
     /**
      * Funkce  automaticky přičte všem státům v lobby příjem (round_income)
      * @param mixed $lobby_id
-     * 
+     *
      * @return [1 nebo Response]
      */
     public static function payNewRoundNationsIncome($lobby_id){
