@@ -191,3 +191,23 @@ function sendFastPay(){
         }
     });
 }
+
+function advanceCentralBankTools(ele){
+
+    let toolPanel = document.getElementsByClassName('central-bank-tools')[0];
+    let nationMoves = document.getElementById('nation-bank-account-moves');
+    let adminMoves = document.getElementById('admin-bank-account-moves');
+
+    if(ele.checked){
+        toolPanel.removeAttribute('hidden');
+        nationMoves.setAttribute('hidden', "");
+        adminMoves.removeAttribute('hidden');
+    }else{
+        toolPanel.setAttribute('hidden', "");
+        nationMoves.removeAttribute('hidden');
+        adminMoves.setAttribute('hidden', "");
+    }
+
+
+
+}

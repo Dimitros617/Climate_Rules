@@ -62,4 +62,6 @@ class Nations_money_balances extends Model
 
         return $ret;
     }
+
+
 }

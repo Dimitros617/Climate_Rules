@@ -235,5 +235,6 @@
     "overview_of_states" : "Přehled států",
     "fast_payments" : "Rychlé platby",
     "send" : "Poslat",
-    "transaction_type" : "Typ transakce"
+    "transaction_type" : "Typ transakce",
+    "central_bank_tools" : "Nástroje centrální banky"
 }

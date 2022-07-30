@@ -39,6 +39,7 @@ class BankController extends Controller
         $my_nation = Nations::find($nation_id);
         $lobby = Lobbies::find($lobby_id);
         $my_payment_balance = Nations_money_balances::getAllNationTransaction($nation_id);
+        $admin_payment_balance = Nations_money_balances::getAllNationTransaction(null);
         $technology_value = Nations_technologies::getValueOfAllMyTechnologies($nation_id);
         $edit_tax = Rounds::hasNationSetTaxInRound(Rounds::getLastRound($lobby_id)->id,$nation_id);
         $allNations = Lobbies::getAllNationsFromLobby($lobby_id);
@@ -48,7 +49,7 @@ class BankController extends Controller
         $actual_tax = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('tax'),$nation_id)->value;
         $next_round_icome = $actual_economy * $actual_tax;
 
-        return view('bank', ['lobby' => $lobby, 'my_nation' => $my_nation, 'my_payment_balance' => $my_payment_balance, 'technology_value' => $technology_value, 'edit_tax' => $edit_tax, 'next_round_icome' => $next_round_icome, 'allNations' => $allNations, 'allTransactionTypes' => $allTransactionTypes]);
+        return view('bank', ['lobby' => $lobby, 'my_nation' => $my_nation, 'my_payment_balance' => $my_payment_balance, 'admin_payment_balance' => $admin_payment_balance, 'technology_value' => $technology_value, 'edit_tax' => $edit_tax, 'next_round_icome' => $next_round_icome, 'allNations' => $allNations, 'allTransactionTypes' => $allTransactionTypes]);
 ;
     }
 
