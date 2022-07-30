@@ -96,6 +96,75 @@
 
             </div>
 
+{{--            Admin panel přehledu--}}
+            @if(Auth::check() && Auth::permition()->admin == "1")
+            <div class="w-100 w-xl-75 w-sm-90  p-4 mb-4 shadow-md rounded-3 bg-white d-flex flex-wrap">
+
+                <div class="w-100 w-md-50 pe-3 d-grid">
+                    <div class="fw-bold fs-2 mb-2 text-center text-md-start" style="    border-bottom: 2px solid black; height: 3.5rem;">
+                        {{ __('overview_of_states')}}
+                    </div>
+
+                    @foreach($allNations as $nation)
+                    <div class="fast-pay-nation-row d-flex flex-wrap justify-content-between" nationId="{{$nation->id}}">
+                        <div class="d-flex">
+                            <div class=" form-check form-switch d-grid text-center justify-content-center p-0 pt-3">
+                                <input onchange="changeFastPay()" style="transform: scale(1.2)" class="form-check-input m-0 p-0 ms-1"  type="checkbox" role="switch" nationId="{{$nation->id}}" id="flexSwitchCheckDefault">
+                                <label class="form-check-label mt-1 fw-bold" style=" font-size: 10px" for="flexSwitchCheckDefault"></label>
+                            </div>
+
+                            <span class="ms-4 fs-4 pt-1 text-start">
+                                {{$nation->name}}
+                            </span>
+                        </div>
+                        <span>
+                            <span class="fs-3 fw-bold nation-money">{{$nation->money}}<span class="nation-money-add "></span></span>
+                            <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
+                        </span>
+
+                    </div>
+                    @endforeach
+                </div>
+
+                <div class="w-100 w-md-50 ps-3 d-grid ">
+
+                    <div class="fw-bold fs-2 mb-2 text-center text-md-start" style="    border-bottom: 2px solid black; height: 3.5rem;">
+                        {{ __('fast_payments')}}
+                    </div>
+
+                    <div class="d-flex flex-wrap mb-3">
+                        <span class="w-10rem pt-1 text-end pe-3">{{ __('transaction_type')}}:</span>
+                        <span class="w-50">
+                            <select id="one-pay-transaction-type" class="rounded-2 shadow-sm p-2 w-100" >
+                                @foreach($allTransactionTypes as $transactionType)
+                                    <option id="fast-pay-transaction-type-select" value="{{$transactionType->code}}">{{__($transactionType->name)}}</option>
+                                @endforeach
+                            </select>
+                        </span>
+                    </div>
+
+
+                    <div class="d-flex flex-wrap mb-3">
+                        <span class="w-10rem pt-1 text-end pe-3">{{ __('amount')}}:</span>
+                        <span class="w-50">
+                            <input onchange="changeFastPay()" id="fast-pay-amouth-admin" type="number" value="1"  class="number p-2 fw-bold rounded-2 shadow-sm  w-100">
+                         </span>
+                    </div>
+
+                    <div class="d-flex flex-wrap mb-3 ">
+                        <span class="w-10rem pt-1 text-end pe-3">{{ __('note')}}:</span>
+                        <span class="w-50"><textarea id="fast-pay-description" maxlength="350" class="w-100 rounded-2 shadow-sm p-2" style="max-height: 200px; min-height: 50px" placeholder="Zde můžete zadat poznámku k platbě, MAX 350 znaků"></textarea></span>
+                    </div>
+
+
+                    <button class="btn btn-primary w-90 m-2 ms-auto me-auto ms-md-5 mt-4 mt-md-0" onclick="sendFastPay()">{{ __('send')}}</button>
+
+
+                </div>
+
+            </div>
+            @endif
+
         </div>
 
         <div class="d-flex flex-wrap w-100 w-xl-75 w-sm-90 bg-white rounded-3 shadow-md p-4 mx-auto">

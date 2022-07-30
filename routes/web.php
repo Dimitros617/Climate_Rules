@@ -114,6 +114,7 @@ Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:play'])->get('/lobby/{lobby_id?}/bank', [BankController::class,'show']);
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:play'])->get('/lobby/{lobby_id?}/bank/getOnePayForm', [BankController::class,'getOnePayForm']);
 Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:play'])->post('/lobby/{lobby_id?}/bank/addOnePay', [BankController::class,'addOnePay']);
+Route::middleware(['localization', 'auth:sanctum', 'verified', 'permition:admin'])->post('/lobby/{lobby_id?}/bank/addMultiplePay', [BankController::class,'addMultiplePay']);
 
 
 

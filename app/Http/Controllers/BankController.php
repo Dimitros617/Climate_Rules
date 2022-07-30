@@ -41,12 +41,14 @@ class BankController extends Controller
         $my_payment_balance = Nations_money_balances::getAllNationTransaction($nation_id);
         $technology_value = Nations_technologies::getValueOfAllMyTechnologies($nation_id);
         $edit_tax = Rounds::hasNationSetTaxInRound(Rounds::getLastRound($lobby_id)->id,$nation_id);
+        $allNations = Lobbies::getAllNationsFromLobby($lobby_id);
+        $allTransactionTypes = Money_transaction_types::all();
 
         $actual_economy = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('economy'),$nation_id)->value;
         $actual_tax = Round_to_nation_statistics::lastValueOneStatisticOneNation(Statistics_types::getIdByCode('tax'),$nation_id)->value;
         $next_round_icome = $actual_economy * $actual_tax;
 
-        return view('bank', ['lobby' => $lobby, 'my_nation' => $my_nation, 'my_payment_balance' => $my_payment_balance, 'technology_value' => $technology_value, 'edit_tax' => $edit_tax, 'next_round_icome' => $next_round_icome]);
+        return view('bank', ['lobby' => $lobby, 'my_nation' => $my_nation, 'my_payment_balance' => $my_payment_balance, 'technology_value' => $technology_value, 'edit_tax' => $edit_tax, 'next_round_icome' => $next_round_icome, 'allNations' => $allNations, 'allTransactionTypes' => $allTransactionTypes]);
 ;
     }
 
@@ -76,6 +78,34 @@ class BankController extends Controller
     }
 
 
+
+    /**
+     *
+     * @param Request $request
+     *
+     * @return [Response] = 200 nebo 500
+     */
+    function addMultiplePay(Request $request){
+
+        Log::info('BankController:addOnePay');
+
+        $nations_id_to = explode(",", $request->nations_id_to);
+
+        foreach ($nations_id_to as $nation_id_to) {
+            if($nation_id_to == ""){
+                continue;
+            }
+            $request->nation_id_to = $nation_id_to;
+            $bank_res = BankController::addOnePay($request);
+            if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
+                return $bank_res;  //vracím response s chybou;
+            }
+        }
+
+
+
+    }
+
     /**
      *
      * @param Request $request
@@ -90,6 +120,8 @@ class BankController extends Controller
 
         if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
             return $bank_res;  //vracím response s chybou;
+        }else{
+            return 1;
         }
 
     }
@@ -112,6 +144,8 @@ class BankController extends Controller
 
 
         if($admin_pay == 1){
+
+
             //Ověření zda má uživatel oprávnění na admin platbu
             if(Auth::check() && Auth::permition()->admin != 1){
                 return response('Dobrý pokus, ale na tohle nemáš dostatečná oprávnění!', 500)->header('Content-Type', 'text/plain');
@@ -124,6 +158,7 @@ class BankController extends Controller
                 if(!Nations_money_balances::addTransactionRecord($amount, null, $nation_id_to, $flag, $description, $transaction_type_id)){
                     return response('Peníze jsme převedly, ale nepovedlo se nám udělat záznam o transakci.', 500)->header('Content-Type', 'text/plain');
                 }
+                Log::info('ssss');
             }
             //Admin posílá adminovy -> nic se neděje
             else{

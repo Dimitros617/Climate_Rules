@@ -16,6 +16,19 @@ class Nations_money_balances extends Model
 
         Log::info('Nations_money_balances:addTransactionRecord');
 
+        Log::info(gettype($amount));
+        Log::info($amount);
+        Log::info(gettype($nation_id_from));
+        Log::info($nation_id_from);
+        Log::info(gettype($nation_id_to));
+        Log::info($nation_id_to);
+        Log::info(gettype($flag));
+        Log::info($flag);
+        Log::info(gettype($description));
+        Log::info($description);
+        Log::info(gettype($transaction_type));
+        Log::info($transaction_type);
+
         $record = new Nations_money_balances;
         $record->nation_id_to  = $nation_id_to;
         $record->nation_id_from  = $nation_id_from;
@@ -37,6 +50,7 @@ class Nations_money_balances extends Model
             ->select('nations_money_balances.*', 'money_transaction_types.name AS transaction_type_name', 'money_transaction_types.code AS transaction_type_code')
             ->where('nations_money_balances.nation_id_to','=',$nation_id)
             ->orWhere('nations_money_balances.nation_id_from','=',$nation_id)
+            ->orderBy('nations_money_balances.created_at','DESC')
             ->get();
 
         foreach ($ret as $item){

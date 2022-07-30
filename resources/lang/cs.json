@@ -231,5 +231,9 @@
     "leisure": "Zábava",
     "medicine": "Lékařství",
     "technology_purchase": "Nákup technologie",
-    "patent_fee": "Poplatek za patent"
+    "patent_fee": "Poplatek za patent",
+    "overview_of_states" : "Přehled států",
+    "fast_payments" : "Rychlé platby",
+    "send" : "Poslat",
+    "transaction_type" : "Typ transakce"
 }
