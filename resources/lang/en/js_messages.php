@@ -27,4 +27,5 @@ return [
     'this_state_already_has_a_patent_you_want_to_keep_or_remove_it' => 'This state already has a patent, you want to keep or remove it',
     'preserve' => 'Preserve',
     'cccording_to_our_regex_there_is_no_link_to_the_image_please_insert_the_link_directly_to_the_image' => 'According to our regex, there is no link to the image, please insert the link directly to the image',
-];
+    'central_bank' => 'Central Bank',
+    ];

@@ -198,14 +198,28 @@ function advanceCentralBankTools(ele){
     let nationMoves = document.getElementById('nation-bank-account-moves');
     let adminMoves = document.getElementById('admin-bank-account-moves');
 
+    let mainText = document.getElementById('main-page-text');
+    let allNationValues = document.getElementsByClassName('nation-value');
+    let allAdminValues = document.getElementsByClassName('cb-value');
+
     if(ele.checked){
         toolPanel.removeAttribute('hidden');
         nationMoves.setAttribute('hidden', "");
         adminMoves.removeAttribute('hidden');
+        mainText.innerHTML = Lang.get('js_messages.central_bank')
+        for (let i = 0; i < allNationValues.length ; i++){
+            allNationValues[i].setAttribute('hidden', "");
+            allAdminValues[i].removeAttribute('hidden');
+        }
     }else{
         toolPanel.setAttribute('hidden', "");
         nationMoves.removeAttribute('hidden');
         adminMoves.setAttribute('hidden', "");
+        mainText.innerHTML = mainText.getAttribute('value');
+        for (let i = 0; i < allNationValues.length ; i++){
+            allNationValues[i].removeAttribute('hidden');
+            allAdminValues[i].setAttribute('hidden', "");
+        }
     }
 
 

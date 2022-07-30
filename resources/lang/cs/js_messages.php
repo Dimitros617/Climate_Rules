@@ -27,5 +27,5 @@ return [
     'this_state_already_has_a_patent_you_want_to_keep_or_remove_it' => 'Tento stát má již patent, chcete ho zachovat nebo odebrat',
     'preserve' => 'Zachovat',
     'cccording_to_our_regex_there_is_no_link_to_the_image_please_insert_the_link_directly_to_the_image' => 'Dle našeho regexu není tento odkaz na obrázek, vložte odkaz přímo na obrázek',
-
+    'central_bank' => 'Centrální Banka',
 ];

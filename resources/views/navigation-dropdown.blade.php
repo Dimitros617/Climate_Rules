@@ -12,7 +12,7 @@
 
         @if(View::hasSection('title_name'))
 
-            <div class="display-1 mt-2 mt-md-5 fw-bold cr-gradient order-2 order-md-0 w-100 w-md-content text-center">@yield('title_name')</div>
+            <div id="main-page-text" class="display-1 mt-2 mt-md-5 fw-bold cr-gradient order-2 order-md-0 w-100 w-md-content text-center" value="@yield('title_name')">@yield('title_name')</div>
 
 
         @endif

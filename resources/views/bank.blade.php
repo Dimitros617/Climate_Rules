@@ -50,7 +50,8 @@
                         <span class="fs-4 pt-1">
                             {{ __('balance')}}</span>
                         <span>
-                            <span class="fs-3 fw-bold">{{$my_nation->money}}</span>
+                            <span class="nation-value fs-3 fw-bold">{{$my_nation->money}}</span>
+                            <span class="cb-value fs-4 fw-bold" hidden>&#8734;</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
                         </span>
 
@@ -60,7 +61,8 @@
                     <div class="d-flex flex-wrap justify-content-between">
                         <span class="fs-5 pt-1">{{ __('loans_to_others')}}</span>
                         <span>
-                            <span class="fs-4 fw-bold">0</span>
+                            <span class="nation-value fs-4 fw-bold">0</span>
+                            <span class="cb-value fs-4 fw-bold" hidden>0</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
                         </span>
 
@@ -69,7 +71,8 @@
                     <div class="d-flex flex-wrap justify-content-between">
                         <span class="fs-5 pt-1">{{ __('debts_to_others')}}</span>
                         <span>
-                            <span class="fs-4 fw-bold">0</span>
+                            <span class="nation-value fs-4 fw-bold">0</span>
+                            <span class="cb-value fs-4 fw-bold" hidden>0</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
                         </span>
 
@@ -78,7 +81,8 @@
                     <div class="d-flex flex-wrap justify-content-between ">
                         <span class="fs-5 pt-1">{{ __('value_of_technology')}}</span>
                         <span>
-                            <span class="fs-4 fw-bold">{{$technology_value}}</span>
+                            <span class="nation-value fs-4 fw-bold">{{$technology_value}}</span>
+                            <span class="cb-value fs-4 fw-bold" hidden>{{$allTechnologyValue}}</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
                         </span>
 
@@ -86,7 +90,8 @@
                     <div class="d-flex flex-wrap justify-content-between ">
                         <span class="fs-5 pt-1">{{ __('income_for_a_longer_period')}}</span>
                         <span>
-                            <span class="fs-4 fw-bold">{{$next_round_icome}}</span>
+                            <span class="nation-value fs-4 fw-bold">{{$next_round_icome}}</span>
+                            <span class="cb-value fs-4 fw-bold" hidden>&#8734;</span>
                             <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
                         </span>
 
