@@ -179,6 +179,14 @@ function changeSvgChildrenSize(ele, wsize, hsize){
 
 }
 
+function hamburgerMenu(){
+    let ele = document.getElementsByClassName('button-bar')[0];
+    if(ele.classList.contains('invisible')){
+        ele.classList.remove('invisible');
+    }else{
+        ele.classList.add('invisible')
+    }
+}
 
 
 $(function(){

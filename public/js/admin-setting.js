@@ -82,6 +82,8 @@ function decreaseValue(nationId, statisticTypeCode){
     });
 }
 
+
+
 function addRound(lobby_id){
 
     showLoading();
@@ -373,7 +375,7 @@ function changeNationStatisticTypes(table_box, nation_id){
         let move_value = table_box.children[i].getElementsByClassName('statisic-type-admin-change')[0];
         let code_name = move_value.getAttribute('statistic-type-code');
         move_value = move_value.value - move_value.getAttribute('last-value');
-        statistic_types.push({statistic_type_code_name: code_name, move: move_value })
+        statistic_types.push({statistic_type_code_name: code_name, move: move_value, nation_id: null })
     }
 
 
@@ -520,6 +522,158 @@ function editAdminLobbyStartTemperature(ele){
         }
     });
 
+}
+
+function changeMultipleStatisticTypes(){
+
+    let allNations = document.getElementsByClassName('global-status-table-row');
+    let allMultipleStatisticTypeChange = document.getElementsByClassName('multiple-edit-admin-input');
+
+    for(let statType of allMultipleStatisticTypeChange){
+
+        let statTypeCode = statType.getAttribute('statisticTypeCode');
+        let value = statType.value;
+
+        for (let nation of allNations){
+
+            let addElement = nation.getElementsByClassName('admin-add-value-' + statTypeCode)[0];
+            let checked = nation.getElementsByClassName('multiple-edit-admin-checkbox')[0].checked;
+
+            if(addElement == undefined){
+                continue;
+            }
+
+            if(checked){
+                if(value > 0){
+                    addElement.innerHTML = "+" + value;
+                    if(addElement.classList.contains('text-red')) {
+                        addElement.classList.remove('text-red');
+                    }
+                    addElement.classList.add('text-green');
+                }
+                else if(value <0){
+                    addElement.innerHTML = value;
+                    if(addElement.classList.contains('text-green')) {
+                        addElement.classList.remove('text-green');
+                    }
+                    addElement.classList.add('text-red');
+                }else{
+                    addElement.innerHTML = "";
+                    addElement.classList.remove('text-green');
+                    addElement.classList.remove('text-red');
+                }
+
+            }else{
+                addElement.innerHTML = "";
+                addElement.classList.remove('text-green');
+                addElement.classList.remove('text-red');
+            }
+
+
+
+        }
+
+
+    }
+
+}
+
+function advancedAdminTool(ele){
+
+    let allAdminTool = document.getElementsByClassName('advanceAdminTool')
+    if(ele.checked){
+        for(let tool of allAdminTool){
+            tool.removeAttribute('hidden');
+        }
+    }else{
+        for(let tool of allAdminTool){
+            tool.setAttribute('hidden', '');
+        }
+    }
+
+}
+
+function changeSingleStatisticType(ele, move){
+
+    let addElement = ele.parentNode.getElementsByClassName('admin-add-value')[0];
+    if(addElement.innerHTML == ""){
+        addElement.innerHTML = 0;
+    }
+
+    let value = parseInt(addElement.innerHTML);
+
+    if(move > 0){
+        value++;
+    }else{
+        value--;
+    }
+
+    if(value > 0){
+
+        addElement.innerHTML = "+" + value;
+        if(addElement.classList.contains('text-red')) {
+            addElement.classList.remove('text-red');
+        }
+        addElement.classList.add('text-green');
+    }
+    else if(value <0){
+        addElement.innerHTML = value;
+        if(addElement.classList.contains('text-green')) {
+            addElement.classList.remove('text-green');
+        }
+        addElement.classList.add('text-red');
+    }else{
+        addElement.innerHTML = "";
+        addElement.classList.remove('text-green');
+        addElement.classList.remove('text-red');
+    }
+
+
+}
+
+function setAllMultipleChangeStatisticTypes(){
+
+    showLoading();
+    let token = document.getElementById('csrf_token').getAttribute('content');
+
+    let allEditValue = document.getElementsByClassName('admin-add-value');
+
+    statistic_types = [];
+
+    for (let addValue of allEditValue){
+        if(addValue.innerHTML == ""){
+            continue;
+        }
+
+        let move_value = parseInt(addValue.innerHTML);
+        let code_name = addValue.getAttribute('statisticTypeCode');
+        let nation_id = addValue.getAttribute('nationId');
+        statistic_types.push({statistic_type_code_name: code_name, move: move_value, nation_id: nation_id })
+    }
+
+
+    $.ajax({
+        url: '/changeNationStatisticTypes',
+        type: 'post',
+        data: { _token: token, statistic_types: statistic_types, nation_id: null},
+        success:function(response){
+            Swal.fire({
+                icon: 'success',
+                title: Lang.get('js_messages.set'),
+                text: Lang.get('js_messages.we_set_everything_up_and_saved_it_correctly') + '.',
+            })
+            document.location.reload(true);
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText;
+            let code = IsJsonString(response.responseText)? JSON.parse(response.status) : response.status;
+            allertError(err, code);
+            hideLoading();
+
+        }
+    });
 }
 
 

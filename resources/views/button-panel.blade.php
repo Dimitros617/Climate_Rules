@@ -105,12 +105,7 @@
 </div>
 
 <div class="mobile-button-bar position-fixed bottom-0 end-0 rounded-4 shadow-sm bg-white p-3 pb-4 mb--1 me-3 animate-05 hover-size-01 visible invisible-md"
-onclick="let ele = document.getElementsByClassName('button-bar')[0];
-        if(ele.classList.contains('invisible')){
-            ele.classList.remove('invisible');
-        }else{
-            ele.classList.add('invisible')
-        }">
+onclick="hamburgerMenu()">
 
 
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">

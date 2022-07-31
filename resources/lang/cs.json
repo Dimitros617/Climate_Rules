@@ -236,5 +236,6 @@
     "fast_payments" : "Rychlé platby",
     "send" : "Poslat",
     "transaction_type" : "Typ transakce",
-    "central_bank_tools" : "Nástroje centrální banky"
+    "central_bank_tools" : "Nástroje centrální banky",
+    "mass_editing" : "Hromadná uprava"
 }

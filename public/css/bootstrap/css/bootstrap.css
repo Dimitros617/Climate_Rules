@@ -6642,6 +6642,10 @@ a.badge-dark:focus, a.badge-dark.focus {
     width: 5px !important;
 }
 
+.w-15rem {
+    width: 15rem !important;
+}
+
 .w-20rem {
     width: 20rem !important;
 }
@@ -6883,6 +6887,16 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .flex-1 {
     flex: 1 !important;
+}
+
+.flex-2 {
+    flex: 2 !important;
+}
+.flex-3 {
+    flex: 3 !important;
+}
+.flex-4 {
+    flex: 4 !important;
 }
 
 .flex-grow-0 {

@@ -418,10 +418,18 @@ class GameController extends Controller
 
             $stat_type = $statistic_types[$i]->statistic_type_code_name;
             $step = $statistic_types[$i]->move;
+            $nation_id = $request->nation_id;
+            if($statistic_types[$i]->nation_id != null){
+                $nation_id = $statistic_types[$i]->nation_id;
+            }
+
+            if($nation_id == null){
+                return response('Ups ID států nemůže být null!', 500)->header('Content-Type', 'text/plain');
+            }
             if ($step == 0 ){
                 continue;
             }
-            $ret = Round_to_nation_statistics::changeStatisticValueOfNation($request->nation_id, $stat_type, $step, ('Manual_admin_change_global:'. Auth::user()->id));
+            $ret = Round_to_nation_statistics::changeStatisticValueOfNation($nation_id, $stat_type, $step, ('Manual_admin_change_global:'. Auth::user()->id));
 
             if ($ret != 1) {
                 if ($ret == -3) {
@@ -434,7 +442,7 @@ class GameController extends Controller
                     return response('Nastala chyba při hledání aktuální hodnoty který je nastavená v tabulce nation_statistics_values. Aktuální hodnota nenalezena!', 500)->header('Content-Type', 'text/plain');
                 }
                 if ($ret == 0) {
-                    Round_to_nation_statistics::setBorderStaticticValueOfNation($request->nation_id, $stat_type, $step, ('Manual_admin_change_global:'. Auth::user()->id));
+                    Round_to_nation_statistics::setBorderStaticticValueOfNation($nation_id, $stat_type, $step, ('Manual_admin_change_global:'. Auth::user()->id));
                 }
             }
         }
