@@ -30,6 +30,7 @@
 	<li>Doplněn&iacute; a opravy překladů</li>
 	<li>Při koupi technologie se do transakce v bance nap&iacute;&scaron;e o jakou technologii se jedn&aacute;.</li>
 	<li>Opravena chyby při z&iacute;sk&aacute;v&aacute;n&iacute; hodnoty licence, a převodu č&aacute;stky mezi st&aacute;ty.</li>
+    <li>Změněno admin rozhraní pro upravu statistických tipů všech států najednou, včetně optimalizace pro pomalejší zařízení</li>
 </ul>
 
 <p>&nbsp;</p>
