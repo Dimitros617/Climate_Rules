@@ -6,9 +6,37 @@
 
 <p>&nbsp;</p>
 
-<p>Releas verze</p>
+<p><strong>Prepared verison 10.0.0</strong></p>
+
+<ul>
+	<li>Redesign aplikace pro tablety a mobiln&iacute; telefony.</li>
+	<li>Při kliknut&iacute; na popisky checkboxu se aktivuje check box tak&eacute;.</li>
+	<li>&Uacute;prava n&aacute;strojů centr&aacute;ln&iacute; banky
+	<ul>
+		<li>Přid&aacute;na možnost poslat pen&iacute;ze př&iacute;mo bance</li>
+		<li>Přid&aacute;ny viditeln&eacute; popisky plateb do v&yacute;pisu</li>
+		<li>Řazen&iacute; v&yacute;pisu plateb dle data (Vzestupně)</li>
+		<li>Možnost pro admina nastavit typ platby.</li>
+		<li>Zobrazen&iacute; panelu centr&aacute;ln&iacute; banky pro hromadn&eacute; platby st&aacute;tů najednou</li>
+		<li>Zobrazen&iacute; přehledu peněz v&scaron;ech st&aacute;tů najednou</li>
+		<li>Zobrazen&iacute; přehledu transakc&iacute; jen s centr&aacute;ln&iacute; bankou.</li>
+	</ul>
+	</li>
+	<li>Oprava filtrů u technologi&iacute;</li>
+	<li>Přid&aacute;na možnost skr&yacute;t a zobrazit aktivn&iacute; technologie pro administr&aacute;tora v sekci schvalov&aacute;n&iacute; technologi&iacute;.</li>
+	<li>Přid&aacute;n&iacute; popisků ochran&yacute;ch technologi&iacute;</li>
+	<li>Rychll&eacute; zobrazen&iacute; pro admina kter&aacute; technologie je skryt&aacute; a kter&aacute; nen&iacute;.</li>
+	<li>Zv&yacute;razněn&iacute; nepř&iacute;stupn&eacute;ho lobby pro hr&aacute;če, kter&eacute; ov&scaron;em vid&iacute;.</li>
+	<li>Doplněn&iacute; a opravy překladů</li>
+	<li>Při koupi technologie se do transakce v bance nap&iacute;&scaron;e o jakou technologii se jedn&aacute;.</li>
+	<li>Opravena chyby při z&iacute;sk&aacute;v&aacute;n&iacute; hodnoty licence, a převodu č&aacute;stky mezi st&aacute;ty.</li>
+</ul>
 
 <p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Releas verze</strong></p>
 
 <p>&lt; 10.0.0</p>
 
