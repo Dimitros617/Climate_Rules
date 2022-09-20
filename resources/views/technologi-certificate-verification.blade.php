@@ -8,7 +8,7 @@
     <div class="d-grid w-100 mb-4">
         <div class="flex-wrap d-flex w-100">
             <div class="w-30 d-grid text-start pe-3">
-                <span class="fw-bold fs-3 text-black">{{__('label')}}</span>
+                <span class="fw-bold fs-3 text-black">{{__('description')}}</span>
                 <span class="text-start fs-6">  {{__('describe_the_selected_technology')}}       </span>
             </div>
             <div class="w-70">
@@ -51,13 +51,13 @@
     <div class="d-grid w-100 mb-4">
         <div class="flex-wrap d-flex w-100">
             <div class="w-30 d-grid text-start pe-3">
-                <span class="fw-bold fs-3 text-black">{{__('business_of_use')}}</span>
+                <span class="fw-bold fs-3 text-black">{{__('business_use')}}</span>
                 <span class="text-start fs-6">
-                    {{__('describe_the_selected_technology_potencial')}}
+                    {{__('describe_the_selected_technology_potential')}}
                 </span>
             </div>
             <div class="w-70">
-                <textarea @if($my_nation_technology->first_try == 1 && Auth::permition()->admin !=1) disabled @endif id="technology-certificate-business" class="w-100 p-2 rounded-2 shadow-sm" style="min-height: 100px; min-width: 100%; max-width: 100%" maxlength="2000" placeholder="Zde popište business využití technologe, max 2000 znaků.">{{$my_nation_technology->chose_people}}</textarea>
+                <textarea @if($my_nation_technology->first_try == 1 && Auth::permition()->admin !=1) disabled @endif id="technology-certificate-business" class="w-100 p-2 rounded-2 shadow-sm" style="min-height: 100px; min-width: 100%; max-width: 100%" maxlength="2000" placeholder="Zde popište business využití technologe, max 2000 znaků.">{{$my_nation_technology->chose_business}}</textarea>
             </div>
         </div>
 
@@ -72,7 +72,7 @@
                 </span>
             </div>
             <div class="w-70">
-                <textarea @if($my_nation_technology->first_try == 1 && Auth::permition()->admin !=1) disabled @endif id="technology-certificate-people" class="w-100 p-2 rounded-2 shadow-sm" style="min-height: 100px; min-width: 100%; max-width: 100%" maxlength="2000" placeholder="Zde zdůvodněte přínos pro lidi, max 2000 znaků.">{{$my_nation_technology->chose_description}}</textarea>
+                <textarea @if($my_nation_technology->first_try == 1 && Auth::permition()->admin !=1) disabled @endif id="technology-certificate-people" class="w-100 p-2 rounded-2 shadow-sm" style="min-height: 100px; min-width: 100%; max-width: 100%" maxlength="2000" placeholder="Zde zdůvodněte přínos pro lidi, max 2000 znaků.">{{$my_nation_technology->chose_people}}</textarea>
             </div>
         </div>
 

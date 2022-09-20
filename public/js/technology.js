@@ -138,7 +138,7 @@ function setNationToTechnologyStatus(nation_technology_status_code, technology_i
                     showCancelButton: false,
                     showConfirmButton: true,
                     showDenyButton: true,
-                    confirmButtonText: Lang.get('js_messages.removed'),
+                    confirmButtonText: Lang.get('js_messages.remove'),
                     denyButtonText: Lang.get('js_messages.preserve'),
                     focusConfirm: false,
                     customClass: 'w-75'
@@ -238,7 +238,7 @@ function showTechnologyCertificateForm(technology_id, nation_id = null){
                 showConfirmButton: true,
                 showDenyButton: true,
                 confirmButtonText: Lang.get('js_messages.confirm'),
-                cancelButtonText: Lang.get('js_messages.removed'),
+                cancelButtonText: Lang.get('js_messages.remove'),
                 denyButtonText: Lang.get('js_messages.reject'),
                 focusConfirm: false,
                 customClass: 'w-75',

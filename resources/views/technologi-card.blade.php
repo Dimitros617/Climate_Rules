@@ -35,7 +35,7 @@
                             <div class="top-0 mb-3 p-2 mt-2"  style="transform: scale(1.4)"><img src="{{URL::asset('Img/CR-coin.svg')}}"></div>
                         </span>
                 </span>
-                <span class="w-100 fw-bold text-muted" style="font-size: 14px;">@if($technology->certificate == 1) +{{__('certifikacion')}} @endif</span>
+                <span class="w-100 fw-bold text-muted" style="font-size: 14px;">@if($technology->certificate == 1) +{{__('certification')}} @endif</span>
             </div>
         </div>
 
