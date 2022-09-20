@@ -1,5 +1,5 @@
 <div class="d-grid">
-    <span class="fs-2 mb-4 mt-2 fw-bold pb-1 text-black" style="border-bottom: 2px solid black;">{{__('invest_in_technology')}} - {{$technology->code}}</span>
+{{--    <span class="fs-2 mb-4 mt-2 fw-bold pb-1 text-black" style="border-bottom: 2px solid black;">{{__('invest_in_technology')}} - {{$technology->code}}</span>--}}
 
     <div class="d-flex flex-wrap mb-3">
         <div class="d-grid w-50" style="min-width: 25rem">
@@ -84,8 +84,8 @@
             </div>
 
             <div class="d-flex flex-wrap justify-end w-100" style="border-bottom: 2px solid black">
-                <span class="fs-3 text-black pt-1 w-70 text-end">{{__('license')}}: </span>
-                <span class="fs-3 text-black fw-bold w-5rem">{{$technology->patent_price}}</span>
+                <span class="fs-3 text-gray pt-1 w-70 text-end">{{__('license')}}: </span>
+                <span class="fs-3 text-gray fw-bold w-5rem">{{$technology->patent_price}}</span>
                 <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
 
             </div>
@@ -93,7 +93,8 @@
             <div class="d-flex flex-wrap justify-end w-100" style="border-bottom: 2px solid black">
                 <span class="fs-3 text-black pt-1 pb-1 w-70 fw-bold text-end">{{__('total_price')}}: </span>
                 <span class="fs-3 text-black fw-bold w-5rem">
-                    @php echo $technology->price + $technology->patent_price @endphp
+{{--                    @php echo $technology->price + $technology->patent_price @endphp--}}
+                    @php echo $technology->price @endphp
                 </span>
                 <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
 
@@ -102,7 +103,8 @@
             <div class="d-flex flex-wrap justify-end w-100 mt-2">
                 <span class="fs-4  pt-1 w-70 text-end">{{__('balance_after_purchase')}}: </span>
                 <span class="fs-3  fw-bold w-5rem">
-                    @php echo $my_nation->money - ($technology->price + $technology->patent_price) @endphp
+{{--                    @php echo $my_nation->money - ($technology->price + $technology->patent_price) @endphp--}}
+                    @php echo $my_nation->money - ($technology->price ) @endphp
                 </span>
                 <img style="width: 1.3rem; margin-top: -0.5rem" src="{{URL::asset('Img/CR-coin.svg')}}">
 

@@ -226,16 +226,16 @@ class TechnologiController extends Controller
             }
 
             // Zkontrolování zda je nutné zaplatit patent
-            if(Nations_technologies::isTechnologyPatentedBySomeone($request->technology_id)){
-                $nation_to = Nations_technologies::getNationWhoHasPatentedTechnology($request->technology_id);
-                $technology_code = Lobby_to_technologies::getCodeOfTechnology($request->technology_id);
-
-                $bank_res = BankController::payAmount( Nations_technologies::getOneTechnologyPatentPrice($request->technology_id), $nation_id,$nation_to,'Patent fee:' . $request->admin_pay, Money_transaction_types::getIdByCode('charge') , $request->admin_pay, __('patent_fee') . " - " . $technology_code);
-
-                if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
-                    return $bank_res;  //vracím response s chybou;
-                }
-            }
+//            if(Nations_technologies::isTechnologyPatentedBySomeone($request->technology_id)){
+//                $nation_to = Nations_technologies::getNationWhoHasPatentedTechnology($request->technology_id);
+//                $technology_code = Lobby_to_technologies::getCodeOfTechnology($request->technology_id);
+//
+//                $bank_res = BankController::payAmount( Nations_technologies::getOneTechnologyPatentPrice($request->technology_id), $nation_id,$nation_to,'Patent fee:' . $request->admin_pay, Money_transaction_types::getIdByCode('charge') , $request->admin_pay, __('patent_fee') . " - " . $technology_code);
+//
+//                if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
+//                    return $bank_res;  //vracím response s chybou;
+//                }
+//            }
 
 
             if(Lobby_to_technologies::isTechnologyCertificated($request->technology_id)){
@@ -283,16 +283,16 @@ class TechnologiController extends Controller
             }
 
             // Zkontrolování zda je nutné zaplatit patent
-            if(Nations_technologies::isTechnologyPatentedBySomeone($request->technology_id)){
-                $nation_to = Nations_technologies::getNationWhoHasPatentedTechnology($request->technology_id);
-                $technology_code = Lobby_to_technologies::getCodeOfTechnology($request->technology_id);
-
-                $bank_res = BankController::payAmount( Nations_technologies::getOneTechnologyPatentPrice($request->technology_id), $nation_id,$nation_to,'Patent fee:' . $request->admin_pay, Money_transaction_types::getIdByCode('charge') , $request->admin_pay, __('patent_fee') . " - " . $technology_code);
-
-                if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
-                    return $bank_res;  //vracím response s chybou;
-                }
-            }
+//            if(Nations_technologies::isTechnologyPatentedBySomeone($request->technology_id)){
+//                $nation_to = Nations_technologies::getNationWhoHasPatentedTechnology($request->technology_id);
+//                $technology_code = Lobby_to_technologies::getCodeOfTechnology($request->technology_id);
+//
+//                $bank_res = BankController::payAmount( Nations_technologies::getOneTechnologyPatentPrice($request->technology_id), $nation_id,$nation_to,'Patent fee:' . $request->admin_pay, Money_transaction_types::getIdByCode('charge') , $request->admin_pay, __('patent_fee') . " - " . $technology_code);
+//
+//                if(!is_int($bank_res) && str_contains( get_class($bank_res), 'Response')){
+//                    return $bank_res;  //vracím response s chybou;
+//                }
+//            }
 
             if(Lobby_to_technologies::isTechnologyCertificated($request->technology_id)){
                 if(!Nations_technologies::setNationStatus($request->technology_id, $nation_id, Nations_technologies_status::getIdByCode('investment'))){
