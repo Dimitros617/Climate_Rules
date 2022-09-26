@@ -217,7 +217,8 @@ class TechnologiController extends Controller
                 return $this->getTechnologiBuyVerificationView( $lobby_id, $request->technology_id);
             }
 
-            $amouth = Lobby_to_technologies::getPriceOfTechnology($request->technology_id) + Nations_technologies::getOneTechnologyPatentPrice($request->technology_id);
+//            $amouth = Lobby_to_technologies::getPriceOfTechnology($request->technology_id) + Nations_technologies::getOneTechnologyPatentPrice($request->technology_id);
+            $amouth = Lobby_to_technologies::getPriceOfTechnology($request->technology_id) ;
             $technology_code = Lobby_to_technologies::getCodeOfTechnology($request->technology_id);
             $bank_res = BankController::payAmount($amouth,$nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay, __('technology_purchase') . " - " . $technology_code);
 
@@ -273,8 +274,8 @@ class TechnologiController extends Controller
                 return $this->getTechnologiBuyVerificationView( $lobby_id, $request->technology_id);
             }
 
-            $amouth = Lobby_to_technologies::getPriceOfTechnology($request->technology_id) + Nations_technologies::getOneTechnologyPatentPrice($request->technology_id);
-            $technology_code = Lobby_to_technologies::getCodeOfTechnology($request->technology_id);
+//          $amouth = Lobby_to_technologies::getPriceOfTechnology($request->technology_id) + Nations_technologies::getOneTechnologyPatentPrice($request->technology_id);
+            $amouth = Lobby_to_technologies::getPriceOfTechnology($request->technology_id) ;            $technology_code = Lobby_to_technologies::getCodeOfTechnology($request->technology_id);
             $bank_res = BankController::payAmount( $amouth, $nation_id,null,'Technology buy:' . $request->admin_pay, Money_transaction_types::getIdByCode('buy_pay') , $request->admin_pay, __('technology_purchase') . " - " . $technology_code);
 
 
