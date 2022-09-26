@@ -43,21 +43,52 @@ class Nations_money_balances extends Model
 
     }
 
-    public static function getAllNationTransaction($nation_id){
+    public static function getAllNationTransaction($nation_id, $lobby_id = null){
+
+        if($lobby_id == null && $nation_id != null){
+            $lobby_id = Nations::where('id', $nation_id)->first() ->lobby_id;
+        }
 
         $ret = DB::table('nations_money_balances')
             ->Join('money_transaction_types', 'nations_money_balances.transaction_type', '=', 'money_transaction_types.id')
             ->select('nations_money_balances.*', 'money_transaction_types.name AS transaction_type_name', 'money_transaction_types.code AS transaction_type_code')
-            ->where('nations_money_balances.nation_id_to','=',$nation_id)
-            ->orWhere('nations_money_balances.nation_id_from','=',$nation_id)
-            ->orderBy('nations_money_balances.created_at','DESC')
+            ->where('nations_money_balances.nation_id_to', '=', $nation_id)
+            ->orWhere('nations_money_balances.nation_id_from', '=', $nation_id)
+            ->orderBy('nations_money_balances.created_at', 'DESC')
             ->get();
 
+
+        $i = 0;
         foreach ($ret as $item){
-            $nation_to = Nations::find($item->nation_id_to);
-            $nation_from = Nations::find($item->nation_id_from);
+
+            Log::info($item->nation_id_to);
+            $nation_to = Nations::where("id", $item->nation_id_to)->first();
+            $nation_from = Nations::where("id", $item->nation_id_from)->first();
+            $item -> my_lobby_id = $lobby_id;
+
             $item->nation_name_to = $nation_to == null ? 'Centrální banka' : $nation_to->name;
             $item->nation_name_from = $nation_from == null ? 'Centrální banka' : $nation_from->name;
+
+                if ($nation_to == null ) {
+                    $nation_from_lobby_id = $nation_from->lobby_id;
+                    if($nation_from_lobby_id != $lobby_id){
+                        $item -> deleted = "ANO";
+                        unset($ret[$i]);
+
+                    }
+                }
+                if ($nation_from == null ) {
+                    $nation_to_lobby_id = $nation_to->lobby_id;
+                    if($nation_to_lobby_id != $lobby_id){
+                        $item -> deleted = "ANO";
+                        unset($ret[$i]);
+
+                    }
+                }
+
+
+            $i++;
+            continue;
         }
 
         return $ret;

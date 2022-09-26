@@ -39,7 +39,8 @@ class BankController extends Controller
         $my_nation = Nations::find($nation_id);
         $lobby = Lobbies::find($lobby_id);
         $my_payment_balance = Nations_money_balances::getAllNationTransaction($nation_id);
-        $admin_payment_balance = Nations_money_balances::getAllNationTransaction(null);
+        $admin_payment_balance = Nations_money_balances::getAllNationTransaction(null, $lobby_id);
+//        return $my_payment_balance;
         $technology_value = Nations_technologies::getValueOfAllMyTechnologies($nation_id);
         $edit_tax = Rounds::hasNationSetTaxInRound(Rounds::getLastRound($lobby_id)->id,$nation_id);
         $allNations = Lobbies::getAllNationsFromLobby($lobby_id);
