@@ -10,7 +10,7 @@
     <div class="d-flex flex-wrap" style="width: 98%">
 
         <div class="technology-name fw-bold fs-5 pt-2 px-3 text-start w-100 text-uppercase">
-            {{$technology->technology_name}}
+            {{__($technology->technology_name)}}
         </div>
 
         <div class="w-100 d-inline-flex">

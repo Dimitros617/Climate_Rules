@@ -36,10 +36,10 @@
             @include('global-status-table')
             </div>
             @include('global-status-earth')
-            <div class="light-transparent  rounded-5 w-100 w-md-25  p-2 m-2 d-grid text-center shadow-sm w-content w-xl-100 " style="min-width: 400px">
-                <span class="text-center display-5 fw-bold mt-2  mb-2 text-uppercase"> {{__('global_event')}}</span>
-                <span class="text-center my-4"> {{__('global_event_missing')}}</span>
-            </div>
+{{--            <div class="light-transparent  rounded-5 w-100 w-md-25  p-2 m-2 d-grid text-center shadow-sm w-content w-xl-100 " style="min-width: 400px">--}}
+{{--                <span class="text-center display-5 fw-bold mt-2  mb-2 text-uppercase"> {{__('global_event')}}</span>--}}
+{{--                <span class="text-center my-4"> {{__('global_event_missing')}}</span>--}}
+{{--            </div>--}}
             <div class="w-100 h-content light-transparent mt-2 p-3 shadow-sm rounded-4">
                 @include('global-status-temperature-bar')
             </div>
